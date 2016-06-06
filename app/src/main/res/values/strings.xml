@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name" translatable="false">traveler</string>
+
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+
+    <string name="action_settings" translatable="false">Traveler V 3.9.9.8</string>
+    <string name="create_profile">Creation du compte</string>
+    <string name="welcome">zero morts sur nos routes</string>
+    <string name="username">pseudonyme</string>
+    <string name="password">mot de passe</string>
+    <string name="for_publicity" translatable="false">pour la publicité/for advertising</string>
+    <string name="password_again">mot de passe (à nouveau)</string>
+    <string name="no_telephone">numéro de téléphone</string>
+    <string name="click_to_change">clic pour modifier</string>
+    <string name="my_location">Ma Position</string>
+    <string name="main_menu_activity_title">Accueil</string>
+    <string name="confirm_journey">Enregistrer un Voyage</string>
+    <string name="new_repport_complaint">Rapporter un Problème</string>
+
+    <string-array name="problem_types">
+        <item>"Accident"</item>
+        <item>"Excès de vitesse"</item>
+        <item>"Chauffeur Incompétent/Inexpérimenté"</item>
+        <item>"Véhicule surchargé"</item>
+        <item>"Véhicule en panne"</item>
+        <item>"autre..."</item>
+    </string-array>
+
+
+    <string-array name="compagnies_names">
+        <item>"Personnel"</item>
+        <item>"Bucca Voyage"</item>
+        <item>"Touristic Express"</item>
+        <item>"Finex Voyage"</item>
+        <item>"Camrail Intercity"</item>
+        <item>"Autres"</item>
+    </string-array>
+
+    <string-array name="pub_images_names" translatable="false">
+        <item>"we_need_advertisements"</item>
+        <item>"new_york_forum_prix_jeune_entreprise"</item>
+    </string-array>
+
+
+    <string-array name="problem_level">
+        <item>"1- léger"</item>
+        <item>"2- sévère"</item>
+        <item>"3- très sévère"</item>
+        <item>"4- grave"</item>
+        <item>"5- très grave"</item>
+    </string-array>
+
+    <string name="matriculation_number">no d\'immatriculation</string>
+    <string name="description">description</string>
+    <string name="load_image">Charger une image</string>
+    <string name="snap_image">Capturer une image</string>
+    <string name="provide_account_informations">Veuillez fournir vos informations de compte</string>
+    <string name="provide_username_and_password">Veuillez remplir votre pseudonyme et votre mot de passe</string>
+    <string name="connexion_with_username">connexion avec le pseudonyme</string>
+    <string name="provide_car_immatriculation_number">svp remplissez au moins le numéro d\'immatriculation du véhicule</string>
+    <string name="provide_problem_description">Svp veuillez fournir une description</string>
+    <string name="incorrect_immatriculation_number">Numéro d\'immatriculation incorrect (exple: CE111AA)</string>
+    <string name="problem_saved_successfull">problème/plainte enregistré</string>
+    <string name="error_occur_please_retry">Une erreur s\'est produite; veuillez réessayer svp</string>
+    <string name="provide_all_fields">Veuillez remplir tous les champs svp</string>
+    <string name="repeated_password_different_from_original">le mot de passe repété est différent du mot de passe; veuillez corriger</string>
+    <string name="account_created">Informations sauvegardées; Compte créé avec succès avec pour pseudonyme </string>
+    <string name="select_your_profile_image">sélectionnez votre photo de profil</string>
+
+
+    <string name="transport_company">Quelle Compagnie?</string>
+    <string name="phone_number">votre numéro de téléphone</string>
+    <string name="relative_guardian">nom de votre proche</string>
+    <string name="date_heure_voyage">date et heure du voyage</string>
+    <string name="phone_number_guardian">Numero du proche</string>
+    <string name="confirmer_voyage">Confirmer un Voyage</string>
+    <string name="end_journey">Achever un Voyage</string>
+    <string name="annuler_voyage">Annuler un Voyage</string>
+    <string name="mettre_a_jour_parametres_voyage">MAJ. les détails d\'un Voyage</string>
+    <string name="journey_management">Gestion des Voyages</string>
+    <string name="journey_saved_successfull">Voyage sauvegardé avec succès</string>
+    <string name="duree_label" translatable="false">\? (hh)</string>
+
+
+    <string name="label_get_a_taxi">Trouver un Taxi!</string>
+    <string name="check_position">Visualisez votre position</string>
+    <string name="title_activity_main2" translatable="false">Main2Activity</string>
+
+    <string name="interstitial_ad_sample" translatable="false">Interstitial Ad Sample</string>
+    <string name="start_level" translatable="false">Level 1</string>
+    <string name="next_level" translatable="false">Next Level</string>
+    <!-- -
+        This is an ad unit ID for an interstitial test ad. Replace with your own interstitial ad unit id.
+        For more information, see https://support.google.com/admob/answer/3052638
+    <!- -->
+    <string name="interstitial_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="gps_disabled_message">Veuillez activer le GPS afin que nous puissions correctement estimer votre position et votre vitesse.</string>
+    <string name="open_settings">ouvrir les réglages</string>
+    <string name="speed_limit_reached">Dépassement de la limite de vitesse réglémentaire</string>
+    <string name="speed_limit_reached_msg">Vous venez de dépasser la limite de vitesse réglémentaire pour la zone où vous vous trouvez (</string>
+    <string name="estimated_speed">Vitesse estimée</string>
+    <string name="estimated_speed_msg">"Nous estimons votre vitesse actuelle à "</string>
+    <string name="username_confirm_title">Confirmation</string>
+    <string name="username_confirm_msg">"Etes vous sûr de vouloir continuer avec le pseudonyme "</string>
+    <string name="username_confirm_no_label">non</string>
+    <string name="username_confirm_yes_label">oui</string>
+    <string name="speed_limit_reached_ago">vous avez dépassé la limite de vitesse autorisée</string>
+
+</resources>

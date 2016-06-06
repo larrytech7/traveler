@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="create_profile">Account Creation </string>
+    <string name="welcome">zero deaths on our roads</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="password_again">password (again)</string>
+    <string name="no_telephone">phone number</string>
+    <string name="click_to_change">click to edit</string>
+    <string name="my_location">My Position</string>
+    <string name="main_menu_activity_title">Home</string>
+    <string name="confirm_journey">Register a journey</string>
+    <string name="new_repport_complaint">Report Problem</string>
+
+    <string-array name="problem_types">
+        <item>"Crash"</item>
+        <item>"Over Speeding"</item>
+        <item>"Bad/Inexperienced driver"</item>
+        <item>"Overloaded vehicle"</item>
+        <item>"Dammaged vehicle"</item>
+        <item>"Other..."</item>
+    </string-array>
+        <string name="matriculation_number">Immatriculation number</string>
+        <string name="description">Description</string>
+		    <string name="load_image">Upload a picture</string>
+    <string name="snap_image">Snap a picture</string>
+    <string name="provide_account_informations">Please provide your account information</string>
+    <string name="provide_username_and_password">Please fill your username and password</string>
+    <string name="connexion_with_username">connection with the username </string>
+    <string name="provide_car_immatriculation_number">Please fill out at least the immatriculation\'s number</string>
+    <string name="provide_problem_description">Please describe your complaint </string>
+    <string name="incorrect_immatriculation_number">Incorrect Immatriculation number (eg: CE111AA)</string>
+    <string name="problem_saved_successfull">problem/complaint saved successfully </string>
+    <string name="error_occur_please_retry">An error occurred; Please try again</string>
+    <string name="provide_all_fields">Please complete all fields</string>
+    <string name="repeated_password_different_from_original">password repeated is different from password; please correct</string>
+    <string name="account_created">Account created successfully with the username </string>
+    <string name="select_your_profile_image">select your profile picture</string>
+    
+     <string name="transport_company">Which Company?</string>
+    <string name="phone_number">your phone number</string>
+    <string name="relative_guardian">your relative name</string>
+    <string name="date_heure_voyage">date and time of travel</string>
+    <string name="phone_number_guardian">relative\'s phone number</string>
+    <string name="confirmer_voyage">Confirm journey</string>
+    <string name="end_journey">Finish journey</string>
+    <string name="annuler_voyage">Cancel journey</string>
+    <string name="mettre_a_jour_parametres_voyage">Update travel\'s details</string>
+    <string name="journey_management">Manage journeys</string>
+    <string name="journey_saved_successfull">Journey successfully saved</string>
+    
+    <string name="label_get_a_taxi">Find a Taxi!</string>
+    <string name="check_position">Check your position</string>
+    <string name="gps_disabled_message">Please enable GPS in other for us to correctly estimate your position and your speed</string>
+    <string name="open_settings">open settings</string>
+    <string name="speed_limit_reached">Exceeding the statutory speed limit</string>
+    <string name="speed_limit_reached_msg">You just passed the legal speed limit for the area where you are (</string>
+    <string name="estimated_speed">Estimated Speed</string>
+    <string name="estimated_speed_msg">"We estimate your current speed to "</string>
+    <string name="username_confirm_title">Confirm</string>
+    <string name="username_confirm_msg">"Sure to proceed with username "</string>
+    <string name="username_confirm_no_label">no</string>
+    <string name="username_confirm_yes_label">yes</string>
+    <string name="speed_limit_reached_ago">You have exceeded speed limit</string>
+
+
+    <string-array name="compagnies_names">
+        <item>"Personal"</item>
+        <item>"Bucca Voyage"</item>
+        <item>"Touristic Express"</item>
+        <item>"Finex Voyage"</item>
+        <item>"Camrail Intercity"</item>
+        <item >"Other"</item>
+    </string-array>
+    
+    <string-array name="problem_level">
+        <item>"1- not so serious"</item>
+        <item>"2- serious"</item>
+        <item>"3- very serious"</item>
+        <item>"4- ghastly"</item>
+        <item>"5- carnage"</item>
+    </string-array>
+
+</resources>
