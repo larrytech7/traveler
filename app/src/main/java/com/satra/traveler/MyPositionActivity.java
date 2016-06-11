@@ -11,6 +11,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.location.LocationManager;
 import android.net.Uri;
@@ -20,6 +21,7 @@ import android.os.Message;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GravityCompat;
@@ -41,9 +43,14 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.cardiomood.android.controls.gauge.SpeedometerGauge;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
 
 import java.io.ByteArrayOutputStream;
@@ -65,6 +72,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private EditText guardianPhoneNumber, guardianName;
     private NavigationView navigationView;
     private SharedPreferences prefs;
+    private GoogleMap googleMap;
     private static final int RAYON_TERRE = 6366000;
     private static final int MAX_VITESSE_METRE_SECONDE = 3;
     private static final float COEFF_CONVERSION_MS_KMH = 4;
@@ -78,6 +86,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     final Calendar myCalendar = Calendar.getInstance();
     private static String myFormat = "dd/MM/yyyy HH:mm";
     private static SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+    private SpeedometerGauge mspeedometer;
+    private DrawerLayout drawer;
 
     private void updateDateVoyage() {
         if (timeOfTravel != null) timeOfTravel.setText(sdf.format(myCalendar.getTime()));
@@ -91,7 +101,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -100,15 +110,18 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new NavigationItemListener(this));
 
-        TextView panneauPub = (TextView) navigationView.getHeaderView(0).findViewById(R.id.panneau_pub);
+        prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0);
+        final TextView usernameTextview = ((TextView) navigationView.getHeaderView(0).findViewById(R.id.username));
+        usernameTextview.setText(prefs.getString(TConstants.PREF_USERNAME, "anonyme"));
 
-        prefs = getSharedPreferences("traveler_prefs", 0);
-        ((TextView) navigationView.getHeaderView(0).findViewById(R.id.username)).setText("Hi " + prefs.getString("username", "anonyme"));
+        Typeface tf = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/digital-7.ttf");
+        usernameTextview.setTypeface(tf);
 
-        Typeface tf = Typeface.createFromAsset(getApplicationContext().getAssets(),
-                "fonts/digital-7.ttf");
-        ((TextView) navigationView.getHeaderView(0).findViewById(R.id.username)).setTypeface(tf);
+        //build speedometer
+        mspeedometer = (SpeedometerGauge) navigationView.getHeaderView(0).findViewById(R.id.speedometer);
+        setupSpeedometer(mspeedometer);
 
+        //check for GPS availability and activation
         if (!((LocationManager) getSystemService(LOCATION_SERVICE)).isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setMessage(R.string.gps_disabled_message)
@@ -131,8 +144,18 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             @Override
             public void handleMessage(Message msg) {
 
-                if (msg.getData().containsKey("vitesse")) {
-                    ((TextView) navigationView.getHeaderView(0).findViewById(R.id.username)).setText("Hi " + prefs.getString("username", "anonyme") +( msg.getData().getFloat("vitesse") >= MAX_VITESSE_METRE_SECONDE ? " (" + round(msg.getData().getFloat("vitesse") * COEFF_CONVERSION_MS_KMH) + " KM/H" + ")" : " (" + round(msg.getData().getFloat("vitesse")) + " m/s)" ));
+                if (msg.getData().containsKey(TConstants.SPEED_PREF)) {
+                    double speed = round(msg.getData().getFloat(TConstants.SPEED_PREF));
+                    usernameTextview
+                            .setText(prefs.getString(TConstants.PREF_USERNAME, "anonyme"));
+                    /*
+                                    +( speed >= MAX_VITESSE_METRE_SECONDE ? " ("
+                                    + round(speed * COEFF_CONVERSION_MS_KMH)
+                                    + " KM/H" + ")" : " (" + round(speed) + " m/s)" ));
+                    */
+                    //update speedometer speed value
+                    mspeedometer.setSpeed(speed >= MAX_VITESSE_METRE_SECONDE?round(speed * COEFF_CONVERSION_MS_KMH):
+                    round(speed / COEFF_CONVERSION_MS_KMH));
                 }
             }
         };
@@ -153,7 +176,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                     Message msg = handler.obtainMessage();
                     Bundle data = new Bundle();
 
-                    data.putFloat("vitesse", preff.getFloat("vitesse", 0.0f));
+                    data.putFloat(TConstants.SPEED_PREF, preff.getFloat(TConstants.SPEED_PREF, 0.0f));
                     msg.setData(data);
                     // Envoi du message au handler
                     handler.sendMessage(msg);
@@ -168,36 +191,64 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
     @Override
     public void onMapReady(final GoogleMap map) {
+        googleMap = map;
         // Enabling MyLocation in Google Map
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.// TODO: Consider calling
-
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling requestPermission
+            requestPermission();
             return;
         }
-        map.setMyLocationEnabled(true);
+        googleMap.setMyLocationEnabled(true);
 
-//        this.map = map;
+		LatLng userAddress = new LatLng(map.getMyLocation().getLatitude(), map.getMyLocation().getLongitude());
+		map.addMarker(new MarkerOptions().position(userAddress).title("my position"));
+		googleMap.moveCamera(CameraUpdateFactory.newLatLng(userAddress));
+    }
 
+    private void requestPermission(){
+        //ask user to grant permission to read fine location. Required for android 6.0+
+    }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        //TODO Handle operation appropriately
 
-//		LatLng userAdress = new LatLng(map.getMyLocation().getLatitude(), map.getMyLocation().getLongitude());
-//		map.addMarker(new MarkerOptions().position(userAdress).title("my position"));
-//		map.moveCamera(CameraUpdateFactory.newLatLng(userAdress));
-//
+    }
 
+    //initiate the speedometer controls and set it up
+    public void setupSpeedometer(SpeedometerGauge mspeedometer){
 
+        // Add label converter
+        mspeedometer.setLabelConverter(new SpeedometerGauge.LabelConverter() {
+            @Override
+            public String getLabelFor(double progress, double maxProgress) {
+                return String.valueOf((int) Math.round(progress));
+            }
+        });
+        mspeedometer.setLabelTextSize(25);
+        // configure value range and ticks
+        mspeedometer.setMaxSpeed(240);
+        mspeedometer.setMajorTickStep(30);
+        mspeedometer.setMinorTicks(2);
 
+        // Configure value range colors
+        mspeedometer.addColoredRange(30, 140, Color.GREEN);
+        mspeedometer.addColoredRange(140, 180, Color.YELLOW);
+        mspeedometer.addColoredRange(180, 400, Color.RED);
+        //set initial speed reading
+        mspeedometer.setSpeed(1,true);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        drawer.openDrawer(GravityCompat.START);
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {

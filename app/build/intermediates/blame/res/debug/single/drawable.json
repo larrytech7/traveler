@@ -80,6 +80,10 @@
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_google_signin_btn_text_dark.xml"
     },
     {
+        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable/spot_mask.png",
+        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.cardiomood.android/android-widgets/0.1.1/res/drawable/spot_mask.png"
+    },
+    {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_top_material.xml",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_cab_background_top_material.xml"
     },
@@ -118,6 +122,10 @@
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background_light.xml",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_dialog_material_background_light.xml"
+    },
+    {
+        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable/img_empty_battery_vertical.png",
+        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.cardiomood.android/android-widgets/0.1.1/res/drawable/img_empty_battery_vertical.png"
     },
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark.xml",
@@ -262,6 +270,14 @@
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable/common_plus_signin_btn_text_light.xml",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_plus_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable/side_nav_bar.xml",
+        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable/side_nav_bar.xml"
+    },
+    {
+        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable/img_empty_battery_horisontal.png",
+        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.cardiomood.android/android-widgets/0.1.1/res/drawable/img_empty_battery_horisontal.png"
     },
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_thumb_material.xml",

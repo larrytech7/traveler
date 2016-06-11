@@ -4,41 +4,37 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_ma_position"
-            android:icon="@android:drawable/ic_menu_mylocation"
+            android:icon="@drawable/ic_menu_mylocation"
             android:title="@string/my_location" />
-        <item
-            android:id="@+id/nav_repport_complaint"
-            android:icon="@android:drawable/ic_dialog_alert"
-            android:title="@string/new_repport_complaint" />
-
-
     </group>
 
-    <item android:title="@string/journey_management"
-        >
+    <item android:title="@string/journey_management">
         <menu>
             <item
                 android:id="@+id/nav_new_journey"
-                android:icon="@android:drawable/ic_menu_add"
+                android:icon="@drawable/ic_trip_add"
                 android:title="@string/confirm_journey" />
             <item
                 android:id="@+id/nav_confirm_journey"
-                android:icon="@android:drawable/ic_menu_agenda"
+                android:icon="@drawable/ic_confirm_journey"
                 android:title="@string/confirmer_voyage" />
 
             <item
                 android:id="@+id/nav_end_journey"
-                android:icon="@android:drawable/ic_notification_clear_all"
+                android:icon="@drawable/ic_cancel"
                 android:title="@string/end_journey" />
-
+            <item
+                android:id="@+id/nav_repport_complaint"
+                android:icon="@drawable/ic_incident"
+                android:title="@string/new_repport_complaint" />
             <item
                 android:id="@+id/nav_upadate_journey"
-                android:icon="@android:drawable/ic_menu_edit"
+                android:icon="@drawable/ic_update"
                 android:title="@string/mettre_a_jour_parametres_voyage" />
 
             <item
                 android:id="@+id/nav_cancel_journey"
-                android:icon="@android:drawable/ic_delete"
+                android:icon="@drawable/ic_cancel_journey"
                 android:title="@string/annuler_voyage" />
 
 

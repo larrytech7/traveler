@@ -45,6 +45,7 @@
     <color name="abc_search_url_text_selected">@android:color/black</color>
     <color name="accent_material_dark">@color/material_deep_teal_200</color>
     <color name="accent_material_light">@color/material_deep_teal_500</color>
+    <color name="app_white">#cccccc</color>
     <color name="background_floating_material_dark">@color/material_grey_800</color>
     <color name="background_floating_material_light">@android:color/white</color>
     <color name="background_material_dark">@color/material_grey_850</color>
@@ -61,6 +62,11 @@
     <color name="cardview_light_background">#FFFFFFFF</color>
     <color name="cardview_shadow_end_color">#03000000</color>
     <color name="cardview_shadow_start_color">#37000000</color>
+    <color name="colorAccent">#ff0000</color>
+    <color name="colorButtonPrimary">#009900</color>
+    <color name="colorButtonSecondary">#990000</color>
+    <color name="colorPrimary">#212121</color>
+    <color name="colorPrimaryDark">#0b0b0b</color>
     <color name="common_action_bar_splitter">#d2d2d2</color>
     <color name="common_google_signin_btn_text_dark_default">@android:color/white</color>
     <color name="common_google_signin_btn_text_dark_disabled">#1F000000</color>
@@ -127,6 +133,7 @@
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
+    <color name="themeBG">#119955</color>
     <declare-styleable name="ActionBar"><attr name="navigationMode"><enum name="normal" value="0"/><enum name="listMode" value="1"/><enum name="tabMode" value="2"/></attr><attr name="displayOptions"><flag name="none" value="0"/><flag name="useLogo" value="0x1"/><flag name="showHome" value="0x2"/><flag name="homeAsUp" value="0x4"/><flag name="showTitle" value="0x8"/><flag name="showCustom" value="0x10"/><flag name="disableHome" value="0x20"/></attr><attr name="title"/><attr format="string" name="subtitle"/><attr format="reference" name="titleTextStyle"/><attr format="reference" name="subtitleTextStyle"/><attr format="reference" name="icon"/><attr format="reference" name="logo"/><attr format="reference" name="divider"/><attr format="reference" name="background"/><attr format="reference|color" name="backgroundStacked"/><attr format="reference|color" name="backgroundSplit"/><attr format="reference" name="customNavigationLayout"/><attr name="height"/><attr format="reference" name="homeLayout"/><attr format="reference" name="progressBarStyle"/><attr format="reference" name="indeterminateProgressStyle"/><attr format="dimension" name="progressBarPadding"/><attr name="homeAsUpIndicator"/><attr format="dimension" name="itemPadding"/><attr format="boolean" name="hideOnContentScroll"/><attr format="dimension" name="contentInsetStart"/><attr format="dimension" name="contentInsetEnd"/><attr format="dimension" name="contentInsetLeft"/><attr format="dimension" name="contentInsetRight"/><attr format="dimension" name="elevation"/><attr format="reference" name="popupTheme"/></declare-styleable>
     <declare-styleable name="ActionBarLayout"><attr name="android:layout_gravity"/></declare-styleable>
     <declare-styleable name="ActionMenuItemView"><attr name="android:minWidth"/></declare-styleable>
@@ -245,6 +252,11 @@
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="btn_margin">16dp</dimen>
+    <dimen name="btn_padding">20dp</dimen>
+    <dimen name="btn_radius">20dp</dimen>
+    <dimen name="card_corner_radius">5dp</dimen>
+    <dimen name="card_elevation">5dp</dimen>
     <dimen name="cardview_compat_inset_shadow">1dp</dimen>
     <dimen name="cardview_default_elevation">2dp</dimen>
     <dimen name="cardview_default_radius">2dp</dimen>
@@ -283,7 +295,7 @@
     <item format="float" name="highlight_alpha_material_dark" type="dimen">0.20</item>
     <item format="float" name="highlight_alpha_material_light" type="dimen">0.12</item>
     <dimen name="item_touch_helper_max_drag_scroll_per_frame">20dp</dimen>
-    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="nav_header_height">280dp</dimen>
     <dimen name="nav_header_vertical_spacing">16dp</dimen>
     <dimen name="notification_large_icon_height">64dp</dimen>
     <dimen name="notification_large_icon_width">64dp</dimen>
@@ -326,7 +338,7 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <string name="about_message">Travelr. \\nZero mort sur nos route. Laissez Travelr vous accompagner dans tout vos trajets en toute securite. \\n Ver 3.9.9</string>
+    <string name="about_message">Avec Travelr, c\'est Zero mort sur nos route. <br/>Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br/> Version 3.9.9</string>
     <string name="about_title">Apropos</string>
     <string name="accept">Accept</string>
     <string name="account_created">Informations sauvegardées; Compte créé avec succès avec pour pseudonyme </string>
@@ -370,7 +382,7 @@
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="confirm_journey">Enregistrer un Voyage</string>
     <string name="confirmer_voyage">Confirmer un Voyage</string>
-    <string name="connexion_with_username">connexion avec le pseudonyme</string>
+    <string name="connexion_with_username">Connecté avec le pseudonyme </string>
     <string name="create_calendar_message">Allow Ad to create a calendar event?</string>
     <string name="create_calendar_title">Create calendar event</string>
     <string name="create_profile">Creation du compte</string>
@@ -391,6 +403,7 @@
     <string name="journey_saved_successfull">Voyage sauvegardé avec succès</string>
     <string name="label_get_a_taxi">Trouver un Taxi!</string>
     <string name="load_image">Charger une image</string>
+    <string name="login">Continuer</string>
     <string name="main_menu_activity_title">Accueil</string>
     <string name="matriculation_number">no d\'immatriculation</string>
     <string name="mettre_a_jour_parametres_voyage">MAJ. les détails d\'un Voyage</string>
@@ -415,8 +428,9 @@
     <string name="repeated_password_different_from_original">le mot de passe repété est différent du mot de passe; veuillez corriger</string>
     <string name="select_your_profile_image">sélectionnez votre photo de profil</string>
     <string name="snap_image">Capturer une image</string>
+    <string name="speed_dimen">Vitesse (Km/Hr)</string>
     <string name="speed_limit_reached">Dépassement de la limite de vitesse réglémentaire</string>
-    <string name="speed_limit_reached_ago">vous avez dépassé la limite de vitesse autorisée</string>
+    <string name="speed_limit_reached_ago">Vous avez dépassé la limite de vitesse autorisée</string>
     <string name="speed_limit_reached_msg">Vous venez de dépasser la limite de vitesse réglémentaire pour la zone où vous vous trouvez (</string>
     <string name="start_level" translatable="false">Level 1</string>
     <string name="status_bar_notification_info_overflow">999+</string>
@@ -426,14 +440,18 @@
     <string name="transport_company">Quelle Compagnie?</string>
     <string name="username">pseudonyme</string>
     <string name="username_confirm_msg">"Etes vous sûr de vouloir continuer avec le pseudonyme "</string>
-    <string name="username_confirm_no_label">non</string>
+    <string name="username_confirm_no_label">Non</string>
     <string name="username_confirm_title">Confirmation</string>
-    <string name="username_confirm_yes_label">oui</string>
+    <string name="username_confirm_yes_label">Oui</string>
     <string name="welcome">zero morts sur nos routes</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
     <style name="Animation.AppCompat.DropDownUp" parent="Base.Animation.AppCompat.DropDownUp"/>
+    <style name="AppStyleTheme" parent="Theme.AppCompat">
+        <item name="android:windowActionBar">true</item>
+        <item name="android:windowNoTitle">false</item>
+    </style>
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>

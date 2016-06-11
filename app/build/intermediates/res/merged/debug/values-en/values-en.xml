@@ -23,13 +23,15 @@
         <item>"Dammaged vehicle"</item>
         <item>"Other..."</item>
     </string-array>
+    <string name="about_message">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 3.9.9</string>
+    <string name="about_title">About</string>
     <string name="account_created">Account created successfully with the username </string>
     <string name="annuler_voyage">Cancel journey</string>
     <string name="check_position">Check your position</string>
     <string name="click_to_change">click to edit</string>
     <string name="confirm_journey">Register a journey</string>
     <string name="confirmer_voyage">Confirm journey</string>
-    <string name="connexion_with_username">connection with the username </string>
+    <string name="connexion_with_username">Connected with the username </string>
     <string name="create_profile">Account Creation </string>
     <string name="date_heure_voyage">date and time of travel</string>
     <string name="description">Description</string>
@@ -43,6 +45,7 @@
     <string name="journey_saved_successfull">Journey successfully saved</string>
     <string name="label_get_a_taxi">Find a Taxi!</string>
     <string name="load_image">Upload a picture</string>
+    <string name="login">Continue</string>
     <string name="main_menu_activity_title">Home</string>
     <string name="matriculation_number">Immatriculation number</string>
     <string name="mettre_a_jour_parametres_voyage">Update travel\'s details</string>
@@ -64,6 +67,7 @@
     <string name="repeated_password_different_from_original">password repeated is different from password; please correct</string>
     <string name="select_your_profile_image">select your profile picture</string>
     <string name="snap_image">Snap a picture</string>
+    <string name="speed_dimen">Speed (Km/Hr)</string>
     <string name="speed_limit_reached">Exceeding the statutory speed limit</string>
     <string name="speed_limit_reached_ago">You have exceeded speed limit</string>
     <string name="speed_limit_reached_msg">You just passed the legal speed limit for the area where you are (</string>

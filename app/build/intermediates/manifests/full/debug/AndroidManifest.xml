@@ -50,13 +50,22 @@
         android:required="true" />
 
     <application
+        android:name="com.satra.traveler.tapp.TApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name" >
+        <meta-data
+            android:name="DATABASE"
+            android:value="satra.com.db.travelr" />
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="com.satra.traveler" />
+
         <activity
             android:name="com.satra.traveler.MainActivity"
             android:configChanges="orientation|screenSize|screenLayout|uiMode|smallestScreenSize"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:theme="@style/AppStyleTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -66,7 +75,7 @@
         <activity
             android:name="com.satra.traveler.MyPositionActivity"
             android:configChanges="orientation|screenSize|screenLayout|uiMode|smallestScreenSize"
-            android:label="@string/check_position"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data

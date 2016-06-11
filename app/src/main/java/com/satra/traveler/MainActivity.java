@@ -52,7 +52,7 @@ public class MainActivity extends Activity {
 			finish();
 		}
 
-		panneauPub = (TextView)findViewById(R.id.panneau_pub);
+		//panneauPub = (TextView)findViewById(R.id.panneau_pub);
 		username = (EditText)findViewById(R.id.username);
         telephone = (EditText)findViewById(R.id.no_telephone);
 
@@ -62,8 +62,6 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-
 				if(username.getText().toString().isEmpty() ||telephone.getText().toString().isEmpty()){
 
 					Toast.makeText(getApplicationContext(), getString(R.string.provide_all_fields)+"...", Toast.LENGTH_LONG).show();
@@ -77,7 +75,7 @@ public class MainActivity extends Activity {
 				ad.setNegativeButton(R.string.username_confirm_no_label,
 						new android.content.DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int arg1) {
-
+                                dialog.dismiss();
 							}
 						}
 				);

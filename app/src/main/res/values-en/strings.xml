@@ -27,7 +27,7 @@
     <string name="snap_image">Snap a picture</string>
     <string name="provide_account_informations">Please provide your account information</string>
     <string name="provide_username_and_password">Please fill your username and password</string>
-    <string name="connexion_with_username">connection with the username </string>
+    <string name="connexion_with_username">Connected with the username </string>
     <string name="provide_car_immatriculation_number">Please fill out at least the immatriculation\'s number</string>
     <string name="provide_problem_description">Please describe your complaint </string>
     <string name="incorrect_immatriculation_number">Incorrect Immatriculation number (eg: CE111AA)</string>
@@ -81,5 +81,9 @@
         <item>"4- ghastly"</item>
         <item>"5- carnage"</item>
     </string-array>
+    <string name="about_title">About</string>
+    <string name="speed_dimen">Speed (Km/Hr)</string>
+    <string name="login">Continue</string>
+    <string name="about_message">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 3.9.9</string>
 
 </resources>

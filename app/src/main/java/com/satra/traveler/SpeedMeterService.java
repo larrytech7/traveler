@@ -18,6 +18,8 @@ import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 
+import com.satra.traveler.utils.TConstants;
+
 import java.util.Vector;
 
 
@@ -97,7 +99,7 @@ public class SpeedMeterService extends Service {
         ((NotificationManager)
                 getSystemService(NOTIFICATION_SERVICE)).cancelAll();
 
-        editor = getSharedPreferences("traveler_prefs", 0).edit();
+        editor = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0).edit();
 
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -124,10 +126,7 @@ public class SpeedMeterService extends Service {
         // Define a listener that responds to GPS location updates
         locationListenerGPS = new LocationListener() {
             public void onLocationChanged(Location location) {
-
-
                 durationGPS = updateSpeed(location, durationGPS);
-
             }
 
             public void onStatusChanged(String provider, int status, Bundle extras) {
@@ -142,7 +141,6 @@ public class SpeedMeterService extends Service {
                 Log.e("status changed  ", "provider disabled");
             }
         };
-
 
         // Define a listener that responds to Network location updates
         locationListenerNetwork = new LocationListener() {
@@ -167,8 +165,12 @@ public class SpeedMeterService extends Service {
         };
 
 
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 200, 0, locationListenerNetwork);
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 100, 0, locationListenerGPS);
+        try {
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 200, 0, locationListenerNetwork);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 100, 0, locationListenerGPS);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -334,6 +336,8 @@ public class SpeedMeterService extends Service {
 
     int id = 1;
     boolean hasReachLimit = false;
+    //calculating the speed in meters /sec from the GPS location or from our previous location should GPS not be available
+    //save results as preference
     private long updateSpeed(Location location, long duration){
 
         if(location.hasSpeed()){
@@ -354,7 +358,6 @@ public class SpeedMeterService extends Service {
         vitesses.add(vitesse);
 
         if(vitesses.size()>NBRE_MAX_ITERATION_POUR_MOYENNE_VITESSES){
-
             vitesses.remove(0);
         }
         vitesse = 0.0f;
@@ -374,7 +377,7 @@ public class SpeedMeterService extends Service {
 
         showPersistentNotification(displayedSpeed);
 
-        editor.putFloat("vitesse", vitesse);
+        editor.putFloat(TConstants.SPEED_PREF, vitesse);
         editor.commit();
 
         Log.e("speed injected", "new speed received and injected: "+vitesse);
