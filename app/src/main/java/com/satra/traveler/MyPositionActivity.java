@@ -44,6 +44,7 @@ import android.widget.Toast;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.satra.traveler.utils.Tutility;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -55,7 +56,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MyPositionActivity extends AppCompatActivity implements OnMapReadyCallback {
-
 
     private Bitmap attachedImage = null;
     private ImageButton problemPreview;
@@ -69,7 +69,6 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private static final int MAX_VITESSE_METRE_SECONDE = 3;
     private static final float COEFF_CONVERSION_MS_KMH = 4;
 
-
     private final static int GET_FROM_GALLERY = 5, MENU_LOAD_IMAGE = 10;
     private final static int SNAP_PICTURE = 6, MENU_SNAP_IMAGE = 11;
     private boolean running = true;
@@ -81,11 +80,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private static SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
     private void updateDateVoyage() {
-
-
         if (timeOfTravel != null) timeOfTravel.setText(sdf.format(myCalendar.getTime()));
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,30 +91,23 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new NavigationItemListener(this));
-
 
         TextView panneauPub = (TextView) navigationView.getHeaderView(0).findViewById(R.id.panneau_pub);
 
         prefs = getSharedPreferences("traveler_prefs", 0);
         ((TextView) navigationView.getHeaderView(0).findViewById(R.id.username)).setText("Hi " + prefs.getString("username", "anonyme"));
 
-
         Typeface tf = Typeface.createFromAsset(getApplicationContext().getAssets(),
                 "fonts/digital-7.ttf");
         ((TextView) navigationView.getHeaderView(0).findViewById(R.id.username)).setTypeface(tf);
-
-        MainActivity.startPub(panneauPub, this);
-
 
         if (!((LocationManager) getSystemService(LOCATION_SERVICE)).isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -134,26 +123,19 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             alert.show();
         }
 
-
         Intent intent = new Intent(this, SpeedMeterService.class);
 
         startService(intent);
-
 
         final Handler handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
 
                 if (msg.getData().containsKey("vitesse")) {
-
-
                     ((TextView) navigationView.getHeaderView(0).findViewById(R.id.username)).setText("Hi " + prefs.getString("username", "anonyme") +( msg.getData().getFloat("vitesse") >= MAX_VITESSE_METRE_SECONDE ? " (" + round(msg.getData().getFloat("vitesse") * COEFF_CONVERSION_MS_KMH) + " KM/H" + ")" : " (" + round(msg.getData().getFloat("vitesse")) + " m/s)" ));
-
-
                 }
             }
         };
-
 
         final SharedPreferences preff = prefs;
         Thread t = new Thread(new Runnable() {
@@ -175,30 +157,14 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                     msg.setData(data);
                     // Envoi du message au handler
                     handler.sendMessage(msg);
-
-
-
                 }
-
             }
         });
-
         t.start();
-
-
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
-
     }
-
-
-
-
-
-
-
 
     @Override
     public void onMapReady(final GoogleMap map) {
@@ -229,10 +195,6 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
     }
 
-
-
-
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -252,22 +214,15 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        int id = item.getItemId();
+        if (id == R.id.action_about) {
+            Tutility.showMessage(this, R.string.about_message, R.string.about_title);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
-
-
-
-
 
     @Override
     protected Dialog onCreateDialog(int id) {
@@ -552,9 +507,6 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         }
     }
 
-
-
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -626,7 +578,6 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         }
     }
 
-
     static boolean IsMatch(String s, String pattern) {
         try {
             Pattern patt = Pattern.compile(pattern);
@@ -659,8 +610,6 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         super.onDestroy();
         running = false;
     }
-
-
 
     double round(double c){
         return Math.round(c*100)/100.0;

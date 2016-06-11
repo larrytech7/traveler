@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name" translatable="false">traveler</string>
+    <string name="app_name" translatable="false">Travelr</string>
 
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
 
-    <string name="action_settings" translatable="false">Traveler V 3.9.9.8</string>
+    <string name="action_settings" translatable="false">Apropos</string>
     <string name="create_profile">Creation du compte</string>
     <string name="welcome">zero morts sur nos routes</string>
     <string name="username">pseudonyme</string>
@@ -98,7 +98,7 @@
     <!- -->
     <string name="interstitial_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
     <string name="gps_disabled_message">Veuillez activer le GPS afin que nous puissions correctement estimer votre position et votre vitesse.</string>
-    <string name="open_settings">ouvrir les réglages</string>
+    <string name="open_settings">Réglages</string>
     <string name="speed_limit_reached">Dépassement de la limite de vitesse réglémentaire</string>
     <string name="speed_limit_reached_msg">Vous venez de dépasser la limite de vitesse réglémentaire pour la zone où vous vous trouvez (</string>
     <string name="estimated_speed">Vitesse estimée</string>
@@ -108,5 +108,8 @@
     <string name="username_confirm_no_label">non</string>
     <string name="username_confirm_yes_label">oui</string>
     <string name="speed_limit_reached_ago">vous avez dépassé la limite de vitesse autorisée</string>
+    <string name="about_message">Travelr. \\nZero mort sur nos route. Laissez Travelr vous accompagner dans tout vos trajets en toute securite. \\n Ver 3.9.9</string>
+    <string name="about_title">Apropos</string>
+    <string name="login">Continuer</string>
 
 </resources>

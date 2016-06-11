@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.MenuItem;
 
 /**
@@ -58,7 +57,6 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
         else if (id == R.id.nav_cancel_journey) {
 
         }
-
 
         DrawerLayout drawer = (DrawerLayout) context.findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
