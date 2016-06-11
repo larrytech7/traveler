@@ -1,117 +1,129 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.satra.traveler.MainActivity"
-    >
+    tools:context="com.satra.traveler.MainActivity">
 
     <ScrollView
         android:id="@+id/scrollView1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:padding="5dp">
 
-        <RelativeLayout
-            android:id="@+id/RelativeLayout1"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
-
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/situation"/>
                 <Spinner
                     android:id="@+id/type_of_problem"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
+                    android:layout_marginBottom="5dp"
                     android:entries="@array/problem_types"
-                    android:prompt="@array/problem_types"
-                    android:layout_alignTop="@+id/problem_preview"
-                    android:layout_toLeftOf="@+id/problem_preview"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" />
+                    android:prompt="@array/problem_types" />
 
                 <EditText
                     android:id="@+id/bus_immatriculation"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:layout_marginBottom="5dp"
                     android:ems="10"
-                    android:hint="@string/matriculation_number"
-                    android:layout_toLeftOf="@+id/problem_preview"
-                    android:layout_toStartOf="@+id/problem_preview"
-                    android:layout_below="@+id/type_of_problem"
-                    android:layout_alignParentLeft="true" />
+                    android:hint="@string/matriculation_number" />
 
                 <EditText
                     android:id="@+id/problem_description"
-                    android:layout_width="wrap_content"
-                    android:layout_height="70dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
                     android:ems="10"
                     android:hint="@string/description"
                     android:inputType="textMultiLine"
-                    android:visibility="invisible"
-                    android:layout_marginLeft="10dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_toLeftOf="@+id/problem_preview"
-                    android:layout_toStartOf="@+id/problem_preview"
-                    android:layout_below="@+id/bus_immatriculation"
-                    android:layout_alignParentBottom="true" />
+                    android:minLines="3" />
 
                 <ImageButton
                     android:id="@+id/problem_preview"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_marginTop="5dp"
-                    android:src="@android:drawable/ic_menu_camera"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true" />
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="5dp"
+                    android:background="#fff"
+                    android:src="@drawable/ic_camera" />
 
-            <ImageButton
-                android:id="@+id/button_cancel"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_menu_close_clear_cancel"
-                android:layout_alignParentBottom="true"
-                android:layout_toRightOf="@+id/problem_level"
-                android:layout_toEndOf="@+id/problem_level" />
-
-            <ImageButton
-                android:id="@+id/button_save"
-                android:layout_width="wrap_content"
+                android:orientation="vertical">
+            <TextView
+                android:id="@+id/problem_level_label"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_menu_save"
-                android:layout_alignParentBottom="true"
-                android:layout_below="@+id/problem_preview"
-                android:layout_alignParentRight="true" />
-
+                android:layout_marginBottom="5dp"
+                android:text="@string/howserious"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
                 <Spinner
                     android:id="@+id/problem_level"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/problem_level" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:orientation="horizontal">
+                <mehdi.sakout.fancybuttons.FancyButton
+                    android:id="@+id/button_cancel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:entries="@array/problem_level"
-                    android:layout_alignParentBottom="true"
-                    android:layout_toLeftOf="@+id/problem_preview"
-                    android:layout_toRightOf="@+id/problem_level_label"
-                    android:layout_alignBottom="@+id/problem_level_label" />
-
-                <TextView
-                    android:id="@+id/problem_level_label"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="@dimen/fab_margin"
+                    android:layout_marginRight="@dimen/fab_margin"
+                    android:layout_marginTop="@dimen/btn_margin"
+                    android:layout_weight="1"
+                    android:gravity="end|right"
+                    android:paddingBottom="@dimen/btn_small_padding"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="@dimen/btn_small_padding"
+                    fancy:fb_borderColor="#FFFFFF"
+                    fancy:fb_borderWidth="1dp"
+                    fancy:fb_defaultColor="@color/colorAccent"
+                    fancy:fb_focusColor="#cccccc"
+                    fancy:fb_iconPosition="top"
+                    fancy:fb_iconResource="@drawable/ic_cancel"
+                    fancy:fb_radius="@dimen/btn_radius"
+                    fancy:fb_text="@string/cancel"
+                    fancy:fb_textColor="#FFFFFF" />
+                <mehdi.sakout.fancybuttons.FancyButton
+                    android:id="@+id/button_save"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/how1"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentBottom="true" />
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/btn_margin"
+                    android:layout_weight="1"
+                    android:gravity="end|right"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="10dp"
+                    fancy:fb_borderColor="#FFFFFF"
+                    fancy:fb_borderWidth="1dp"
+                    fancy:fb_defaultColor="@color/colorButtonPrimary"
+                    fancy:fb_focusColor="#cccccc"
+                    fancy:fb_iconPosition="top"
+                    fancy:fb_iconResource="@drawable/ic_send"
+                    fancy:fb_radius="@dimen/btn_radius"
+                    fancy:fb_text="@string/send"
+                    fancy:fb_textColor="#FFFFFF" />
+            </LinearLayout>
 
-        </RelativeLayout>
+        </LinearLayout>
     </ScrollView>
 
 

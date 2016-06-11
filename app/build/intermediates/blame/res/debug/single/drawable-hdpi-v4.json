@@ -36,6 +36,10 @@
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_google_signin_btn_icon_dark_disabled.9.png"
     },
     {
+        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/etoile_noir.png",
+        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/etoile_noir.png"
+    },
+    {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
@@ -98,10 +102,6 @@
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_plus_signin_btn_icon_light_focused.9.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_plus_signin_btn_icon_light_focused.9.png"
-    },
-    {
-        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/we_need_advertisements.png",
-        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/we_need_advertisements.png"
     },
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_plus_signin_btn_icon_light_normal.9.png",
@@ -194,10 +194,6 @@
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\how1.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\src\\main\\res\\drawable-hdpi\\how1.png"
-    },
-    {
-        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/button_login.png",
-        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/button_login.png"
     },
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_plusone_standard_off_client.png",
@@ -296,14 +292,6 @@
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_google_signin_btn_text_dark_focused.9.png"
     },
     {
-        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/enregistrer.png",
-        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/enregistrer.png"
-    },
-    {
-        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/mettre_a_jour.png",
-        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/mettre_a_jour.png"
-    },
-    {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_btn_check_to_on_mtrl_000.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_btn_check_to_on_mtrl_000.png"
     },
@@ -324,16 +312,16 @@
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-plus\\8.4.0\\res\\drawable-hdpi\\ic_plusone_small_off_client.png"
     },
     {
-        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/new_york_forum_prix_jeune_entreprise.png",
-        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/new_york_forum_prix_jeune_entreprise.png"
-    },
-    {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_switch_track_mtrl_alpha.9.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_switch_track_mtrl_alpha.9.png"
     },
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\powered_by_google_dark.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-location\\8.4.0\\res\\drawable-hdpi\\powered_by_google_dark.png"
+    },
+    {
+        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/etoile_jaune.png",
+        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/etoile_jaune.png"
     },
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\button_login.png",
@@ -364,10 +352,6 @@
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast\\8.4.0\\res\\drawable-hdpi\\cast_ic_notification_0.png"
     },
     {
-        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/how1.png",
-        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/how1.png"
-    },
-    {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_rating_star_off_mtrl_alpha.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_rating_star_off_mtrl_alpha.png"
     },
@@ -394,6 +378,10 @@
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_btn_rating_star_off_mtrl_alpha.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_btn_rating_star_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_send.png",
+        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/ic_send.png"
     },
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_media_route_on_1_mono_dark.png",
@@ -460,10 +448,6 @@
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_list_pressed_holo_dark.9.png"
     },
     {
-        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/problem.png",
-        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/problem.png"
-    },
-    {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_ab_back_mtrl_am_alpha.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_ic_ab_back_mtrl_am_alpha.png"
     },
@@ -486,10 +470,6 @@
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_plus_signin_btn_text_light_normal.9.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-hdpi/common_plus_signin_btn_text_light_normal.9.png"
-    },
-    {
-        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/sign_in.png",
-        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/sign_in.png"
     },
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_search_api_mtrl_alpha.png",
@@ -532,10 +512,6 @@
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-hdpi/common_google_signin_btn_text_dark_disabled.9.png"
     },
     {
-        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/valider.png",
-        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/valider.png"
-    },
-    {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_clear_mtrl_alpha.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_clear_mtrl_alpha.png"
     },
@@ -564,12 +540,12 @@
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-hdpi/common_plus_signin_btn_icon_light_normal.9.png"
     },
     {
-        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png",
-        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_menu_hardkey_panel_mtrl_mult.9.png"
+        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/etoile_rouge.png",
+        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/etoile_rouge.png"
     },
     {
-        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/formulaire_image.png",
-        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/formulaire_image.png"
+        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png",
+        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png",
@@ -628,10 +604,6 @@
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\src\\main\\res\\drawable-hdpi\\problem.png"
     },
     {
-        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/how.jpg",
-        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/how.jpg"
-    },
-    {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_ic_commit_search_api_mtrl_alpha.png"
     },
@@ -660,10 +632,6 @@
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_textfield_search_default_mtrl_alpha.9.png"
     },
     {
-        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/boutton_quitter.png",
-        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/boutton_quitter.png"
-    },
-    {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_popup_background_mtrl_mult.9.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_popup_background_mtrl_mult.9.png"
     },
@@ -682,10 +650,6 @@
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_track_mtrl_alpha.9.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_scrubber_track_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/taxigetme_launcher_icon.png",
-        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/taxigetme_launcher_icon.png"
     },
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_google_signin_btn_icon_light_pressed.9.png",
@@ -720,8 +684,12 @@
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_plus_signin_btn_icon_dark_pressed.9.png"
     },
     {
-        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/le_point_france_24___not.png",
-        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/le_point_france_24___not.png"
+        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_contact_add.png",
+        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/ic_contact_add.png"
+    },
+    {
+        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_info.png",
+        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/ic_info.png"
     },
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_plus_signin_btn_icon_light_pressed.9.png",
@@ -820,6 +788,10 @@
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\23.0.0\\res\\drawable-hdpi\\ic_media_route_on_2_mono_dark.png"
     },
     {
+        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_camera.png",
+        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/ic_camera.png"
+    },
+    {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_google_signin_btn_icon_dark_focused.9.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_google_signin_btn_icon_dark_focused.9.png"
     },
@@ -912,15 +884,7 @@
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\23.0.0\\res\\drawable-hdpi\\ic_media_route_disabled_mono_dark.png"
     },
     {
-        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/etoile.png",
-        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/etoile.png"
-    },
-    {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_switch_to_on_mtrl_00012.9.png"
-    },
-    {
-        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/destinations.png",
-        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/destinations.png"
     }
 ]

@@ -456,43 +456,43 @@ public final class R {
 		public static final int abc_text_size_subtitle_material_toolbar = 0x7f090003;
 		public static final int abc_text_size_title_material = 0x7f09004b;
 		public static final int abc_text_size_title_material_toolbar = 0x7f090004;
-		public static final int design_appbar_elevation = 0x7f090055;
-		public static final int design_fab_border_width = 0x7f090056;
-		public static final int design_fab_content_size = 0x7f090057;
-		public static final int design_fab_elevation = 0x7f090058;
-		public static final int design_fab_size_mini = 0x7f090059;
-		public static final int design_fab_size_normal = 0x7f09005a;
-		public static final int design_fab_translation_z_pressed = 0x7f09005b;
-		public static final int design_navigation_elevation = 0x7f09005c;
-		public static final int design_navigation_icon_padding = 0x7f09005d;
-		public static final int design_navigation_icon_size = 0x7f09005e;
-		public static final int design_navigation_max_width = 0x7f09005f;
-		public static final int design_navigation_padding_bottom = 0x7f090060;
+		public static final int design_appbar_elevation = 0x7f090056;
+		public static final int design_fab_border_width = 0x7f090057;
+		public static final int design_fab_content_size = 0x7f090058;
+		public static final int design_fab_elevation = 0x7f090059;
+		public static final int design_fab_size_mini = 0x7f09005a;
+		public static final int design_fab_size_normal = 0x7f09005b;
+		public static final int design_fab_translation_z_pressed = 0x7f09005c;
+		public static final int design_navigation_elevation = 0x7f09005d;
+		public static final int design_navigation_icon_padding = 0x7f09005e;
+		public static final int design_navigation_icon_size = 0x7f09005f;
+		public static final int design_navigation_max_width = 0x7f090060;
+		public static final int design_navigation_padding_bottom = 0x7f090061;
 		public static final int design_navigation_padding_top_default = 0x7f090018;
-		public static final int design_navigation_separator_vertical_padding = 0x7f090061;
+		public static final int design_navigation_separator_vertical_padding = 0x7f090062;
 		public static final int design_snackbar_action_inline_max_width = 0x7f090010;
 		public static final int design_snackbar_background_corner_radius = 0x7f090011;
-		public static final int design_snackbar_elevation = 0x7f090062;
+		public static final int design_snackbar_elevation = 0x7f090063;
 		public static final int design_snackbar_extra_spacing_horizontal = 0x7f090012;
 		public static final int design_snackbar_max_width = 0x7f090013;
 		public static final int design_snackbar_min_width = 0x7f090014;
-		public static final int design_snackbar_padding_horizontal = 0x7f090063;
-		public static final int design_snackbar_padding_vertical = 0x7f090064;
+		public static final int design_snackbar_padding_horizontal = 0x7f090064;
+		public static final int design_snackbar_padding_vertical = 0x7f090065;
 		public static final int design_snackbar_padding_vertical_2lines = 0x7f090015;
-		public static final int design_snackbar_text_size = 0x7f090065;
-		public static final int design_tab_max_width = 0x7f090066;
+		public static final int design_snackbar_text_size = 0x7f090066;
+		public static final int design_tab_max_width = 0x7f090067;
 		public static final int design_tab_scrollable_min_width = 0x7f090016;
-		public static final int design_tab_text_size = 0x7f090067;
-		public static final int design_tab_text_size_2line = 0x7f090068;
-		public static final int disabled_alpha_material_dark = 0x7f090069;
-		public static final int disabled_alpha_material_light = 0x7f09006a;
-		public static final int highlight_alpha_material_colored = 0x7f09006c;
-		public static final int highlight_alpha_material_dark = 0x7f09006d;
-		public static final int highlight_alpha_material_light = 0x7f09006e;
-		public static final int item_touch_helper_max_drag_scroll_per_frame = 0x7f09006f;
-		public static final int notification_large_icon_height = 0x7f090072;
-		public static final int notification_large_icon_width = 0x7f090073;
-		public static final int notification_subtext_size = 0x7f090074;
+		public static final int design_tab_text_size = 0x7f090068;
+		public static final int design_tab_text_size_2line = 0x7f090069;
+		public static final int disabled_alpha_material_dark = 0x7f09006a;
+		public static final int disabled_alpha_material_light = 0x7f09006b;
+		public static final int highlight_alpha_material_colored = 0x7f09006d;
+		public static final int highlight_alpha_material_dark = 0x7f09006e;
+		public static final int highlight_alpha_material_light = 0x7f09006f;
+		public static final int item_touch_helper_max_drag_scroll_per_frame = 0x7f090070;
+		public static final int notification_large_icon_height = 0x7f090073;
+		public static final int notification_large_icon_width = 0x7f090074;
+		public static final int notification_subtext_size = 0x7f090075;
 	}
 	public static final class drawable {
 		public static final int abc_ab_share_pack_mtrl_alpha = 0x7f020000;
@@ -564,9 +564,9 @@ public final class R {
 		public static final int abc_textfield_search_activated_mtrl_alpha = 0x7f020042;
 		public static final int abc_textfield_search_default_mtrl_alpha = 0x7f020043;
 		public static final int abc_textfield_search_material = 0x7f020044;
-		public static final int design_fab_background = 0x7f020072;
-		public static final int design_snackbar_background = 0x7f020073;
-		public static final int notification_template_icon_bg = 0x7f020095;
+		public static final int design_fab_background = 0x7f020070;
+		public static final int design_snackbar_background = 0x7f020071;
+		public static final int notification_template_icon_bg = 0x7f02008c;
 	}
 	public static final class id {
 		public static final int action0 = 0x7f0d008c;
@@ -773,8 +773,8 @@ public final class R {
 		public static final int abc_shareactionprovider_share_with = 0x7f060010;
 		public static final int abc_shareactionprovider_share_with_application = 0x7f060011;
 		public static final int abc_toolbar_collapse_description = 0x7f060012;
-		public static final int appbar_scrolling_view_behavior = 0x7f06006b;
-		public static final int character_counter_pattern = 0x7f06006e;
+		public static final int appbar_scrolling_view_behavior = 0x7f060071;
+		public static final int character_counter_pattern = 0x7f060074;
 		public static final int status_bar_notification_info_overflow = 0x7f060030;
 	}
 	public static final class style {

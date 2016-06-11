@@ -21,7 +21,7 @@
         <item>"Dammaged vehicle"</item>
         <item>"Other..."</item>
     </string-array>
-        <string name="matriculation_number">Immatriculation number</string>
+        <string name="matriculation_number">Vehicle Immatriculation number</string>
         <string name="description">Description</string>
 		    <string name="load_image">Upload a picture</string>
     <string name="snap_image">Snap a picture</string>
@@ -46,7 +46,7 @@
     <string name="confirmer_voyage">Confirm journey</string>
     <string name="end_journey">Finish journey</string>
     <string name="annuler_voyage">Cancel journey</string>
-    <string name="mettre_a_jour_parametres_voyage">Update travel\'s details</string>
+    <string name="mettre_a_jour_parametres_voyage">Update travel details</string>
     <string name="journey_management">Manage journeys</string>
     <string name="journey_saved_successfull">Journey successfully saved</string>
     
@@ -85,5 +85,11 @@
     <string name="speed_dimen">Speed (Km/Hr)</string>
     <string name="login">Continue</string>
     <string name="about_message">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 3.9.9</string>
+    <string name="cancel">Cancel</string>
+    <string name="howserious">Severity level</string>
+    <string name="save">Save</string>
+    <string name="send">Send</string>
+    <string name="situation">Choose the situation</string>
+    <string name="trip_agency">Travel Agency</string>
 
 </resources>

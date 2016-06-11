@@ -47,7 +47,10 @@
                 android:ems="10"
                 android:hint="@string/username"
                 android:layout_marginBottom="15dp"
-                android:layout_centerInParent="true" />
+                android:layout_centerInParent="true"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:layout_marginTop="@dimen/activity_vertical_margin" />
 
             <EditText
                 android:id="@+id/no_telephone"
@@ -59,16 +62,18 @@
                 android:layout_marginTop="20dp"
                 android:layout_centerInParent="true"
                 android:layout_marginBottom="20dp"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:maxLines="1"
+                android:singleLine="true" />
 
             <mehdi.sakout.fancybuttons.FancyButton
                 android:id="@+id/button_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/btn_padding"
+                android:paddingBottom="@dimen/btn_small_padding"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:paddingTop="@dimen/btn_padding"
+                android:paddingTop="@dimen/btn_small_padding"
                 fancy:fb_borderColor="#FFFFFF"
                 fancy:fb_borderWidth="1dp"
                 fancy:fb_defaultColor="@color/colorButtonPrimary"

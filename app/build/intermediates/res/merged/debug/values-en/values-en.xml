@@ -27,6 +27,7 @@
     <string name="about_title">About</string>
     <string name="account_created">Account created successfully with the username </string>
     <string name="annuler_voyage">Cancel journey</string>
+    <string name="cancel">Cancel</string>
     <string name="check_position">Check your position</string>
     <string name="click_to_change">click to edit</string>
     <string name="confirm_journey">Register a journey</string>
@@ -40,6 +41,7 @@
     <string name="estimated_speed">Estimated Speed</string>
     <string name="estimated_speed_msg">"We estimate your current speed to "</string>
     <string name="gps_disabled_message">Please enable GPS in other for us to correctly estimate your position and your speed</string>
+    <string name="howserious">Severity level</string>
     <string name="incorrect_immatriculation_number">Incorrect Immatriculation number (eg: CE111AA)</string>
     <string name="journey_management">Manage journeys</string>
     <string name="journey_saved_successfull">Journey successfully saved</string>
@@ -47,8 +49,8 @@
     <string name="load_image">Upload a picture</string>
     <string name="login">Continue</string>
     <string name="main_menu_activity_title">Home</string>
-    <string name="matriculation_number">Immatriculation number</string>
-    <string name="mettre_a_jour_parametres_voyage">Update travel\'s details</string>
+    <string name="matriculation_number">Vehicle Immatriculation number</string>
+    <string name="mettre_a_jour_parametres_voyage">Update travel details</string>
     <string name="my_location">My Position</string>
     <string name="new_repport_complaint">Report Problem</string>
     <string name="no_telephone">phone number</string>
@@ -65,13 +67,17 @@
     <string name="provide_username_and_password">Please fill your username and password</string>
     <string name="relative_guardian">your relative name</string>
     <string name="repeated_password_different_from_original">password repeated is different from password; please correct</string>
+    <string name="save">Save</string>
     <string name="select_your_profile_image">select your profile picture</string>
+    <string name="send">Send</string>
+    <string name="situation">Choose the situation</string>
     <string name="snap_image">Snap a picture</string>
     <string name="speed_dimen">Speed (Km/Hr)</string>
     <string name="speed_limit_reached">Exceeding the statutory speed limit</string>
     <string name="speed_limit_reached_ago">You have exceeded speed limit</string>
     <string name="speed_limit_reached_msg">You just passed the legal speed limit for the area where you are (</string>
     <string name="transport_company">Which Company?</string>
+    <string name="trip_agency">Travel Agency</string>
     <string name="username">username</string>
     <string name="username_confirm_msg">"Sure to proceed with username "</string>
     <string name="username_confirm_no_label">no</string>

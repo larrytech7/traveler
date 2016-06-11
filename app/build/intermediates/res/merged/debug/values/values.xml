@@ -255,6 +255,7 @@
     <dimen name="btn_margin">16dp</dimen>
     <dimen name="btn_padding">20dp</dimen>
     <dimen name="btn_radius">20dp</dimen>
+    <dimen name="btn_small_padding">10dp</dimen>
     <dimen name="card_corner_radius">5dp</dimen>
     <dimen name="card_elevation">5dp</dimen>
     <dimen name="cardview_compat_inset_shadow">1dp</dimen>
@@ -348,6 +349,7 @@
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="auth_google_play_services_client_facebook_display_name">Facebook</string>
     <string name="auth_google_play_services_client_google_display_name">Google</string>
+    <string name="cancel">Annuler</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
     <string name="check_position">Visualisez votre position</string>
     <string name="click_to_change">clic pour modifier</string>
@@ -396,6 +398,7 @@
     <string name="estimated_speed_msg">"Nous estimons votre vitesse actuelle à "</string>
     <string name="for_publicity" translatable="false">pour la publicité/for advertising</string>
     <string name="gps_disabled_message">Veuillez activer le GPS afin que nous puissions correctement estimer votre position et votre vitesse.</string>
+    <string name="howserious">Niveaux de Gravité</string>
     <string name="incorrect_immatriculation_number">Numéro d\'immatriculation incorrect (exple: CE111AA)</string>
     <string name="interstitial_ad_sample" translatable="false">Interstitial Ad Sample</string>
     <string name="interstitial_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
@@ -405,7 +408,7 @@
     <string name="load_image">Charger une image</string>
     <string name="login">Continuer</string>
     <string name="main_menu_activity_title">Accueil</string>
-    <string name="matriculation_number">no d\'immatriculation</string>
+    <string name="matriculation_number">No d\'immatriculation du vehicule</string>
     <string name="mettre_a_jour_parametres_voyage">MAJ. les détails d\'un Voyage</string>
     <string name="my_location">Ma Position</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
@@ -426,7 +429,10 @@
     <string name="provide_username_and_password">Veuillez remplir votre pseudonyme et votre mot de passe</string>
     <string name="relative_guardian">nom de votre proche</string>
     <string name="repeated_password_different_from_original">le mot de passe repété est différent du mot de passe; veuillez corriger</string>
+    <string name="save">Sauvegarder</string>
     <string name="select_your_profile_image">sélectionnez votre photo de profil</string>
+    <string name="send">Envoyer</string>
+    <string name="situation">Choisissez la situation?</string>
     <string name="snap_image">Capturer une image</string>
     <string name="speed_dimen">Vitesse (Km/Hr)</string>
     <string name="speed_limit_reached">Dépassement de la limite de vitesse réglémentaire</string>
@@ -438,6 +444,7 @@
     <string name="store_picture_title">Save image</string>
     <string name="title_activity_main2" translatable="false">Main2Activity</string>
     <string name="transport_company">Quelle Compagnie?</string>
+    <string name="trip_agency">Agence de Voyage</string>
     <string name="username">pseudonyme</string>
     <string name="username_confirm_msg">"Etes vous sûr de vouloir continuer avec le pseudonyme "</string>
     <string name="username_confirm_no_label">Non</string>

@@ -20,11 +20,11 @@
         android:text="@string/for_publicity"
         android:textAppearance="?android:attr/textAppearanceMedium" />-->
     <com.cardiomood.android.controls.gauge.SpeedometerGauge
-        android:layout_height="250dp"
+        android:id="@+id/speedometer"
         android:layout_width="match_parent"
-        android:padding="8dp"
+        android:layout_height="250dp"
         android:gravity="center"
-        android:id="@+id/speedometer" />
+        android:padding="8dp" />
 
     <TextView
         android:id="@+id/speedtext"
@@ -44,26 +44,26 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="-10dp"
             android:paddingTop="@dimen/nav_header_vertical_spacing"
-            android:src="@drawable/anonyme"
-            android:layout_marginTop="-10dp" />
+            android:src="@drawable/anonyme" />
 
         <TextView
             android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageView"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/imageView"
             android:text="Steve TUENO"
             android:textColor="#FFFFFF"
             android:textSize="25dp"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/imageView"
-            android:layout_alignBottom="@+id/imageView"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"
             android:typeface="serif" />
     </RelativeLayout>
 

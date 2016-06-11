@@ -53,7 +53,7 @@
         <item>"5- très grave"</item>
     </string-array>
 
-    <string name="matriculation_number">no d\'immatriculation</string>
+    <string name="matriculation_number">No d\'immatriculation du vehicule</string>
     <string name="description">description</string>
     <string name="load_image">Charger une image</string>
     <string name="snap_image">Capturer une image</string>
@@ -112,5 +112,11 @@
     <string name="about_title">Apropos</string>
     <string name="login">Continuer</string>
     <string name="speed_dimen">Vitesse (Km/Hr)</string>
+    <string name="trip_agency">Agence de Voyage</string>
+    <string name="cancel">Annuler</string>
+    <string name="save">Sauvegarder</string>
+    <string name="situation">Choisissez la situation?</string>
+    <string name="send">Envoyer</string>
+    <string name="howserious">Niveaux de Gravité</string>
 
 </resources>
