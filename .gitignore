@@ -4,7 +4,9 @@ ehthumbs.db
 
 # Folder config file
 Desktop.ini
-
+#build folders
+app/build
+/build
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
