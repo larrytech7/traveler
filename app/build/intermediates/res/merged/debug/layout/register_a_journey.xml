@@ -1,8 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:fancy="http://schemas.android.com/apk/res-auto"
     android:padding="5dp"
     tools:context="com.satra.traveler.MainActivity">
 
@@ -29,8 +29,8 @@
                 android:id="@+id/company_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:entries="@array/compagnies_names"
-                android:layout_marginRight="5dp" />
+                android:layout_marginRight="5dp"
+                android:entries="@array/compagnies_names" />
 
             <EditText
                 android:id="@+id/matriculation_number_of_bus"
@@ -42,9 +42,9 @@
             </EditText>
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/guardian_phone_number"
@@ -59,30 +59,30 @@
                     android:id="@+id/choose_contact"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:text="..."
-                    android:src="@drawable/ic_contact_add"
+                    android:layout_gravity="right"
                     android:alpha="1"
-                    android:layout_gravity="right" />
+                    android:src="@drawable/ic_contact_add"
+                    android:text="..." />
 
             </LinearLayout>
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
                 <EditText
                     android:id="@+id/guardian_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/guardian_phone_number"
-                    android:layout_marginTop="5dp"
-                    android:ems="10"
-                    android:hint="@string/relative_guardian"
-                    android:inputType="textPersonName"
                     android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/guardian_phone_number"
+                    android:layout_gravity="top"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
                     android:layout_toLeftOf="@+id/button_cancel"
                     android:layout_toStartOf="@+id/button_cancel"
-                    android:layout_marginRight="5dp"
-                    android:layout_gravity="top" />
+                    android:ems="10"
+                    android:hint="@string/relative_guardian"
+                    android:inputType="textPersonName" />
             </LinearLayout>
 
 <!--            <EditText
@@ -112,14 +112,20 @@
                 android:layout_toEndOf="@+id/guardian_phone_number" />
             -->
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/fab_margin">
+                android:layout_marginTop="@dimen/fab_margin"
+                android:orientation="horizontal">
             <mehdi.sakout.fancybuttons.FancyButton
                 android:id="@+id/button_cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginEnd="@dimen/fab_margin"
+                android:layout_marginRight="@dimen/fab_margin"
+                android:layout_marginTop="@dimen/btn_margin"
+                android:layout_weight="1"
+                android:gravity="end|right"
                 android:paddingBottom="@dimen/btn_small_padding"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
@@ -129,20 +135,18 @@
                 fancy:fb_defaultColor="@color/colorAccent"
                 fancy:fb_focusColor="#cccccc"
                 fancy:fb_iconPosition="top"
+                fancy:fb_iconResource="@drawable/ic_cancel"
                 fancy:fb_radius="@dimen/btn_radius"
                 fancy:fb_text="@string/cancel"
-                fancy:fb_textColor="#FFFFFF"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/btn_margin"
-                android:layout_marginRight="@dimen/fab_margin"
-                fancy:fb_iconResource="@drawable/ic_cancel"
-                android:layout_marginEnd="@dimen/fab_margin"
-                android:gravity="end|right"
-                android:layout_weight="1" />
+                fancy:fb_textColor="#FFFFFF" />
             <mehdi.sakout.fancybuttons.FancyButton
                 android:id="@+id/button_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/btn_margin"
+                android:layout_weight="1"
+                android:gravity="end|right"
                 android:paddingBottom="10dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
@@ -155,11 +159,7 @@
                 fancy:fb_iconResource="@drawable/ic_ok"
                 fancy:fb_radius="@dimen/btn_radius"
                 fancy:fb_text="@string/save"
-                fancy:fb_textColor="#FFFFFF"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/btn_margin"
-                android:gravity="end|right"
-                android:layout_weight="1" />
+                fancy:fb_textColor="#FFFFFF" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

@@ -251,7 +251,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         });
         mspeedometer.setLabelTextSize(25);
         // configure value range and ticks
-        mspeedometer.setMaxSpeed(240);
+        mspeedometer.setMaxSpeed(180);
         mspeedometer.setMajorTickStep(30);
         mspeedometer.setMinorTicks(2);
 
