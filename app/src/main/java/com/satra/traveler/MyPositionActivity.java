@@ -28,12 +28,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
@@ -48,6 +50,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.satra.traveler.models.Trip;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
 
@@ -69,6 +72,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private static final float COEFF_CONVERSION_MS_KMH = 4;
     private final static int GET_FROM_GALLERY = 5, MENU_LOAD_IMAGE = 10;
     private final static int SNAP_PICTURE = 6, MENU_SNAP_IMAGE = 11;
+    private static final String TAG = MyPositionActivity.class.getSimpleName();
     private static String myFormat = "dd/MM/yyyy HH:mm";
     private static SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
     final int PICK_CONTACT = 7;
@@ -86,6 +90,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private boolean running = true;
     private SpeedometerGauge mspeedometer;
     private DrawerLayout drawer;
+    private Trip currentTrip;
 
     static boolean IsMatch(String s, String pattern) {
         try {
@@ -170,7 +175,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             public void handleMessage(Message msg) {
 
                 if (msg.getData().containsKey(TConstants.SPEED_PREF)) {
-                    double speed = round(msg.getData().getFloat(TConstants.SPEED_PREF));
+                    double speed = Tutility.round(msg.getData().getFloat(TConstants.SPEED_PREF));
                     usernameTextview
                             .setText(prefs.getString(TConstants.PREF_USERNAME, "anonyme"));
                     /*
@@ -179,8 +184,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                                     + " KM/H" + ")" : " (" + round(speed) + " m/s)" ));
                     */
                     //update speedometer speed value
-                    mspeedometer.setSpeed(speed >= MAX_VITESSE_METRE_SECONDE?round(speed * COEFF_CONVERSION_MS_KMH):
-                    round(speed / COEFF_CONVERSION_MS_KMH));
+                    mspeedometer.setSpeed(speed >= MAX_VITESSE_METRE_SECONDE?Tutility.round(speed * COEFF_CONVERSION_MS_KMH):
+                    Tutility.round(speed / COEFF_CONVERSION_MS_KMH));
                 }
             }
         };
@@ -436,7 +441,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             Toast.makeText(getApplicationContext(), getString(R.string.incorrect_immatriculation_number)+"...", Toast.LENGTH_LONG).show();
                             return;
                         }
-
+                        //TODO: Save issue to DB
                         Toast.makeText(getApplicationContext(), getString(R.string.problem_saved_successfull)+"... ", Toast.LENGTH_LONG).show();
 
                         alertDialog.dismiss();
@@ -452,10 +457,15 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 break;
 
             case NavigationItemListener.DIALOG_NEW_JOURNEY:
+                final Trip mtrip = new Trip();
+
                 alertDialog = (AlertDialog) dialog;
 
                 ImageButton chooseContact = (ImageButton)alertDialog.findViewById(R.id.choose_contact);
-                Spinner companyName = (Spinner)alertDialog.findViewById(R.id.company_name);
+                final Spinner companyName = (Spinner)alertDialog.findViewById(R.id.company_name);
+                final Spinner fromSpinner = (Spinner) alertDialog.findViewById(R.id.departure);
+                Spinner destinationSpinner = (Spinner) alertDialog.findViewById(R.id.destination);
+
                 final EditText busMatriculationNumber = (EditText)alertDialog.findViewById(R.id.matriculation_number_of_bus);
                 //timeOfTravel = (EditText)alertDialog.findViewById(R.id.time_of_travel);
                 //final EditText travelDuration = (EditText)alertDialog.findViewById(R.id.journey_duration);
@@ -473,6 +483,41 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                         startActivityForResult(intent, PICK_CONTACT);
                     }
                 });
+                companyName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        ArrayAdapter<String> arrayAdapter = (ArrayAdapter<String>) parent.getAdapter();
+                        mtrip.setAgency_name(arrayAdapter.getItem(position));
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
+                fromSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        ArrayAdapter<String> adapter = (ArrayAdapter<String>) parent.getAdapter();
+                        mtrip.setDeparture(adapter.getItem(position));
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+                    }
+                });
+                destinationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        ArrayAdapter<String> adapter = (ArrayAdapter<String>) parent.getAdapter();
+                        mtrip.setDestination(adapter.getItem(position));
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
                 buttonSave.setOnClickListener(new View.OnClickListener() {
 
                     @Override
@@ -486,9 +531,22 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             Toast.makeText(getApplicationContext(), getString(R.string.incorrect_immatriculation_number), Toast.LENGTH_LONG).show();
                             return;
                         }
-                        //TODO ADD JOURNEY TO DB
-                        Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_successfull), Toast.LENGTH_LONG).show();
+                        mtrip.setBus_immatriculation(busMatriculationNumber.getText().toString());
+                        mtrip.setContact_name(guardianName.getText().toString());
+                        mtrip.setContact_number(guardianPhoneNumber.getText().toString());
+                        mtrip.setDate_start(sdf.format(Calendar.getInstance().getTime()));
+                        mtrip.setDate_end("");
+                        mtrip.setStatus(0);
+
+                        //TODO: SAVE JOURNEY TO DB
                         alertDialog.dismiss();
+                        long saveid = mtrip.save();
+                        if (saveid > 0){
+                            Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_successfull), Toast.LENGTH_LONG).show();
+                        }else{
+                            Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_failed), Toast.LENGTH_LONG).show();
+                        }
+                        Log.d(TAG, mtrip.toString());
                     }
                 });
 
@@ -567,10 +625,6 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     public void onDestroy() {
         super.onDestroy();
         running = false;
-    }
-
-    double round(double c){
-        return Math.round(c*100)/100.0;
     }
 
     @Override

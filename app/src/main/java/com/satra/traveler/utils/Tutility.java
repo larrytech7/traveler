@@ -37,4 +37,8 @@ public class Tutility {
                 .create();
         alertDialog.show();
     }
+
+    public static double round(double c){
+        return Math.round(c*100)/100.0;
+    }
 }

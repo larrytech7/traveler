@@ -19,6 +19,7 @@ import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 
 import com.satra.traveler.utils.TConstants;
+import com.satra.traveler.utils.Tutility;
 
 import java.util.Vector;
 
@@ -28,19 +29,19 @@ import java.util.Vector;
  */
 public class SpeedMeterService extends Service {
 
-    private SharedPreferences.Editor editor;
-
     private static final int NBRE_MAX_ITERATION_POUR_MOYENNE_VITESSES = 3;
     private static final int MAX_VITESSE_METRE_SECONDE = 0;
     private static final float COEFF_CONVERSION_MS_KMH = 4;
-
     private static final int MAX_SPEED_ALLOWED_KMH = 80;
     private static final int NATURAL_LIMIT_OF_SPEED = 200;
     private static final int ERREUR_ACCEPTE_VITESSE_MAX=2;
     LocationManager locationManager;
+    float vitesse = 0;
+    int id = 1;
+    boolean hasReachLimit = false;
+    private SharedPreferences.Editor editor;
     private Location previousLocation;
     private long durationGPS=0, durationNetwork=0;
-    float vitesse = 0;
     private Vector<Float> vitesses = new Vector<>();
     private LocationListener locationListenerGPS, locationListenerNetwork;
 
@@ -82,7 +83,6 @@ public class SpeedMeterService extends Service {
         return null;
     }
 
-
     @Override
     public void onCreate() {
         super.onCreate();
@@ -113,7 +113,6 @@ public class SpeedMeterService extends Service {
         }
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-
 
         if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             showAlertEnableGPS();
@@ -164,16 +163,13 @@ public class SpeedMeterService extends Service {
             }
         };
 
-
         try {
             locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 200, 0, locationListenerNetwork);
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 100, 0, locationListenerGPS);
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }
-
     }
-
 
     public void showAlertEnableGPS(){
 
@@ -184,10 +180,7 @@ public class SpeedMeterService extends Service {
         NotificationManager nm = (NotificationManager)
                 getSystemService(NOTIFICATION_SERVICE);
 
-
         Notification.Builder build = new Notification.Builder(this);
-
-
         build.setAutoCancel(false);
         build.setWhen(0);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -205,14 +198,10 @@ public class SpeedMeterService extends Service {
         }
 
         Notification notif = build.getNotification();
-
-
-
         nm.notify(id, notif);
         id++;
 
     }
-
 
     public void showPersistentNotification(String vitesse) {
         Intent intent1 = new Intent(this, MyPositionActivity.class);
@@ -223,10 +212,7 @@ public class SpeedMeterService extends Service {
         NotificationManager nm = (NotificationManager)
                 getSystemService(NOTIFICATION_SERVICE);
 
-
         Notification.Builder build = new Notification.Builder(this);
-
-
         build.setAutoCancel(false);
         build.setWhen(0);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -245,9 +231,6 @@ public class SpeedMeterService extends Service {
         }
 
         Notification notif = build.getNotification();
-
-
-
         nm.notify(0, notif);
 
     }
@@ -260,8 +243,6 @@ public class SpeedMeterService extends Service {
                 PendingIntent.getActivity(this, 0, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationManager nm = (NotificationManager)
                 getSystemService(NOTIFICATION_SERVICE);
-
-
         Notification.Builder build = new Notification.Builder(this);
 
         String message = getString(R.string.speed_limit_reached_msg)+vitesse+").";
@@ -284,15 +265,12 @@ public class SpeedMeterService extends Service {
         }
 
         Notification notif = build.getNotification();
-
-
         notif.vibrate = new long[] { 100, 250, 100, 500};
         notif.sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         nm.notify(id, notif);
 
     }
-
 
     public void hideNotification(){
 
@@ -305,14 +283,9 @@ public class SpeedMeterService extends Service {
                 getSystemService(NOTIFICATION_SERVICE);
         nm.cancel(id);
 
-
-
         Notification.Builder build = new Notification.Builder(this);
-
-
         build.setAutoCancel(true);
         build.setWhen(0);
-
         build.setTicker(getString(R.string.app_name));
         build.setContentTitle(getString(R.string.speed_limit_reached_ago));
         build.setSmallIcon(R.mipmap.ic_launcher);
@@ -334,8 +307,6 @@ public class SpeedMeterService extends Service {
 
     }
 
-    int id = 1;
-    boolean hasReachLimit = false;
     //calculating the speed in meters /sec from the GPS location or from our previous location should GPS not be available
     //save results as preference
     private long updateSpeed(Location location, long duration){
@@ -371,9 +342,7 @@ public class SpeedMeterService extends Service {
             return duration;
         }
 
-
-        String displayedSpeed = vitesse >= MAX_VITESSE_METRE_SECONDE ? " (" + round(vitesse * COEFF_CONVERSION_MS_KMH) + " KM/H" + ")" : " (" + round(vitesse) + " m/s)";
-
+        String displayedSpeed = vitesse >= MAX_VITESSE_METRE_SECONDE ? " (" + Tutility.round(vitesse * COEFF_CONVERSION_MS_KMH) + " KM/H" + ")" : " (" + Tutility.round(vitesse) + " m/s)";
 
         showPersistentNotification(displayedSpeed);
 
@@ -381,7 +350,6 @@ public class SpeedMeterService extends Service {
         editor.commit();
 
         Log.e("speed injected", "new speed received and injected: "+vitesse);
-
 
         if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_ALLOWED_KMH){
             if(!hasReachLimit) {
@@ -399,11 +367,6 @@ public class SpeedMeterService extends Service {
 
         return  duration;
     }
-
-    double round(double c){
-        return Math.round(c*100)/100.0;
-    }
-
 
     @Override
     public void onDestroy() {

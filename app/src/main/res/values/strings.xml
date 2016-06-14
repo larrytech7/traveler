@@ -38,6 +38,21 @@
         <item>"Camrail Intercity"</item>
         <item>"Autres"</item>
     </string-array>
+    <string-array name="villes">
+        <item>Douala</item>
+        <item>Yaounde</item>
+        <item>Bafoussam</item>
+        <item>Edea</item>
+        <item>Bamenda</item>
+        <item>Buea</item>
+        <item>Limbe</item>
+        <item>Ngoundere</item>
+        <item>Maroua</item>
+        <item>Bertoua</item>
+        <item>Sangmelima</item>
+        <item>Bafia</item>
+        <item>Dschang</item>
+    </string-array>
 
     <string-array name="pub_images_names" translatable="false">
         <item>"we_need_advertisements"</item>
@@ -118,5 +133,8 @@
     <string name="situation">Choisissez la situation?</string>
     <string name="send">Envoyer</string>
     <string name="howserious">Niveaux de Gravité</string>
+    <string name="departure">Ville de depart</string>
+    <string name="destination">Destination</string>
+    <string name="journey_saved_failed">Echec d\\\'enregistrement du voyage. Re-essayer s\\\'il vpus plait</string>
 
 </resources>
