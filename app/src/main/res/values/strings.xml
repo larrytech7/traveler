@@ -136,5 +136,9 @@
     <string name="departure">Ville de depart</string>
     <string name="destination">Destination</string>
     <string name="journey_saved_failed">Echec d\\\'enregistrement du voyage. Re-essayer s\\\'il vpus plait</string>
+    <string name="travel_info">Informations sur le Voyage</string>
+    <string name="depart">Depart: %s</string>
+    <string name="arrivee">Destination: %s</string>
+    <string name="datedepart">Date, Heure de depart: %s</string>
 
 </resources>

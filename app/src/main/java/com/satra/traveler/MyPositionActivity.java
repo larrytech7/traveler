@@ -59,6 +59,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -458,6 +459,9 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
             case NavigationItemListener.DIALOG_NEW_JOURNEY:
                 final Trip mtrip = new Trip();
+                mtrip.setDeparture("Douala");
+                mtrip.setDestination("Douala");
+                mtrip.setAgency_name("Buca Voyage");
 
                 alertDialog = (AlertDialog) dialog;
 
@@ -543,6 +547,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                         long saveid = mtrip.save();
                         if (saveid > 0){
                             Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_successfull), Toast.LENGTH_LONG).show();
+                            currentTrip = mtrip;
+                            setupCurrentTrip();
                         }else{
                             Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_failed), Toast.LENGTH_LONG).show();
                         }
@@ -562,6 +568,22 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         }
     }
 
+    private void setupCurrentTrip(){
+        List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
+        //refresh layout by getting fresh view references and setting their values
+        if (trips != null && trips.size() > 0){
+            Trip trip = trips.get(trips.size() - 1);
+            TextView departure = (TextView) findViewById(R.id.departureTextview);
+            TextView arrival = (TextView) findViewById(R.id.destinationTextview);
+            TextView agence = (TextView) findViewById(R.id.agencyTextView);
+            TextView timedepart = (TextView) findViewById(R.id.timeDepartureTextview);
+
+            departure.setText(getString(R.string.depart, trip.getDeparture()));
+            arrival.setText(getString(R.string.arrivee,trip.getDestination()));
+            agence.setText(trip.getAgency_name());
+            timedepart.setText(getString(R.string.datedepart, trip.getDate_start()));
+        }
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -619,6 +641,12 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 Toast.makeText(getApplicationContext(), getString(R.string.error_occur_please_retry)+"...", Toast.LENGTH_LONG).show();
             }
         }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        setupCurrentTrip();
     }
 
     @Override

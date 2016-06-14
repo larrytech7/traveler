@@ -50,7 +50,8 @@
                 android:ems="10"
                 android:hint="@string/username"
                 android:maxLines="1"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textColor="@color/abc_search_url_text_selected" />
 
             <EditText
                 android:id="@+id/no_telephone"
@@ -64,7 +65,8 @@
                 android:hint="@string/no_telephone"
                 android:inputType="phone"
                 android:maxLines="1"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textColor="@color/abc_search_url_text_selected" />
 
             <mehdi.sakout.fancybuttons.FancyButton
                 android:id="@+id/button_login"

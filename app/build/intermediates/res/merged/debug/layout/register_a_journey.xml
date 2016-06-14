@@ -31,6 +31,26 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
                 android:entries="@array/compagnies_names" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/departure"/>
+            <Spinner
+                android:id="@+id/departure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:entries="@array/villes" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/destination"/>
+            <Spinner
+                android:id="@+id/destination"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:entries="@array/villes" />
 
             <EditText
                 android:id="@+id/matriculation_number_of_bus"
@@ -65,6 +85,7 @@
                     android:text="..." />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -164,8 +164,8 @@ public class SpeedMeterService extends Service {
         };
 
         try {
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 200, 0, locationListenerNetwork);
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 100, 0, locationListenerGPS);
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 200, 0, locationListenerNetwork);
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }

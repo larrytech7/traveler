@@ -4,7 +4,7 @@
     android:versionCode="29"
     android:versionName="4.0.0">
 
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -12,9 +12,9 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <permission
         android:name="com.polytech.hospitalmap.permission.MAPS_RECEIVE"
@@ -46,9 +46,16 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name">
-        <meta-data android:name="DATABASE" android:value="satra.com.db.travelr" />
-        <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.satra.traveler" />
-        <meta-data android:name="QUERY_LOG" android:value="true" />
+        <meta-data
+            android:name="DATABASE"
+            android:value="satra.com.db.travelr" />
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="com.satra.traveler" />
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="true" />
+
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|screenSize|screenLayout|uiMode|smallestScreenSize"
@@ -64,7 +71,7 @@
             android:name=".MyPositionActivity"
             android:configChanges="orientation|screenSize|screenLayout|uiMode|smallestScreenSize"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -78,23 +85,28 @@
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
+
         <service
             android:name=".SpeedMeterService"
             android:enabled="true"
             android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            >
-        </service>
+            android:label="@string/app_name"></service>
 
         <receiver
             android:name=".BootBroadcastReceiver"
             android:enabled="true"
             android:exported="false">
-
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
-
+        </receiver>
+        <receiver
+            android:name=".broadcasts.NetworkAvailable"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
         </receiver>
     </application>
 

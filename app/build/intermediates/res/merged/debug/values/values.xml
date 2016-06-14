@@ -27,6 +27,21 @@
         <item>"we_need_advertisements"</item>
         <item>"new_york_forum_prix_jeune_entreprise"</item>
     </string-array>
+    <string-array name="villes">
+        <item>Douala</item>
+        <item>Yaounde</item>
+        <item>Bafoussam</item>
+        <item>Edea</item>
+        <item>Bamenda</item>
+        <item>Buea</item>
+        <item>Limbe</item>
+        <item>Ngoundere</item>
+        <item>Maroua</item>
+        <item>Bertoua</item>
+        <item>Sangmelima</item>
+        <item>Bafia</item>
+        <item>Dschang</item>
+    </string-array>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
@@ -347,6 +362,7 @@
     <string name="annuler_voyage">Annuler un Voyage</string>
     <string name="app_name" translatable="false">Travelr</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="arrivee">Destination: %s</string>
     <string name="auth_google_play_services_client_facebook_display_name">Facebook</string>
     <string name="auth_google_play_services_client_google_display_name">Google</string>
     <string name="cancel">Annuler</string>
@@ -389,8 +405,12 @@
     <string name="create_calendar_title">Create calendar event</string>
     <string name="create_profile">Creation du compte</string>
     <string name="date_heure_voyage">date et heure du voyage</string>
+    <string name="datedepart">Date, Heure de depart: %s</string>
     <string name="decline">Decline</string>
+    <string name="depart">Depart: %s</string>
+    <string name="departure">Ville de depart</string>
     <string name="description">description</string>
+    <string name="destination">Destination</string>
     <string name="duree_label" translatable="false">\? (hh)</string>
     <string name="end_journey">Achever un Voyage</string>
     <string name="error_occur_please_retry">Une erreur s\'est produite; veuillez réessayer svp</string>
@@ -403,6 +423,7 @@
     <string name="interstitial_ad_sample" translatable="false">Interstitial Ad Sample</string>
     <string name="interstitial_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
     <string name="journey_management">Gestion des Voyages</string>
+    <string name="journey_saved_failed">Echec d\\\'enregistrement du voyage. Re-essayer s\\\'il vpus plait</string>
     <string name="journey_saved_successfull">Voyage sauvegardé avec succès</string>
     <string name="label_get_a_taxi">Trouver un Taxi!</string>
     <string name="load_image">Charger une image</string>
@@ -444,6 +465,7 @@
     <string name="store_picture_title">Save image</string>
     <string name="title_activity_main2" translatable="false">Main2Activity</string>
     <string name="transport_company">Quelle Compagnie?</string>
+    <string name="travel_info">Informations sur le Voyage</string>
     <string name="trip_agency">Agence de Voyage</string>
     <string name="username">pseudonyme</string>
     <string name="username_confirm_msg">"Etes vous sûr de vouloir continuer avec le pseudonyme "</string>
