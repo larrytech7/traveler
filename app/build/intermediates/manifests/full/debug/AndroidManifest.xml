@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.satra.traveler"
-    android:versionCode="28"
-    android:versionName="3.9.9.8" >
+    android:versionCode="29"
+    android:versionName="4.0.0" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -50,13 +50,25 @@
         android:required="true" />
 
     <application
+        android:name="com.satra.traveler.tapp.TApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name" >
+        <meta-data
+            android:name="DATABASE"
+            android:value="satra.com.db.travelr" />
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="com.satra.traveler" />
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="true" />
+
         <activity
             android:name="com.satra.traveler.MainActivity"
             android:configChanges="orientation|screenSize|screenLayout|uiMode|smallestScreenSize"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:theme="@style/AppStyleTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -66,7 +78,7 @@
         <activity
             android:name="com.satra.traveler.MyPositionActivity"
             android:configChanges="orientation|screenSize|screenLayout|uiMode|smallestScreenSize"
-            android:label="@string/check_position"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
@@ -86,8 +98,7 @@
             android:name="com.satra.traveler.SpeedMeterService"
             android:enabled="true"
             android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name" >
-        </service>
+            android:label="@string/app_name" />
 
         <receiver
             android:name="com.satra.traveler.BootBroadcastReceiver"
@@ -95,6 +106,14 @@
             android:exported="false" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.satra.traveler.broadcasts.NetworkAvailable"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
 

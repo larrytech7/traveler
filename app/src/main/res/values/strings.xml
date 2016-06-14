@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name" translatable="false">traveler</string>
+    <string name="app_name" translatable="false">Travelr</string>
 
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
 
-    <string name="action_settings" translatable="false">Traveler V 3.9.9.8</string>
+    <string name="action_settings" translatable="false">Apropos</string>
     <string name="create_profile">Creation du compte</string>
     <string name="welcome">zero morts sur nos routes</string>
     <string name="username">pseudonyme</string>
@@ -38,6 +38,21 @@
         <item>"Camrail Intercity"</item>
         <item>"Autres"</item>
     </string-array>
+    <string-array name="villes">
+        <item>Douala</item>
+        <item>Yaounde</item>
+        <item>Bafoussam</item>
+        <item>Edea</item>
+        <item>Bamenda</item>
+        <item>Buea</item>
+        <item>Limbe</item>
+        <item>Ngoundere</item>
+        <item>Maroua</item>
+        <item>Bertoua</item>
+        <item>Sangmelima</item>
+        <item>Bafia</item>
+        <item>Dschang</item>
+    </string-array>
 
     <string-array name="pub_images_names" translatable="false">
         <item>"we_need_advertisements"</item>
@@ -53,13 +68,13 @@
         <item>"5- très grave"</item>
     </string-array>
 
-    <string name="matriculation_number">no d\'immatriculation</string>
+    <string name="matriculation_number">No d\'immatriculation du vehicule</string>
     <string name="description">description</string>
     <string name="load_image">Charger une image</string>
     <string name="snap_image">Capturer une image</string>
     <string name="provide_account_informations">Veuillez fournir vos informations de compte</string>
     <string name="provide_username_and_password">Veuillez remplir votre pseudonyme et votre mot de passe</string>
-    <string name="connexion_with_username">connexion avec le pseudonyme</string>
+    <string name="connexion_with_username">Connecté avec le pseudonyme </string>
     <string name="provide_car_immatriculation_number">svp remplissez au moins le numéro d\'immatriculation du véhicule</string>
     <string name="provide_problem_description">Svp veuillez fournir une description</string>
     <string name="incorrect_immatriculation_number">Numéro d\'immatriculation incorrect (exple: CE111AA)</string>
@@ -98,15 +113,32 @@
     <!- -->
     <string name="interstitial_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
     <string name="gps_disabled_message">Veuillez activer le GPS afin que nous puissions correctement estimer votre position et votre vitesse.</string>
-    <string name="open_settings">ouvrir les réglages</string>
+    <string name="open_settings">Réglages</string>
     <string name="speed_limit_reached">Dépassement de la limite de vitesse réglémentaire</string>
     <string name="speed_limit_reached_msg">Vous venez de dépasser la limite de vitesse réglémentaire pour la zone où vous vous trouvez (</string>
     <string name="estimated_speed">Vitesse estimée</string>
     <string name="estimated_speed_msg">"Nous estimons votre vitesse actuelle à "</string>
     <string name="username_confirm_title">Confirmation</string>
     <string name="username_confirm_msg">"Etes vous sûr de vouloir continuer avec le pseudonyme "</string>
-    <string name="username_confirm_no_label">non</string>
-    <string name="username_confirm_yes_label">oui</string>
-    <string name="speed_limit_reached_ago">vous avez dépassé la limite de vitesse autorisée</string>
+    <string name="username_confirm_no_label">Non</string>
+    <string name="username_confirm_yes_label">Oui</string>
+    <string name="speed_limit_reached_ago">Vous avez dépassé la limite de vitesse autorisée</string>
+    <string name="about_message">Avec Travelr, c\'est Zero mort sur nos route. <br/>Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br/> Version 3.9.9</string>
+    <string name="about_title">Apropos</string>
+    <string name="login">Continuer</string>
+    <string name="speed_dimen">Vitesse (Km/Hr)</string>
+    <string name="trip_agency">Agence de Voyage</string>
+    <string name="cancel">Annuler</string>
+    <string name="save">Sauvegarder</string>
+    <string name="situation">Choisissez la situation?</string>
+    <string name="send">Envoyer</string>
+    <string name="howserious">Niveaux de Gravité</string>
+    <string name="departure">Ville de depart</string>
+    <string name="destination">Destination</string>
+    <string name="journey_saved_failed">Echec d\\\'enregistrement du voyage. Re-essayer s\\\'il vpus plait</string>
+    <string name="travel_info">Informations sur le Voyage</string>
+    <string name="depart">Depart: %s</string>
+    <string name="arrivee">Destination: %s</string>
+    <string name="datedepart">Date, Heure de depart: %s</string>
 
 </resources>

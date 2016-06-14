@@ -8,7 +8,7 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     android:weightSum="1">
 
-    <TextView
+<!--    <TextView
         android:id="@+id/panneau_pub"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -18,8 +18,25 @@
         android:background="#FF0000"
         android:gravity="center"
         android:text="@string/for_publicity"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />-->
+    <com.cardiomood.android.controls.gauge.SpeedometerGauge
+        android:id="@+id/speedometer"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:gravity="center"
+        android:padding="8dp" />
 
+    <TextView
+        android:id="@+id/speedtext"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:text="@string/speed_dimen"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -27,26 +44,26 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="-10dp"
             android:paddingTop="@dimen/nav_header_vertical_spacing"
-            android:src="@mipmap/ic_launcher"
-            android:layout_marginTop="-15dp" />
+            android:src="@drawable/anonyme" />
 
         <TextView
             android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hi Steve TUENO"
+            android:layout_alignBottom="@+id/imageView"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/imageView"
+            android:text="Steve TUENO"
             android:textColor="#FFFFFF"
             android:textSize="25dp"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/imageView"
-            android:layout_alignBottom="@+id/imageView"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="5dp"
             android:typeface="serif" />
     </RelativeLayout>
 

@@ -1,77 +1,102 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/accent_material_light"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.satra.traveler.MainActivity"
-    >
-
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/username"
-
-        android:layout_marginBottom="15dp"
-        android:layout_centerInParent="true" />
-
-    <EditText
-        android:id="@+id/no_telephone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/no_telephone"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/username"
-        android:layout_marginTop="20dp"
-        android:layout_centerInParent="true" />
-
-    <ImageView
-        android:id="@+id/button_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/button_login"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/no_telephone"
-        android:layout_marginTop="40dp" />
-
-    <TextView
-        android:id="@+id/panneau_pub"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/new_york_forum_prix_jeune_entreprise"
-        android:gravity="center"
-        android:text="@string/for_publicity"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+    tools:context="com.satra.traveler.MainActivity">
 
     <TextView
         android:id="@+id/icone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="40dp"
         android:drawableBottom="@mipmap/ic_launcher"
         android:drawablePadding="10dp"
         android:text="@string/welcome"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_above="@+id/username"
-        android:layout_marginBottom="20dp" />
+        android:textSize="25dp" />
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        card_view:cardBackgroundColor="@color/app_white"
+        card_view:cardCornerRadius="@dimen/card_corner_radius"
+        card_view:cardElevation="@dimen/card_elevation"
+        card_view:cardPreventCornerOverlap="false">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/btn_padding">
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:ems="10"
+                android:hint="@string/username"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/abc_search_url_text_selected" />
+
+            <EditText
+                android:id="@+id/no_telephone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:hint="@string/no_telephone"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/abc_search_url_text_selected" />
+
+            <mehdi.sakout.fancybuttons.FancyButton
+                android:id="@+id/button_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/btn_margin"
+                android:gravity="bottom"
+                android:paddingBottom="@dimen/btn_small_padding"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="@dimen/btn_small_padding"
+                fancy:fb_borderColor="#FFFFFF"
+                fancy:fb_borderWidth="1dp"
+                fancy:fb_defaultColor="@color/colorButtonPrimary"
+                fancy:fb_focusColor="#cccccc"
+                fancy:fb_iconPosition="left"
+                fancy:fb_radius="@dimen/btn_radius"
+                fancy:fb_text="@string/login"
+                fancy:fb_textColor="#FFFFFF" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/textView"
-
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_centerVertical="true" />
+        android:layout_centerVertical="true"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-</RelativeLayout>
+</LinearLayout>
