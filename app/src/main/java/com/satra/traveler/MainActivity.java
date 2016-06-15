@@ -30,13 +30,12 @@ import mehdi.sakout.fancybuttons.FancyButton;
 
 public class MainActivity extends Activity {
 
+	final private static int DIALOG_SIGNUP = 1;
+	private static int GET_FROM_GALLERY=2;
 	TextView panneauPub;
 	EditText username, telephone;
 	FancyButton buttonLogin;
 	ImageButton profilePicture;
-
-	final private static int DIALOG_SIGNUP = 1;
-	private static int GET_FROM_GALLERY=2;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -97,17 +96,6 @@ public class MainActivity extends Activity {
 			}
 		});
 
-//		buttonSignup.setOnClickListener(new OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				Toast.makeText(getApplicationContext(), getString(R.string.provide_account_informations)+"...", Toast.LENGTH_LONG).show();
-//				showDialog(DIALOG_SIGNUP);
-//
-//			}
-//		});
-
 	}
 
 	@Override
@@ -151,7 +139,6 @@ public class MainActivity extends Activity {
 
 					@Override
 					public void onClick(View v) {
-						// TODO Auto-generated method stub
 
 						if (usernameSignup.getText().toString().equals("") || passwordSignup.getText().toString().equals("") || passwordAgain.getText().toString().equals("") || noTelephone.getText().toString().equals("")) {
 							Toast.makeText(getApplicationContext(), getString(R.string.provide_all_fields) + "...", Toast.LENGTH_LONG).show();
@@ -174,7 +161,6 @@ public class MainActivity extends Activity {
 
 					@Override
 					public void onClick(View v) {
-						// TODO Auto-generated method stub
 						Toast.makeText(getApplicationContext(), getString(R.string.select_your_profile_image) + "...", Toast.LENGTH_LONG).show();
 						startActivityForResult(new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI), GET_FROM_GALLERY);
 
@@ -210,10 +196,8 @@ public class MainActivity extends Activity {
 				profilePicture.setImageBitmap(Bitmap.createScaledBitmap(bitmap, profilePicture.getWidth(), profilePicture.getHeight(), false));
 
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

@@ -9,6 +9,11 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
 
+import com.satra.traveler.models.Trip;
+import com.satra.traveler.utils.Tutility;
+
+import java.util.List;
+
 /**
  * Created by Steve Jeff on 16/02/2016.
  */
@@ -33,30 +38,40 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
         } else if (id == R.id.nav_repport_complaint) {
             context.showDialog(DIALOG_NEW_COMPLAINT);
         }
-        /*else if (id == R.id.nav_find_taxi) {
-            try {
-                startNewActivity(context, "com.polytech.taxigetme");
-            } catch (Exception e) {
-                e.printStackTrace();
-                Log.e("fail taxigetme-traveler", "nature erreur " + e.getMessage());
-                Uri marketUri = Uri.parse("market://details?id=com.polytech.taxigetme");
-                Intent marketIntent = new Intent(Intent.ACTION_VIEW,marketUri);
-                context.startActivity(marketIntent);
-
-            }
-        }*/
         else if (id == R.id.nav_new_journey) {
             context.showDialog(DIALOG_NEW_JOURNEY);
-        } else if (id == R.id.nav_confirm_journey) {
-
         } else if (id == R.id.nav_end_journey) {
+            List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
+            // Confirm/complete a trip
+            if (trips != null && trips.size() > 0){
+                Trip trip = trips.get(trips.size() - 1);
+                trip.status = 1;
+                long updateid = trip.save();
+                if (updateid > 0){
+                    Tutility.showMessage(context, R.string.complete_trip, R.string.complete_trip_title );
+                }else{
+                    Tutility.showMessage(context, R.string.complete_trip_error, R.string.complete_trip_error_title );
+                }
+            }
+        }/* else if (id == R.id.nav_end_journey) {
 
         }
         else if (id == R.id.nav_upadate_journey) {
 
-        }
+        }*/
         else if (id == R.id.nav_cancel_journey) {
-
+            List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
+            // Confirm/complete a trip
+            if (trips != null && trips.size() > 0){
+                Trip trip = trips.get(trips.size() - 1);
+                trip.status = 2;
+                long updateid = trip.save();
+                if (updateid > 0){
+                    Tutility.showMessage(context, R.string.cencel_trip, R.string.cencel_trip_title );
+                }else{
+                    Tutility.showMessage(context, R.string.complete_trip_error, R.string.complete_trip_error_title );
+                }
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) context.findViewById(R.id.drawer_layout);

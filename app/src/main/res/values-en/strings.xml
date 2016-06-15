@@ -92,11 +92,17 @@
     <string name="situation">Choose the situation</string>
     <string name="trip_agency">Travel Agency</string>
     <string name="arrivee">Destination: %s</string>
-    <string name="datedepart">Date, Time of departure</string>
+    <string name="datedepart">Date, Time of departure %s</string>
     <string name="depart">Departure: %s</string>
     <string name="departure">Departure Town</string>
     <string name="destination">Destination</string>
     <string name="journey_saved_failed">Failed to register journey. Please try again</string>
     <string name="travel_info">Trip information</string>
+    <string name="cencel_trip_title">Cancel this trip</string>
+    <string name="cencel_trip">You have chosen to cancel this trip. You can always register a new one if you need to travel again</string>
+    <string name="complete_trip">You have indicated that your journey has been completed. Thanks for using Travelr</string>
+    <string name="complete_trip_error_title">Error</string>
+    <string name="complete_trip_error">An error occured. Please try again</string>
+    <string name="complete_trip_title">Trip completed</string>
 
 </resources>

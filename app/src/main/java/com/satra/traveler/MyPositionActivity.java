@@ -74,6 +74,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private final static int GET_FROM_GALLERY = 5, MENU_LOAD_IMAGE = 10;
     private final static int SNAP_PICTURE = 6, MENU_SNAP_IMAGE = 11;
     private static final String TAG = MyPositionActivity.class.getSimpleName();
+    private static final String LOG_TAG = MyPositionActivity.class.getSimpleName();
     private static String myFormat = "dd/MM/yyyy HH:mm";
     private static SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
     final int PICK_CONTACT = 7;
@@ -222,7 +223,10 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
     @Override
     public void onMapReady(final GoogleMap map) {
+        Log.d(LOG_TAG,"Map is ready");
         googleMap = map;
+        if (!googleMap.isMyLocationEnabled())
+            googleMap.setMyLocationEnabled(true);
         // Enabling MyLocation in Google Map
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -235,7 +239,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     }
 
     private void requestPermission(){
-        //ask user to grant permission to read fine location. Required for android 6.0+
+        //ask user to grant permission to read fine location. Required for android 6.0+ API level 23+
     }
 
     @Override
@@ -542,7 +546,6 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                         mtrip.setDate_end("");
                         mtrip.setStatus(0);
 
-                        //TODO: SAVE JOURNEY TO DB
                         alertDialog.dismiss();
                         long saveid = mtrip.save();
                         if (saveid > 0){
@@ -581,7 +584,25 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             departure.setText(getString(R.string.depart, trip.getDeparture()));
             arrival.setText(getString(R.string.arrivee,trip.getDestination()));
             agence.setText(trip.getAgency_name());
+            setDrawableStatus(agence, trip.getStatus());
             timedepart.setText(getString(R.string.datedepart, trip.getDate_start()));
+        }
+    }
+    private void setDrawableStatus(TextView view, int status){
+        switch (status){
+            case 0:
+                view.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_trip_running), null,null,null);
+//                view.setCompoundDrawables(getDrawable(R.drawable.ic_trip_running), null,null,null);
+                break;
+            case 1:
+                view.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_trip_complete), null,null,null);
+                break;
+            case 2:
+                view.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_trip_cancelled),null,null,null);
+                break;
+            default:
+                view.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_trip_running),null,null,null);
+                break;
         }
     }
     @Override
