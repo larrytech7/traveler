@@ -54,13 +54,7 @@ public class SpeedMeterService extends Service {
         Log.e("service starting...", "service SpeedMeterService is starting ");
 
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+
             return START_NOT_STICKY;
         }
         if (locationManager != null){
@@ -79,7 +73,7 @@ public class SpeedMeterService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-        // TODO Auto-generated method stub
+
         return null;
     }
 
@@ -96,21 +90,9 @@ public class SpeedMeterService extends Service {
 
     public void start(){
         id = 1;
-        ((NotificationManager)
-                getSystemService(NOTIFICATION_SERVICE)).cancelAll();
+        ((NotificationManager) getSystemService(NOTIFICATION_SERVICE)).cancelAll();
 
         editor = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0).edit();
-
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
@@ -120,7 +102,6 @@ public class SpeedMeterService extends Service {
 
         durationGPS = System.currentTimeMillis();
         durationNetwork = System.currentTimeMillis();
-
 
         // Define a listener that responds to GPS location updates
         locationListenerGPS = new LocationListener() {
@@ -168,6 +149,8 @@ public class SpeedMeterService extends Service {
             locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 200, 0, locationListenerNetwork);
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
+        }catch (SecurityException sec){
+            sec.printStackTrace();
         }
     }
 
@@ -258,7 +241,6 @@ public class SpeedMeterService extends Service {
         build.setSmallIcon(R.mipmap.ic_launcher);
         build.setContentIntent(pendingIntent);
         build.setOngoing(true);
-
         build.setNumber(MAX_SPEED_ALLOWED_KMH);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             build.build();
@@ -298,8 +280,6 @@ public class SpeedMeterService extends Service {
         }
 
         Notification notif = build.getNotification();
-
-
         notif.vibrate = new long[] { 100, 250, 100, 500};
         notif.sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
@@ -371,24 +351,16 @@ public class SpeedMeterService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-//        flag = false;
-
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
         if (locationManager != null){
-            if(locationListenerNetwork!=null){
-                locationManager.removeUpdates(locationListenerNetwork);
-            }
-            if(locationListenerGPS!=null){
-                locationManager.removeUpdates(locationListenerGPS);
+            try {
+                if(locationListenerNetwork!=null){
+                    locationManager.removeUpdates(locationListenerNetwork);
+                }
+                if(locationListenerGPS!=null){
+                    locationManager.removeUpdates(locationListenerGPS);
+                }
+            } catch (SecurityException e) {
+                e.printStackTrace();
             }
         }
 

@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:2:1-113:12
+ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:2:1-116:12
 	package
 		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:3:5-33
 		INJECTED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml
@@ -69,6 +69,10 @@ ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidM
 		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:21:9-44
 	android:name
 		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:20:9-72
+uses-permission#com.polytech.hospitalmap.permission.MAPS_RECEIVE
+ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:22:5-87
+	android:name
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:22:22-85
 uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
 ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:23:5-98
 	android:name
@@ -106,7 +110,7 @@ ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidM
 	android:anyDensity
 		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:39:9-34
 application
-ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:44:5-111:19
+ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:44:5-114:19
 MERGED from [com.google.android.gms:play-services-appindexing:8.4.0] /root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/8.4.0/AndroidManifest.xml:19:5-20
 MERGED from [com.google.android.gms:play-services-basement:8.4.0] /root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/AndroidManifest.xml:20:5-24:19
 MERGED from [com.android.support:support-v4:23.1.1] /root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/AndroidManifest.xml:22:5-20
@@ -136,116 +140,122 @@ MERGED from [com.cardiomood.android:android-widgets:0.1.1] /root/AndroidStudioPr
 		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:47:9-43
 	android:name
 		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:45:9-42
+uses-feature#0x00020000
+ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:49:9-51:39
+	android:glEsVersion
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:50:13-45
+	android:required
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:51:13-36
 meta-data#DATABASE
-ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:49:9-51:52
+ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:52:9-54:52
 	android:value
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:51:13-49
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:54:13-49
 	android:name
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:50:13-36
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:53:13-36
 meta-data#DOMAIN_PACKAGE_NAME
-ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:52:9-54:50
+ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:55:9-57:50
 	android:value
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:54:13-47
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:57:13-47
 	android:name
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:53:13-47
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:56:13-47
 meta-data#QUERY_LOG
-ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:55:9-57:36
+ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:58:9-60:36
 	android:value
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:57:13-33
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:60:13-33
 	android:name
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:56:13-37
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:59:13-37
 activity#com.satra.traveler.MainActivity
-ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:59:9-69:20
+ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:62:9-72:20
 	android:label
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:62:13-45
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:65:13-45
 	android:configChanges
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:61:13-98
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:64:13-98
 	android:theme
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:63:13-49
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:66:13-49
 	android:name
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:60:13-41
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:63:13-41
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:64:13-68:29
+ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:67:13-71:29
 action#android.intent.action.MAIN
-ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:65:17-69
+ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:68:17-69
 	android:name
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:65:25-66
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:68:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:67:17-77
+ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:70:17-77
 	android:name
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:67:27-74
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:70:27-74
 activity#com.satra.traveler.MyPositionActivity
-ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:70:9-74:59
+ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:73:9-77:59
 	android:label
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:73:13-45
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:76:13-45
 	android:configChanges
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:72:13-98
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:75:13-98
 	android:theme
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:74:13-56
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:77:13-56
 	android:name
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:71:13-47
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:74:13-47
 meta-data#com.google.android.geo.API_KEY
-ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:76:9-78:71
+ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:79:9-81:71
 	android:value
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:78:13-68
-	android:name
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:77:13-58
-meta-data#com.google.android.gms.version
-ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:79:9-81:69
-MERGED from [com.google.android.gms:play-services-basement:8.4.0] /root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/AndroidManifest.xml:21:9-23:69
-MERGED from [com.google.android.gms:play-services-basement:8.4.0] /root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/AndroidManifest.xml:21:9-23:69
-MERGED from [com.google.android.gms:play-services-basement:8.4.0] /root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/AndroidManifest.xml:21:9-23:69
-	android:value
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:81:13-66
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:81:13-68
 	android:name
 		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:80:13-58
+meta-data#com.google.android.gms.version
+ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:82:9-84:69
+MERGED from [com.google.android.gms:play-services-basement:8.4.0] /root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-basement:8.4.0] /root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-basement:8.4.0] /root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:84:13-66
+	android:name
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:83:13-58
 activity#com.google.android.gms.ads.AdActivity
-ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:84:9-87:64
+ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:87:9-90:64
 MERGED from [com.google.android.gms:play-services-ads:8.4.0] /root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.4.0/AndroidManifest.xml:26:9-29:64
 	android:configChanges
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:86:13-122
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:89:13-122
 	android:theme
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:87:13-61
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:90:13-61
 	android:name
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:85:13-65
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:88:13-65
 service#com.satra.traveler.SpeedMeterService
-ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:89:9-93:56
+ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:92:9-96:56
 	android:enabled
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:91:13-35
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:94:13-35
 	android:label
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:93:13-45
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:96:13-45
 	android:icon
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:92:13-47
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:95:13-47
 	android:name
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:90:13-46
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:93:13-46
 receiver#com.satra.traveler.BootBroadcastReceiver
-ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:95:9-102:20
+ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:98:9-105:20
 	android:enabled
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:97:13-35
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:100:13-35
 	android:exported
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:98:13-37
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:101:13-37
 	android:name
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:96:13-50
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:99:13-50
 intent-filter#android.intent.action.BOOT_COMPLETED
-ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:99:13-101:29
+ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:102:13-104:29
 action#android.intent.action.BOOT_COMPLETED
-ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:100:17-79
+ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:103:17-79
 	android:name
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:100:25-76
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:103:25-76
 receiver#com.satra.traveler.broadcasts.NetworkAvailable
-ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:103:9-110:20
+ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:106:9-113:20
 	android:enabled
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:105:13-35
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:108:13-35
 	android:exported
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:106:13-36
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:109:13-36
 	android:name
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:104:13-56
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:107:13-56
 intent-filter#android.net.conn.CONNECTIVITY_CHANGE
-ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:107:13-109:29
+ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:110:13-112:29
 action#android.net.conn.CONNECTIVITY_CHANGE
-ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:108:17-79
+ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:111:17-79
 	android:name
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:108:25-76
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:111:25-76
 uses-sdk
 INJECTED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.google.android.gms:play-services-appindexing:8.4.0] /root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/8.4.0/AndroidManifest.xml:18:5-42
@@ -280,12 +290,6 @@ MERGED from [com.cardiomood.android:android-widgets:0.1.1] /root/AndroidStudioPr
 	android:minSdkVersion
 		INJECTED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml
 		INJECTED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml
-uses-feature#0x00020000
-ADDED from [com.google.android.gms:play-services-maps:8.4.0] /root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/8.4.0/AndroidManifest.xml:22:5-24:33
-	android:glEsVersion
-		ADDED from [com.google.android.gms:play-services-maps:8.4.0] /root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/8.4.0/AndroidManifest.xml:23:8-40
-	android:required
-		ADDED from [com.google.android.gms:play-services-maps:8.4.0] /root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/8.4.0/AndroidManifest.xml:24:8-31
 activity#com.google.android.gms.ads.purchase.InAppPurchaseActivity
 ADDED from [com.google.android.gms:play-services-ads:8.4.0] /root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.4.0/AndroidManifest.xml:30:9-31:52
 	android:theme

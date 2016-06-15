@@ -2,10 +2,8 @@
 <resources>
 
     <string name="app_name" translatable="false">Travelr</string>
-
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
-
     <string name="action_settings" translatable="false">Apropos</string>
     <string name="create_profile">Creation du compte</string>
     <string name="welcome">zero morts sur nos routes</string>
@@ -28,8 +26,6 @@
         <item>"Véhicule en panne"</item>
         <item>"autre..."</item>
     </string-array>
-
-
     <string-array name="compagnies_names">
         <item>"Personnel"</item>
         <item>"Bucca Voyage"</item>
@@ -53,13 +49,10 @@
         <item>Bafia</item>
         <item>Dschang</item>
     </string-array>
-
     <string-array name="pub_images_names" translatable="false">
         <item>"we_need_advertisements"</item>
         <item>"new_york_forum_prix_jeune_entreprise"</item>
     </string-array>
-
-
     <string-array name="problem_level">
         <item>"1- léger"</item>
         <item>"2- sévère"</item>
@@ -84,26 +77,21 @@
     <string name="repeated_password_different_from_original">le mot de passe repété est différent du mot de passe; veuillez corriger</string>
     <string name="account_created">Informations sauvegardées; Compte créé avec succès avec pour pseudonyme </string>
     <string name="select_your_profile_image">sélectionnez votre photo de profil</string>
-
-
     <string name="transport_company">Quelle Compagnie?</string>
     <string name="phone_number">votre numéro de téléphone</string>
     <string name="relative_guardian">nom de votre proche</string>
     <string name="date_heure_voyage">date et heure du voyage</string>
     <string name="phone_number_guardian">Numero du proche</string>
-    <string name="confirmer_voyage">Confirmer un Voyage</string>
-    <string name="end_journey">Achever un Voyage</string>
-    <string name="annuler_voyage">Annuler un Voyage</string>
-    <string name="mettre_a_jour_parametres_voyage">MAJ. les détails d\'un Voyage</string>
-    <string name="journey_management">Gestion des Voyages</string>
+    <string name="confirmer_voyage">Confirmer le Voyage</string>
+    <string name="end_journey">Achever le Voyage</string>
+    <string name="annuler_voyage">Annuler le Voyage</string>
+    <string name="mettre_a_jour_parametres_voyage">MAJ. les détails du Voyage</string>
+    <string name="journey_management">Gestion du Voyage</string>
     <string name="journey_saved_successfull">Voyage sauvegardé avec succès</string>
     <string name="duree_label" translatable="false">\? (hh)</string>
-
-
     <string name="label_get_a_taxi">Trouver un Taxi!</string>
     <string name="check_position">Visualisez votre position</string>
     <string name="title_activity_main2" translatable="false">Main2Activity</string>
-
     <string name="interstitial_ad_sample" translatable="false">Interstitial Ad Sample</string>
     <string name="start_level" translatable="false">Level 1</string>
     <string name="next_level" translatable="false">Next Level</string>
@@ -112,6 +100,7 @@
         For more information, see https://support.google.com/admob/answer/3052638
     <!- -->
     <string name="interstitial_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+
     <string name="gps_disabled_message">Veuillez activer le GPS afin que nous puissions correctement estimer votre position et votre vitesse.</string>
     <string name="open_settings">Réglages</string>
     <string name="speed_limit_reached">Dépassement de la limite de vitesse réglémentaire</string>
@@ -135,10 +124,16 @@
     <string name="howserious">Niveaux de Gravité</string>
     <string name="departure">Ville de depart</string>
     <string name="destination">Destination</string>
-    <string name="journey_saved_failed">Echec d\\\'enregistrement du voyage. Re-essayer s\\\'il vpus plait</string>
+    <string name="journey_saved_failed">Echec d\'enregistrement du voyage. Re-essayer s\'il vous plait</string>
     <string name="travel_info">Informations sur le Voyage</string>
     <string name="depart">Depart: %s</string>
     <string name="arrivee">Destination: %s</string>
     <string name="datedepart">Date, Heure de depart: %s</string>
+    <string name="complete_trip_title">Voyage Complete</string>
+    <string name="complete_trip">Vous avez indiquer que votre voyage a bien été completé. Merci d\'avoir utilisé Travelr</string>
+    <string name="complete_trip_error_title">Erreure</string>
+    <string name="complete_trip_error">Une erreure s\'est produite. Veuillez reesayer.</string>
+    <string name="cencel_trip">Vous avez choisi d\'annuler ce voyage. Vous pouvez creé un nouveau si vous voyagez encore.</string>
+    <string name="cencel_trip_title">Annuler Le voyage</string>
 
 </resources>
