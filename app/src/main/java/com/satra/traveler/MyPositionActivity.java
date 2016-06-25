@@ -48,6 +48,8 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.LocationSource;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.satra.traveler.models.Trip;
@@ -588,6 +590,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             timedepart.setText(getString(R.string.datedepart, trip.getDate_start()));
         }
     }
+
     private void setDrawableStatus(TextView view, int status){
         switch (status){
             case 0:
@@ -605,6 +608,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 break;
         }
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -679,7 +683,16 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     @Override
     public void onLocationChanged(Location location) {
         LatLng userAddress = new LatLng(location.getLatitude(), location.getLongitude());
-        googleMap.addMarker(new MarkerOptions().position(userAddress).title("my position"));
+        CameraPosition cameraPosition = new CameraPosition.Builder()
+                .target(userAddress)
+                .tilt(45)
+                .zoom(17)
+                .build();
+        googleMap.addMarker(new MarkerOptions()
+                .position(userAddress)
+                .title(getString(R.string.myposition))
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_myposition)));
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(userAddress));
+        googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
 }

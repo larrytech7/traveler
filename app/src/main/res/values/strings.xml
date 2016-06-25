@@ -135,5 +135,6 @@
     <string name="complete_trip_error">Une erreure s\'est produite. Veuillez reesayer.</string>
     <string name="cencel_trip">Vous avez choisi d\'annuler ce voyage. Vous pouvez creé un nouveau si vous voyagez encore.</string>
     <string name="cencel_trip_title">Annuler Le voyage</string>
+    <string name="myposition">Ma Position actuel</string>
 
 </resources>

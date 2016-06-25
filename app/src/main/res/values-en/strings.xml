@@ -104,5 +104,6 @@
     <string name="complete_trip_error_title">Error</string>
     <string name="complete_trip_error">An error occured. Please try again</string>
     <string name="complete_trip_title">Trip completed</string>
+    <string name="myposition">My current location</string>
 
 </resources>
