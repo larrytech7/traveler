@@ -278,7 +278,6 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     @Override
     protected void onResume() {
         super.onResume();
-        drawer.openDrawer(GravityCompat.START);
     }
 
     @Override
@@ -672,6 +671,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     protected void onStart() {
         super.onStart();
         setupCurrentTrip();
+        drawer.openDrawer(GravityCompat.START);
     }
 
     @Override

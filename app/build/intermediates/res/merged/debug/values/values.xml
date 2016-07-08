@@ -438,6 +438,7 @@
     <string name="matriculation_number">No d\'immatriculation du vehicule</string>
     <string name="mettre_a_jour_parametres_voyage">MAJ. les détails du Voyage</string>
     <string name="my_location">Ma Position</string>
+    <string name="myposition">Ma Position actuel</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="new_repport_complaint">Rapporter un Problème</string>
@@ -461,7 +462,7 @@
     <string name="send">Envoyer</string>
     <string name="situation">Choisissez la situation?</string>
     <string name="snap_image">Capturer une image</string>
-    <string name="speed_dimen">Vitesse (Km/Hr)</string>
+    <string name="speed_dimen">Vitesse (Kmph)</string>
     <string name="speed_limit_reached">Dépassement de la limite de vitesse réglémentaire</string>
     <string name="speed_limit_reached_ago">Vous avez dépassé la limite de vitesse autorisée</string>
     <string name="speed_limit_reached_msg">Vous venez de dépasser la limite de vitesse réglémentaire pour la zone où vous vous trouvez (</string>

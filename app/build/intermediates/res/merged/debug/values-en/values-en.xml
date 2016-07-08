@@ -64,6 +64,7 @@
     <string name="matriculation_number">Vehicle Immatriculation number</string>
     <string name="mettre_a_jour_parametres_voyage">Update travel details</string>
     <string name="my_location">My Position</string>
+    <string name="myposition">My current location</string>
     <string name="new_repport_complaint">Report Problem</string>
     <string name="no_telephone">phone number</string>
     <string name="open_settings">Settings</string>
@@ -84,7 +85,7 @@
     <string name="send">Send</string>
     <string name="situation">Choose the situation</string>
     <string name="snap_image">Snap a picture</string>
-    <string name="speed_dimen">Speed (Km/Hr)</string>
+    <string name="speed_dimen">Speed (Kmph)</string>
     <string name="speed_limit_reached">Exceeding the statutory speed limit</string>
     <string name="speed_limit_reached_ago">You have exceeded speed limit</string>
     <string name="speed_limit_reached_msg">You just passed the legal speed limit for the area where you are (</string>

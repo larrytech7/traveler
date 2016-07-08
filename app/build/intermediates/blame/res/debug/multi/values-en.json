@@ -122,14 +122,7 @@
                     "endOffset": 1423
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml",
-                    "position": {
-                        "startLine": 101,
-                        "startColumn": 4,
-                        "startOffset": 5682,
-                        "endColumn": 138,
-                        "endOffset": 5816
-                    }
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
                 }
             },
             {
@@ -141,14 +134,7 @@
                     "endOffset": 1486
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml",
-                    "position": {
-                        "startLine": 100,
-                        "startColumn": 4,
-                        "startOffset": 5619,
-                        "endColumn": 62,
-                        "endOffset": 5677
-                    }
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
                 }
             },
             {
@@ -184,14 +170,7 @@
                     "endOffset": 1731
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml",
-                    "position": {
-                        "startLine": 102,
-                        "startColumn": 4,
-                        "startOffset": 5821,
-                        "endColumn": 123,
-                        "endOffset": 5940
-                    }
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
                 }
             },
             {
@@ -203,14 +182,7 @@
                     "endOffset": 1814
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml",
-                    "position": {
-                        "startLine": 104,
-                        "startColumn": 4,
-                        "startOffset": 6005,
-                        "endColumn": 82,
-                        "endOffset": 6083
-                    }
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
                 }
             },
             {
@@ -222,14 +194,7 @@
                     "endOffset": 1874
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml",
-                    "position": {
-                        "startLine": 103,
-                        "startColumn": 4,
-                        "startOffset": 5945,
-                        "endColumn": 59,
-                        "endOffset": 6000
-                    }
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
                 }
             },
             {
@@ -241,14 +206,7 @@
                     "endOffset": 1937
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml",
-                    "position": {
-                        "startLine": 105,
-                        "startColumn": 4,
-                        "startOffset": 6088,
-                        "endColumn": 62,
-                        "endOffset": 6146
-                    }
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
                 }
             },
             {
@@ -580,20 +538,27 @@
                     "startLine": 66,
                     "startColumn": 4,
                     "startOffset": 3802,
-                    "endColumn": 64,
-                    "endOffset": 3862
+                    "endColumn": 58,
+                    "endOffset": 3856
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml",
+                    "position": {
+                        "startLine": 106,
+                        "startColumn": 4,
+                        "startOffset": 6150,
+                        "endColumn": 58,
+                        "endOffset": 6204
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 67,
                     "startColumn": 4,
-                    "startOffset": 3867,
-                    "endColumn": 53,
-                    "endOffset": 3916
+                    "startOffset": 3861,
+                    "endColumn": 64,
+                    "endOffset": 3921
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -603,9 +568,9 @@
                 "to": {
                     "startLine": 68,
                     "startColumn": 4,
-                    "startOffset": 3921,
-                    "endColumn": 50,
-                    "endOffset": 3967
+                    "startOffset": 3926,
+                    "endColumn": 53,
+                    "endOffset": 3975
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -615,9 +580,9 @@
                 "to": {
                     "startLine": 69,
                     "startColumn": 4,
-                    "startOffset": 3972,
-                    "endColumn": 45,
-                    "endOffset": 4013
+                    "startOffset": 3980,
+                    "endColumn": 50,
+                    "endOffset": 4026
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -627,9 +592,9 @@
                 "to": {
                     "startLine": 70,
                     "startColumn": 4,
-                    "startOffset": 4018,
-                    "endColumn": 59,
-                    "endOffset": 4073
+                    "startOffset": 4031,
+                    "endColumn": 45,
+                    "endOffset": 4072
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -639,8 +604,8 @@
                 "to": {
                     "startLine": 71,
                     "startColumn": 4,
-                    "startOffset": 4078,
-                    "endColumn": 58,
+                    "startOffset": 4077,
+                    "endColumn": 59,
                     "endOffset": 4132
                 },
                 "from": {
@@ -652,8 +617,8 @@
                     "startLine": 72,
                     "startColumn": 4,
                     "startOffset": 4137,
-                    "endColumn": 74,
-                    "endOffset": 4207
+                    "endColumn": 58,
+                    "endOffset": 4191
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -663,9 +628,9 @@
                 "to": {
                     "startLine": 73,
                     "startColumn": 4,
-                    "startOffset": 4212,
-                    "endColumn": 91,
-                    "endOffset": 4299
+                    "startOffset": 4196,
+                    "endColumn": 74,
+                    "endOffset": 4266
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -675,9 +640,9 @@
                 "to": {
                     "startLine": 74,
                     "startColumn": 4,
-                    "startOffset": 4304,
-                    "endColumn": 96,
-                    "endOffset": 4396
+                    "startOffset": 4271,
+                    "endColumn": 91,
+                    "endOffset": 4358
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -687,9 +652,9 @@
                 "to": {
                     "startLine": 75,
                     "startColumn": 4,
-                    "startOffset": 4401,
-                    "endColumn": 73,
-                    "endOffset": 4470
+                    "startOffset": 4363,
+                    "endColumn": 96,
+                    "endOffset": 4455
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -699,9 +664,9 @@
                 "to": {
                     "startLine": 76,
                     "startColumn": 4,
-                    "startOffset": 4475,
-                    "endColumn": 117,
-                    "endOffset": 4588
+                    "startOffset": 4460,
+                    "endColumn": 73,
+                    "endOffset": 4529
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -711,9 +676,9 @@
                 "to": {
                     "startLine": 77,
                     "startColumn": 4,
-                    "startOffset": 4593,
-                    "endColumn": 87,
-                    "endOffset": 4676
+                    "startOffset": 4534,
+                    "endColumn": 117,
+                    "endOffset": 4647
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -723,9 +688,9 @@
                 "to": {
                     "startLine": 78,
                     "startColumn": 4,
-                    "startOffset": 4681,
-                    "endColumn": 96,
-                    "endOffset": 4773
+                    "startOffset": 4652,
+                    "endColumn": 87,
+                    "endOffset": 4735
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -735,9 +700,9 @@
                 "to": {
                     "startLine": 79,
                     "startColumn": 4,
-                    "startOffset": 4778,
-                    "endColumn": 64,
-                    "endOffset": 4838
+                    "startOffset": 4740,
+                    "endColumn": 96,
+                    "endOffset": 4832
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -747,9 +712,9 @@
                 "to": {
                     "startLine": 80,
                     "startColumn": 4,
-                    "startOffset": 4843,
-                    "endColumn": 130,
-                    "endOffset": 4969
+                    "startOffset": 4837,
+                    "endColumn": 64,
+                    "endOffset": 4897
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -759,9 +724,9 @@
                 "to": {
                     "startLine": 81,
                     "startColumn": 4,
-                    "startOffset": 4974,
-                    "endColumn": 37,
-                    "endOffset": 5007
+                    "startOffset": 4902,
+                    "endColumn": 130,
+                    "endOffset": 5028
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -771,9 +736,9 @@
                 "to": {
                     "startLine": 82,
                     "startColumn": 4,
-                    "startOffset": 5012,
-                    "endColumn": 81,
-                    "endOffset": 5089
+                    "startOffset": 5033,
+                    "endColumn": 37,
+                    "endOffset": 5066
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -783,9 +748,9 @@
                 "to": {
                     "startLine": 83,
                     "startColumn": 4,
-                    "startOffset": 5094,
-                    "endColumn": 37,
-                    "endOffset": 5127
+                    "startOffset": 5071,
+                    "endColumn": 81,
+                    "endOffset": 5148
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -795,8 +760,8 @@
                 "to": {
                     "startLine": 84,
                     "startColumn": 4,
-                    "startOffset": 5132,
-                    "endColumn": 58,
+                    "startOffset": 5153,
+                    "endColumn": 37,
                     "endOffset": 5186
                 },
                 "from": {
@@ -808,8 +773,8 @@
                     "startLine": 85,
                     "startColumn": 4,
                     "startOffset": 5191,
-                    "endColumn": 53,
-                    "endOffset": 5240
+                    "endColumn": 58,
+                    "endOffset": 5245
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -819,9 +784,9 @@
                 "to": {
                     "startLine": 86,
                     "startColumn": 4,
-                    "startOffset": 5245,
+                    "startOffset": 5250,
                     "endColumn": 53,
-                    "endOffset": 5294
+                    "endOffset": 5299
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -831,21 +796,28 @@
                 "to": {
                     "startLine": 87,
                     "startColumn": 4,
-                    "startOffset": 5299,
-                    "endColumn": 83,
-                    "endOffset": 5378
+                    "startOffset": 5304,
+                    "endColumn": 52,
+                    "endOffset": 5352
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml",
+                    "position": {
+                        "startLine": 84,
+                        "startColumn": 4,
+                        "startOffset": 4678,
+                        "endColumn": 52,
+                        "endOffset": 4726
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 88,
                     "startColumn": 4,
-                    "startOffset": 5383,
-                    "endColumn": 81,
-                    "endOffset": 5460
+                    "startOffset": 5357,
+                    "endColumn": 83,
+                    "endOffset": 5436
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -855,9 +827,9 @@
                 "to": {
                     "startLine": 89,
                     "startColumn": 4,
-                    "startOffset": 5465,
-                    "endColumn": 118,
-                    "endOffset": 5579
+                    "startOffset": 5441,
+                    "endColumn": 81,
+                    "endOffset": 5518
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -867,9 +839,9 @@
                 "to": {
                     "startLine": 90,
                     "startColumn": 4,
-                    "startOffset": 5584,
-                    "endColumn": 60,
-                    "endOffset": 5640
+                    "startOffset": 5523,
+                    "endColumn": 118,
+                    "endOffset": 5637
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -879,9 +851,9 @@
                 "to": {
                     "startLine": 91,
                     "startColumn": 4,
-                    "startOffset": 5645,
-                    "endColumn": 56,
-                    "endOffset": 5697
+                    "startOffset": 5642,
+                    "endColumn": 60,
+                    "endOffset": 5698
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -891,9 +863,9 @@
                 "to": {
                     "startLine": 92,
                     "startColumn": 4,
-                    "startOffset": 5702,
-                    "endColumn": 53,
-                    "endOffset": 5751
+                    "startOffset": 5703,
+                    "endColumn": 56,
+                    "endOffset": 5755
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -903,9 +875,9 @@
                 "to": {
                     "startLine": 93,
                     "startColumn": 4,
-                    "startOffset": 5756,
-                    "endColumn": 45,
-                    "endOffset": 5797
+                    "startOffset": 5760,
+                    "endColumn": 53,
+                    "endOffset": 5809
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -915,9 +887,9 @@
                 "to": {
                     "startLine": 94,
                     "startColumn": 4,
-                    "startOffset": 5802,
-                    "endColumn": 81,
-                    "endOffset": 5879
+                    "startOffset": 5814,
+                    "endColumn": 45,
+                    "endOffset": 5855
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -927,9 +899,9 @@
                 "to": {
                     "startLine": 95,
                     "startColumn": 4,
-                    "startOffset": 5884,
-                    "endColumn": 56,
-                    "endOffset": 5936
+                    "startOffset": 5860,
+                    "endColumn": 81,
+                    "endOffset": 5937
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -939,9 +911,9 @@
                 "to": {
                     "startLine": 96,
                     "startColumn": 4,
-                    "startOffset": 5941,
-                    "endColumn": 58,
-                    "endOffset": 5995
+                    "startOffset": 5942,
+                    "endColumn": 56,
+                    "endOffset": 5994
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -951,9 +923,9 @@
                 "to": {
                     "startLine": 97,
                     "startColumn": 4,
-                    "startOffset": 6000,
+                    "startOffset": 5999,
                     "endColumn": 58,
-                    "endOffset": 6054
+                    "endOffset": 6053
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
@@ -963,9 +935,21 @@
                 "to": {
                     "startLine": 98,
                     "startColumn": 4,
-                    "startOffset": 6059,
+                    "startOffset": 6058,
+                    "endColumn": 58,
+                    "endOffset": 6112
+                },
+                "from": {
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 99,
+                    "startColumn": 4,
+                    "startOffset": 6117,
                     "endColumn": 60,
-                    "endOffset": 6115
+                    "endOffset": 6173
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/values-en/strings.xml"

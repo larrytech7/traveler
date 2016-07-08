@@ -115,7 +115,7 @@
     <string name="about_message">Avec Travelr, c\'est Zero mort sur nos route. <br/>Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br/> Version 3.9.9</string>
     <string name="about_title">Apropos</string>
     <string name="login">Continuer</string>
-    <string name="speed_dimen">Vitesse (Km/Hr)</string>
+    <string name="speed_dimen">Vitesse (Kmph)</string>
     <string name="trip_agency">Agence de Voyage</string>
     <string name="cancel">Annuler</string>
     <string name="save">Sauvegarder</string>

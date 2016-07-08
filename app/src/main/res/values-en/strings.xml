@@ -82,7 +82,7 @@
         <item>"5- carnage"</item>
     </string-array>
     <string name="about_title">About</string>
-    <string name="speed_dimen">Speed (Km/Hr)</string>
+    <string name="speed_dimen">Speed (Kmph)</string>
     <string name="login">Continue</string>
     <string name="about_message">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 3.9.9</string>
     <string name="cancel">Cancel</string>

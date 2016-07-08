@@ -195,9 +195,9 @@ ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidM
 	android:name
 		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:74:13-47
 meta-data#com.google.android.geo.API_KEY
-ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:79:9-81:44
+ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:79:9-81:71
 	android:value
-		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:81:13-41
+		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:81:13-68
 	android:name
 		ADDED from /root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/AndroidManifest.xml:80:13-58
 meta-data#com.google.android.gms.version
