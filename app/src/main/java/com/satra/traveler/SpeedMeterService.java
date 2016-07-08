@@ -324,7 +324,7 @@ public class SpeedMeterService extends Service {
 
         String displayedSpeed = vitesse >= MAX_VITESSE_METRE_SECONDE ? " (" + Tutility.round(vitesse * COEFF_CONVERSION_MS_KMH) + " KM/H" + ")" : " (" + Tutility.round(vitesse) + " m/s)";
 
-        showPersistentNotification(displayedSpeed);
+        //showPersistentNotification(displayedSpeed);
 
         editor.putFloat(TConstants.SPEED_PREF, vitesse);
         editor.commit();
@@ -333,13 +333,13 @@ public class SpeedMeterService extends Service {
 
         if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_ALLOWED_KMH){
             if(!hasReachLimit) {
-                showNotification(displayedSpeed);
+               // showNotification(displayedSpeed);
                 hasReachLimit = true;
             }
         }
         else{
             if(hasReachLimit) {
-                hideNotification();
+                //hideNotification();
                 id++;
                 hasReachLimit = false;
             }
