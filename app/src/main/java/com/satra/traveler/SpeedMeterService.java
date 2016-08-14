@@ -333,7 +333,7 @@ public class SpeedMeterService extends Service {
 
         if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_ALLOWED_KMH){
             if(!hasReachLimit) {
-               // showNotification(displayedSpeed);
+                showNotification(displayedSpeed);
                 hasReachLimit = true;
             }
         }

@@ -10,4 +10,5 @@ public class TConstants {
     public static final String PREF_USERNAME = "username";
     public static final String PREF_PHONE = "telephone";
     public static final String SPEED_PREF = "vitesse";
+    public static final String PREF_MATRICULE = "MATRICULE";
 }

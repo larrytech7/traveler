@@ -2,7 +2,7 @@
 <resources>
 
     <string name="create_profile">Account Creation </string>
-    <string name="welcome">zero deaths on our roads</string>
+    <string name="welcome">Zero deaths on our roads. Remain Alert and safe with Travelr</string>
     <string name="username">username</string>
     <string name="password">password</string>
     <string name="password_again">password (again)</string>
@@ -21,7 +21,7 @@
         <item>"Dammaged vehicle"</item>
         <item>"Other..."</item>
     </string-array>
-        <string name="matriculation_number">Vehicle Immatriculation number</string>
+        <string name="matriculation_number">Vehicle Immatriculation</string>
         <string name="description">Description</string>
 		    <string name="load_image">Upload a picture</string>
     <string name="snap_image">Snap a picture</string>
@@ -105,5 +105,7 @@
     <string name="complete_trip_error">An error occured. Please try again</string>
     <string name="complete_trip_title">Trip completed</string>
     <string name="myposition">My current location</string>
+    <string name="votre_message">Your Message</string>
+    <string name="title_activity_messaging"></string>
 
 </resources>

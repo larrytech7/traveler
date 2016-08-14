@@ -1,2 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3627eacd7f7cafb5e8ae683992e7b2f9b7dcab1a">
+        <dex dex="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-common-9.2.1_5f0f4231167a33653c10540e184a32b9db7f10cf.jar" />
+    </item>
+    <item
+        jar="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="82ce13fd19cdfde0e392f03c27edeba8d4333648">
+        <dex dex="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/pre-dexed/debug/com.android.support-cardview-v7-23.3.0_1b7cb8dc522ca8ad1bf040e530097e811031c4a0.jar" />
+    </item>
+    <item
+        jar="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.1.1_69a653b137922b0807c3ff77315aa4ee90aea9fb.jar" />
+    </item>
+    <item
+        jar="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/9.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="310ef01419435979cc82847cf085799a8d00e7e9">
+        <dex dex="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-ads-lite-9.2.1_16e5df0bfe685d2e19c9e3bccf6ba0e1e772afd8.jar" />
+    </item>
+    <item
+        jar="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/9.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6d2f508d1a9fa0fbe1653595e484800c08afb42c">
+        <dex dex="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-ads-9.2.1_089898cb6dc970d93aea6d7d2f68579524b04182.jar" />
+    </item>
+    <item
+        jar="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="819c2c3a4fb135e085445d11131d069cf9c32b2a">
+        <dex dex="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-9.2.1_10e6ce14d2d62b0ab9209a4af2374d8d9f7b51c1.jar" />
+    </item>
+    <item
+        jar="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-23.1.1_df23ff5e8b7560e8cd3a16d9023d5e2562145722.jar" />
+    </item>
+    <item
+        jar="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/design/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/pre-dexed/debug/com.android.support-design-23.1.1_146c8417107da09441bb6e49616e1b2c25f318c2.jar" />
+    </item>
+    <item
+        jar="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.github.medyo/fancybuttons/1.8.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="1d2264766f0334470f9917ead03eab24c55c26c9">
+        <dex dex="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/pre-dexed/debug/com.github.medyo-fancybuttons-1.8.1_caf7ba30f976409fae7a5a3aaedf8835666e3410.jar" />
+    </item>
+    <item
+        jar="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="421b36cf4f0d3bbd75e8f28647fccf36674ef049">
+        <dex dex="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-9.2.1_2717ced84cf4803b1db39c057b78990998827d81.jar" />
+    </item>
+    <item
+        jar="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.github.satyan/sugar/1.5/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="19a40a8afe0289f6520b25353096ac233e78f69d">
+        <dex dex="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/pre-dexed/debug/com.github.satyan-sugar-1.5_a40d10e451060355b1a9c4fdd4a46005d235612e.jar" />
+    </item>
+    <item
+        jar="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.1.1_8d0f586777ca86be805eb2f87e83acf916d8a6bf.jar" />
+    </item>
+    <item
+        jar="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/9.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ee19e33a798d11a5cf309a40155b8223fadcdeea">
+        <dex dex="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-appindexing-9.2.1_f8f52378bd9566797fb7419878cd91be061b5a63.jar" />
+    </item>
+    <item
+        jar="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6b896c1067633db41e9c10a3a5d0919c5c4cfc8c">
+        <dex dex="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-9.2.1_ab0a72f18a9bece684f6006e619c63c4cd0760b0.jar" />
+    </item>
+    <item
+        jar="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-clearcut/9.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="90eeba67a669f8fb24db0f821ef81703fe7a02bc">
+        <dex dex="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-clearcut-9.2.1_82c4a8ca2d9d66705fecc3b8e6d766bce99e61fc.jar" />
+    </item>
+    <item
+        jar="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="bbd51be332bace144b3d16501ec0af379c3c8750">
+        <dex dex="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-maps-9.2.1_e3620b86918b1f410c998074c0ed73f9a707f420.jar" />
+    </item>
+    <item
+        jar="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gass/9.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="081ced8ab77e606b6743c27cfe93dc450447b046">
+        <dex dex="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-gass-9.2.1_fcb97c7d243da4106e60b0e1179669c738d53dd9.jar" />
+    </item>
+    <item
+        jar="/root/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.1_39103d70a28be26aa180fbd0a20dfc6c5f1461c6.jar" />
+    </item>
+    <item
+        jar="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.1_75b73b85795abb5415a3082190c1df4ae638ecaf.jar" />
+    </item>
+    <item
+        jar="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.cardiomood.android/android-widgets/0.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c05b677d8aca4e437294460acbc6f4d4bd9cfa0c">
+        <dex dex="/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/pre-dexed/debug/com.cardiomood.android-android-widgets-0.1.1_09f09416887a2912c0ffcc27eb7d77f22ec9469d.jar" />
+    </item>
+
+</items>

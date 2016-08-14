@@ -172,6 +172,10 @@
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-xxxhdpi\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
+        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_send_light_blue_700_18dp.png",
+        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-xxxhdpi/ic_send_light_blue_700_18dp.png"
+    },
+    {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-xxxhdpi\\abc_scrubber_control_to_pressed_mtrl_005.png"
     },

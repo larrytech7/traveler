@@ -17,7 +17,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.satra.traveler.utils.TConstants;
@@ -32,8 +31,7 @@ public class MainActivity extends Activity {
 
 	final private static int DIALOG_SIGNUP = 1;
 	private static int GET_FROM_GALLERY=2;
-	TextView panneauPub;
-	EditText username, telephone;
+	EditText username, matricule;
 	FancyButton buttonLogin;
 	ImageButton profilePicture;
 
@@ -44,7 +42,8 @@ public class MainActivity extends Activity {
 
 		if(getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0).contains(TConstants.PREF_USERNAME)){
 			Toast.makeText(getApplicationContext(), getString(R.string.connexion_with_username)+" "
-                    +getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0).getString(TConstants.PREF_USERNAME, "anonyme"),
+                    +getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
+					.getString(TConstants.PREF_USERNAME, "anonyme-Travelr"),
                     Toast.LENGTH_LONG)
                     .show();
 			startActivity(new Intent(getApplicationContext(), MyPositionActivity.class));
@@ -53,7 +52,7 @@ public class MainActivity extends Activity {
 
 		//panneauPub = (TextView)findViewById(R.id.panneau_pub);
 		username = (EditText)findViewById(R.id.username);
-        telephone = (EditText)findViewById(R.id.no_telephone);
+        matricule = (EditText)findViewById(R.id.matricule);
 
 		buttonLogin = (FancyButton)findViewById(R.id.button_login);
 
@@ -61,7 +60,7 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				if(username.getText().toString().isEmpty() ||telephone.getText().toString().isEmpty()){
+				if(username.getText().toString().isEmpty() ||matricule.getText().toString().isEmpty()){
 
 					Toast.makeText(getApplicationContext(), getString(R.string.provide_all_fields)+"...", Toast.LENGTH_LONG).show();
 					return;
@@ -80,11 +79,11 @@ public class MainActivity extends Activity {
 				);
 				ad.setPositiveButton(R.string.username_confirm_yes_label, new android.content.DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int arg1) {
-
 								SharedPreferences prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0);
 								SharedPreferences.Editor editor = prefs.edit();
 								editor.putString(TConstants.PREF_USERNAME, username.getText().toString());
-                                editor.putString(TConstants.PREF_PHONE, telephone.getText().toString());
+                                //editor.putString(TConstants.PREF_PHONE, telephone.getText().toString());
+                                editor.putString(TConstants.PREF_MATRICULE, matricule.getText().toString());
 								editor.commit();
 								Toast.makeText(getApplicationContext(), getString(R.string.connexion_with_username) + " " + username.getText(), Toast.LENGTH_LONG).show();
 								startActivity(new Intent(getApplicationContext(), MyPositionActivity.class));
@@ -156,7 +155,6 @@ public class MainActivity extends Activity {
 					}
 				});
 
-
 				profilePicture.setOnClickListener(new OnClickListener() {
 
 					@Override
@@ -166,9 +164,6 @@ public class MainActivity extends Activity {
 
 					}
 				});
-
-
-
 				buttonCancel.setOnClickListener(new View.OnClickListener() {
 
 					@Override
