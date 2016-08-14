@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -79,10 +80,11 @@ public class MainActivity extends Activity {
 				);
 				ad.setPositiveButton(R.string.username_confirm_yes_label, new android.content.DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int arg1) {
+                                TelephonyManager telephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
 								SharedPreferences prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0);
 								SharedPreferences.Editor editor = prefs.edit();
 								editor.putString(TConstants.PREF_USERNAME, username.getText().toString());
-                                //editor.putString(TConstants.PREF_PHONE, telephone.getText().toString());
+                                editor.putString(TConstants.PREF_PHONE, telephonyManager.getLine1Number());
                                 editor.putString(TConstants.PREF_MATRICULE, matricule.getText().toString());
 								editor.commit();
 								Toast.makeText(getApplicationContext(), getString(R.string.connexion_with_username) + " " + username.getText(), Toast.LENGTH_LONG).show();

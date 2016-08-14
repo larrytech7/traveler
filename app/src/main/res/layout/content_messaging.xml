@@ -14,23 +14,35 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/messageRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
     <LinearLayout
+        android:id="@+id/chatLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <EditText
-            android:id="@+id/messageText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="1"
-            android:hint="@string/votre_message"/>
+            android:elevation="@dimen/margin_layout"
+            app:cardBackgroundColor="@color/themeBG"
+            app:cardCornerRadius="@dimen/btn_small_padding">
+            <EditText
+                android:id="@+id/messageText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:background="@android:color/transparent"
+                android:hint="@string/votre_message"/>
+        </android.support.v7.widget.CardView>
+
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fabSend"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="center_vertical"
+            android:layout_margin="@dimen/margin_layout"
             android:src="@drawable/ic_send"
             app:backgroundTint="@android:color/holo_blue_light" />
     </LinearLayout>

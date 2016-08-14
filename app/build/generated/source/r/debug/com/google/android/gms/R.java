@@ -169,7 +169,7 @@ public final class R {
 		public static final int satellite = 0x7f0d0042;
 		public static final int standard = 0x7f0d0054;
 		public static final int terrain = 0x7f0d0043;
-		public static final int text = 0x7f0d00b1;
+		public static final int text = 0x7f0d00b2;
 		public static final int text1 = 0x7f0d0037;
 		public static final int text2 = 0x7f0d0038;
 		public static final int thing_proto = 0x7f0d0039;

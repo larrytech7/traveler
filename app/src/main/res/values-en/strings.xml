@@ -106,6 +106,6 @@
     <string name="complete_trip_title">Trip completed</string>
     <string name="myposition">My current location</string>
     <string name="votre_message">Your Message</string>
-    <string name="title_activity_messaging"></string>
+    <string name="title_activity_messaging">Messages</string>
 
 </resources>

@@ -89,7 +89,7 @@
     <string name="speed_limit_reached">Exceeding the statutory speed limit</string>
     <string name="speed_limit_reached_ago">You have exceeded speed limit</string>
     <string name="speed_limit_reached_msg">You just passed the legal speed limit for the area where you are (</string>
-    <string name="title_activity_messaging"/>
+    <string name="title_activity_messaging">Messages</string>
     <string name="transport_company">Which Company?</string>
     <string name="travel_info">Trip information</string>
     <string name="trip_agency">Travel Agency</string>
