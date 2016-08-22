@@ -70,7 +70,7 @@
                 android:layout_marginTop="20dp"
                 android:ems="10"
                 android:hint="@string/matriculation_number"
-                android:inputType="phone"
+                android:inputType="textCapSentences|textPostalAddress"
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textColor="@color/abc_search_url_text_selected" />
