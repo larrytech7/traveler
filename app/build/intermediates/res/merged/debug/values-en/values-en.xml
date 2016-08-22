@@ -61,9 +61,10 @@
     <string name="load_image">Upload a picture</string>
     <string name="login">Continue</string>
     <string name="main_menu_activity_title">Home</string>
-    <string name="matriculation_number">Vehicle Immatriculation number</string>
+    <string name="matriculation_number">Vehicle Immatriculation</string>
     <string name="mettre_a_jour_parametres_voyage">Update travel details</string>
     <string name="my_location">My Position</string>
+    <string name="myposition">My current location</string>
     <string name="new_repport_complaint">Report Problem</string>
     <string name="no_telephone">phone number</string>
     <string name="open_settings">Settings</string>
@@ -84,10 +85,11 @@
     <string name="send">Send</string>
     <string name="situation">Choose the situation</string>
     <string name="snap_image">Snap a picture</string>
-    <string name="speed_dimen">Speed (Km/Hr)</string>
+    <string name="speed_dimen">Speed (Kmph)</string>
     <string name="speed_limit_reached">Exceeding the statutory speed limit</string>
     <string name="speed_limit_reached_ago">You have exceeded speed limit</string>
     <string name="speed_limit_reached_msg">You just passed the legal speed limit for the area where you are (</string>
+    <string name="title_activity_messaging">Messages</string>
     <string name="transport_company">Which Company?</string>
     <string name="travel_info">Trip information</string>
     <string name="trip_agency">Travel Agency</string>
@@ -96,5 +98,6 @@
     <string name="username_confirm_no_label">no</string>
     <string name="username_confirm_title">Confirm</string>
     <string name="username_confirm_yes_label">yes</string>
-    <string name="welcome">zero deaths on our roads</string>
+    <string name="votre_message">Your Message</string>
+    <string name="welcome">Zero deaths on our roads. Remain Alert and safe with Travelr</string>
 </resources>

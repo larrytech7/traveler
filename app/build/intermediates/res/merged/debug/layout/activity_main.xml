@@ -17,16 +17,23 @@
         android:id="@+id/icone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="40dp"
-        android:drawableBottom="@mipmap/ic_launcher"
+        android:layout_marginEnd="@dimen/card_corner_radius"
+        android:layout_marginLeft="@dimen/card_corner_radius"
+        android:layout_marginRight="@dimen/card_corner_radius"
+        android:layout_marginStart="@dimen/card_corner_radius"
+        android:layout_marginTop="25dp"
         android:drawablePadding="10dp"
         android:text="@string/welcome"
+        android:textAlignment="center"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textSize="25dp" />
-
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="110dp"
+        android:layout_gravity="center"
+        android:src="@mipmap/ic_launcher"/>
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -54,7 +61,7 @@
                 android:textColor="@color/abc_search_url_text_selected" />
 
             <EditText
-                android:id="@+id/no_telephone"
+                android:id="@+id/matricule"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -62,8 +69,8 @@
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="20dp"
                 android:ems="10"
-                android:hint="@string/no_telephone"
-                android:inputType="phone"
+                android:hint="@string/matriculation_number"
+                android:inputType="textCapSentences|textPostalAddress"
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textColor="@color/abc_search_url_text_selected" />

@@ -19,7 +19,8 @@
     <permission
         android:name="com.polytech.hospitalmap.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
-    <uses-permission android:name="com.polytech.hospitalmap.permission.MAPS_RECEIVE"/>
+
+    <uses-permission android:name="com.polytech.hospitalmap.permission.MAPS_RECEIVE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
     <uses-feature
@@ -49,6 +50,7 @@
         <uses-feature
             android:glEsVersion="0x00020000"
             android:required="true" />
+
         <meta-data
             android:name="DATABASE"
             android:value="satra.com.db.travelr" />
@@ -78,7 +80,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyC-oZqedAGgkIJH0Z66Sk3Z9rDEJ5e334k" />
+            android:value="AIzaSyDJKE5XlUEcpTgraqFd_ppnkZ2rGcjjA5s" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -93,7 +95,7 @@
             android:name=".SpeedMeterService"
             android:enabled="true"
             android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"></service>
+            android:label="@string/app_name" />
 
         <receiver
             android:name=".BootBroadcastReceiver"
@@ -111,6 +113,16 @@
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name=".MessagingActivity"
+            android:label="@string/title_activity_messaging"
+            android:parentActivityName=".MyPositionActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.satra.traveler.MyPositionActivity" />
+        </activity>
     </application>
 
 </manifest>

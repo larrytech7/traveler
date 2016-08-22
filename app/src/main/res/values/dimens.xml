@@ -13,4 +13,5 @@
     <dimen name="card_corner_radius">5dp</dimen>
     <dimen name="card_elevation">5dp</dimen>
     <dimen name="btn_small_padding">10dp</dimen>
+    <dimen name="margin_layout">5dp</dimen>
 </resources>

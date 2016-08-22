@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
 
 import com.satra.traveler.models.Trip;
+import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
 
 import java.util.List;
@@ -36,7 +38,11 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
             mainIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             context.startActivity(mainIntent);
         } else if (id == R.id.nav_repport_complaint) {
-            context.showDialog(DIALOG_NEW_COMPLAINT);
+            Intent msgIntent = new Intent(context, MessagingActivity.class);
+            String matricule = PreferenceManager.getDefaultSharedPreferences(context).getString(TConstants.PREF_MATRICULE,"");
+            msgIntent.putExtra(TConstants.PREF_MATRICULE,matricule);
+            context.startActivity(msgIntent);
+//            context.showDialog(DIALOG_NEW_COMPLAINT);
         }
         else if (id == R.id.nav_new_journey) {
             context.showDialog(DIALOG_NEW_JOURNEY);

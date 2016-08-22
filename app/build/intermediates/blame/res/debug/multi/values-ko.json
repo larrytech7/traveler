@@ -368,17 +368,17 @@
                     "startLine": 21,
                     "startColumn": 4,
                     "startOffset": 1940,
-                    "endColumn": 210,
-                    "endOffset": 2146
+                    "endColumn": 67,
+                    "endOffset": 2003
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 24,
+                        "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 3093,
-                        "endColumn": 214,
-                        "endOffset": 3303
+                        "startOffset": 280,
+                        "endColumn": 67,
+                        "endOffset": 343
                     }
                 }
             },
@@ -386,18 +386,18 @@
                 "to": {
                     "startLine": 22,
                     "startColumn": 4,
-                    "startOffset": 2151,
-                    "endColumn": 118,
-                    "endOffset": 2265
+                    "startOffset": 2008,
+                    "endColumn": 210,
+                    "endOffset": 2214
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 10,
+                        "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 1199,
-                        "endColumn": 118,
-                        "endOffset": 1313
+                        "startOffset": 329,
+                        "endColumn": 210,
+                        "endOffset": 535
                     }
                 }
             },
@@ -405,18 +405,18 @@
                 "to": {
                     "startLine": 23,
                     "startColumn": 4,
-                    "startOffset": 2270,
-                    "endColumn": 170,
-                    "endOffset": 2436
+                    "startOffset": 2219,
+                    "endColumn": 118,
+                    "endOffset": 2333
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 9,
+                        "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 1024,
-                        "endColumn": 174,
-                        "endOffset": 1194
+                        "startOffset": 540,
+                        "endColumn": 118,
+                        "endOffset": 654
                     }
                 }
             },
@@ -424,18 +424,18 @@
                 "to": {
                     "startLine": 24,
                     "startColumn": 4,
-                    "startOffset": 2441,
-                    "endColumn": 117,
-                    "endOffset": 2554
+                    "startOffset": 2338,
+                    "endColumn": 170,
+                    "endOffset": 2504
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 8,
+                        "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 906,
-                        "endColumn": 117,
-                        "endOffset": 1019
+                        "startOffset": 659,
+                        "endColumn": 170,
+                        "endOffset": 825
                     }
                 }
             },
@@ -443,18 +443,18 @@
                 "to": {
                     "startLine": 25,
                     "startColumn": 4,
-                    "startOffset": 2559,
-                    "endColumn": 119,
-                    "endOffset": 2674
+                    "startOffset": 2509,
+                    "endColumn": 117,
+                    "endOffset": 2622
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 786,
-                        "endColumn": 119,
-                        "endOffset": 901
+                        "startOffset": 830,
+                        "endColumn": 117,
+                        "endOffset": 943
                     }
                 }
             },
@@ -462,18 +462,18 @@
                 "to": {
                     "startLine": 26,
                     "startColumn": 4,
-                    "startOffset": 2679,
-                    "endColumn": 181,
-                    "endOffset": 2856
+                    "startOffset": 2627,
+                    "endColumn": 119,
+                    "endOffset": 2742
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 5,
+                        "startLine": 8,
                         "startColumn": 4,
-                        "startOffset": 414,
-                        "endColumn": 185,
-                        "endOffset": 595
+                        "startOffset": 948,
+                        "endColumn": 119,
+                        "endOffset": 1063
                     }
                 }
             },
@@ -481,18 +481,18 @@
                 "to": {
                     "startLine": 27,
                     "startColumn": 4,
-                    "startOffset": 2861,
+                    "startOffset": 2747,
                     "endColumn": 181,
-                    "endOffset": 3038
+                    "endOffset": 2924
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 6,
+                        "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 600,
-                        "endColumn": 185,
-                        "endOffset": 781
+                        "startOffset": 1068,
+                        "endColumn": 181,
+                        "endOffset": 1245
                     }
                 }
             },
@@ -500,18 +500,18 @@
                 "to": {
                     "startLine": 28,
                     "startColumn": 4,
-                    "startOffset": 3043,
-                    "endColumn": 118,
-                    "endOffset": 3157
+                    "startOffset": 2929,
+                    "endColumn": 181,
+                    "endOffset": 3106
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 4,
+                        "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 295,
-                        "endColumn": 118,
-                        "endOffset": 409
+                        "startOffset": 1250,
+                        "endColumn": 181,
+                        "endOffset": 1427
                     }
                 }
             },
@@ -519,18 +519,18 @@
                 "to": {
                     "startLine": 29,
                     "startColumn": 4,
-                    "startOffset": 3162,
-                    "endColumn": 145,
-                    "endOffset": 3303
+                    "startOffset": 3111,
+                    "endColumn": 118,
+                    "endOffset": 3225
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 19,
+                        "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 2431,
-                        "endColumn": 145,
-                        "endOffset": 2572
+                        "startOffset": 1432,
+                        "endColumn": 118,
+                        "endOffset": 1546
                     }
                 }
             },
@@ -538,18 +538,18 @@
                 "to": {
                     "startLine": 30,
                     "startColumn": 4,
-                    "startOffset": 3308,
-                    "endColumn": 110,
-                    "endOffset": 3414
+                    "startOffset": 3230,
+                    "endColumn": 144,
+                    "endOffset": 3370
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 18,
+                        "startLine": 12,
                         "startColumn": 4,
-                        "startOffset": 2320,
-                        "endColumn": 110,
-                        "endOffset": 2426
+                        "startOffset": 1551,
+                        "endColumn": 144,
+                        "endOffset": 1691
                     }
                 }
             },
@@ -557,18 +557,18 @@
                 "to": {
                     "startLine": 31,
                     "startColumn": 4,
-                    "startOffset": 3419,
-                    "endColumn": 142,
-                    "endOffset": 3557
+                    "startOffset": 3375,
+                    "endColumn": 118,
+                    "endOffset": 3489
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 17,
+                        "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 2177,
-                        "endColumn": 142,
-                        "endOffset": 2315
+                        "startOffset": 1696,
+                        "endColumn": 118,
+                        "endOffset": 1810
                     }
                 }
             },
@@ -576,18 +576,18 @@
                 "to": {
                     "startLine": 32,
                     "startColumn": 4,
-                    "startOffset": 3562,
-                    "endColumn": 113,
-                    "endOffset": 3671
+                    "startOffset": 3494,
+                    "endColumn": 142,
+                    "endOffset": 3632
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 16,
+                        "startLine": 14,
                         "startColumn": 4,
-                        "startOffset": 2063,
-                        "endColumn": 113,
-                        "endOffset": 2172
+                        "startOffset": 1815,
+                        "endColumn": 142,
+                        "endOffset": 1953
                     }
                 }
             },
@@ -595,18 +595,18 @@
                 "to": {
                     "startLine": 33,
                     "startColumn": 4,
-                    "startOffset": 3676,
-                    "endColumn": 124,
-                    "endOffset": 3796
+                    "startOffset": 3637,
+                    "endColumn": 113,
+                    "endOffset": 3746
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 3,
+                        "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 170,
-                        "endColumn": 124,
-                        "endOffset": 290
+                        "startOffset": 1958,
+                        "endColumn": 113,
+                        "endOffset": 2067
                     }
                 }
             },
@@ -614,18 +614,18 @@
                 "to": {
                     "startLine": 34,
                     "startColumn": 4,
-                    "startOffset": 3801,
-                    "endColumn": 136,
-                    "endOffset": 3933
+                    "startOffset": 3751,
+                    "endColumn": 123,
+                    "endOffset": 3870
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 28,
+                        "startLine": 16,
                         "startColumn": 4,
-                        "startOffset": 3690,
-                        "endColumn": 136,
-                        "endOffset": 3822
+                        "startOffset": 2072,
+                        "endColumn": 123,
+                        "endOffset": 2191
                     }
                 }
             },
@@ -633,18 +633,18 @@
                 "to": {
                     "startLine": 35,
                     "startColumn": 4,
-                    "startOffset": 3938,
-                    "endColumn": 118,
-                    "endOffset": 4052
+                    "startOffset": 3875,
+                    "endColumn": 162,
+                    "endOffset": 4033
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 27,
+                        "startLine": 17,
                         "startColumn": 4,
-                        "startOffset": 3571,
-                        "endColumn": 118,
-                        "endOffset": 3685
+                        "startOffset": 2196,
+                        "endColumn": 162,
+                        "endOffset": 2354
                     }
                 }
             },
@@ -652,18 +652,18 @@
                 "to": {
                     "startLine": 36,
                     "startColumn": 4,
-                    "startOffset": 4057,
-                    "endColumn": 148,
-                    "endOffset": 4201
+                    "startOffset": 4038,
+                    "endColumn": 135,
+                    "endOffset": 4169
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 26,
+                        "startLine": 18,
                         "startColumn": 4,
-                        "startOffset": 3422,
-                        "endColumn": 148,
-                        "endOffset": 3566
+                        "startOffset": 2359,
+                        "endColumn": 135,
+                        "endOffset": 2490
                     }
                 }
             },
@@ -671,18 +671,18 @@
                 "to": {
                     "startLine": 37,
                     "startColumn": 4,
-                    "startOffset": 4206,
-                    "endColumn": 113,
-                    "endOffset": 4315
+                    "startOffset": 4174,
+                    "endColumn": 136,
+                    "endOffset": 4306
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 25,
+                        "startLine": 19,
                         "startColumn": 4,
-                        "startOffset": 3308,
-                        "endColumn": 113,
-                        "endOffset": 3417
+                        "startOffset": 2495,
+                        "endColumn": 136,
+                        "endOffset": 2627
                     }
                 }
             },
@@ -690,18 +690,18 @@
                 "to": {
                     "startLine": 38,
                     "startColumn": 4,
-                    "startOffset": 4320,
-                    "endColumn": 198,
-                    "endOffset": 4514
+                    "startOffset": 4311,
+                    "endColumn": 118,
+                    "endOffset": 4425
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/res/values-ko/common_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 3,
+                        "startLine": 20,
                         "startColumn": 4,
-                        "startOffset": 170,
-                        "endColumn": 202,
-                        "endOffset": 368
+                        "startOffset": 2632,
+                        "endColumn": 118,
+                        "endOffset": 2746
                     }
                 }
             },
@@ -709,18 +709,18 @@
                 "to": {
                     "startLine": 39,
                     "startColumn": 4,
-                    "startOffset": 4519,
-                    "endColumn": 199,
-                    "endOffset": 4714
+                    "startOffset": 4430,
+                    "endColumn": 150,
+                    "endOffset": 4576
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
                         "startLine": 21,
                         "startColumn": 4,
-                        "startOffset": 2696,
-                        "endColumn": 203,
-                        "endOffset": 2895
+                        "startOffset": 2751,
+                        "endColumn": 150,
+                        "endOffset": 2897
                     }
                 }
             },
@@ -728,18 +728,18 @@
                 "to": {
                     "startLine": 40,
                     "startColumn": 4,
-                    "startOffset": 4719,
-                    "endColumn": 118,
-                    "endOffset": 4833
+                    "startOffset": 4581,
+                    "endColumn": 113,
+                    "endOffset": 4690
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 20,
+                        "startLine": 22,
                         "startColumn": 4,
-                        "startOffset": 2577,
-                        "endColumn": 118,
-                        "endOffset": 2691
+                        "startOffset": 2902,
+                        "endColumn": 113,
+                        "endOffset": 3011
                     }
                 }
             },
@@ -747,18 +747,18 @@
                 "to": {
                     "startLine": 41,
                     "startColumn": 4,
-                    "startOffset": 4838,
-                    "endColumn": 104,
-                    "endOffset": 4938
+                    "startOffset": 4695,
+                    "endColumn": 198,
+                    "endOffset": 4889
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 22,
+                        "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 2900,
-                        "endColumn": 104,
-                        "endOffset": 3000
+                        "startOffset": 330,
+                        "endColumn": 198,
+                        "endOffset": 524
                     }
                 }
             },
@@ -766,18 +766,18 @@
                 "to": {
                     "startLine": 42,
                     "startColumn": 4,
-                    "startOffset": 4943,
-                    "endColumn": 166,
-                    "endOffset": 5105
+                    "startOffset": 4894,
+                    "endColumn": 199,
+                    "endOffset": 5089
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 12,
+                        "startLine": 23,
                         "startColumn": 4,
-                        "startOffset": 1438,
-                        "endColumn": 170,
-                        "endOffset": 1604
+                        "startOffset": 3016,
+                        "endColumn": 199,
+                        "endOffset": 3211
                     }
                 }
             },
@@ -785,18 +785,18 @@
                 "to": {
                     "startLine": 43,
                     "startColumn": 4,
-                    "startOffset": 5110,
-                    "endColumn": 119,
-                    "endOffset": 5225
+                    "startOffset": 5094,
+                    "endColumn": 118,
+                    "endOffset": 5208
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 11,
+                        "startLine": 24,
                         "startColumn": 4,
-                        "startOffset": 1318,
-                        "endColumn": 119,
-                        "endOffset": 1433
+                        "startOffset": 3216,
+                        "endColumn": 118,
+                        "endOffset": 3330
                     }
                 }
             },
@@ -804,18 +804,18 @@
                 "to": {
                     "startLine": 44,
                     "startColumn": 4,
-                    "startOffset": 5230,
-                    "endColumn": 176,
-                    "endOffset": 5402
+                    "startOffset": 5213,
+                    "endColumn": 104,
+                    "endOffset": 5313
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 15,
+                        "startLine": 25,
                         "startColumn": 4,
-                        "startOffset": 1882,
-                        "endColumn": 180,
-                        "endOffset": 2058
+                        "startOffset": 3335,
+                        "endColumn": 104,
+                        "endOffset": 3435
                     }
                 }
             },
@@ -823,18 +823,18 @@
                 "to": {
                     "startLine": 45,
                     "startColumn": 4,
-                    "startOffset": 5407,
-                    "endColumn": 123,
-                    "endOffset": 5526
+                    "startOffset": 5318,
+                    "endColumn": 166,
+                    "endOffset": 5480
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 14,
+                        "startLine": 26,
                         "startColumn": 4,
-                        "startOffset": 1758,
-                        "endColumn": 123,
-                        "endOffset": 1877
+                        "startOffset": 3440,
+                        "endColumn": 166,
+                        "endOffset": 3602
                     }
                 }
             },
@@ -842,18 +842,18 @@
                 "to": {
                     "startLine": 46,
                     "startColumn": 4,
-                    "startOffset": 5531,
-                    "endColumn": 148,
-                    "endOffset": 5675
+                    "startOffset": 5485,
+                    "endColumn": 119,
+                    "endOffset": 5600
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 13,
+                        "startLine": 27,
                         "startColumn": 4,
-                        "startOffset": 1609,
-                        "endColumn": 148,
-                        "endOffset": 1753
+                        "startOffset": 3607,
+                        "endColumn": 119,
+                        "endOffset": 3722
                     }
                 }
             },
@@ -861,18 +861,18 @@
                 "to": {
                     "startLine": 47,
                     "startColumn": 4,
-                    "startOffset": 5680,
-                    "endColumn": 87,
-                    "endOffset": 5763
+                    "startOffset": 5605,
+                    "endColumn": 176,
+                    "endOffset": 5777
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
-                        "startLine": 23,
+                        "startLine": 28,
                         "startColumn": 4,
-                        "startOffset": 3005,
-                        "endColumn": 87,
-                        "endOffset": 3088
+                        "startOffset": 3727,
+                        "endColumn": 176,
+                        "endOffset": 3899
                     }
                 }
             },
@@ -880,18 +880,18 @@
                 "to": {
                     "startLine": 48,
                     "startColumn": 4,
-                    "startOffset": 5768,
-                    "endColumn": 87,
-                    "endOffset": 5851
+                    "startOffset": 5782,
+                    "endColumn": 123,
+                    "endOffset": 5901
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
                         "startLine": 29,
                         "startColumn": 4,
-                        "startOffset": 3827,
-                        "endColumn": 87,
-                        "endOffset": 3910
+                        "startOffset": 3904,
+                        "endColumn": 123,
+                        "endOffset": 4023
                     }
                 }
             },
@@ -899,18 +899,18 @@
                 "to": {
                     "startLine": 49,
                     "startColumn": 4,
-                    "startOffset": 5856,
-                    "endColumn": 104,
-                    "endOffset": 5956
+                    "startOffset": 5906,
+                    "endColumn": 148,
+                    "endOffset": 6050
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-ko/base_strings.xml",
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
                     "position": {
                         "startLine": 30,
                         "startColumn": 4,
-                        "startOffset": 3915,
-                        "endColumn": 104,
-                        "endOffset": 4015
+                        "startOffset": 4028,
+                        "endColumn": 148,
+                        "endOffset": 4172
                     }
                 }
             },
@@ -918,9 +918,123 @@
                 "to": {
                     "startLine": 50,
                     "startColumn": 4,
-                    "startOffset": 5961,
+                    "startOffset": 6055,
+                    "endColumn": 88,
+                    "endOffset": 6139
+                },
+                "from": {
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 31,
+                        "startColumn": 4,
+                        "startOffset": 4177,
+                        "endColumn": 88,
+                        "endOffset": 4261
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 51,
+                    "startColumn": 4,
+                    "startOffset": 6144,
+                    "endColumn": 87,
+                    "endOffset": 6227
+                },
+                "from": {
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 32,
+                        "startColumn": 4,
+                        "startOffset": 4266,
+                        "endColumn": 87,
+                        "endOffset": 4349
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 52,
+                    "startColumn": 4,
+                    "startOffset": 6232,
+                    "endColumn": 103,
+                    "endOffset": 6331
+                },
+                "from": {
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 33,
+                        "startColumn": 4,
+                        "startOffset": 4354,
+                        "endColumn": 103,
+                        "endOffset": 4453
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 53,
+                    "startColumn": 4,
+                    "startOffset": 6336,
+                    "endColumn": 109,
+                    "endOffset": 6441
+                },
+                "from": {
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/9.2.1/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 348,
+                        "endColumn": 109,
+                        "endOffset": 453
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 54,
+                    "startColumn": 4,
+                    "startOffset": 6446,
+                    "endColumn": 90,
+                    "endOffset": 6532
+                },
+                "from": {
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/9.2.1/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 458,
+                        "endColumn": 90,
+                        "endOffset": 544
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 55,
+                    "startColumn": 4,
+                    "startOffset": 6537,
+                    "endColumn": 68,
+                    "endOffset": 6601
+                },
+                "from": {
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/9.2.1/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 549,
+                        "endColumn": 68,
+                        "endOffset": 613
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 56,
+                    "startColumn": 4,
+                    "startOffset": 6606,
                     "endColumn": 100,
-                    "endOffset": 6057
+                    "endOffset": 6702
                 },
                 "from": {
                     "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values-ko/values-ko.xml",
@@ -930,6 +1044,44 @@
                         "startOffset": 2064,
                         "endColumn": 100,
                         "endOffset": 2160
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 57,
+                    "startColumn": 4,
+                    "startOffset": 6707,
+                    "endColumn": 113,
+                    "endOffset": 6816
+                },
+                "from": {
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/9.2.1/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 618,
+                        "endColumn": 113,
+                        "endOffset": 727
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 58,
+                    "startColumn": 4,
+                    "startOffset": 6821,
+                    "endColumn": 84,
+                    "endOffset": 6901
+                },
+                "from": {
+                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/9.2.1/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 732,
+                        "endColumn": 84,
+                        "endOffset": 812
                     }
                 }
             }

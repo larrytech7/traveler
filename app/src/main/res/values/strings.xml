@@ -6,7 +6,7 @@
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
     <string name="action_settings" translatable="false">Apropos</string>
     <string name="create_profile">Creation du compte</string>
-    <string name="welcome">zero morts sur nos routes</string>
+    <string name="welcome">Zero morts sur nos routes. Rester en alert et en securité avec Travelr</string>
     <string name="username">pseudonyme</string>
     <string name="password">mot de passe</string>
     <string name="for_publicity" translatable="false">pour la publicité/for advertising</string>
@@ -112,10 +112,10 @@
     <string name="username_confirm_no_label">Non</string>
     <string name="username_confirm_yes_label">Oui</string>
     <string name="speed_limit_reached_ago">Vous avez dépassé la limite de vitesse autorisée</string>
-    <string name="about_message">Avec Travelr, c\'est Zero mort sur nos route. <br/>Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br/> Version 3.9.9</string>
+    <string name="about_message">Avec Travelr, c\'est Zero mort sur nos route. <br />Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br /> Version 3.9.9</string>
     <string name="about_title">Apropos</string>
     <string name="login">Continuer</string>
-    <string name="speed_dimen">Vitesse (Km/Hr)</string>
+    <string name="speed_dimen">Vitesse (Kmph)</string>
     <string name="trip_agency">Agence de Voyage</string>
     <string name="cancel">Annuler</string>
     <string name="save">Sauvegarder</string>
@@ -135,5 +135,8 @@
     <string name="complete_trip_error">Une erreure s\'est produite. Veuillez reesayer.</string>
     <string name="cencel_trip">Vous avez choisi d\'annuler ce voyage. Vous pouvez creé un nouveau si vous voyagez encore.</string>
     <string name="cencel_trip_title">Annuler Le voyage</string>
+    <string name="myposition">Ma Position actuel</string>
+    <string name="title_activity_messaging" translatable="false">Messages</string>
+    <string name="votre_message">Votre message</string>
 
 </resources>

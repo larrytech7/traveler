@@ -88,7 +88,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyC-oZqedAGgkIJH0Z66Sk3Z9rDEJ5e334k" />
+            android:value="AIzaSyDJKE5XlUEcpTgraqFd_ppnkZ2rGcjjA5s" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -121,6 +121,26 @@
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name="com.satra.traveler.MessagingActivity"
+            android:label="@string/title_activity_messaging"
+            android:parentActivityName="com.satra.traveler.MyPositionActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.satra.traveler.MyPositionActivity" />
+        </activity>
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:authorities="com.satra.traveler.firebaseinitprovider"
+            android:exported="false"
+            android:initOrder="100" />
 
         <activity
             android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity"
