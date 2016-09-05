@@ -11,13 +11,13 @@
                     "endOffset": 208
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-nb\\values-nb.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-nb\\values-nb.xml",
                     "position": {
-                        "startLine": 4,
+                        "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 229,
+                        "startOffset": 55,
                         "endColumn": 107,
-                        "endOffset": 332
+                        "endOffset": 158
                     }
                 }
             },
@@ -30,13 +30,13 @@
                     "endOffset": 317
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-nb\\values-nb.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-nb\\values-nb.xml",
                     "position": {
-                        "startLine": 5,
+                        "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 337,
+                        "startOffset": 163,
                         "endColumn": 108,
-                        "endOffset": 441
+                        "endOffset": 267
                     }
                 }
             },
@@ -49,13 +49,13 @@
                     "endOffset": 442
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-nb\\values-nb.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-nb\\values-nb.xml",
                     "position": {
-                        "startLine": 6,
+                        "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 446,
+                        "startOffset": 272,
                         "endColumn": 124,
-                        "endOffset": 566
+                        "endOffset": 392
                     }
                 }
             },
@@ -68,13 +68,13 @@
                     "endOffset": 537
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-nb\\values-nb.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-nb\\values-nb.xml",
                     "position": {
-                        "startLine": 7,
+                        "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 571,
+                        "startOffset": 397,
                         "endColumn": 94,
-                        "endOffset": 661
+                        "endOffset": 487
                     }
                 }
             },
@@ -87,13 +87,13 @@
                     "endOffset": 651
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-nb\\values-nb.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-nb\\values-nb.xml",
                     "position": {
-                        "startLine": 8,
+                        "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 666,
+                        "startOffset": 492,
                         "endColumn": 113,
-                        "endOffset": 775
+                        "endOffset": 601
                     }
                 }
             },
@@ -106,13 +106,13 @@
                     "endOffset": 737
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-nb\\values-nb.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-nb\\values-nb.xml",
                     "position": {
-                        "startLine": 9,
+                        "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 780,
+                        "startOffset": 606,
                         "endColumn": 85,
-                        "endOffset": 861
+                        "endOffset": 687
                     }
                 }
             },
@@ -125,13 +125,13 @@
                     "endOffset": 837
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-nb\\values-nb.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-nb\\values-nb.xml",
                     "position": {
-                        "startLine": 10,
+                        "startLine": 8,
                         "startColumn": 4,
-                        "startOffset": 866,
+                        "startOffset": 692,
                         "endColumn": 99,
-                        "endOffset": 961
+                        "endOffset": 787
                     }
                 }
             },
@@ -144,13 +144,13 @@
                     "endOffset": 950
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-nb\\values-nb.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-nb\\values-nb.xml",
                     "position": {
-                        "startLine": 11,
+                        "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 966,
+                        "startOffset": 792,
                         "endColumn": 112,
-                        "endOffset": 1074
+                        "endOffset": 900
                     }
                 }
             },
@@ -163,13 +163,13 @@
                     "endOffset": 1026
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-nb\\values-nb.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-nb\\values-nb.xml",
                     "position": {
-                        "startLine": 12,
+                        "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 1079,
+                        "startOffset": 905,
                         "endColumn": 75,
-                        "endOffset": 1150
+                        "endOffset": 976
                     }
                 }
             },
@@ -182,13 +182,13 @@
                     "endOffset": 1102
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-nb\\values-nb.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-nb\\values-nb.xml",
                     "position": {
-                        "startLine": 13,
+                        "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 1155,
+                        "startOffset": 981,
                         "endColumn": 75,
-                        "endOffset": 1226
+                        "endOffset": 1052
                     }
                 }
             },
@@ -201,13 +201,13 @@
                     "endOffset": 1182
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-nb\\values-nb.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-nb\\values-nb.xml",
                     "position": {
-                        "startLine": 14,
+                        "startLine": 12,
                         "startColumn": 4,
-                        "startOffset": 1231,
+                        "startOffset": 1057,
                         "endColumn": 79,
-                        "endOffset": 1306
+                        "endOffset": 1132
                     }
                 }
             },
@@ -220,13 +220,13 @@
                     "endOffset": 1285
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-nb\\values-nb.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-nb\\values-nb.xml",
                     "position": {
-                        "startLine": 15,
+                        "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 1311,
+                        "startOffset": 1137,
                         "endColumn": 102,
-                        "endOffset": 1409
+                        "endOffset": 1235
                     }
                 }
             },
@@ -239,13 +239,13 @@
                     "endOffset": 1384
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-nb\\values-nb.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-nb\\values-nb.xml",
                     "position": {
-                        "startLine": 16,
+                        "startLine": 14,
                         "startColumn": 4,
-                        "startOffset": 1414,
+                        "startOffset": 1240,
                         "endColumn": 98,
-                        "endOffset": 1508
+                        "endOffset": 1334
                     }
                 }
             },
@@ -258,13 +258,13 @@
                     "endOffset": 1480
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-nb\\values-nb.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-nb\\values-nb.xml",
                     "position": {
-                        "startLine": 17,
+                        "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 1513,
+                        "startOffset": 1339,
                         "endColumn": 95,
-                        "endOffset": 1604
+                        "endOffset": 1430
                     }
                 }
             },
@@ -277,13 +277,13 @@
                     "endOffset": 1584
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-nb\\values-nb.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-nb\\values-nb.xml",
                     "position": {
-                        "startLine": 18,
+                        "startLine": 16,
                         "startColumn": 4,
-                        "startOffset": 1609,
+                        "startOffset": 1435,
                         "endColumn": 103,
-                        "endOffset": 1708
+                        "endOffset": 1534
                     }
                 }
             },
@@ -296,13 +296,13 @@
                     "endOffset": 1682
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-nb\\values-nb.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-nb\\values-nb.xml",
                     "position": {
-                        "startLine": 19,
+                        "startLine": 17,
                         "startColumn": 4,
-                        "startOffset": 1713,
+                        "startOffset": 1539,
                         "endColumn": 97,
-                        "endOffset": 1806
+                        "endOffset": 1632
                     }
                 }
             },
@@ -315,13 +315,13 @@
                     "endOffset": 1783
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-nb\\values-nb.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-nb\\values-nb.xml",
                     "position": {
-                        "startLine": 20,
+                        "startLine": 18,
                         "startColumn": 4,
-                        "startOffset": 1811,
+                        "startOffset": 1637,
                         "endColumn": 100,
-                        "endOffset": 1907
+                        "endOffset": 1733
                     }
                 }
             },
@@ -334,13 +334,13 @@
                     "endOffset": 1899
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-nb\\values-nb.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-nb\\values-nb.xml",
                     "position": {
-                        "startLine": 21,
+                        "startLine": 19,
                         "startColumn": 4,
-                        "startOffset": 1912,
+                        "startOffset": 1738,
                         "endColumn": 115,
-                        "endOffset": 2023
+                        "endOffset": 1849
                     }
                 }
             },
@@ -353,13 +353,13 @@
                     "endOffset": 1996
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-nb\\values-nb.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-nb\\values-nb.xml",
                     "position": {
-                        "startLine": 22,
+                        "startLine": 20,
                         "startColumn": 4,
-                        "startOffset": 2028,
+                        "startOffset": 1854,
                         "endColumn": 96,
-                        "endOffset": 2120
+                        "endOffset": 1946
                     }
                 }
             },
@@ -368,17 +368,17 @@
                     "startLine": 21,
                     "startColumn": 4,
                     "startOffset": 2001,
-                    "endColumn": 70,
-                    "endOffset": 2067
+                    "endColumn": 106,
+                    "endOffset": 2103
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-ads-lite\\9.2.1\\res\\values-nb\\values.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\values-nb\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 280,
-                        "endColumn": 70,
-                        "endOffset": 346
+                        "startOffset": 329,
+                        "endColumn": 106,
+                        "endOffset": 431
                     }
                 }
             },
@@ -386,18 +386,18 @@
                 "to": {
                     "startLine": 22,
                     "startColumn": 4,
-                    "startOffset": 2072,
-                    "endColumn": 268,
-                    "endOffset": 2336
+                    "startOffset": 2108,
+                    "endColumn": 190,
+                    "endOffset": 2294
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\values-nb\\values.xml",
                     "position": {
-                        "startLine": 4,
+                        "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 329,
-                        "endColumn": 268,
-                        "endOffset": 593
+                        "startOffset": 436,
+                        "endColumn": 190,
+                        "endOffset": 622
                     }
                 }
             },
@@ -405,18 +405,18 @@
                 "to": {
                     "startLine": 23,
                     "startColumn": 4,
-                    "startOffset": 2341,
-                    "endColumn": 129,
-                    "endOffset": 2466
+                    "startOffset": 2299,
+                    "endColumn": 127,
+                    "endOffset": 2422
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\values-nb\\values.xml",
                     "position": {
-                        "startLine": 5,
+                        "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 598,
-                        "endColumn": 129,
-                        "endOffset": 723
+                        "startOffset": 627,
+                        "endColumn": 127,
+                        "endOffset": 750
                     }
                 }
             },
@@ -424,18 +424,18 @@
                 "to": {
                     "startLine": 24,
                     "startColumn": 4,
-                    "startOffset": 2471,
-                    "endColumn": 190,
-                    "endOffset": 2657
+                    "startOffset": 2427,
+                    "endColumn": 132,
+                    "endOffset": 2555
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\values-nb\\values.xml",
                     "position": {
-                        "startLine": 6,
+                        "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 728,
-                        "endColumn": 190,
-                        "endOffset": 914
+                        "startOffset": 755,
+                        "endColumn": 132,
+                        "endOffset": 883
                     }
                 }
             },
@@ -443,18 +443,18 @@
                 "to": {
                     "startLine": 25,
                     "startColumn": 4,
-                    "startOffset": 2662,
-                    "endColumn": 127,
-                    "endOffset": 2785
+                    "startOffset": 2560,
+                    "endColumn": 222,
+                    "endOffset": 2778
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\values-nb\\values.xml",
                     "position": {
-                        "startLine": 7,
+                        "startLine": 8,
                         "startColumn": 4,
-                        "startOffset": 919,
-                        "endColumn": 127,
-                        "endOffset": 1042
+                        "startOffset": 888,
+                        "endColumn": 222,
+                        "endOffset": 1106
                     }
                 }
             },
@@ -462,18 +462,18 @@
                 "to": {
                     "startLine": 26,
                     "startColumn": 4,
-                    "startOffset": 2790,
-                    "endColumn": 132,
-                    "endOffset": 2918
+                    "startOffset": 2783,
+                    "endColumn": 226,
+                    "endOffset": 3005
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\values-nb\\values.xml",
                     "position": {
-                        "startLine": 8,
+                        "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 1047,
-                        "endColumn": 132,
-                        "endOffset": 1175
+                        "startOffset": 1111,
+                        "endColumn": 226,
+                        "endOffset": 1333
                     }
                 }
             },
@@ -481,18 +481,18 @@
                 "to": {
                     "startLine": 27,
                     "startColumn": 4,
-                    "startOffset": 2923,
-                    "endColumn": 222,
-                    "endOffset": 3141
+                    "startOffset": 3010,
+                    "endColumn": 131,
+                    "endOffset": 3137
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\values-nb\\values.xml",
                     "position": {
-                        "startLine": 9,
+                        "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 1180,
-                        "endColumn": 222,
-                        "endOffset": 1398
+                        "startOffset": 1338,
+                        "endColumn": 131,
+                        "endOffset": 1465
                     }
                 }
             },
@@ -500,18 +500,18 @@
                 "to": {
                     "startLine": 28,
                     "startColumn": 4,
-                    "startOffset": 3146,
-                    "endColumn": 226,
-                    "endOffset": 3368
+                    "startOffset": 3142,
+                    "endColumn": 131,
+                    "endOffset": 3269
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\values-nb\\values.xml",
                     "position": {
-                        "startLine": 10,
+                        "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 1403,
-                        "endColumn": 226,
-                        "endOffset": 1625
+                        "startOffset": 1470,
+                        "endColumn": 131,
+                        "endOffset": 1597
                     }
                 }
             },
@@ -519,18 +519,18 @@
                 "to": {
                     "startLine": 29,
                     "startColumn": 4,
-                    "startOffset": 3373,
-                    "endColumn": 131,
-                    "endOffset": 3500
+                    "startOffset": 3274,
+                    "endColumn": 248,
+                    "endOffset": 3518
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\9.4.0\\res\\values-nb\\values.xml",
                     "position": {
-                        "startLine": 11,
+                        "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 1630,
-                        "endColumn": 131,
-                        "endOffset": 1757
+                        "startOffset": 331,
+                        "endColumn": 248,
+                        "endOffset": 575
                     }
                 }
             },
@@ -538,18 +538,18 @@
                 "to": {
                     "startLine": 30,
                     "startColumn": 4,
-                    "startOffset": 3505,
-                    "endColumn": 170,
-                    "endOffset": 3671
+                    "startOffset": 3523,
+                    "endColumn": 250,
+                    "endOffset": 3769
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\values-nb\\values.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
-                        "startOffset": 1762,
-                        "endColumn": 170,
-                        "endOffset": 1928
+                        "startOffset": 1602,
+                        "endColumn": 250,
+                        "endOffset": 1848
                     }
                 }
             },
@@ -557,18 +557,18 @@
                 "to": {
                     "startLine": 31,
                     "startColumn": 4,
-                    "startOffset": 3676,
-                    "endColumn": 121,
-                    "endOffset": 3793
+                    "startOffset": 3774,
+                    "endColumn": 124,
+                    "endOffset": 3894
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\values-nb\\values.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 1933,
-                        "endColumn": 121,
-                        "endOffset": 2050
+                        "startOffset": 1853,
+                        "endColumn": 124,
+                        "endOffset": 1973
                     }
                 }
             },
@@ -576,18 +576,18 @@
                 "to": {
                     "startLine": 32,
                     "startColumn": 4,
-                    "startOffset": 3798,
-                    "endColumn": 171,
-                    "endOffset": 3965
+                    "startOffset": 3899,
+                    "endColumn": 108,
+                    "endOffset": 4003
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\values-nb\\values.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
-                        "startOffset": 2055,
-                        "endColumn": 171,
-                        "endOffset": 2222
+                        "startOffset": 1978,
+                        "endColumn": 108,
+                        "endOffset": 2082
                     }
                 }
             },
@@ -595,18 +595,18 @@
                 "to": {
                     "startLine": 33,
                     "startColumn": 4,
-                    "startOffset": 3970,
-                    "endColumn": 119,
-                    "endOffset": 4085
+                    "startOffset": 4008,
+                    "endColumn": 191,
+                    "endOffset": 4195
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\values-nb\\values.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 2227,
-                        "endColumn": 119,
-                        "endOffset": 2342
+                        "startOffset": 2087,
+                        "endColumn": 191,
+                        "endOffset": 2274
                     }
                 }
             },
@@ -614,18 +614,18 @@
                 "to": {
                     "startLine": 34,
                     "startColumn": 4,
-                    "startOffset": 4090,
-                    "endColumn": 131,
-                    "endOffset": 4217
+                    "startOffset": 4200,
+                    "endColumn": 129,
+                    "endOffset": 4325
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\values-nb\\values.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
-                        "startOffset": 2347,
-                        "endColumn": 131,
-                        "endOffset": 2474
+                        "startOffset": 2279,
+                        "endColumn": 129,
+                        "endOffset": 2404
                     }
                 }
             },
@@ -633,18 +633,18 @@
                 "to": {
                     "startLine": 35,
                     "startColumn": 4,
-                    "startOffset": 4222,
-                    "endColumn": 178,
-                    "endOffset": 4396
+                    "startOffset": 4330,
+                    "endColumn": 200,
+                    "endOffset": 4526
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\values-nb\\values.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
-                        "startOffset": 2479,
-                        "endColumn": 178,
-                        "endOffset": 2653
+                        "startOffset": 2409,
+                        "endColumn": 200,
+                        "endOffset": 2605
                     }
                 }
             },
@@ -652,18 +652,18 @@
                 "to": {
                     "startLine": 36,
                     "startColumn": 4,
-                    "startOffset": 4401,
-                    "endColumn": 152,
-                    "endOffset": 4549
+                    "startOffset": 4531,
+                    "endColumn": 133,
+                    "endOffset": 4660
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\values-nb\\values.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
-                        "startOffset": 2658,
-                        "endColumn": 152,
-                        "endOffset": 2806
+                        "startOffset": 2610,
+                        "endColumn": 133,
+                        "endOffset": 2739
                     }
                 }
             },
@@ -671,18 +671,18 @@
                 "to": {
                     "startLine": 37,
                     "startColumn": 4,
-                    "startOffset": 4554,
-                    "endColumn": 169,
-                    "endOffset": 4719
+                    "startOffset": 4665,
+                    "endColumn": 205,
+                    "endOffset": 4866
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\values-nb\\values.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
-                        "startOffset": 2811,
-                        "endColumn": 169,
-                        "endOffset": 2976
+                        "startOffset": 2744,
+                        "endColumn": 205,
+                        "endOffset": 2945
                     }
                 }
             },
@@ -690,18 +690,18 @@
                 "to": {
                     "startLine": 38,
                     "startColumn": 4,
-                    "startOffset": 4724,
-                    "endColumn": 127,
-                    "endOffset": 4847
+                    "startOffset": 4871,
+                    "endColumn": 96,
+                    "endOffset": 4963
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\values-nb\\values.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
-                        "startOffset": 2981,
-                        "endColumn": 127,
-                        "endOffset": 3104
+                        "startOffset": 2950,
+                        "endColumn": 96,
+                        "endOffset": 3042
                     }
                 }
             },
@@ -709,18 +709,18 @@
                 "to": {
                     "startLine": 39,
                     "startColumn": 4,
-                    "startOffset": 4852,
-                    "endColumn": 184,
-                    "endOffset": 5032
+                    "startOffset": 4968,
+                    "endColumn": 91,
+                    "endOffset": 5055
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\values-nb\\values.xml",
                     "position": {
                         "startLine": 21,
                         "startColumn": 4,
-                        "startOffset": 3109,
-                        "endColumn": 184,
-                        "endOffset": 3289
+                        "startOffset": 3047,
+                        "endColumn": 91,
+                        "endOffset": 3134
                     }
                 }
             },
@@ -728,18 +728,18 @@
                 "to": {
                     "startLine": 40,
                     "startColumn": 4,
-                    "startOffset": 5037,
-                    "endColumn": 126,
-                    "endOffset": 5159
+                    "startOffset": 5060,
+                    "endColumn": 106,
+                    "endOffset": 5162
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\values-nb\\values.xml",
                     "position": {
                         "startLine": 22,
                         "startColumn": 4,
-                        "startOffset": 3294,
-                        "endColumn": 126,
-                        "endOffset": 3416
+                        "startOffset": 3139,
+                        "endColumn": 106,
+                        "endOffset": 3241
                     }
                 }
             },
@@ -747,341 +747,18 @@
                 "to": {
                     "startLine": 41,
                     "startColumn": 4,
-                    "startOffset": 5164,
-                    "endColumn": 248,
-                    "endOffset": 5408
-                },
-                "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\9.2.1\\res\\values-nb\\values.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 330,
-                        "endColumn": 248,
-                        "endOffset": 574
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 42,
-                    "startColumn": 4,
-                    "startOffset": 5413,
-                    "endColumn": 250,
-                    "endOffset": 5659
-                },
-                "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
-                    "position": {
-                        "startLine": 23,
-                        "startColumn": 4,
-                        "startOffset": 3421,
-                        "endColumn": 250,
-                        "endOffset": 3667
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 43,
-                    "startColumn": 4,
-                    "startOffset": 5664,
-                    "endColumn": 124,
-                    "endOffset": 5784
-                },
-                "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
-                    "position": {
-                        "startLine": 24,
-                        "startColumn": 4,
-                        "startOffset": 3672,
-                        "endColumn": 124,
-                        "endOffset": 3792
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 44,
-                    "startColumn": 4,
-                    "startOffset": 5789,
-                    "endColumn": 108,
-                    "endOffset": 5893
-                },
-                "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
-                    "position": {
-                        "startLine": 25,
-                        "startColumn": 4,
-                        "startOffset": 3797,
-                        "endColumn": 108,
-                        "endOffset": 3901
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 45,
-                    "startColumn": 4,
-                    "startOffset": 5898,
-                    "endColumn": 191,
-                    "endOffset": 6085
-                },
-                "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
-                    "position": {
-                        "startLine": 26,
-                        "startColumn": 4,
-                        "startOffset": 3906,
-                        "endColumn": 191,
-                        "endOffset": 4093
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 46,
-                    "startColumn": 4,
-                    "startOffset": 6090,
-                    "endColumn": 129,
-                    "endOffset": 6215
-                },
-                "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
-                    "position": {
-                        "startLine": 27,
-                        "startColumn": 4,
-                        "startOffset": 4098,
-                        "endColumn": 129,
-                        "endOffset": 4223
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 47,
-                    "startColumn": 4,
-                    "startOffset": 6220,
-                    "endColumn": 200,
-                    "endOffset": 6416
-                },
-                "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
-                    "position": {
-                        "startLine": 28,
-                        "startColumn": 4,
-                        "startOffset": 4228,
-                        "endColumn": 200,
-                        "endOffset": 4424
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 48,
-                    "startColumn": 4,
-                    "startOffset": 6421,
-                    "endColumn": 133,
-                    "endOffset": 6550
-                },
-                "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
-                    "position": {
-                        "startLine": 29,
-                        "startColumn": 4,
-                        "startOffset": 4429,
-                        "endColumn": 133,
-                        "endOffset": 4558
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 49,
-                    "startColumn": 4,
-                    "startOffset": 6555,
-                    "endColumn": 205,
-                    "endOffset": 6756
-                },
-                "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
-                    "position": {
-                        "startLine": 30,
-                        "startColumn": 4,
-                        "startOffset": 4563,
-                        "endColumn": 205,
-                        "endOffset": 4764
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 50,
-                    "startColumn": 4,
-                    "startOffset": 6761,
-                    "endColumn": 96,
-                    "endOffset": 6853
-                },
-                "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
-                    "position": {
-                        "startLine": 31,
-                        "startColumn": 4,
-                        "startOffset": 4769,
-                        "endColumn": 96,
-                        "endOffset": 4861
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 51,
-                    "startColumn": 4,
-                    "startOffset": 6858,
-                    "endColumn": 91,
-                    "endOffset": 6945
-                },
-                "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
-                    "position": {
-                        "startLine": 32,
-                        "startColumn": 4,
-                        "startOffset": 4866,
-                        "endColumn": 91,
-                        "endOffset": 4953
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 52,
-                    "startColumn": 4,
-                    "startOffset": 6950,
-                    "endColumn": 106,
-                    "endOffset": 7052
-                },
-                "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\values-nb\\values.xml",
-                    "position": {
-                        "startLine": 33,
-                        "startColumn": 4,
-                        "startOffset": 4958,
-                        "endColumn": 106,
-                        "endOffset": 5060
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 53,
-                    "startColumn": 4,
-                    "startOffset": 7057,
-                    "endColumn": 131,
-                    "endOffset": 7184
-                },
-                "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-ads-lite\\9.2.1\\res\\values-nb\\values.xml",
-                    "position": {
-                        "startLine": 5,
-                        "startColumn": 4,
-                        "startOffset": 351,
-                        "endColumn": 131,
-                        "endOffset": 478
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 54,
-                    "startColumn": 4,
-                    "startOffset": 7189,
-                    "endColumn": 105,
-                    "endOffset": 7290
-                },
-                "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-ads-lite\\9.2.1\\res\\values-nb\\values.xml",
-                    "position": {
-                        "startLine": 6,
-                        "startColumn": 4,
-                        "startOffset": 483,
-                        "endColumn": 105,
-                        "endOffset": 584
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 55,
-                    "startColumn": 4,
-                    "startOffset": 7295,
-                    "endColumn": 71,
-                    "endOffset": 7362
-                },
-                "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-ads-lite\\9.2.1\\res\\values-nb\\values.xml",
-                    "position": {
-                        "startLine": 7,
-                        "startColumn": 4,
-                        "startOffset": 589,
-                        "endColumn": 71,
-                        "endOffset": 656
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 56,
-                    "startColumn": 4,
-                    "startOffset": 7367,
+                    "startOffset": 5167,
                     "endColumn": 100,
-                    "endOffset": 7463
+                    "endOffset": 5263
                 },
                 "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-nb\\values-nb.xml",
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-nb\\values-nb.xml",
                     "position": {
-                        "startLine": 23,
+                        "startLine": 21,
                         "startColumn": 4,
-                        "startOffset": 2125,
+                        "startOffset": 1951,
                         "endColumn": 100,
-                        "endOffset": 2221
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 57,
-                    "startColumn": 4,
-                    "startOffset": 7468,
-                    "endColumn": 129,
-                    "endOffset": 7593
-                },
-                "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-ads-lite\\9.2.1\\res\\values-nb\\values.xml",
-                    "position": {
-                        "startLine": 8,
-                        "startColumn": 4,
-                        "startOffset": 661,
-                        "endColumn": 129,
-                        "endOffset": 786
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 58,
-                    "startColumn": 4,
-                    "startOffset": 7598,
-                    "endColumn": 89,
-                    "endOffset": 7683
-                },
-                "from": {
-                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-ads-lite\\9.2.1\\res\\values-nb\\values.xml",
-                    "position": {
-                        "startLine": 9,
-                        "startColumn": 4,
-                        "startOffset": 791,
-                        "endColumn": 89,
-                        "endOffset": 876
+                        "endOffset": 2047
                     }
                 }
             }

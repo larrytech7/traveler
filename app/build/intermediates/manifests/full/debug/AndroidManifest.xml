@@ -68,6 +68,9 @@
         <meta-data
             android:name="QUERY_LOG"
             android:value="true" />
+        <meta-data
+            android:name="VERSION"
+            android:value="2" />
 
         <activity
             android:name="com.satra.traveler.MainActivity"
@@ -88,7 +91,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDJKE5XlUEcpTgraqFd_ppnkZ2rGcjjA5s" />
+            android:value="AIzaSyC-oZqedAGgkIJH0Z66Sk3Z9rDEJ5e334k" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

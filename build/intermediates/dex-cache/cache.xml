@@ -1,2 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="C:\Users\Steve Jeff\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.4\695b63d702f505b9b916e02272e3b6381bade7f\gson-2.4.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="0695b63d702f505b9b916e02272e3b6381bade7f">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\gson-2.4_d50305b4e8461a8528fb3f95a5debec8ddb0e22c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="e5f32fa48a3eb2de0c987025c11b6e3864b634d9">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-support-v4-23.2.0_3cae3bb8431f4d050787b7d2684856bffc4d162e.jar" />
+    </item>
+    <item
+        jar="C:\Google_Tools\cours_android\new_sdk\android-sdk\extras\android\m2repository\com\android\support\support-annotations\23.2.0\support-annotations-23.2.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="c5bf571bb10462bd90e5419ade67793f71acbc87">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\support-annotations-23.2.0_d3b50ec14c112d73ae1bd2388706208ebb9a45b8.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\.gradle\caches\modules-2\files-2.1\org.springframework.android\spring-android-rest-template\1.0.1.RELEASE\e132d929bd181941f79b0d63edafb8a86ae6fd33\spring-android-rest-template-1.0.1.RELEASE.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="e132d929bd181941f79b0d63edafb8a86ae6fd33">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\spring-android-rest-template-1.0.1.RELEASE_5fdb37cd9d221cad0430c035e11e75073ec8f067.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\9.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="dd763e0269f2854f5828ae62dd968b80bff6a0db">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-clearcut-9.4.0_24389e1fdc86b0791315be254d7f19a83d07d1d9.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\9.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="d463d8eec1e6c1feef2cec6675ccb47e37c12ee1">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-ads-9.4.0_a00487e4a7b76d94e92da6c831a1ffffb6f797ce.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.3.2\559b70ac8a0d5cad611da4223137a920147201ba\jackson-core-2.3.2.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="559b70ac8a0d5cad611da4223137a920147201ba">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\jackson-core-2.3.2_65c351c2e23f572f2f0c7f98857702ede9c66b06.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="e454c414a069241ee08444d187f2dd3a702596b5">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-maps-9.4.0_25cc689f59f70546592997fd617415bb42d6e009.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="d4c936aa8c7d2522c82e3f1829c791d9e367f009">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-recyclerview-v7-23.2.0_ba07a88fc9012a26e1fad2d8b6200261d1810320.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="292a9fa091757208efa65e77eef63088247e51f3">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-support-vector-drawable-23.2.0_25ba605278208db18f3d89bc2d8cb941fbab95a8.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="3dee4ce5844d39d843d503fb8fe04e51e5bfffac">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-base-9.4.0_08df60861ddb10de4e9e69dbafc0a028ee477743.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.cardiomood.android\android-widgets\0.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="c05b677d8aca4e437294460acbc6f4d4bd9cfa0c">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.cardiomood.android-android-widgets-0.1.1_c97b449718a9ee73fe4886c42510f62b49c20a03.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="bc599eb9531da9d18bc58ec4eb0b1a1d895f6839">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-cardview-v7-23.2.0_c1e979c74305ef3098709a25e5eda664a7bd72f6.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="18b5697c65c4fe5b7381613b8b8ae9ac52e26fa7">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-common-9.4.0_9c8591a8b74ceca143911b507ffec1acf91faab6.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="618485fef3ebe12127f7622abbc9b5b39057b5c2">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-basement-9.4.0_f346e504f299b28f4e4ec51dea5f06aff36a60d4.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\.gradle\caches\modules-2\files-2.1\org.springframework.android\spring-android-core\1.0.1.RELEASE\e68f0e8e4b636ee30c4de58953be38d9b72a5e3b\spring-android-core-1.0.1.RELEASE.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="e68f0e8e4b636ee30c4de58953be38d9b72a5e3b">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\spring-android-core-1.0.1.RELEASE_8200b92de8bc6e59d81bda6ad2b50b00e51a4409.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.github.satyan\sugar\1.5\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="19a40a8afe0289f6520b25353096ac233e78f69d">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.github.satyan-sugar-1.5_b92ae48807cf623cd74b5676c086a4d705e86725.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="8a36d229011e75f0caef408e1adf0d3fd4d94e02">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-tasks-9.4.0_c066ae2afc51622d1a74a6fc14ff79c6f12bb563.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="8c108c22c99e794eff255bb34d2a461200c4cbb0">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-animated-vector-drawable-23.2.0_e8b3e275ba1044ce4e737171838cbf1cb96b6732.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-annotations\2.3.0\f5e853a20b60758922453d56f9ae1e64af5cb3da\jackson-annotations-2.3.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="f5e853a20b60758922453d56f9ae1e64af5cb3da">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\jackson-annotations-2.3.0_cb43ab0370e34968769826a64d4020171cdcbc99.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\.gradle\caches\modules-2\files-2.1\org.codehaus.jackson\jackson-core-asl\1.9.12\ecfc6f73a841c4c3c653b59651a3f9d5f1286469\jackson-core-asl-1.9.12.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="ecfc6f73a841c4c3c653b59651a3f9d5f1286469">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\jackson-core-asl-1.9.12_4b76e58bddd452cd0d1301fc8c5d369cae97863c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\design\23.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="1aa5b025efe97f5006f5be16d6ca67c6c3c0c0d8">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-design-23.2.0_f42a0c44a9636d545b6d02ab5fd3dee5e42b572f.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\.gradle\caches\modules-2\files-2.1\org.codehaus.jackson\jackson-mapper-asl\1.9.12\8b290aae44213e2f6da00c07af59b0d442068f4d\jackson-mapper-asl-1.9.12.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="8b290aae44213e2f6da00c07af59b0d442068f4d">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\jackson-mapper-asl-1.9.12_0dcc8b60842deb5d4f0a6fa5a8d1a48ffc7523d9.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\9.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="c10df7344e31161852c20bb8143fc37319aa10ec">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-appindexing-9.4.0_83a5c1d02f5ccec2b1abf696644776661e674e29.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\9.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="b15f898c9047f9d612a63000126b485dd024eaac">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-gass-9.4.0_31ad121639a6ae60caa17775595e8fdb1d651f29.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.0\jars\libs\internal_impl-23.2.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="6e239441500605809818997dd63b62a947195f8c">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\internal_impl-23.2.0_a49d73da5413fbe7da55b8ff2199c7ea70e9b395.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-databind\2.3.2\c75edc740a6d8cb1cef6fa82fa594e0bce561916\jackson-databind-2.3.2.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="c75edc740a6d8cb1cef6fa82fa594e0bce561916">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\jackson-databind-2.3.2_76013ffa00c58296f4d3668c948fcf7efd2f60a2.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\9.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="147edbec6bcea71fd675ecc63cae3319637ec2b4">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-ads-lite-9.4.0_bd9031511b680d9d25185bce0a4e123e274ba287.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.github.medyo\fancybuttons\1.8.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="1d2264766f0334470f9917ead03eab24c55c26c9">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.github.medyo-fancybuttons-1.8.1_d12757244dc055a698525b014d2677022a67706e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="6e3578f92f7462d1a935a1d36173e3bdd1234976">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-appcompat-v7-23.2.0_65265cf373c3bf57d679763edbac339047033b27.jar" />
+    </item>
+
+</items>
