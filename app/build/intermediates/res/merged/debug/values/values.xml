@@ -27,7 +27,7 @@
         <item>"we_need_advertisements"</item>
         <item>"new_york_forum_prix_jeune_entreprise"</item>
     </string-array>
-    <string-array name="villes">
+    <string-array name="villes" translatable="false">
         <item>Douala</item>
         <item>Yaounde</item>
         <item>Bafoussam</item>
@@ -65,6 +65,7 @@
     <color name="background_floating_material_light">@android:color/white</color>
     <color name="background_material_dark">@color/material_grey_850</color>
     <color name="background_material_light">@color/material_grey_50</color>
+    <color name="black">#222</color>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
     <color name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
@@ -114,6 +115,7 @@
     <color name="dim_foreground_material_light">#ff323232</color>
     <color name="foreground_material_dark">@android:color/white</color>
     <color name="foreground_material_light">@android:color/black</color>
+    <color name="grey">#aaa</color>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
     <color name="hint_foreground_material_dark">@color/bright_foreground_disabled_material_dark</color>
@@ -284,11 +286,12 @@
     <dimen name="btn_padding">20dp</dimen>
     <dimen name="btn_radius">20dp</dimen>
     <dimen name="btn_small_padding">10dp</dimen>
-    <dimen name="card_corner_radius">5dp</dimen>
+    <dimen name="card_corner_radius">0dp</dimen>
     <dimen name="card_elevation">5dp</dimen>
     <dimen name="cardview_compat_inset_shadow">1dp</dimen>
     <dimen name="cardview_default_elevation">2dp</dimen>
     <dimen name="cardview_default_radius">2dp</dimen>
+    <dimen name="contetextsize">25sp</dimen>
     <dimen name="design_appbar_elevation">4dp</dimen>
     <dimen name="design_bottom_sheet_modal_elevation">16dp</dimen>
     <dimen name="design_bottom_sheet_modal_peek_height">256dp</dimen>
@@ -428,6 +431,7 @@
     <string name="duree_label" translatable="false">\? (hh)</string>
     <string name="echec_creation_compte_contact_serveur">Echec de l\'enregistrement sur le serveur. Merci de reessayer ulterieurement.</string>
     <string name="end_journey">Achever le Voyage</string>
+    <string name="error_message_send">Message sauvegardé hors ligne</string>
     <string name="error_occur_please_retry">Une erreur s\'est produite; veuillez reessayer svp</string>
     <string name="estimated_speed">Vitesse estimee</string>
     <string name="estimated_speed_msg">"Nous estimons votre vitesse actuelle a "</string>
@@ -441,7 +445,7 @@
     <string name="journey_saved_failed">Echec d\'enregistrement du voyage. Reessayez s\'il vous plait</string>
     <string name="journey_saved_successfull">Voyage sauvegarde avec succes</string>
     <string name="key_account_creation_loading_msg">Tentative de synchronisation…</string>
-    <string name="key_chargement">Loading…</string>
+    <string name="key_chargement">Chargement .…</string>
     <string name="label_get_a_taxi">Trouver un Taxi!</string>
     <string name="load_image">Charger une image</string>
     <string name="login">Continuer</string>
@@ -450,12 +454,13 @@
     <string name="mat_id_synchronization_operation_failed">Echec de l\'opération de synchronisation…</string>
     <string name="mat_id_synchronization_success">opération de synchronisation réussie…</string>
     <string name="matriculation_number">Immatriculation de votre vehicule</string>
+    <string name="message_sent">Message envoyé</string>
     <string name="mettre_a_jour_parametres_voyage">MAJ. les détails du Voyage</string>
     <string name="my_location">Ma Position</string>
     <string name="myposition">Ma Position actuelle</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
-    <string name="new_repport_complaint">Rapporter un Probleme</string>
+    <string name="new_repport_complaint">Messages</string>
     <string name="next_level" translatable="false">Next Level</string>
     <string name="no_telephone">numero de telephone (*)</string>
     <string name="open_settings">Reglages</string>
@@ -474,6 +479,7 @@
     <string name="save">Sauvegarder</string>
     <string name="select_your_profile_image">selectionnez votre photo de profil</string>
     <string name="send">Envoyer</string>
+    <string name="sending">Envoie en cours</string>
     <string name="situation">Choisissez la situation?</string>
     <string name="snap_image">Capturer une image</string>
     <string name="speed_dimen">Vitesse (Kmph)</string>
@@ -487,10 +493,11 @@
     <string name="success_account_creation">Compte cree avec succes.</string>
     <string name="telephone_number_confirm_msg">" et le numéro de téléphone "</string>
     <string name="title_activity_main2" translatable="false">Main2Activity</string>
-    <string name="title_activity_messaging" translatable="false">Messages</string>
+    <string name="title_activity_messaging">Messages</string>
     <string name="transport_company">Quelle Compagnie?</string>
     <string name="travel_info">Informations sur le Voyage</string>
     <string name="trip_agency">Agence de Voyage</string>
+    <string name="tryagain">Essayer encore</string>
     <string name="username">pseudonyme (*)</string>
     <string name="username_confirm_msg">"Etes vous sur de vouloir continuer avec le pseudonyme "</string>
     <string name="username_confirm_no_label">Non</string>

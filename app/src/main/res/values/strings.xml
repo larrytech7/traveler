@@ -16,7 +16,7 @@
     <string name="my_location">Ma Position</string>
     <string name="main_menu_activity_title">Accueil</string>
     <string name="confirm_journey">Enregistrer un Voyage</string>
-    <string name="new_repport_complaint">Rapporter un Probleme</string>
+    <string name="new_repport_complaint">Messages</string>
 
     <string-array name="problem_types">
         <item>"Accident"</item>
@@ -140,12 +140,16 @@
     <string name="title_activity_messaging">Messages</string>
     <string name="votre_message">Votre message</string>
     <string name="echec_creation_compte_contact_serveur">Echec de l\'enregistrement sur le serveur. Merci de reessayer ulterieurement.</string>
-    <string name="key_chargement">Loading…</string>
+    <string name="key_chargement">Chargement .…</string>
     <string name="success_account_creation">Compte cree avec succes.</string>
     <string name="key_account_creation_loading_msg">Tentative de synchronisation…</string>
     <string name="telephone_number_confirm_msg">" et le numéro de téléphone "</string>
     <string name="mat_id_synchronization_success">opération de synchronisation réussie…</string>
     <string name="mat_id_synchronization_operation_failed">Echec de l\'opération de synchronisation…</string>
     <string name="mat_id_synchronization_failed_no_mat_id_saved">Echec de la récupération de votre compte à partir du serveur. Veuillez rééssayer ultérieurement ou tenter de créer un nouveau compte.</string>
+    <string name="tryagain">Essayer encore</string>
+    <string name="error_message_send">Message sauvegardé hors ligne</string>
+    <string name="message_sent">Message envoyé</string>
+    <string name="sending">Envoie en cours</string>
 
 </resources>

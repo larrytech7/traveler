@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -58,40 +59,25 @@ public class MainActivity extends Activity {
         if(getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0).contains(TConstants.PREF_USERNAME)&&
                 getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0).contains(TConstants.PREF_PHONE)){
 
-
             final ProgressDialog progress = new ProgressDialog(MainActivity.this);
             progress.setIcon(R.mipmap.ic_launcher);
             progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
             progress.setIndeterminate(true);
             progress.setTitle(getString(R.string.key_chargement));
             progress.setMessage(getString(R.string.key_account_creation_loading_msg));
-
-
             progress.show();
 
             new AsyncTask<Void, Void, ResponsStatusMsgData>(){
                 @Override
                 protected ResponsStatusMsgData doInBackground(Void... params) {
                     try {
-                        // HttpAuthentication httpAuthentication = new HttpBasicAuthentication("username", "password");
                         HttpHeaders requestHeaders = new HttpHeaders();
-                        //requestHeaders.setAuthorization(httpAuthentication);
-                        // requestHeaders.setAccept(Collections.singletonList(new MediaType("application", "json")));
-                        // requestHeaders.setContentType(MediaType.APPLICATION_JSON);
-
                         //Create the request body as a MultiValueMap
                         MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
 
                         HttpEntity<?> httpEntity = new HttpEntity<Object>(body, requestHeaders);
                         RestTemplate restTemplate = new RestTemplate(true);
-
                         Gson gson = new Gson();
-
-
-                        //restTemplate.getMessageConverters().add(new GsonHttpMessageConverter());
-                        //restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
-
-
 
                         ResponseEntity<String>  response = restTemplate.exchange(TConstants.GET_MAT_ID_URL+getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
                                 .getString(TConstants.PREF_PHONE, ""), HttpMethod.GET, httpEntity, String.class);
@@ -107,30 +93,31 @@ public class MainActivity extends Activity {
 
                 @Override
                 protected void onPostExecute(ResponsStatusMsgData response) {
-
-
                     if(response!=null && response.getStatus()==200){
-                        Toast.makeText(getApplicationContext(), R.string.mat_id_synchronization_success, Toast.LENGTH_LONG).show();
+                        try {
+                            Toast.makeText(getApplicationContext(), R.string.mat_id_synchronization_success, Toast.LENGTH_LONG).show();
+                            SharedPreferences prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0);
+                            SharedPreferences.Editor editor = prefs.edit();
+                            //TODO IndexOutOfBounds error ici quand la synchronisation ne s'effectue pas correctement
+                            editor.putString(TConstants.PREF_MAT_ID, response.getData()[0].getId());
+                            editor.putString(TConstants.PREF_MATRICULE, response.getData()[0].getCode());
+                            editor.commit();
 
-                        SharedPreferences prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0);
-                        SharedPreferences.Editor editor = prefs.edit();
-                        editor.putString(TConstants.PREF_MAT_ID, response.getData()[0].getId());
-                        editor.putString(TConstants.PREF_MATRICULE, response.getData()[0].getCode());
-                        editor.commit();
+                            progress.dismiss();
+                            Toast.makeText(getApplicationContext(), getString(R.string.connexion_with_username)+" "
+                                            +getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
+                                            .getString(TConstants.PREF_USERNAME, "anonyme-Travelr"),
+                                    Toast.LENGTH_LONG)
+                                    .show();
+                            startActivity(new Intent(getApplicationContext(), MyPositionActivity.class));
+                            finish();
 
-                        progress.dismiss();
-                        Toast.makeText(getApplicationContext(), getString(R.string.connexion_with_username)+" "
-                                        +getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
-                                        .getString(TConstants.PREF_USERNAME, "anonyme-Travelr"),
-                                Toast.LENGTH_LONG)
-                                .show();
-
-
-                        startActivity(new Intent(getApplicationContext(), MyPositionActivity.class));
-
-                        finish();
-
-                        Log.e("message", "reponse: "+response.getMessage());
+                            Log.e("message", "reponse: "+response.getMessage());
+                        } catch (Resources.NotFoundException e) {
+                            e.printStackTrace();
+                        } catch (IndexOutOfBoundsException iob){
+                            iob.printStackTrace();
+                        }
                     }
                     else{
                         progress.dismiss();
@@ -155,14 +142,11 @@ public class MainActivity extends Activity {
                     }
                 }
             }.execute();
-
         }
 
-        //panneauPub = (TextView)findViewById(R.id.panneau_pub);
         username = (EditText)findViewById(R.id.username);
         matricule = (EditText)findViewById(R.id.matricule1);
         noTelephone = (EditText)findViewById(R.id.no_telephone);
-
         noTelephone.setText(((TelephonyManager) getSystemService(TELEPHONY_SERVICE)).getLine1Number());
 
         buttonLogin = (FancyButton)findViewById(R.id.button_login);
@@ -194,46 +178,27 @@ public class MainActivity extends Activity {
                                 final String matriculeString = (matricule.getText().toString().equals(""))?"indisponible":matricule.getText().toString();
                                 final String telephoneString = noTelephone.getText().toString();
                                 final String usernameString = username.getText().toString();
-
-
                                 final ProgressDialog progress = new ProgressDialog(MainActivity.this);
                                 progress.setIcon(R.mipmap.ic_launcher);
                                 progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                                 progress.setIndeterminate(true);
                                 progress.setTitle(getString(R.string.key_chargement));
                                 progress.setMessage(getString(R.string.key_account_creation_loading_msg));
-
-
                                 progress.show();
 
                                 new AsyncTask<Void, Void, ResponsStatusMsg>(){
                                     @Override
                                     protected ResponsStatusMsg doInBackground(Void... params) {
                                         try {
-                                            // HttpAuthentication httpAuthentication = new HttpBasicAuthentication("username", "password");
                                             HttpHeaders requestHeaders = new HttpHeaders();
-                                            //requestHeaders.setAuthorization(httpAuthentication);
-                                            // requestHeaders.setAccept(Collections.singletonList(new MediaType("application", "json")));
-                                            // requestHeaders.setContentType(MediaType.APPLICATION_JSON);
-
-                                            //Create the request body as a MultiValueMap
                                             MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
                                             body.add(TConstants.REGISTRATION_URL_PARAM_CODE, matriculeString);
                                             body.add(TConstants.REGISTRATION_URL_PARAM_MSISDN, telephoneString);
 
                                             //Log.e("error", "no: "+telephoneString);
-
-
                                             HttpEntity<?> httpEntity = new HttpEntity<Object>(body, requestHeaders);
                                             RestTemplate restTemplate = new RestTemplate(true);
-
                                             Gson gson = new Gson();
-
-
-                                            //restTemplate.getMessageConverters().add(new GsonHttpMessageConverter());
-                                            //restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
-
-
 
                                             ResponseEntity<String>  response = restTemplate.exchange(TConstants.REGISTRATION_URL, HttpMethod.POST, httpEntity, String.class);
                                             Log.e("Response", "res: "+response);
@@ -250,7 +215,6 @@ public class MainActivity extends Activity {
                                     @Override
                                     protected void onPostExecute(ResponsStatusMsg response) {
 
-
                                         if(response!=null && response.getStatus()==100){
                                             Toast.makeText(getApplicationContext(), R.string.success_account_creation, Toast.LENGTH_LONG).show();
 
@@ -261,17 +225,12 @@ public class MainActivity extends Activity {
                                             editor.putString(TConstants.PREF_MATRICULE, matriculeString);
                                             editor.commit();
 
-
-
                                             new AsyncTask<Void, Void, ResponsStatusMsgData>(){
                                                 @Override
                                                 protected ResponsStatusMsgData doInBackground(Void... params) {
                                                     try {
                                                         // HttpAuthentication httpAuthentication = new HttpBasicAuthentication("username", "password");
                                                         HttpHeaders requestHeaders = new HttpHeaders();
-                                                        //requestHeaders.setAuthorization(httpAuthentication);
-                                                        // requestHeaders.setAccept(Collections.singletonList(new MediaType("application", "json")));
-                                                        // requestHeaders.setContentType(MediaType.APPLICATION_JSON);
 
                                                         //Create the request body as a MultiValueMap
                                                         MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
@@ -280,13 +239,6 @@ public class MainActivity extends Activity {
                                                         RestTemplate restTemplate = new RestTemplate(true);
 
                                                         Gson gson = new Gson();
-
-
-                                                        //restTemplate.getMessageConverters().add(new GsonHttpMessageConverter());
-                                                        //restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
-
-
-
                                                         ResponseEntity<String>  response = restTemplate.exchange(TConstants.GET_MAT_ID_URL+getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
                                                                 .getString(TConstants.PREF_PHONE, ""), HttpMethod.GET, httpEntity, String.class);
 
@@ -301,7 +253,6 @@ public class MainActivity extends Activity {
 
                                                 @Override
                                                 protected void onPostExecute(ResponsStatusMsgData response) {
-
 
                                                     if(response!=null && response.getStatus()==200){
                                                         Toast.makeText(getApplicationContext(), R.string.mat_id_synchronization_success, Toast.LENGTH_LONG).show();
@@ -327,17 +278,10 @@ public class MainActivity extends Activity {
                                                         progress.dismiss();
                                                         Log.e("message", "response: "+response);
                                                         Toast.makeText(getApplicationContext(), R.string.mat_id_synchronization_operation_failed, Toast.LENGTH_LONG).show();
-
-
                                                         Toast.makeText(getApplicationContext(), R.string.mat_id_synchronization_failed_no_mat_id_saved, Toast.LENGTH_LONG).show();
-
-
                                                     }
                                                 }
                                             }.execute();
-
-
-
                                         }
                                         else{
                                             progress.dismiss();
@@ -355,9 +299,6 @@ public class MainActivity extends Activity {
         });
 
     }
-
-
-
 
     @Override
     protected Dialog onCreateDialog(int id) {
