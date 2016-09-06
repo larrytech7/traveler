@@ -27,6 +27,7 @@
         android:drawablePadding="10dp"
         android:text="@string/welcome"
         android:textAlignment="center"
+        android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textSize="25dp" />
     <ImageView
@@ -52,23 +53,37 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_marginBottom="15dp"
+                android:layout_marginBottom="5dp"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:ems="10"
+                android:ems="5"
                 android:hint="@string/username"
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textColor="@color/abc_search_url_text_selected" />
 
             <EditText
-                android:id="@+id/matricule"
+                android:id="@+id/no_telephone"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:ems="5"
+                android:hint="@string/no_telephone"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/abc_search_url_text_selected"
+                android:inputType="phone" />
+
+            <EditText
+                android:id="@+id/matricule1"
+                android:layout_width= "match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_centerInParent="true"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="20dp"
-                android:ems="10"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:ems="5"
                 android:hint="@string/matriculation_number"
                 android:inputType="textCapSentences|textPostalAddress"
                 android:maxLines="1"

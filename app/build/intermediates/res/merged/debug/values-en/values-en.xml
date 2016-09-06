@@ -23,8 +23,8 @@
         <item>"Dammaged vehicle"</item>
         <item>"Other..."</item>
     </string-array>
-    <string name="about_message">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 3.9.9</string>
-    <string name="about_title">About</string>
+    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 3.9.9</string>
+    <string name="about_title1">About</string>
     <string name="account_created">Account created successfully with the username </string>
     <string name="annuler_voyage">Cancel journey</string>
     <string name="arrivee">Destination: %s</string>
@@ -47,6 +47,7 @@
     <string name="departure">Departure Town</string>
     <string name="description">Description</string>
     <string name="destination">Destination</string>
+    <string name="echec_creation_compte_contact_serveur">Fail to contact server. Please retry later.</string>
     <string name="end_journey">Finish journey</string>
     <string name="error_occur_please_retry">An error occurred; Please try again</string>
     <string name="estimated_speed">Estimated Speed</string>
@@ -57,16 +58,21 @@
     <string name="journey_management">Manage journeys</string>
     <string name="journey_saved_failed">Failed to register journey. Please try again</string>
     <string name="journey_saved_successfull">Journey successfully saved</string>
+    <string name="key_account_creation_loading_msg">Contacting servers…</string>
+    <string name="key_chargement">Loading...</string>
     <string name="label_get_a_taxi">Find a Taxi!</string>
     <string name="load_image">Upload a picture</string>
     <string name="login">Continue</string>
     <string name="main_menu_activity_title">Home</string>
-    <string name="matriculation_number">Vehicle Immatriculation</string>
+    <string name="mat_id_synchronization_failed_no_mat_id_saved">Failed to retrieve your account from the server. Please try again later or try to create a new account.</string>
+    <string name="mat_id_synchronization_operation_failed">Failure of the synchronization process…</string>
+    <string name="mat_id_synchronization_success">successful sync operation …</string>
+    <string name="matriculation_number">Immatriculation of your Vehicle</string>
     <string name="mettre_a_jour_parametres_voyage">Update travel details</string>
     <string name="my_location">My Position</string>
     <string name="myposition">My current location</string>
     <string name="new_repport_complaint">Report Problem</string>
-    <string name="no_telephone">phone number</string>
+    <string name="no_telephone">phone number (*)</string>
     <string name="open_settings">Settings</string>
     <string name="password">password</string>
     <string name="password_again">password (again)</string>
@@ -74,7 +80,7 @@
     <string name="phone_number_guardian">relative\'s phone number</string>
     <string name="problem_saved_successfull">problem/complaint saved successfully </string>
     <string name="provide_account_informations">Please provide your account information</string>
-    <string name="provide_all_fields">Please complete all fields</string>
+    <string name="provide_all_fields">Please complete all fields with *</string>
     <string name="provide_car_immatriculation_number">Please fill out at least the immatriculation\'s number</string>
     <string name="provide_problem_description">Please describe your complaint </string>
     <string name="provide_username_and_password">Please fill your username and password</string>
@@ -89,11 +95,13 @@
     <string name="speed_limit_reached">Exceeding the statutory speed limit</string>
     <string name="speed_limit_reached_ago">You have exceeded speed limit</string>
     <string name="speed_limit_reached_msg">You just passed the legal speed limit for the area where you are (</string>
+    <string name="success_account_creation">account successfully saved on server</string>
+    <string name="telephone_number_confirm_msg">" and with telephone number "</string>
     <string name="title_activity_messaging">Messages</string>
     <string name="transport_company">Which Company?</string>
     <string name="travel_info">Trip information</string>
     <string name="trip_agency">Travel Agency</string>
-    <string name="username">username</string>
+    <string name="username">username (*)</string>
     <string name="username_confirm_msg">"Sure to proceed with username "</string>
     <string name="username_confirm_no_label">no</string>
     <string name="username_confirm_title">Confirm</string>

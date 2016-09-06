@@ -301,7 +301,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
         int id = item.getItemId();
         if (id == R.id.action_about) {
-            Tutility.showMessage(this, R.string.about_message, R.string.about_title);
+            Tutility.showMessage(this, R.string.about_message1, R.string.about_title1);
             return true;
         }
 
