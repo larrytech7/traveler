@@ -3,15 +3,15 @@
 
     <string name="create_profile">Account Creation </string>
     <string name="welcome">Zero deaths on our roads. Remain Alert and safe with Travelr</string>
-    <string name="username">username</string>
+    <string name="username">username (*)</string>
     <string name="password">password</string>
     <string name="password_again">password (again)</string>
-    <string name="no_telephone">phone number</string>
+    <string name="no_telephone">phone number (*)</string>
     <string name="click_to_change">click to edit</string>
     <string name="my_location">My Position</string>
     <string name="main_menu_activity_title">Home</string>
     <string name="confirm_journey">Register a journey</string>
-    <string name="new_repport_complaint">Report Problem</string>
+    <string name="new_repport_complaint">Messages</string>
 
     <string-array name="problem_types">
         <item>"Crash"</item>
@@ -21,7 +21,7 @@
         <item>"Dammaged vehicle"</item>
         <item>"Other..."</item>
     </string-array>
-        <string name="matriculation_number">Vehicle Immatriculation</string>
+        <string name="matriculation_number">Immatriculation of your Vehicle</string>
         <string name="description">Description</string>
 		    <string name="load_image">Upload a picture</string>
     <string name="snap_image">Snap a picture</string>
@@ -33,7 +33,7 @@
     <string name="incorrect_immatriculation_number">Incorrect Immatriculation number (eg: CE111AA)</string>
     <string name="problem_saved_successfull">problem/complaint saved successfully </string>
     <string name="error_occur_please_retry">An error occurred; Please try again</string>
-    <string name="provide_all_fields">Please complete all fields</string>
+    <string name="provide_all_fields">Please complete all fields with *</string>
     <string name="repeated_password_different_from_original">password repeated is different from password; please correct</string>
     <string name="account_created">Account created successfully with the username </string>
     <string name="select_your_profile_image">select your profile picture</string>
@@ -81,10 +81,10 @@
         <item>"4- ghastly"</item>
         <item>"5- carnage"</item>
     </string-array>
-    <string name="about_title">About</string>
+    <string name="about_title1">About</string>
     <string name="speed_dimen">Speed (Kmph)</string>
     <string name="login">Continue</string>
-    <string name="about_message">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 3.9.9</string>
+    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 3.9.9</string>
     <string name="cancel">Cancel</string>
     <string name="howserious">Severity level</string>
     <string name="save">Save</string>
@@ -106,6 +106,14 @@
     <string name="complete_trip_title">Trip completed</string>
     <string name="myposition">My current location</string>
     <string name="votre_message">Your Message</string>
-    <string name="title_activity_messaging">Messages</string>
+    <string name="title_activity_messaging">Messages </string>
+    <string name="echec_creation_compte_contact_serveur">Fail to contact server. Please retry later.</string>
+    <string name="key_chargement">Loading...</string>
+    <string name="success_account_creation">account successfully saved on server</string>
+    <string name="key_account_creation_loading_msg">Contacting servers…</string>
+    <string name="telephone_number_confirm_msg">" and with telephone number "</string>
+    <string name="mat_id_synchronization_success">successful sync operation …</string>
+    <string name="mat_id_synchronization_operation_failed">Failure of the synchronization process…</string>
+    <string name="mat_id_synchronization_failed_no_mat_id_saved">Failed to retrieve your account from the server. Please try again later or try to create a new account.</string>
 
 </resources>

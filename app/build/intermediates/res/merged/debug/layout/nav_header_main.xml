@@ -22,7 +22,7 @@
     <com.cardiomood.android.controls.gauge.SpeedometerGauge
         android:id="@+id/speedometer"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="300dp"
         android:gravity="center"
         android:padding="8dp" />
 
@@ -42,29 +42,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
+       <!-- <ImageView
             android:id="@+id/imageView"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginBottom="5dp"
             android:layout_marginTop="-10dp"
             android:paddingTop="@dimen/nav_header_vertical_spacing"
-            android:src="@drawable/anonyme" />
+            android:src="@drawable/anonyme" />-->
 
         <TextView
             android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/imageView"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
             android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
-            android:layout_toRightOf="@+id/imageView"
             android:text="Steve TUENO"
             android:textColor="#FFFFFF"
-            android:textSize="25dp"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="25sp"
             android:typeface="serif" />
     </RelativeLayout>
 

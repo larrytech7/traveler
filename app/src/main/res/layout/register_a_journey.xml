@@ -72,6 +72,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:ems="10"
+                    android:layout_weight="1"
                     android:hint="@string/phone_number_guardian"
                     android:inputType="phone" />
 
@@ -80,7 +81,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="right"
-                    android:alpha="1"
+                    android:background="@android:color/transparent"
                     android:src="@drawable/ic_contact_add"
                     android:text="..." />
 
@@ -156,10 +157,9 @@
                 fancy:fb_defaultColor="@color/colorAccent"
                 fancy:fb_focusColor="#cccccc"
                 fancy:fb_iconPosition="top"
-                fancy:fb_iconResource="@drawable/ic_cancel"
                 fancy:fb_radius="@dimen/btn_radius"
                 fancy:fb_text="@string/cancel"
-                fancy:fb_textColor="#FFFFFF" />
+                fancy:fb_textColor="#000" />
             <mehdi.sakout.fancybuttons.FancyButton
                 android:id="@+id/button_save"
                 android:layout_width="wrap_content"
@@ -169,18 +169,17 @@
                 android:layout_weight="1"
                 android:gravity="end|right"
                 android:paddingBottom="10dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
                 android:paddingTop="10dp"
-                fancy:fb_borderColor="#FFFFFF"
+                fancy:fb_borderColor="@color/colorPrimary"
                 fancy:fb_borderWidth="1dp"
-                fancy:fb_defaultColor="@color/colorButtonPrimary"
+                fancy:fb_defaultColor="@android:color/transparent"
                 fancy:fb_focusColor="#cccccc"
                 fancy:fb_iconPosition="top"
-                fancy:fb_iconResource="@drawable/ic_ok"
                 fancy:fb_radius="@dimen/btn_radius"
                 fancy:fb_text="@string/save"
-                fancy:fb_textColor="#FFFFFF" />
+                fancy:fb_textColor="#000" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

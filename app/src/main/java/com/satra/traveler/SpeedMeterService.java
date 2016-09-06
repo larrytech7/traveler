@@ -11,15 +11,28 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.media.RingtoneManager;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.satra.traveler.models.ResponsStatusMsg;
+import com.satra.traveler.models.ResponsStatusMsgData;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
+
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Vector;
 
@@ -32,9 +45,10 @@ public class SpeedMeterService extends Service {
     private static final int NBRE_MAX_ITERATION_POUR_MOYENNE_VITESSES = 3;
     private static final int MAX_VITESSE_METRE_SECONDE = 0;
     private static final float COEFF_CONVERSION_MS_KMH = 4;
-    private static final int MAX_SPEED_ALLOWED_KMH = 80;
+    private static final int MAX_SPEED_ALLOWED_KMH = 105;
     private static final int NATURAL_LIMIT_OF_SPEED = 200;
     private static final int ERREUR_ACCEPTE_VITESSE_MAX=2;
+    private static final int MAX_SPEED_TO_ALERT_KMH = 95;
     LocationManager locationManager;
     float vitesse = 0;
     int id = 1;
@@ -331,11 +345,17 @@ public class SpeedMeterService extends Service {
 
         Log.e("speed injected", "new speed received and injected: "+vitesse);
 
-        if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_ALLOWED_KMH){
+        if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_TO_ALERT_KMH){
             if(!hasReachLimit) {
                 showNotification(displayedSpeed);
                 hasReachLimit = true;
             }
+            if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_ALLOWED_KMH){
+
+                pushSpeedOnline(vitesse, location);
+
+            }
+
         }
         else{
             if(hasReachLimit) {
@@ -345,7 +365,79 @@ public class SpeedMeterService extends Service {
             }
         }
 
+
+
+
         return  duration;
+    }
+
+    private void pushSpeedOnline(final float vitesse, final Location location) {
+        new AsyncTask<Void, Void, ResponsStatusMsg>(){
+            @Override
+            protected ResponsStatusMsg doInBackground(Void... params) {
+                try {
+                    // HttpAuthentication httpAuthentication = new HttpBasicAuthentication("username", "password");
+                    HttpHeaders requestHeaders = new HttpHeaders();
+                    //requestHeaders.setAuthorization(httpAuthentication);
+                    // requestHeaders.setAccept(Collections.singletonList(new MediaType("application", "json")));
+                    // requestHeaders.setContentType(MediaType.APPLICATION_JSON);
+
+                    //Create the request body as a MultiValueMap
+                    MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
+                    body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_LAT, String.valueOf(location.getLatitude()));
+                    body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_LNG, String.valueOf(location.getLongitude()));
+                    body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_SPEED, String.valueOf(vitesse));
+                    body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_MAT_ID, getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
+                            .getString(TConstants.PREF_MAT_ID, "0"));
+
+                    //Log.e("error", "no: "+telephoneString);
+
+
+                    HttpEntity<?> httpEntity = new HttpEntity<Object>(body, requestHeaders);
+                    RestTemplate restTemplate = new RestTemplate(true);
+
+                    Gson gson = new Gson();
+
+
+                    //restTemplate.getMessageConverters().add(new GsonHttpMessageConverter());
+                    //restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
+
+
+
+                    ResponseEntity<String> response = restTemplate.exchange(TConstants.POST_SPEED_AND_POSITION_URL, HttpMethod.POST, httpEntity, String.class);
+                    Log.e("Response", "res: "+response);
+                    Log.e("Response body", "body "+response.getBody());
+
+                    return gson.fromJson(response.getBody(), ResponsStatusMsg.class);
+                } catch (Exception e) {
+                    Log.e("MainActivity", e.getMessage(), e);
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(ResponsStatusMsg response) {
+
+                if(response==null || response.getStatus()!=100){
+
+                    /*
+                    * TO DO 1
+                     * @author: HARRY
+                    * SAUVEGARDE DES COUPLES VITESSE+POSITION DANS LA BD LOCALE
+                     */
+
+                }
+                else{
+                    /*
+                    * TO DO 2 after TO DO 1
+                     * @author: STEVE
+                    * POST DES COUPLES VITESSE+POSITION SAUVEGARDES DANS LA BD LOCALE SUR LE SERVEUR EN LIGNE
+                     */
+                }
+
+            }
+        }.execute();
     }
 
     @Override

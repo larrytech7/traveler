@@ -31,9 +31,9 @@ public class Tutility {
     public static void showMessage(Context c, int message_id, int title_id){
         AlertDialog alertDialog = new AlertDialog
                 .Builder(c)
-                .setTitle(title_id)
-                .setMessage(message_id)
-                .setIcon(R.mipmap.ic_launcher)
+                .setTitle(c.getString(title_id))
+                .setMessage(c.getString(message_id))
+               .setIcon(R.mipmap.ic_launcher)
                 .create();
         alertDialog.show();
     }

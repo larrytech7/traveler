@@ -14,11 +14,10 @@
                 android:id="@+id/nav_new_journey"
                 android:icon="@drawable/ic_trip_add"
                 android:title="@string/confirm_journey" />
-<!--            <item
-                android:id="@+id/nav_confirm_journey"
-                android:icon="@drawable/ic_confirm_journey"
-                android:title="@string/confirmer_voyage" />-->
-
+            <item
+                android:id="@+id/nav_repport_complaint"
+                android:icon="@drawable/ic_message_green_700_24dp"
+                android:title="@string/new_repport_complaint" />
             <item
                 android:id="@+id/nav_end_journey"
                 android:icon="@drawable/ic_confirm_journey"
@@ -27,17 +26,6 @@
                 android:id="@+id/nav_cancel_journey"
                 android:icon="@drawable/ic_cancel_journey"
                 android:title="@string/annuler_voyage" />
-            <item
-                android:id="@+id/nav_repport_complaint"
-                android:icon="@drawable/ic_incident"
-                android:title="@string/new_repport_complaint" />
-<!--
-            <item
-                android:id="@+id/nav_upadate_journey"
-                android:icon="@drawable/ic_update"
-                android:title="@string/mettre_a_jour_parametres_voyage" />
--->
-
         </menu>
     </item>
 

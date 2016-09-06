@@ -6,17 +6,17 @@
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
     <string name="action_settings" translatable="false">Apropos</string>
     <string name="create_profile">Creation du compte</string>
-    <string name="welcome">Zero morts sur nos routes. Rester en alert et en securité avec Travelr</string>
-    <string name="username">pseudonyme</string>
+    <string name="welcome">Zero morts sur nos routes. Restez en alerte et en securite avec Travelr</string>
+    <string name="username">pseudonyme (*)</string>
     <string name="password">mot de passe</string>
-    <string name="for_publicity" translatable="false">pour la publicité/for advertising</string>
-    <string name="password_again">mot de passe (à nouveau)</string>
-    <string name="no_telephone">numéro de téléphone</string>
-    <string name="click_to_change">clic pour modifier</string>
+    <string name="for_publicity" translatable="false">pour la publicite/for advertising</string>
+    <string name="password_again">mot de passe (a nouveau)</string>
+    <string name="no_telephone">numero de telephone (*)</string>
+    <string name="click_to_change">cliquez pour modifier</string>
     <string name="my_location">Ma Position</string>
     <string name="main_menu_activity_title">Accueil</string>
     <string name="confirm_journey">Enregistrer un Voyage</string>
-    <string name="new_repport_complaint">Rapporter un Problème</string>
+    <string name="new_repport_complaint">Messages</string>
 
     <string-array name="problem_types">
         <item>"Accident"</item>
@@ -34,7 +34,8 @@
         <item>"Camrail Intercity"</item>
         <item>"Autres"</item>
     </string-array>
-    <string-array name="villes">
+
+    <string-array name="villes" translatable="false">
         <item>Douala</item>
         <item>Yaounde</item>
         <item>Bafoussam</item>
@@ -61,24 +62,24 @@
         <item>"5- très grave"</item>
     </string-array>
 
-    <string name="matriculation_number">No d\'immatriculation du vehicule</string>
+    <string name="matriculation_number">Immatriculation de votre vehicule</string>
     <string name="description">description</string>
     <string name="load_image">Charger une image</string>
     <string name="snap_image">Capturer une image</string>
     <string name="provide_account_informations">Veuillez fournir vos informations de compte</string>
     <string name="provide_username_and_password">Veuillez remplir votre pseudonyme et votre mot de passe</string>
-    <string name="connexion_with_username">Connecté avec le pseudonyme </string>
-    <string name="provide_car_immatriculation_number">svp remplissez au moins le numéro d\'immatriculation du véhicule</string>
+    <string name="connexion_with_username">Connecte avec le pseudonyme </string>
+    <string name="provide_car_immatriculation_number">svp remplissez au moins le numero d\'immatriculation du vehicule</string>
     <string name="provide_problem_description">Svp veuillez fournir une description</string>
     <string name="incorrect_immatriculation_number">Numéro d\'immatriculation incorrect (exple: CE111AA)</string>
-    <string name="problem_saved_successfull">problème/plainte enregistré</string>
-    <string name="error_occur_please_retry">Une erreur s\'est produite; veuillez réessayer svp</string>
-    <string name="provide_all_fields">Veuillez remplir tous les champs svp</string>
-    <string name="repeated_password_different_from_original">le mot de passe repété est différent du mot de passe; veuillez corriger</string>
-    <string name="account_created">Informations sauvegardées; Compte créé avec succès avec pour pseudonyme </string>
-    <string name="select_your_profile_image">sélectionnez votre photo de profil</string>
+    <string name="problem_saved_successfull">probleme/plainte enregistre</string>
+    <string name="error_occur_please_retry">Une erreur s\'est produite; veuillez reessayer svp</string>
+    <string name="provide_all_fields">Veuillez remplir tous les champs avec * svp</string>
+    <string name="repeated_password_different_from_original">le mot de passe repete est different du mot de passe; veuillez corriger</string>
+    <string name="account_created">Informations sauvegardees; Compte cree avec succes avec pour pseudonyme </string>
+    <string name="select_your_profile_image">selectionnez votre photo de profil</string>
     <string name="transport_company">Quelle Compagnie?</string>
-    <string name="phone_number">votre numéro de téléphone</string>
+    <string name="phone_number">votre numero de telephone</string>
     <string name="relative_guardian">nom de votre proche</string>
     <string name="date_heure_voyage">date et heure du voyage</string>
     <string name="phone_number_guardian">Numero du proche</string>
@@ -87,7 +88,7 @@
     <string name="annuler_voyage">Annuler le Voyage</string>
     <string name="mettre_a_jour_parametres_voyage">MAJ. les détails du Voyage</string>
     <string name="journey_management">Gestion du Voyage</string>
-    <string name="journey_saved_successfull">Voyage sauvegardé avec succès</string>
+    <string name="journey_saved_successfull">Voyage sauvegarde avec succes</string>
     <string name="duree_label" translatable="false">\? (hh)</string>
     <string name="label_get_a_taxi">Trouver un Taxi!</string>
     <string name="check_position">Visualisez votre position</string>
@@ -102,18 +103,18 @@
     <string name="interstitial_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
 
     <string name="gps_disabled_message">Veuillez activer le GPS afin que nous puissions correctement estimer votre position et votre vitesse.</string>
-    <string name="open_settings">Réglages</string>
-    <string name="speed_limit_reached">Dépassement de la limite de vitesse réglémentaire</string>
-    <string name="speed_limit_reached_msg">Vous venez de dépasser la limite de vitesse réglémentaire pour la zone où vous vous trouvez (</string>
-    <string name="estimated_speed">Vitesse estimée</string>
-    <string name="estimated_speed_msg">"Nous estimons votre vitesse actuelle à "</string>
+    <string name="open_settings">Reglages</string>
+    <string name="speed_limit_reached">Depassement de la limite de vitesse reglementaire</string>
+    <string name="speed_limit_reached_msg">Vous venez de depasser la limite de vitesse reglementaire pour la zone ou vous vous trouvez (</string>
+    <string name="estimated_speed">Vitesse estimee</string>
+    <string name="estimated_speed_msg">"Nous estimons votre vitesse actuelle a "</string>
     <string name="username_confirm_title">Confirmation</string>
-    <string name="username_confirm_msg">"Etes vous sûr de vouloir continuer avec le pseudonyme "</string>
+    <string name="username_confirm_msg">"Etes vous sur de vouloir continuer avec le pseudonyme "</string>
     <string name="username_confirm_no_label">Non</string>
     <string name="username_confirm_yes_label">Oui</string>
-    <string name="speed_limit_reached_ago">Vous avez dépassé la limite de vitesse autorisée</string>
-    <string name="about_message">Avec Travelr, c\'est Zero mort sur nos route. <br />Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br /> Version 3.9.9</string>
-    <string name="about_title">Apropos</string>
+    <string name="speed_limit_reached_ago">Vous avez depasse la limite de vitesse autorisee</string>
+    <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br />Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br /> Version 3.9.9</string>
+    <string name="about_title1">A propos</string>
     <string name="login">Continuer</string>
     <string name="speed_dimen">Vitesse (Kmph)</string>
     <string name="trip_agency">Agence de Voyage</string>
@@ -121,22 +122,34 @@
     <string name="save">Sauvegarder</string>
     <string name="situation">Choisissez la situation?</string>
     <string name="send">Envoyer</string>
-    <string name="howserious">Niveaux de Gravité</string>
+    <string name="howserious">Niveaux de Gravite</string>
     <string name="departure">Ville de depart</string>
     <string name="destination">Destination</string>
-    <string name="journey_saved_failed">Echec d\'enregistrement du voyage. Re-essayer s\'il vous plait</string>
+    <string name="journey_saved_failed">Echec d\'enregistrement du voyage. Reessayez s\'il vous plait</string>
     <string name="travel_info">Informations sur le Voyage</string>
     <string name="depart">Depart: %s</string>
     <string name="arrivee">Destination: %s</string>
     <string name="datedepart">Date, Heure de depart: %s</string>
     <string name="complete_trip_title">Voyage Complete</string>
-    <string name="complete_trip">Vous avez indiquer que votre voyage a bien été completé. Merci d\'avoir utilisé Travelr</string>
-    <string name="complete_trip_error_title">Erreure</string>
-    <string name="complete_trip_error">Une erreure s\'est produite. Veuillez reesayer.</string>
-    <string name="cencel_trip">Vous avez choisi d\'annuler ce voyage. Vous pouvez creé un nouveau si vous voyagez encore.</string>
+    <string name="complete_trip">Vous avez indique que votre voyage a bien ete complete. Merci d\'avoir utilise Travelr</string>
+    <string name="complete_trip_error_title">Erreur</string>
+    <string name="complete_trip_error">Une erreur s\'est produite. Veuillez reesayer.</string>
+    <string name="cencel_trip">Vous avez choisi d\'annuler ce voyage. N\'hesitez pas creer un nouveau voyage.</string>
     <string name="cencel_trip_title">Annuler Le voyage</string>
-    <string name="myposition">Ma Position actuel</string>
-    <string name="title_activity_messaging" translatable="false">Messages</string>
+    <string name="myposition">Ma Position actuelle</string>
+    <string name="title_activity_messaging">Messages</string>
     <string name="votre_message">Votre message</string>
+    <string name="echec_creation_compte_contact_serveur">Echec de l\'enregistrement sur le serveur. Merci de reessayer ulterieurement.</string>
+    <string name="key_chargement">Chargement .…</string>
+    <string name="success_account_creation">Compte cree avec succes.</string>
+    <string name="key_account_creation_loading_msg">Tentative de synchronisation…</string>
+    <string name="telephone_number_confirm_msg">" et le numéro de téléphone "</string>
+    <string name="mat_id_synchronization_success">opération de synchronisation réussie…</string>
+    <string name="mat_id_synchronization_operation_failed">Echec de l\'opération de synchronisation…</string>
+    <string name="mat_id_synchronization_failed_no_mat_id_saved">Echec de la récupération de votre compte à partir du serveur. Veuillez rééssayer ultérieurement ou tenter de créer un nouveau compte.</string>
+    <string name="tryagain">Essayer encore</string>
+    <string name="error_message_send">Message sauvegardé hors ligne</string>
+    <string name="message_sent">Message envoyé</string>
+    <string name="sending">Envoie en cours</string>
 
 </resources>
