@@ -33,6 +33,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
 import java.util.Vector;
 
 
@@ -364,9 +365,6 @@ public class SpeedMeterService extends Service {
             }
         }
 
-
-
-
         return  duration;
     }
 
@@ -377,10 +375,6 @@ public class SpeedMeterService extends Service {
                 try {
                     // HttpAuthentication httpAuthentication = new HttpBasicAuthentication("username", "password");
                     HttpHeaders requestHeaders = new HttpHeaders();
-                    //requestHeaders.setAuthorization(httpAuthentication);
-                    // requestHeaders.setAccept(Collections.singletonList(new MediaType("application", "json")));
-                    // requestHeaders.setContentType(MediaType.APPLICATION_JSON);
-
                     //Create the request body as a MultiValueMap
                     MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
                     body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_LAT, String.valueOf(location.getLatitude()));
@@ -388,20 +382,10 @@ public class SpeedMeterService extends Service {
                     body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_SPEED, String.valueOf(vitesse));
                     body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_MAT_ID, getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
                             .getString(TConstants.PREF_MAT_ID, "0"));
-
-                    //Log.e("error", "no: "+telephoneString);
-
-
                     HttpEntity<?> httpEntity = new HttpEntity<Object>(body, requestHeaders);
                     RestTemplate restTemplate = new RestTemplate(true);
 
                     Gson gson = new Gson();
-
-
-                    //restTemplate.getMessageConverters().add(new GsonHttpMessageConverter());
-                    //restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
-
-
 
                     ResponseEntity<String> response = restTemplate.exchange(TConstants.POST_SPEED_AND_POSITION_URL, HttpMethod.POST, httpEntity, String.class);
                     Log.e("Response", "res: "+response);
@@ -438,6 +422,9 @@ public class SpeedMeterService extends Service {
                     * Prete attention a comment j'ai defini les TODO ci, c'est une facon speciale de permettre a
                     * ton editeur de code de reconaitre automatiquement tout les points dans les fichiers marque 'TODO'
                      */
+                    //voici les objets de vitesse/position dans la bd locale
+                    List<TrackingData> trackingData = TrackingData.listAll(TrackingData.class);
+                    //manipule cette liste pour envoyer ces donnes en ligne
                 }
 
             }
