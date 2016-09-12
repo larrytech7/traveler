@@ -18,11 +18,10 @@ import android.os.IBinder;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.satra.traveler.models.ResponsStatusMsg;
-import com.satra.traveler.models.ResponsStatusMsgData;
+import com.satra.traveler.models.TrackingData;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
 
@@ -421,18 +420,23 @@ public class SpeedMeterService extends Service {
 
                 if(response==null || response.getStatus()!=100){
 
-                    /*
-                    * TO DO 1
-                     * @author: HARRY
-                    * SAUVEGARDE DES COUPLES VITESSE+POSITION DANS LA BD LOCALE
-                     */
-
+                    String matricule = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
+                            .getString(TConstants.PREF_MAT_ID, "0");
+                    TrackingData trackingData = new TrackingData();
+                    trackingData.setTrackingMatricule(matricule);
+                    trackingData.setLatitude(location.getLatitude());
+                    trackingData.setLongitude(location.getLongitude());
+                    trackingData.setLocation(""); //je sais pas si c'est possible d'avoir le nom de l'endroit ou ces donnees ont ete recuperer
+                    trackingData.setSpeed(vitesse);
+                    trackingData.save();
                 }
                 else{
                     /*
-                    * TO DO 2 after TO DO 1
+                    * TODO 2 after TO DO 1
                      * @author: STEVE
                     * POST DES COUPLES VITESSE+POSITION SAUVEGARDES DANS LA BD LOCALE SUR LE SERVEUR EN LIGNE
+                    * Prete attention a comment j'ai defini les TODO ci, c'est une facon speciale de permettre a
+                    * ton editeur de code de reconaitre automatiquement tout les points dans les fichiers marque 'TODO'
                      */
                 }
 
