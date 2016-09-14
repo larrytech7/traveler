@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -57,8 +56,10 @@ public class MessagingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(!messageBox.getText().toString().equals("")){
-                    pushMessageOnline(view, messageBox.getText().toString());
+                    String message = messageBox.getText().toString();
                     messageBox.setText("");
+                    pushMessageOnline(view, message, null);
+
                 }
             }
         });
@@ -71,13 +72,12 @@ public class MessagingActivity extends AppCompatActivity {
         messageRecyclerView.setAdapter(messagingAdapter);
     }
 
-    @Nullable
     @Override
     public Intent getSupportParentActivityIntent() {
         return super.getSupportParentActivityIntent();
     }
 
-    private void pushMessageOnline(final View view, final String message) {
+    private void pushMessageOnline(final View view, final String message, final Messages oMessage) {
         final ProgressDialog progress = new ProgressDialog(MessagingActivity.this);
         progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progress.setIndeterminate(true);
@@ -119,41 +119,65 @@ public class MessagingActivity extends AppCompatActivity {
             protected void onPostExecute(ResponsStatusMsg response) {
 
                 progress.dismiss();
-                if(response == null || response.getStatus()!=100){
+                if((response == null || response.getStatus()!=100)){
+                    Messages mMessage=null;
+                    if(oMessage==null){
+                        String date = SimpleDateFormat.getDateInstance().format(new Date())+". "
+                                +SimpleDateFormat.getTimeInstance().format(new Date());
+                        /**
+                         * TODO Quand un utilisateur essaie de sauvegarder encore via l'action optionel l'hors d'un echec d'envoie,
+                         * le message ne doit pas encore etre sauvegarde une deuxieme fois en bd locale.
+                         */
+                        mMessage = new Messages();
+                        mMessage.setContent(message);
+                        mMessage.setDate(date);
+                        mMessage.setSender(clientMatricule);
+                        mMessage.save();
+                        setupMessageList();
+                    }
+                    else{
+                        mMessage = oMessage;
+                    }
 
-                    String date = SimpleDateFormat.getDateInstance().format(new Date())+". "
-                            +SimpleDateFormat.getTimeInstance().format(new Date());
-                    /**
-                     * TODO Quand un utilisateur essaie de sauvegarder encore via l'action optionel l'hors d'un echec d'envoie,
-                     * le message ne doit pas encore etre sauvegarde une deuxieme fois en bd locale.
-                     */
-                    Messages mMessage = new Messages();
-                    mMessage.setContent(message);
-                    mMessage.setDate(date);
-                    mMessage.setSender(clientMatricule);
-                    mMessage.save();
-                    setupMessageList();
-                    Snackbar.make(messageRecyclerView, getString(R.string.error_message_send), Snackbar.LENGTH_LONG)
+                    final Messages omMessage = mMessage;
+                    Snackbar.make(messageRecyclerView, getString(R.string.error_message_send)+"\n\""+message+"\"", Snackbar.LENGTH_LONG)
                             .setAction(getString(R.string.tryagain), new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    pushMessageOnline(v, message);
+                                    pushMessageOnline(v, message, omMessage);
                                 }
                             }).show();
                 }
                 else{
+
+                    if(oMessage!=null){
+                        oMessage.delete();
+                        setupMessageList();
+                    }
+
                     /*
                     * TODO 2 after TO DO 1
                      * @author: STEVE
                     * POST DES MESSAGES SAUVEGARDES DANS LA BD LOCALE SUR LE SERVEUR EN LIGNE
                      */
                     //voici les messages qui sont dans la bd
+
+
                     Iterator<Messages> mMessages = Messages.findAll(Messages.class);
 
-                    Log.d(LOGTAG, "Message Sent");
-                    Snackbar.make(view, getString(R.string.message_sent), Snackbar.LENGTH_LONG)
-                            .setAction("Undo", null).show();
-                    setupMessageList();
+                    if(mMessages.hasNext()){
+                        Messages nextMessage = mMessages.next();
+                        pushMessageOnline(view, nextMessage.getContent(), nextMessage);
+                    }
+                    else{
+                        Log.d(LOGTAG, "Message Sent");
+                        Snackbar.make(view, getString(R.string.message_sent), Snackbar.LENGTH_LONG)
+                                .show();
+                        setupMessageList();
+                    }
+
+
+
                 }
             }
         }.execute();

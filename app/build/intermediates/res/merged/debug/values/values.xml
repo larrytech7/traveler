@@ -431,7 +431,7 @@
     <string name="duree_label" translatable="false">\? (hh)</string>
     <string name="echec_creation_compte_contact_serveur">Echec de l\'enregistrement sur le serveur. Merci de reessayer ulterieurement.</string>
     <string name="end_journey">Achever le Voyage</string>
-    <string name="error_message_send">Message sauvegardé hors ligne</string>
+    <string name="error_message_send">Echec de la sauvegarde du message. Nous retenterons l\'envoi plus tard.</string>
     <string name="error_occur_please_retry">Une erreur s\'est produite; veuillez reessayer svp</string>
     <string name="estimated_speed">Vitesse estimee</string>
     <string name="estimated_speed_msg">"Nous estimons votre vitesse actuelle a "</string>

@@ -33,6 +33,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 
@@ -352,7 +353,7 @@ public class SpeedMeterService extends Service {
             }
             if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_ALLOWED_KMH){
 
-                pushSpeedOnline(vitesse, location);
+                pushSpeedOnline(vitesse, location, null);
 
             }
 
@@ -365,10 +366,12 @@ public class SpeedMeterService extends Service {
             }
         }
 
+        tryToSentDataOnline();
+
         return  duration;
     }
 
-    private void pushSpeedOnline(final float vitesse, final Location location) {
+    private void pushSpeedOnline(final float vitesse, final Location location, final TrackingData trackingData) {
         new AsyncTask<Void, Void, ResponsStatusMsg>(){
             @Override
             protected ResponsStatusMsg doInBackground(Void... params) {
@@ -404,17 +407,23 @@ public class SpeedMeterService extends Service {
 
                 if(response==null || response.getStatus()!=100){
 
-                    String matricule = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
-                            .getString(TConstants.PREF_MAT_ID, "0");
-                    TrackingData trackingData = new TrackingData();
-                    trackingData.setTrackingMatricule(matricule);
-                    trackingData.setLatitude(location.getLatitude());
-                    trackingData.setLongitude(location.getLongitude());
-                    trackingData.setLocation(""); //je sais pas si c'est possible d'avoir le nom de l'endroit ou ces donnees ont ete recuperer
-                    trackingData.setSpeed(vitesse);
-                    trackingData.save();
+                    if(trackingData==null){
+                        String matricule = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
+                                .getString(TConstants.PREF_MAT_ID, "0");
+                        TrackingData trackingData = new TrackingData();
+                        trackingData.setTrackingMatricule(matricule);
+                        trackingData.setLatitude(location.getLatitude());
+                        trackingData.setLongitude(location.getLongitude());
+                        trackingData.setLocation(""); //je sais pas si c'est possible d'avoir le nom de l'endroit ou ces donnees ont ete recuperer
+                        trackingData.setSpeed(vitesse);
+                        trackingData.save();
+                    }
+
                 }
                 else{
+                    if(trackingData!=null){
+                        trackingData.delete();
+                    }
                     /*
                     * TODO 2 after TO DO 1
                      * @author: STEVE
@@ -422,13 +431,24 @@ public class SpeedMeterService extends Service {
                     * Prete attention a comment j'ai defini les TODO ci, c'est une facon speciale de permettre a
                     * ton editeur de code de reconaitre automatiquement tout les points dans les fichiers marque 'TODO'
                      */
-                    //voici les objets de vitesse/position dans la bd locale
-                    List<TrackingData> trackingData = TrackingData.listAll(TrackingData.class);
-                    //manipule cette liste pour envoyer ces donnes en ligne
+                    tryToSentDataOnline();
                 }
 
             }
         }.execute();
+    }
+
+    private void tryToSentDataOnline(){
+        //voici les objets de vitesse/position dans la bd locale
+        Iterator<TrackingData> trackingDatas = TrackingData.findAll(TrackingData.class);
+        //manipule cette liste pour envoyer ces donnes en ligne
+        if(trackingDatas.hasNext()){
+            TrackingData trackingData1 = trackingDatas.next();
+            Location location1 = new Location(trackingData1.getLocation());
+            location1.setLatitude(trackingData1.getLatitude());
+            location1.setLongitude(trackingData1.getLongitude());
+            pushSpeedOnline((float) trackingData1.getSpeed(), location1, trackingData1);
+        }
     }
 
     @Override

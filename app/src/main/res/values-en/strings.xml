@@ -84,7 +84,7 @@
     <string name="about_title1">About</string>
     <string name="speed_dimen">Speed (Kmph)</string>
     <string name="login">Continue</string>
-    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 3.9.9</string>
+    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 4.0.1</string>
     <string name="cancel">Cancel</string>
     <string name="howserious">Severity level</string>
     <string name="save">Save</string>
@@ -115,5 +115,10 @@
     <string name="mat_id_synchronization_success">successful sync operation …</string>
     <string name="mat_id_synchronization_operation_failed">Failure of the synchronization process…</string>
     <string name="mat_id_synchronization_failed_no_mat_id_saved">Failed to retrieve your account from the server. Please try again later or try to create a new account.</string>
+
+    <string name="tryagain">Try again</string>
+    <string name="error_message_send">Failed to save the message. We will try to send it later.</string>
+    <string name="message_sent">Message Sent</string>
+    <string name="sending">Sending message</string>
 
 </resources>
