@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.util.Log;
 
+import com.satra.traveler.models.Messages;
 import com.satra.traveler.models.TrackingData;
 
 import java.util.List;
@@ -22,6 +23,8 @@ public class NetworkAvailable extends BroadcastReceiver {
              * @Author Larry A.
              * TODO Synchroniser ls donnes non synchroniser en ligne des que la connexion redevient disponbile
              */
+            //voici les messages non envoyer donc renvoie les
+            List<Messages> messagesList = Messages.find(Messages.class,"sent = ?", String.valueOf(0));
             List<TrackingData> trackingData = TrackingData.listAll(TrackingData.class);
             Log.d("Network available", "Connected");
         }

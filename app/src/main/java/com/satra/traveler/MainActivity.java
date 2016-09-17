@@ -63,6 +63,7 @@ public class MainActivity extends Activity {
             progress.setIcon(R.mipmap.ic_launcher);
             progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
             progress.setIndeterminate(true);
+            progress.setCanceledOnTouchOutside(false);
             progress.setTitle(getString(R.string.key_chargement));
             progress.setMessage(getString(R.string.key_account_creation_loading_msg));
             progress.show();
