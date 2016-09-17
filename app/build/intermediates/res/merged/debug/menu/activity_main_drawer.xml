@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+   <!-- <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_ma_position"
             android:icon="@drawable/ic_menu_mylocation"
             android:title="@string/my_location" />
-    </group>
+    </group>-->
 
     <item android:title="@string/journey_management">
         <menu>

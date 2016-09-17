@@ -1,13 +1,15 @@
 package com.satra.traveler.models;
 
 import com.orm.SugarRecord;
+import com.orm.dsl.Unique;
 
 /**
  * Created by Larry Akah on 9/6/16.
  */
 public class Messages extends SugarRecord {
 
-    String content; //message content
+    @Unique
+    String content; //message content needs to be unique to avoid duplicates or redundancies
     String sender; //name/matricule/phone of the person sending the message
     String date; //date sent
 

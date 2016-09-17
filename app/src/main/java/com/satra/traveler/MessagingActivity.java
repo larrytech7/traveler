@@ -81,6 +81,7 @@ public class MessagingActivity extends AppCompatActivity {
         final ProgressDialog progress = new ProgressDialog(MessagingActivity.this);
         progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progress.setIndeterminate(true);
+        progress.setCanceledOnTouchOutside(false);
         progress.setMessage(getString(R.string.sending));
         progress.show();
 

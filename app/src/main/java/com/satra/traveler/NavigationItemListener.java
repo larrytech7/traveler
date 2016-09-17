@@ -33,11 +33,11 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_ma_position) {
+       /* if (id == R.id.nav_ma_position) {
             Intent mainIntent = new Intent(context, MyPositionActivity.class);
             mainIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             context.startActivity(mainIntent);
-        } else if (id == R.id.nav_repport_complaint) {
+        } else */if (id == R.id.nav_repport_complaint) {
             Intent msgIntent = new Intent(context, MessagingActivity.class);
             String matricule = PreferenceManager.getDefaultSharedPreferences(context).getString(TConstants.PREF_MATRICULE,"");
             msgIntent.putExtra(TConstants.PREF_MATRICULE,matricule);

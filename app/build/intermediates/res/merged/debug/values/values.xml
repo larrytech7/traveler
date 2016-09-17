@@ -115,7 +115,7 @@
     <color name="dim_foreground_material_light">#ff323232</color>
     <color name="foreground_material_dark">@android:color/white</color>
     <color name="foreground_material_light">@android:color/black</color>
-    <color name="grey">#aaa</color>
+    <color name="grey">#bbb</color>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
     <color name="hint_foreground_material_dark">@color/bright_foreground_disabled_material_dark</color>
@@ -331,7 +331,7 @@
     <dimen name="item_touch_helper_swipe_escape_max_velocity">800dp</dimen>
     <dimen name="item_touch_helper_swipe_escape_velocity">120dp</dimen>
     <dimen name="margin_layout">5dp</dimen>
-    <dimen name="nav_header_height">280dp</dimen>
+    <dimen name="nav_header_height">220dp</dimen>
     <dimen name="nav_header_vertical_spacing">16dp</dimen>
     <dimen name="notification_large_icon_height">64dp</dimen>
     <dimen name="notification_large_icon_width">64dp</dimen>
@@ -454,6 +454,7 @@
     <string name="mat_id_synchronization_operation_failed">Echec de l\'opération de synchronisation…</string>
     <string name="mat_id_synchronization_success">opération de synchronisation réussie…</string>
     <string name="matriculation_number">Immatriculation de votre vehicule</string>
+    <string name="message_received">Message received. Our team is working on a response for you. Thank you for using Travelr</string>
     <string name="message_sent">Message envoyé</string>
     <string name="mettre_a_jour_parametres_voyage">MAJ. les détails du Voyage</string>
     <string name="my_location">Ma Position</string>

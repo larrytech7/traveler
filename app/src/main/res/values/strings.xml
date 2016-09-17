@@ -151,5 +151,6 @@
     <string name="error_message_send">Message sauvegardé hors ligne</string>
     <string name="message_sent">Message envoyé</string>
     <string name="sending">Envoie en cours</string>
+    <string name="message_received">Message received. Our team is working on a response for you. Thank you for using Travelr</string>
 
 </resources>
