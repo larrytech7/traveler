@@ -8,11 +8,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.provider.MediaStore;
+import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -43,18 +46,27 @@ import java.io.IOException;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     final private static int DIALOG_SIGNUP = 1;
+    private static final int PICK_FIRST_CONTACT = 100;
+    private static final int PICK_SECOND_CONTACT = 200;
     private static int GET_FROM_GALLERY=2;
-    EditText username, matricule, noTelephone;
+    EditText username, matricule, noTelephone, contact1EditText, contact2EditText;
     FancyButton buttonLogin;
-    ImageButton profilePicture;
+    ImageButton profilePicture, pickContactOne, pickContactTwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        contact1EditText = (EditText) findViewById(R.id.emergencyContact1EditText);
+        contact2EditText = (EditText) findViewById(R.id.emergencyContact2EditText);
+        pickContactOne = (ImageButton) findViewById(R.id.buttonPickContactOne);
+        pickContactTwo = (ImageButton) findViewById(R.id.buttonPickContactTwo);
+
+        pickContactOne.setOnClickListener(this);
+        pickContactTwo.setOnClickListener(this);
 
         if(getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0).contains(TConstants.PREF_USERNAME)&&
                 getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0).contains(TConstants.PREF_PHONE)){
@@ -83,10 +95,9 @@ public class MainActivity extends Activity {
                         ResponseEntity<String>  response = restTemplate.exchange(TConstants.GET_MAT_ID_URL+getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
                                 .getString(TConstants.PREF_PHONE, ""), HttpMethod.GET, httpEntity, String.class);
 
-                        Log.e("response get_mat", "response: "+response.getBody());
                         return gson.fromJson(response.getBody(), ResponsStatusMsgData.class);
                     } catch (Exception e) {
-                        Log.e("MainActivity", e.getMessage(), e);
+                        e.printStackTrace();
                     }
 
                     return null;
@@ -400,6 +411,52 @@ public class MainActivity extends Activity {
                 e.printStackTrace();
             }
         }
+
+        if((requestCode==PICK_FIRST_CONTACT) && resultCode == Activity.RESULT_OK) {
+            Uri contactData = data.getData();
+            Cursor c = managedQuery(contactData, null, null, null, null);
+            if (c.moveToFirst()) {
+                String id = c.getString(c.getColumnIndexOrThrow(ContactsContract.Contacts._ID));
+
+                String hasPhone =
+                        c.getString(c.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER));
+
+                if (hasPhone.equalsIgnoreCase("1")) {
+                    Cursor phones = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,
+                            ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + id, null, null);
+
+                    phones.moveToFirst();
+                    String number = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                    String name = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+                    //set field with phone number retrieved
+                    contact1EditText.setText(number);
+
+                }
+            }
+        }
+
+        if((requestCode==PICK_SECOND_CONTACT) && resultCode == Activity.RESULT_OK) {
+            Uri contactData = data.getData();
+            Cursor c = managedQuery(contactData, null, null, null, null);
+            if (c.moveToFirst()) {
+                String id = c.getString(c.getColumnIndexOrThrow(ContactsContract.Contacts._ID));
+
+                String hasPhone =
+                        c.getString(c.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER));
+
+                if (hasPhone.equalsIgnoreCase("1")) {
+                    Cursor phones = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,
+                            ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + id, null, null);
+
+                    phones.moveToFirst();
+                    String number = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                    String name = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+                    //set phone number retrieved in field
+                    contact2EditText.setText(number);
+
+                }
+            }
+        }
     }
 
     @Override
@@ -418,4 +475,21 @@ public class MainActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+
+        switch (v.getId()){
+            case R.id.buttonPickContactOne:
+                //OPen phonebook to pick contact
+                startActivityForResult(intent, PICK_FIRST_CONTACT);
+                break;
+            case R.id.buttonPickContactTwo:
+                //Open phonebook to pick contact
+                startActivityForResult(intent, PICK_SECOND_CONTACT);
+                break;
+        }
+    }
+
 }

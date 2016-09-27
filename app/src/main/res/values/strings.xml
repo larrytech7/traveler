@@ -152,5 +152,7 @@
     <string name="message_sent">Message envoyé</string>
     <string name="sending">Envoie en cours</string>
     <string name="message_received">Message received. Our team is working on a response for you. Thank you for using Travelr</string>
+    <string name="emergency_contact_1">First emergency contact</string>
+    <string name="emergency_contact2">Second emergency contact</string>
 
 </resources>
