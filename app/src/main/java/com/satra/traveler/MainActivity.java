@@ -167,7 +167,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
             @Override
             public void onClick(View v) {
-                if(username.getText().toString().isEmpty() ||noTelephone.getText().toString().isEmpty()){
+                if(username.getText().toString().isEmpty() ||
+                        noTelephone.getText().toString().isEmpty() ||
+                        contact1EditText.getText().toString().isEmpty()){
 
                     Toast.makeText(getApplicationContext(), getString(R.string.provide_all_fields)+"...", Toast.LENGTH_LONG).show();
                     return;
