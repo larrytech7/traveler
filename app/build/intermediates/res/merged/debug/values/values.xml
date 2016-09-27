@@ -431,6 +431,8 @@
     <string name="destination">Destination</string>
     <string name="duree_label" translatable="false">\? (hh)</string>
     <string name="echec_creation_compte_contact_serveur">Echec de l\'enregistrement sur le serveur. Merci de reessayer ulterieurement.</string>
+    <string name="emergency_contact2">Second emergency contact</string>
+    <string name="emergency_contact_1">First emergency contact (*)</string>
     <string name="end_journey">Achever le Voyage</string>
     <string name="error_message_send">Message sauvegardé hors ligne</string>
     <string name="error_occur_please_retry">Une erreur s\'est produite; veuillez reessayer svp</string>
