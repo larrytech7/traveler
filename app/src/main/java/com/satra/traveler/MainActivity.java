@@ -113,10 +113,8 @@ public class MainActivity extends Activity {
                             finish();
 
                             Log.e("message", "reponse: "+response.getMessage());
-                        } catch (Resources.NotFoundException e) {
+                        } catch (Resources.NotFoundException | IndexOutOfBoundsException e) {
                             e.printStackTrace();
-                        } catch (IndexOutOfBoundsException iob){
-                            iob.printStackTrace();
                         }
                     }
                     else{

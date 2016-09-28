@@ -23,7 +23,7 @@
         <item>"Dammaged vehicle"</item>
         <item>"Other..."</item>
     </string-array>
-    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 3.9.9</string>
+    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 4.0.1</string>
     <string name="about_title1">About</string>
     <string name="account_created">Account created successfully with the username </string>
     <string name="annuler_voyage">Cancel journey</string>

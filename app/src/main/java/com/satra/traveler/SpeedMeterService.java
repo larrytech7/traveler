@@ -4,6 +4,7 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -34,7 +35,6 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Iterator;
-import java.util.List;
 import java.util.Vector;
 
 
@@ -353,7 +353,7 @@ public class SpeedMeterService extends Service {
             }
             if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_ALLOWED_KMH){
 
-                pushSpeedOnline(vitesse, location, null);
+                pushSpeedOnline(getApplicationContext(), vitesse, location, null);
 
             }
 
@@ -366,12 +366,12 @@ public class SpeedMeterService extends Service {
             }
         }
 
-        tryToSentDataOnline();
+        tryToSentDataOnline(getApplicationContext());
 
         return  duration;
     }
 
-    private void pushSpeedOnline(final float vitesse, final Location location, final TrackingData trackingData) {
+    private static void pushSpeedOnline(final Context context, final float vitesse, final Location location, final TrackingData trackingData) {
         new AsyncTask<Void, Void, ResponsStatusMsg>(){
             @Override
             protected ResponsStatusMsg doInBackground(Void... params) {
@@ -383,7 +383,7 @@ public class SpeedMeterService extends Service {
                     body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_LAT, String.valueOf(location.getLatitude()));
                     body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_LNG, String.valueOf(location.getLongitude()));
                     body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_SPEED, String.valueOf(vitesse));
-                    body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_MAT_ID, getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
+                    body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_MAT_ID, context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
                             .getString(TConstants.PREF_MAT_ID, "0"));
                     HttpEntity<?> httpEntity = new HttpEntity<Object>(body, requestHeaders);
                     RestTemplate restTemplate = new RestTemplate(true);
@@ -408,7 +408,7 @@ public class SpeedMeterService extends Service {
                 if(response==null || response.getStatus()!=100){
 
                     if(trackingData==null){
-                        String matricule = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
+                        String matricule = context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
                                 .getString(TConstants.PREF_MAT_ID, "0");
                         TrackingData trackingData = new TrackingData();
                         trackingData.setTrackingMatricule(matricule);
@@ -431,14 +431,14 @@ public class SpeedMeterService extends Service {
                     * Prete attention a comment j'ai defini les TODO ci, c'est une facon speciale de permettre a
                     * ton editeur de code de reconaitre automatiquement tout les points dans les fichiers marque 'TODO'
                      */
-                    tryToSentDataOnline();
+                    tryToSentDataOnline(context);
                 }
 
             }
         }.execute();
     }
 
-    private void tryToSentDataOnline(){
+    public static  void tryToSentDataOnline(Context context){
         //voici les objets de vitesse/position dans la bd locale
         Iterator<TrackingData> trackingDatas = TrackingData.findAll(TrackingData.class);
         //manipule cette liste pour envoyer ces donnes en ligne
@@ -447,7 +447,7 @@ public class SpeedMeterService extends Service {
             Location location1 = new Location(trackingData1.getLocation());
             location1.setLatitude(trackingData1.getLatitude());
             location1.setLongitude(trackingData1.getLongitude());
-            pushSpeedOnline((float) trackingData1.getSpeed(), location1, trackingData1);
+            pushSpeedOnline(context, (float) trackingData1.getSpeed(), location1, trackingData1);
         }
     }
 

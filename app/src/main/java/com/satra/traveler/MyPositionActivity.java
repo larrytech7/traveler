@@ -68,7 +68,7 @@ import java.util.regex.Pattern;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 
-public class MyPositionActivity extends AppCompatActivity implements OnMapReadyCallback,LocationSource.OnLocationChangedListener {
+public class MyPositionActivity extends AppCompatActivity implements OnMapReadyCallback, LocationSource.OnLocationChangedListener {
 
     private static final int RAYON_TERRE = 6366000;
     private static final int MAX_VITESSE_METRE_SECONDE = 3;
@@ -106,21 +106,21 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         }
     }
 
-    static double computeDistance(double latA, double lngA, double latB, double lngB){
+    static double computeDistance(double latA, double lngA, double latB, double lngB) {
 
-        double pk =  180.f/Math.PI;
+        double pk = 180.f / Math.PI;
 
         double a1 = latA / pk;
         double a2 = lngA / pk;
         double b1 = latB / pk;
         double b2 = lngB / pk;
 
-        double t1 = Math.cos(a1)*Math.cos(a2)*Math.cos(b1)*Math.cos(b2);
-        double t2 = Math.cos(a1)*Math.sin(a2)*Math.cos(b1)*Math.sin(b2);
-        double t3 = Math.sin(a1)*Math.sin(b1);
+        double t1 = Math.cos(a1) * Math.cos(a2) * Math.cos(b1) * Math.cos(b2);
+        double t2 = Math.cos(a1) * Math.sin(a2) * Math.cos(b1) * Math.sin(b2);
+        double t3 = Math.sin(a1) * Math.sin(b1);
         double tt = Math.acos(t1 + t2 + t3);
 
-        return RAYON_TERRE*tt;
+        return RAYON_TERRE * tt;
     }
 
     private void updateDateVoyage() {
@@ -188,8 +188,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                                     + " KM/H" + ")" : " (" + round(speed) + " m/s)" ));
                     */
                     //update speedometer speed value
-                    mspeedometer.setSpeed(speed >= MAX_VITESSE_METRE_SECONDE?Tutility.round(speed * COEFF_CONVERSION_MS_KMH):
-                    Tutility.round(speed / COEFF_CONVERSION_MS_KMH));
+                    mspeedometer.setSpeed(speed >= MAX_VITESSE_METRE_SECONDE ? Tutility.round(speed * COEFF_CONVERSION_MS_KMH) :
+                            Tutility.round(speed / COEFF_CONVERSION_MS_KMH));
                 }
             }
         };
@@ -199,7 +199,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             @Override
             public void run() {
 
-                while(running){
+                while (running) {
 
                     try {
                         Thread.sleep(100);
@@ -225,7 +225,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
     @Override
     public void onMapReady(final GoogleMap map) {
-        Log.d(LOG_TAG,"Map is ready");
+        Log.d(LOG_TAG, "Map is ready");
         googleMap = map;
         if (!googleMap.isMyLocationEnabled())
             googleMap.setMyLocationEnabled(true);
@@ -240,16 +240,39 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         googleMap.setBuildingsEnabled(true);
     }
 
-    private void requestPermission(){
+    private void requestPermission() {
         //ask user to grant permission to read fine location. Required for android 6.0+ API level 23+
+        ActivityCompat.requestPermissions(MyPositionActivity.this,
+                new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+                1);
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        //TODO Handle operation appropriately
 
+        switch (requestCode) {
+            case 1: {
+
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+                        return;
+                    }
+                    googleMap.setMyLocationEnabled(true);
+                    googleMap.setBuildingsEnabled(true);
+                }
+                return;
+            }
+
+        }
     }
+
+
 
     //initiate the speedometer controls and set it up
     public void setupSpeedometer(SpeedometerGauge mspeedometer){

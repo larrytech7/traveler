@@ -21,7 +21,7 @@
         <item>"Chauffeur Incompétent/Inexpérimenté"</item>
         <item>"Véhicule surchargé"</item>
         <item>"Véhicule en panne"</item>
-        <item>"autre..."</item>
+        <item>"autre…"</item>
     </string-array>
     <string-array name="pub_images_names" translatable="false">
         <item>"we_need_advertisements"</item>
@@ -375,7 +375,7 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br/>Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br/> Version 3.9.9</string>
+    <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br/>Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br/> Version 4.0.1</string>
     <string name="about_title1">A propos</string>
     <string name="accept">Accept</string>
     <string name="account_created">Informations sauvegardees; Compte cree avec succes avec pour pseudonyme </string>
