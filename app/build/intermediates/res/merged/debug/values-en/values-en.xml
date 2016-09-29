@@ -23,7 +23,7 @@
         <item>"Dammaged vehicle"</item>
         <item>"Other..."</item>
     </string-array>
-    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 3.9.9</string>
+    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 4.0.1</string>
     <string name="about_title1">About</string>
     <string name="account_created">Account created successfully with the username </string>
     <string name="annuler_voyage">Cancel journey</string>
@@ -49,6 +49,7 @@
     <string name="destination">Destination</string>
     <string name="echec_creation_compte_contact_serveur">Fail to contact server. Please retry later.</string>
     <string name="end_journey">Finish journey</string>
+    <string name="error_message_send">Failed to save the message. We will try to send it later.</string>
     <string name="error_occur_please_retry">An error occurred; Please try again</string>
     <string name="estimated_speed">Estimated Speed</string>
     <string name="estimated_speed_msg">"We estimate your current speed to "</string>
@@ -68,6 +69,7 @@
     <string name="mat_id_synchronization_operation_failed">Failure of the synchronization process…</string>
     <string name="mat_id_synchronization_success">successful sync operation …</string>
     <string name="matriculation_number">Immatriculation of your Vehicle</string>
+    <string name="message_sent">Message Sent</string>
     <string name="mettre_a_jour_parametres_voyage">Update travel details</string>
     <string name="my_location">My Position</string>
     <string name="myposition">My current location</string>
@@ -89,6 +91,7 @@
     <string name="save">Save</string>
     <string name="select_your_profile_image">select your profile picture</string>
     <string name="send">Send</string>
+    <string name="sending">Sending message</string>
     <string name="situation">Choose the situation</string>
     <string name="snap_image">Snap a picture</string>
     <string name="speed_dimen">Speed (Kmph)</string>
@@ -101,6 +104,7 @@
     <string name="transport_company">Which Company?</string>
     <string name="travel_info">Trip information</string>
     <string name="trip_agency">Travel Agency</string>
+    <string name="tryagain">Try again</string>
     <string name="username">username (*)</string>
     <string name="username_confirm_msg">"Sure to proceed with username "</string>
     <string name="username_confirm_no_label">no</string>

@@ -24,7 +24,7 @@
         <item>"Chauffeur Incompétent/Inexpérimenté"</item>
         <item>"Véhicule surchargé"</item>
         <item>"Véhicule en panne"</item>
-        <item>"autre..."</item>
+        <item>"autre…"</item>
     </string-array>
     <string-array name="compagnies_names">
         <item>"Personnel"</item>
@@ -113,7 +113,7 @@
     <string name="username_confirm_no_label">Non</string>
     <string name="username_confirm_yes_label">Oui</string>
     <string name="speed_limit_reached_ago">Vous avez depasse la limite de vitesse autorisee</string>
-    <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br />Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br /> Version 3.9.9</string>
+    <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br />Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br /> Version 4.0.1</string>
     <string name="about_title1">A propos</string>
     <string name="login">Continuer</string>
     <string name="speed_dimen">Vitesse (Kmph)</string>
@@ -148,7 +148,7 @@
     <string name="mat_id_synchronization_operation_failed">Echec de l\'opération de synchronisation…</string>
     <string name="mat_id_synchronization_failed_no_mat_id_saved">Echec de la récupération de votre compte à partir du serveur. Veuillez rééssayer ultérieurement ou tenter de créer un nouveau compte.</string>
     <string name="tryagain">Essayer encore</string>
-    <string name="error_message_send">Message sauvegardé hors ligne</string>
+    <string name="error_message_send">Echec de la sauvegarde du message. Nous retenterons l\'envoi plus tard.</string>
     <string name="message_sent">Message envoyé</string>
     <string name="sending">Envoie en cours</string>
     <string name="message_received">Message recu. Notre equipe travail en ce moment pour vous repondre. Merci d\'avoir utiliser travelr</string>
