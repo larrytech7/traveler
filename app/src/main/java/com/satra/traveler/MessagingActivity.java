@@ -1,13 +1,24 @@
 package com.satra.traveler;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+<<<<<<< HEAD
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+=======
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
+>>>>>>> refs/remotes/origin/master
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,6 +26,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.satra.traveler.adapter.MessagingAdapter;
@@ -33,15 +46,25 @@ import org.springframework.web.client.RestTemplate;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Iterator;
+import java.util.List;
+
+import mehdi.sakout.fancybuttons.FancyButton;
 
 public class MessagingActivity extends AppCompatActivity {
 
     private static final String LOGTAG = MessagingActivity.class.getSimpleName();
+    private static final int CAPTURE_IMAGE_MESSAGE = 100;
     EditText messageBox;
+<<<<<<< HEAD
+    ImageView previewMessageImage;
+    private MessagingAdapter messagingAdapter;
+    private RecyclerView messageRecyclerView;
+    private Bitmap attachedImage;
+=======
     private static MessagingAdapter messagingAdapter;
     private static RecyclerView messageRecyclerView;
     private static ProgressDialog progress;
+>>>>>>> refs/remotes/origin/master
 
 
     @Override
@@ -50,6 +73,20 @@ public class MessagingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_messaging);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        previewMessageImage = (ImageView) findViewById(R.id.messageImageView);
+        FancyButton buttonCaptureImage = (FancyButton) findViewById(R.id.buttonCaptureImage);
+        buttonCaptureImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ActivityCompat.checkSelfPermission(MessagingActivity.this, Manifest.permission.CAMERA)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    requestPermission();
+                }else{
+                    //lance la Camera
+                    startCameraCapture();
+                }
+            }
+        });
         messageRecyclerView = (RecyclerView) findViewById(R.id.messageRecyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         messageRecyclerView.setLayoutManager(layoutManager);
@@ -71,8 +108,29 @@ public class MessagingActivity extends AppCompatActivity {
         setupMessageList(getApplicationContext());
     }
 
+<<<<<<< HEAD
+    /**
+     * Lancer la capture d'image via camera
+     */
+    private void startCameraCapture() {
+        //capter image via camera
+        Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent, CAPTURE_IMAGE_MESSAGE);
+    }
+
+    /**
+     * Require permission de prendre photo cia camera sur Android M+
+     */
+    private void requestPermission() {
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, CAPTURE_IMAGE_MESSAGE);
+    }
+
+    private void setupMessageList(){
+        messagingAdapter = new MessagingAdapter(this, Messages.listAll(Messages.class,"date DESC"));
+=======
     private static void setupMessageList(Context context){
         messagingAdapter = new MessagingAdapter(context, Messages.listAll(Messages.class));
+>>>>>>> refs/remotes/origin/master
         messageRecyclerView.setAdapter(messagingAdapter);
     }
 
@@ -81,6 +139,47 @@ public class MessagingActivity extends AppCompatActivity {
         return super.getSupportParentActivityIntent();
     }
 
+<<<<<<< HEAD
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == CAPTURE_IMAGE_MESSAGE){
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                //lancer capture pour android M+
+                startCameraCapture();
+            }
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK){
+            if (requestCode == CAPTURE_IMAGE_MESSAGE){
+                //TODO. Gerer l'image capturer ici pour envoyer sur le serveur
+                //Uri imageData = data.getData();
+                try{
+                    attachedImage = (Bitmap) data.getExtras().get("data");
+                    previewMessageImage.setImageBitmap(attachedImage);
+/*                    previewMessageImage.setImageBitmap(Bitmap.createScaledBitmap(attachedImage, previewMessageImage.getWidth(),
+                            previewMessageImage.getHeight(), false));*/
+                    previewMessageImage.setVisibility(View.VISIBLE);
+                }catch(Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), getString(R.string.error_occur_please_retry)+"...", Toast.LENGTH_LONG).show();
+                }
+            }
+        }
+    }
+
+    private void pushMessageOnline(final View view, final String message) {
+        final ProgressDialog progress = new ProgressDialog(MessagingActivity.this);
+        progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progress.setIndeterminate(true);
+        progress.setCanceledOnTouchOutside(false);
+        progress.setMessage(getString(R.string.sending));
+        progress.show();
+=======
 
     private static void pushMessageOnline(final Context context, final View view, final String message, final Messages oMessage) {
         if(view!=null){
@@ -91,6 +190,7 @@ public class MessagingActivity extends AppCompatActivity {
             progress.show();
         }
 
+>>>>>>> refs/remotes/origin/master
 
         new AsyncTask<Void, Void, ResponsStatusMsg>(){
             String clientMatricule = context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE)
@@ -99,6 +199,7 @@ public class MessagingActivity extends AppCompatActivity {
             @Override
             protected ResponsStatusMsg doInBackground(Void... params) {
                 try {
+                    //TODO. Faudras gere aussi l'envoie de l'image capturer ci disponible. C'est un element non-facultatif
                     // HttpAuthentication httpAuthentication = new HttpBasicAuthentication("username", "password");
                     HttpHeaders requestHeaders = new HttpHeaders();
                     //Create the request body as a MultiValueMap
@@ -126,6 +227,40 @@ public class MessagingActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(ResponsStatusMsg response) {
 
+<<<<<<< HEAD
+                progress.dismiss();
+                previewMessageImage.setVisibility(View.GONE);
+                if(response == null || response.getStatus()!=100){
+
+                    String date = SimpleDateFormat.getDateInstance().format(new Date())+". "
+                            +SimpleDateFormat.getTimeInstance().format(new Date());
+
+                    Messages mMessage = new Messages();
+                    mMessage.setContent(message);
+                    mMessage.setDate(date);
+                    mMessage.setSender(clientMatricule);
+                    mMessage.setSent(0);
+                    mMessage.save();
+                    setupMessageList();
+                    Snackbar.make(messageRecyclerView, getString(R.string.error_message_send), Snackbar.LENGTH_LONG)
+                            .setAction(getString(R.string.tryagain), new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    pushMessageOnline(v, message);
+                                }
+                            }).show();
+                }
+                else{
+                    String date = SimpleDateFormat.getDateInstance().format(new Date())+". "
+                            +SimpleDateFormat.getTimeInstance().format(new Date());
+
+                    Messages mMessage = new Messages();
+                    mMessage.setContent(message);
+                    mMessage.setDate(date);
+                    mMessage.setSender(clientMatricule);
+                    mMessage.setSent(1); //mettre a jour le status d'un message renvoyer ou ajoute un nouveau message
+                    mMessage.save();
+=======
                 if(view!=null){
                     progress.dismiss();
                 }
@@ -173,15 +308,21 @@ public class MessagingActivity extends AppCompatActivity {
                         }
                     }
 
+>>>>>>> refs/remotes/origin/master
                     /*
                     * TODO 2 after TO DO 1
                      * @author: STEVE
                     * POST DES MESSAGES SAUVEGARDES DANS LA BD LOCALE SUR LE SERVEUR EN LIGNE
                      */
+<<<<<<< HEAD
+                    //voici les messages qui sont dans la bd et qui n'ont pas encore ete enregistrer en ligne
+                    List<Messages> mMessages = Messages.find(Messages.class, "sent = ?",String.valueOf(0));
+=======
                     //voici les messages qui sont dans la bd
 
 
                     Iterator<Messages> mMessages = Messages.findAll(Messages.class);
+>>>>>>> refs/remotes/origin/master
 
                     if(mMessages.hasNext()){
                         Messages nextMessage = mMessages.next();

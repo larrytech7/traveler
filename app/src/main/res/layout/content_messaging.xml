@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:paddingLeft="@dimen/margin_layout"
     android:paddingRight="@dimen/margin_layout"
@@ -15,7 +16,13 @@
         android:id="@+id/messageRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"/>
+        android:layout_weight="1"/><!-- default: 1-->
+    <ImageView
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:layout_width="@dimen/nav_header_height"
+        android:layout_height="@dimen/nav_header_height"
+        android:id="@+id/messageImageView"/>
     <LinearLayout
         android:id="@+id/chatLayout"
         android:layout_width="match_parent"
@@ -25,6 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_weight="1"
+            android:layout_marginTop="5dp"
             app:cardBackgroundColor="@color/themeBG"
             app:cardCornerRadius="@dimen/btn_small_padding">
             <EditText
@@ -32,10 +40,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/margin_element"
                 android:background="@android:color/transparent"
                 android:drawableLeft="@drawable/ic_message_white_24dp"
                 android:drawableStart="@drawable/ic_message_white_24dp"
                 android:hint="@string/votre_message"/>
+            <mehdi.sakout.fancybuttons.FancyButton
+                android:id="@+id/buttonCaptureImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:paddingBottom="4dp"
+                android:paddingLeft="1dp"
+                android:paddingRight="1dp"
+                android:paddingTop="4dp"
+                fancy:fb_borderColor="@color/colorPrimary"
+                fancy:fb_borderWidth="3dp"
+                fancy:fb_defaultColor="@android:color/transparent"
+                fancy:fb_focusColor="@color/colorAccent"
+                fancy:fb_iconResource="@drawable/ic_camera"
+                fancy:fb_iconPosition="left"
+                fancy:fb_radius="60dp"
+                fancy:fb_text=""
+                fancy:fb_textColor="#000"
+                android:layout_marginTop="3dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="3dp"/>
         </android.support.v7.widget.CardView>
 
         <android.support.design.widget.FloatingActionButton

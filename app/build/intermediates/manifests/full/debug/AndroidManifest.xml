@@ -65,7 +65,11 @@
             android:value="true" />
         <meta-data
             android:name="VERSION"
+<<<<<<< HEAD
+            android:value="6" />
+=======
             android:value="4" />
+>>>>>>> refs/remotes/origin/master
 
         <activity
             android:name="com.satra.traveler.MainActivity"

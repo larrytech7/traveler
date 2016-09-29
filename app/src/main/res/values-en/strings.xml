@@ -115,6 +115,13 @@
     <string name="mat_id_synchronization_success">successful sync operation …</string>
     <string name="mat_id_synchronization_operation_failed">Failure of the synchronization process…</string>
     <string name="mat_id_synchronization_failed_no_mat_id_saved">Failed to retrieve your account from the server. Please try again later or try to create a new account.</string>
+    <string name="emergency_contact2">Second emergency contact </string>
+    <string name="error_message_send">Message saved offline</string>
+    <string name="emergency_contact_1">First emergency contact (*) </string>
+    <string name="message_received">Message received. Our team is working on a response for you. Thank you for using Travelr</string>
+    <string name="message_sent">Message sent</string>
+    <string name="sending">Sending</string>
+    <string name="tryagain">Try again</string>
 
     <string name="tryagain">Try again</string>
     <string name="error_message_send">Failed to save the message. We will try to send it later.</string>

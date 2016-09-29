@@ -470,7 +470,6 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             Toast.makeText(getApplicationContext(), getString(R.string.incorrect_immatriculation_number)+"...", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        //TODO: Save issue to DB
                         Toast.makeText(getApplicationContext(), getString(R.string.problem_saved_successfull)+"... ", Toast.LENGTH_LONG).show();
 
                         alertDialog.dismiss();

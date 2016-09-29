@@ -8,10 +8,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -43,18 +45,27 @@ import java.io.IOException;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnClickListener {
 
     final private static int DIALOG_SIGNUP = 1;
+    private static final int PICK_FIRST_CONTACT = 100;
+    private static final int PICK_SECOND_CONTACT = 200;
     private static int GET_FROM_GALLERY=2;
-    EditText username, matricule, noTelephone;
+    EditText username, matricule, noTelephone, contact1EditText, contact2EditText;
     FancyButton buttonLogin;
-    ImageButton profilePicture;
+    ImageButton profilePicture, pickContactOne, pickContactTwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        contact1EditText = (EditText) findViewById(R.id.emergencyContact1EditText);
+        contact2EditText = (EditText) findViewById(R.id.emergencyContact2EditText);
+        pickContactOne = (ImageButton) findViewById(R.id.buttonPickContactOne);
+        pickContactTwo = (ImageButton) findViewById(R.id.buttonPickContactTwo);
+
+        pickContactOne.setOnClickListener(this);
+        pickContactTwo.setOnClickListener(this);
 
         if(getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0).contains(TConstants.PREF_USERNAME)&&
                 getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0).contains(TConstants.PREF_PHONE)){
@@ -63,6 +74,7 @@ public class MainActivity extends Activity {
             progress.setIcon(R.mipmap.ic_launcher);
             progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
             progress.setIndeterminate(true);
+            progress.setCanceledOnTouchOutside(false);
             progress.setTitle(getString(R.string.key_chargement));
             progress.setMessage(getString(R.string.key_account_creation_loading_msg));
             progress.show();
@@ -82,10 +94,9 @@ public class MainActivity extends Activity {
                         ResponseEntity<String>  response = restTemplate.exchange(TConstants.GET_MAT_ID_URL+getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
                                 .getString(TConstants.PREF_PHONE, ""), HttpMethod.GET, httpEntity, String.class);
 
-                        Log.e("response get_mat", "response: "+response.getBody());
                         return gson.fromJson(response.getBody(), ResponsStatusMsgData.class);
                     } catch (Exception e) {
-                        Log.e("MainActivity", e.getMessage(), e);
+                        e.printStackTrace();
                     }
 
                     return null;
@@ -142,6 +153,7 @@ public class MainActivity extends Activity {
             }.execute();
         }
 
+        //TODO. Prend aussi en consideration les contacte en urgence pour envoyer au serveur.
         username = (EditText)findViewById(R.id.username);
         matricule = (EditText)findViewById(R.id.matricule1);
         noTelephone = (EditText)findViewById(R.id.no_telephone);
@@ -153,7 +165,9 @@ public class MainActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                if(username.getText().toString().isEmpty() ||noTelephone.getText().toString().isEmpty()){
+                if(username.getText().toString().isEmpty() ||
+                        noTelephone.getText().toString().isEmpty() ||
+                        contact1EditText.getText().toString().isEmpty()){
 
                     Toast.makeText(getApplicationContext(), getString(R.string.provide_all_fields)+"...", Toast.LENGTH_LONG).show();
                     return;
@@ -397,6 +411,52 @@ public class MainActivity extends Activity {
                 e.printStackTrace();
             }
         }
+
+        if((requestCode==PICK_FIRST_CONTACT) && resultCode == Activity.RESULT_OK) {
+            Uri contactData = data.getData();
+            Cursor c = managedQuery(contactData, null, null, null, null);
+            if (c.moveToFirst()) {
+                String id = c.getString(c.getColumnIndexOrThrow(ContactsContract.Contacts._ID));
+
+                String hasPhone =
+                        c.getString(c.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER));
+
+                if (hasPhone.equalsIgnoreCase("1")) {
+                    Cursor phones = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,
+                            ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + id, null, null);
+
+                    phones.moveToFirst();
+                    String number = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                    String name = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+                    //set field with phone number retrieved
+                    contact1EditText.setText(number);
+
+                }
+            }
+        }
+
+        if((requestCode==PICK_SECOND_CONTACT) && resultCode == Activity.RESULT_OK) {
+            Uri contactData = data.getData();
+            Cursor c = managedQuery(contactData, null, null, null, null);
+            if (c.moveToFirst()) {
+                String id = c.getString(c.getColumnIndexOrThrow(ContactsContract.Contacts._ID));
+
+                String hasPhone =
+                        c.getString(c.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER));
+
+                if (hasPhone.equalsIgnoreCase("1")) {
+                    Cursor phones = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,
+                            ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + id, null, null);
+
+                    phones.moveToFirst();
+                    String number = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                    String name = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+                    //set phone number retrieved in field
+                    contact2EditText.setText(number);
+
+                }
+            }
+        }
     }
 
     @Override
@@ -415,4 +475,21 @@ public class MainActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+
+        switch (v.getId()){
+            case R.id.buttonPickContactOne:
+                //OPen phonebook to pick contact
+                startActivityForResult(intent, PICK_FIRST_CONTACT);
+                break;
+            case R.id.buttonPickContactTwo:
+                //Open phonebook to pick contact
+                startActivityForResult(intent, PICK_SECOND_CONTACT);
+                break;
+        }
+    }
+
 }

@@ -132,8 +132,17 @@
         "source": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_confirm_journey.png"
     },
     {
+<<<<<<< HEAD
+        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_done.png",
+        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-xxxhdpi/ic_done.png"
+    },
+    {
+        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\ic_trip_cancelled.png",
+        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_trip_cancelled.png"
+=======
         "merged": "C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\ic_time.png",
         "source": "C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_time.png"
+>>>>>>> refs/remotes/origin/master
     },
     {
         "merged": "C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\ic_info.png",
