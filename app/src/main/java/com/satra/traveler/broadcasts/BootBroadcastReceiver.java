@@ -1,9 +1,11 @@
-package com.satra.traveler;
+package com.satra.traveler.broadcasts;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.PowerManager;
+
+import com.satra.traveler.SpeedMeterService;
 
 public class BootBroadcastReceiver extends BroadcastReceiver {
 

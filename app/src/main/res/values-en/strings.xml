@@ -108,7 +108,7 @@
     <string name="votre_message">Your Message</string>
     <string name="title_activity_messaging">Messages </string>
     <string name="echec_creation_compte_contact_serveur">Fail to contact server. Please retry later.</string>
-    <string name="key_chargement">Loading...</string>
+    <string name="key_chargement">Loading…</string>
     <string name="success_account_creation">account successfully saved on server</string>
     <string name="key_account_creation_loading_msg">Contacting servers…</string>
     <string name="telephone_number_confirm_msg">" and with telephone number "</string>
@@ -122,10 +122,11 @@
     <string name="message_sent">Message sent</string>
     <string name="sending">Sending</string>
     <string name="tryagain">Try again</string>
-
-    <string name="tryagain">Try again</string>
-    <string name="error_message_send">Failed to save the message. We will try to send it later.</string>
-    <string name="message_sent">Message Sent</string>
-    <string name="sending">Sending message</string>
+    <string name="success_account_edition">Account identified. User\'s informations updated…</string>
+    <string name="place_list_option_choose">choose...</string>
+    <string name="operation_failed_try_again_later">Operation failed. Please check your internet access and try again later.</string>
+    <string name="current_trip_already_exist">A trip is already underway. You must complete or cancel it before creating another.</string>
+    <string name="no_current_trip_defined">You have no current trip.</string>
+    <string name="route_calculation">Route calculation…</string>
 
 </resources>
