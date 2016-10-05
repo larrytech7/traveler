@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.satra.traveler.models.Trip;
 import com.satra.traveler.utils.TConstants;
@@ -23,6 +25,15 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
     final public static int DIALOG_NEW_COMPLAINT = 3;
     final public static int DIALOG_NEW_JOURNEY = 4;
     private Activity context;
+    private MyPositionActivity activity;
+
+    public MyPositionActivity getActivity() {
+        return activity;
+    }
+
+    public void setActivity(MyPositionActivity activity) {
+        this.activity = activity;
+    }
 
     public NavigationItemListener(Activity context){
         this.context = context;
@@ -45,20 +56,34 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
 //            context.showDialog(DIALOG_NEW_COMPLAINT);
         }
         else if (id == R.id.nav_new_journey) {
-            context.showDialog(DIALOG_NEW_JOURNEY);
-        } else if (id == R.id.nav_end_journey) {
-            List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
-            // Confirm/complete a trip
-            if (trips != null && trips.size() > 0){
-                Trip trip = trips.get(trips.size() - 1);
-                trip.status = 1;
-                long updateid = trip.save();
-                if (updateid > 0){
-                    Tutility.showMessage(context, R.string.complete_trip, R.string.complete_trip_title );
-                }else{
-                    Tutility.showMessage(context, R.string.complete_trip_error, R.string.complete_trip_error_title );
-                }
+            if(!activity.isCurrentTripExist()){
+                context.showDialog(DIALOG_NEW_JOURNEY);
             }
+            else{
+                Snackbar.make(context.findViewById(R.id.drawer_layout), R.string.current_trip_already_exist, Snackbar.LENGTH_LONG)
+                        .setAction(context.getString(R.string.end_journey), new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                endJourney();
+                            }
+                        })
+                        .show();
+            }
+        } else if (id == R.id.nav_end_journey) {
+            if(activity.isCurrentTripExist()){
+                endJourney();
+            }
+            else{
+                Snackbar.make(context.findViewById(R.id.drawer_layout), R.string.no_current_trip_defined, Snackbar.LENGTH_LONG)
+                        .setAction(context.getString(R.string.confirm_journey), new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                context.showDialog(DIALOG_NEW_JOURNEY);
+                            }
+                        })
+                        .show();
+            }
+
         }/* else if (id == R.id.nav_end_journey) {
 
         }
@@ -66,23 +91,56 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
 
         }*/
         else if (id == R.id.nav_cancel_journey) {
-            List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
-            // Confirm/complete a trip
-            if (trips != null && trips.size() > 0){
-                Trip trip = trips.get(trips.size() - 1);
-                trip.status = 2;
-                long updateid = trip.save();
-                if (updateid > 0){
-                    Tutility.showMessage(context, R.string.cencel_trip, R.string.cencel_trip_title );
-                }else{
-                    Tutility.showMessage(context, R.string.complete_trip_error, R.string.complete_trip_error_title );
-                }
+            if(activity.isCurrentTripExist()){
+                cancelJourney();
+            }
+            else{
+                Snackbar.make(context.findViewById(R.id.drawer_layout), R.string.no_current_trip_defined, Snackbar.LENGTH_LONG)
+                        .setAction(context.getString(R.string.confirm_journey), new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                context.showDialog(DIALOG_NEW_JOURNEY);
+                            }
+                        })
+                        .show();
             }
         }
 
         DrawerLayout drawer = (DrawerLayout) context.findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void endJourney(){
+        List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
+        // Confirm/complete a trip
+        if (trips != null && trips.size() > 0){
+            Trip trip = trips.get(trips.size() - 1);
+            trip.status = 1;
+            long updateid = trip.save();
+            if (updateid > 0){
+                Tutility.showMessage(context, R.string.complete_trip, R.string.complete_trip_title );
+                activity.clearMap();
+            }else{
+                Tutility.showMessage(context, R.string.complete_trip_error, R.string.complete_trip_error_title );
+            }
+        }
+    }
+
+    public void cancelJourney(){
+        List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
+        // Confirm/complete a trip
+        if (trips != null && trips.size() > 0){
+            Trip trip = trips.get(trips.size() - 1);
+            trip.status = 2;
+            long updateid = trip.save();
+            if (updateid > 0){
+                Tutility.showMessage(context, R.string.cencel_trip, R.string.cencel_trip_title );
+                activity.clearMap();
+            }else{
+                Tutility.showMessage(context, R.string.complete_trip_error, R.string.complete_trip_error_title );
+            }
+        }
     }
 
     public void startNewActivity(Context context, String packageName) {

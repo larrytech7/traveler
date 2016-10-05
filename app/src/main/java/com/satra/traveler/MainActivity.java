@@ -93,7 +93,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
                         ResponseEntity<String>  response = restTemplate.exchange(TConstants.GET_MAT_ID_URL+getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
                                 .getString(TConstants.PREF_PHONE, ""), HttpMethod.GET, httpEntity, String.class);
-
+                        Log.e("response: ", response.getBody());
                         return gson.fromJson(response.getBody(), ResponsStatusMsgData.class);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -111,8 +111,12 @@ public class MainActivity extends Activity implements OnClickListener {
                             SharedPreferences.Editor editor = prefs.edit();
                             //TODO IndexOutOfBounds error ici quand la synchronisation ne s'effectue pas correctement
                             editor.putString(TConstants.PREF_MAT_ID, response.getData()[0].getId());
-                            editor.putString(TConstants.PREF_MATRICULE, response.getData()[0].getCode());
+                            editor.putString(TConstants.PREF_MATRICULE, !MyPositionActivity.IsMatch(response.getData()[0].getCode().toUpperCase(), getString(R.string.car_immatriculation_regex_patern))?"":response.getData()[0].getCode());
+                            editor.putString(TConstants.PREF_USERNAME, response.getData()[0].getUsername());
+                            editor.putString(TConstants.PREF_EMERGENCY_CONTACT_1, response.getData()[0].getEmergency_primary());
+                            editor.putString(TConstants.PREF_EMERGENCY_CONTACT_2, response.getData()[0].getEmergency_secondary().equalsIgnoreCase(getString(R.string.information_not_available_label))?"":response.getData()[0].getEmergency_secondary());
                             editor.commit();
+
 
                             progress.dismiss();
                             Toast.makeText(getApplicationContext(), getString(R.string.connexion_with_username)+" "
@@ -173,6 +177,11 @@ public class MainActivity extends Activity implements OnClickListener {
                     return;
                 }
 
+                if(!matricule.getText().toString().isEmpty()&&!MyPositionActivity.IsMatch(matricule.getText().toString().toUpperCase(), getString(R.string.car_immatriculation_regex_patern))){
+                    Toast.makeText(getApplicationContext(), getString(R.string.incorrect_immatriculation_number)+"...", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
                 final AlertDialog.Builder ad = new AlertDialog.Builder(MainActivity.this);
 
                 ad.setTitle(R.string.username_confirm_title);
@@ -187,9 +196,11 @@ public class MainActivity extends Activity implements OnClickListener {
                 ad.setPositiveButton(R.string.username_confirm_yes_label, new android.content.DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int arg1) {
 
-                                final String matriculeString = (matricule.getText().toString().equals(""))?"indisponible":matricule.getText().toString();
+                                final String matriculeString = (matricule.getText().toString().isEmpty())?getString(R.string.information_not_available_label):matricule.getText().toString().toUpperCase();
                                 final String telephoneString = noTelephone.getText().toString();
                                 final String usernameString = username.getText().toString();
+                                final String contact1 = contact1EditText.getText().toString();
+                                final String contact2 = (contact2EditText.getText().toString().isEmpty())?getString(R.string.information_not_available_label):contact2EditText.getText().toString();
                                 final ProgressDialog progress = new ProgressDialog(MainActivity.this);
                                 progress.setIcon(R.mipmap.ic_launcher);
                                 progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -206,6 +217,9 @@ public class MainActivity extends Activity implements OnClickListener {
                                             MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
                                             body.add(TConstants.REGISTRATION_URL_PARAM_CODE, matriculeString);
                                             body.add(TConstants.REGISTRATION_URL_PARAM_MSISDN, telephoneString);
+                                            body.add(TConstants.REGISTRATION_URL_PARAM_USERNAME, usernameString);
+                                            body.add(TConstants.REGISTRATION_URL_PARAM_EMERGENCY_ONE, contact1);
+                                            body.add(TConstants.REGISTRATION_URL_PARAM_EMERGENCY_TWO, contact2);
 
                                             //Log.e("error", "no: "+telephoneString);
                                             HttpEntity<?> httpEntity = new HttpEntity<Object>(body, requestHeaders);
@@ -227,14 +241,21 @@ public class MainActivity extends Activity implements OnClickListener {
                                     @Override
                                     protected void onPostExecute(ResponsStatusMsg response) {
 
-                                        if(response!=null && response.getStatus()==100){
-                                            Toast.makeText(getApplicationContext(), R.string.success_account_creation, Toast.LENGTH_LONG).show();
+                                        if(response!=null && (response.getStatus()==100||response.getStatus()==101)){
+                                            if(response.getStatus()==100){
+                                                Toast.makeText(getApplicationContext(), R.string.success_account_creation, Toast.LENGTH_LONG).show();
+                                            }
+                                            else{
+                                                Toast.makeText(getApplicationContext(), R.string.success_account_edition, Toast.LENGTH_LONG).show();
+                                            }
 
                                             SharedPreferences prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0);
                                             SharedPreferences.Editor editor = prefs.edit();
                                             editor.putString(TConstants.PREF_USERNAME, usernameString);
                                             editor.putString(TConstants.PREF_PHONE, telephoneString);
-                                            editor.putString(TConstants.PREF_MATRICULE, matriculeString);
+                                            editor.putString(TConstants.PREF_MATRICULE, matriculeString.equalsIgnoreCase(getString(R.string.information_not_available_label))?"":matriculeString);
+                                            editor.putString(TConstants.PREF_EMERGENCY_CONTACT_1, contact1);
+                                            editor.putString(TConstants.PREF_EMERGENCY_CONTACT_2, contact2.equalsIgnoreCase(getString(R.string.information_not_available_label))?"":contact2);
                                             editor.commit();
 
                                             new AsyncTask<Void, Void, ResponsStatusMsgData>(){
@@ -278,7 +299,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
                                                         Toast.makeText(getApplicationContext(), getString(R.string.connexion_with_username)+" "
                                                                         +getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
-                                                                        .getString(TConstants.PREF_USERNAME, "anonyme-Travelr"),
+                                                                        .getString(TConstants.PREF_USERNAME, usernameString),
                                                                 Toast.LENGTH_LONG)
                                                                 .show();
                                                         startActivity(new Intent(getApplicationContext(), MyPositionActivity.class));

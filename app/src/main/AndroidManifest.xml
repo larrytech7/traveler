@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.satra.traveler"
-    android:versionCode="31"
+    android:versionCode="35"
     android:versionName="4.0.1">
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -29,6 +29,7 @@
     <uses-feature
         android:name="android.hardware.camera.autofocus"
         android:required="false" />
+
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
@@ -62,11 +63,7 @@
             android:name="QUERY_LOG"
             android:value="true" />
         <meta-data android:name="VERSION"
-<<<<<<< HEAD
-            android:value="6" />
-=======
-            android:value="4" />
->>>>>>> refs/remotes/origin/master
+            android:value="7" />
 
 
         <activity
@@ -107,7 +104,7 @@
             android:label="@string/app_name" />
 
         <receiver
-            android:name=".BootBroadcastReceiver"
+            android:name=".broadcasts.BootBroadcastReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
