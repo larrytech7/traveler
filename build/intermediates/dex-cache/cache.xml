@@ -1,3 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-places\9.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="e35002351f2d415093a9b564652d4b56be6a0593">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-places-9.4.0_ea72838a5fd8e095e6968ce1893f39fc2021ea68.jar" />
+    </item>
+
+</items>

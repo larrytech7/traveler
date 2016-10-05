@@ -46,10 +46,10 @@ public class SpeedMeterService extends Service {
     private static final int NBRE_MAX_ITERATION_POUR_MOYENNE_VITESSES = 3;
     private static final int MAX_VITESSE_METRE_SECONDE = 0;
     private static final float COEFF_CONVERSION_MS_KMH = 4;
-    private static final int MAX_SPEED_ALLOWED_KMH = 105;
+    private static final int MAX_SPEED_ALLOWED_KMH = 90;
     private static final int NATURAL_LIMIT_OF_SPEED = 200;
     private static final int ERREUR_ACCEPTE_VITESSE_MAX=2;
-    private static final int MAX_SPEED_TO_ALERT_KMH = 95;
+    private static final int MAX_SPEED_TO_ALERT_KMH = 80;
     LocationManager locationManager;
     float vitesse = 0;
     int id = 1;
@@ -353,7 +353,7 @@ public class SpeedMeterService extends Service {
             }
             if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_ALLOWED_KMH){
 
-                pushSpeedOnline(getApplicationContext(), vitesse, location, null);
+                pushSpeedOnline(SpeedMeterService.this, vitesse, location, null);
 
             }
 
