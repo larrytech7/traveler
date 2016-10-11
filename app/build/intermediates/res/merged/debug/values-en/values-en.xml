@@ -23,7 +23,7 @@
         <item>"Dammaged vehicle"</item>
         <item>"Other..."</item>
     </string-array>
-    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 4.0.1</string>
+    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 4.5.1</string>
     <string name="about_title1">About</string>
     <string name="account_created">Account created successfully with the username </string>
     <string name="annuler_voyage">Cancel journey</string>
@@ -95,6 +95,7 @@
     <string name="provide_username_and_password">Please fill your username and password</string>
     <string name="relative_guardian">your relative name</string>
     <string name="repeated_password_different_from_original">password repeated is different from password; please correct</string>
+    <string name="route_calculation">Route calculation…</string>
     <string name="save">Save</string>
     <string name="select_your_profile_image">select your profile picture</string>
     <string name="send">Send</string>

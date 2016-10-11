@@ -159,6 +159,8 @@ public class SpeedMeterService extends Service {
             }
         };
 
+
+
         try {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 100, 0, locationListenerGPS);
             locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 200, 0, locationListenerNetwork);
@@ -168,6 +170,8 @@ public class SpeedMeterService extends Service {
             sec.printStackTrace();
         }
     }
+
+
 
     public void showAlertEnableGPS(){
 

@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -15,6 +16,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -50,15 +52,23 @@ public class MainActivity extends Activity implements OnClickListener {
     final private static int DIALOG_SIGNUP = 1;
     private static final int PICK_FIRST_CONTACT = 100;
     private static final int PICK_SECOND_CONTACT = 200;
+    private static int contactToPick=0;
     private static int GET_FROM_GALLERY=2;
     EditText username, matricule, noTelephone, contact1EditText, contact2EditText;
     FancyButton buttonLogin;
     ImageButton profilePicture, pickContactOne, pickContactTwo;
 
+    public static Integer stringToInt(String str){
+        if(str.length()==0) return 0;
+        else return (str.charAt(0)+stringToInt(str.substring(1)))%256;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         contact1EditText = (EditText) findViewById(R.id.emergencyContact1EditText);
         contact2EditText = (EditText) findViewById(R.id.emergencyContact2EditText);
         pickContactOne = (ImageButton) findViewById(R.id.buttonPickContactOne);
@@ -161,7 +171,15 @@ public class MainActivity extends Activity implements OnClickListener {
         username = (EditText)findViewById(R.id.username);
         matricule = (EditText)findViewById(R.id.matricule1);
         noTelephone = (EditText)findViewById(R.id.no_telephone);
-        noTelephone.setText(((TelephonyManager) getSystemService(TELEPHONY_SERVICE)).getLine1Number());
+
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.READ_PHONE_STATE)
+                == PackageManager.PERMISSION_GRANTED) {
+            noTelephone.setText(((TelephonyManager) getSystemService(TELEPHONY_SERVICE)).getLine1Number());
+        }
+        else{
+            requestPermission(android.Manifest.permission.READ_PHONE_STATE);
+        }
+
 
         buttonLogin = (FancyButton)findViewById(R.id.button_login);
 
@@ -330,6 +348,37 @@ public class MainActivity extends Activity implements OnClickListener {
                 ad.show();
             }
         });
+
+    }
+
+    private void requestPermission(String permission) {
+        //ask user to grant permission to read fine location. Required for android 6.0+ API level 23+
+        ActivityCompat.requestPermissions(MainActivity.this,
+                new String[]{permission},
+                stringToInt(permission));
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode==stringToInt(android.Manifest.permission.READ_PHONE_STATE)&&
+                grantResults.length > 0
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+            noTelephone.setText(((TelephonyManager) getSystemService(TELEPHONY_SERVICE)).getLine1Number());
+
+        }
+
+        else if (requestCode==stringToInt(android.Manifest.permission.READ_CONTACTS)&&
+                grantResults.length > 0
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+            startActivityForResult(new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI), contactToPick);
+
+        }
+
 
     }
 
@@ -504,11 +553,30 @@ public class MainActivity extends Activity implements OnClickListener {
         switch (v.getId()){
             case R.id.buttonPickContactOne:
                 //OPen phonebook to pick contact
-                startActivityForResult(intent, PICK_FIRST_CONTACT);
+
+                if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.READ_CONTACTS)
+                        == PackageManager.PERMISSION_GRANTED) {
+                    startActivityForResult(intent, PICK_FIRST_CONTACT);
+                }
+                else{
+                    contactToPick = PICK_FIRST_CONTACT;
+                    requestPermission(android.Manifest.permission.READ_CONTACTS);
+                }
+
+
                 break;
             case R.id.buttonPickContactTwo:
                 //Open phonebook to pick contact
-                startActivityForResult(intent, PICK_SECOND_CONTACT);
+
+
+                if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.READ_CONTACTS)
+                        == PackageManager.PERMISSION_GRANTED) {
+                    startActivityForResult(intent, PICK_SECOND_CONTACT);
+                }
+                else{
+                    contactToPick = PICK_SECOND_CONTACT;
+                    requestPermission(android.Manifest.permission.READ_CONTACTS);
+                }
                 break;
         }
     }

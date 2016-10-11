@@ -30,16 +30,12 @@ public class Trip extends SugarRecord implements Serializable{
     @NotNull
     private String destination; //town of destination
 
-    @NotNull
     private double destinationLatitude;
 
-    @NotNull
     private double destinationLongitude;
 
-    @NotNull
     private double departureLatitude;
 
-    @NotNull
     private double departureLongitude;
 
     public double getDestinationLatitude() {

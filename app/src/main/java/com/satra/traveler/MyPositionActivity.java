@@ -1,5 +1,6 @@
 package com.satra.traveler;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -65,7 +66,6 @@ import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -95,13 +95,13 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private AlertDialog alertDialog;
     private TextView timeOfTravel;
     private EditText guardianPhoneNumber;
-    private String guardianName="";
+    private String guardianName = "";
     private SharedPreferences prefs;
     private GoogleMap googleMap;
     private boolean running = true;
     private SpeedometerGauge mspeedometer;
     private DrawerLayout drawer;
-    private static Trip currentTrip, mTrip;
+    private static Trip mTrip;
     static int PLACE_PICKER_REQUEST_FROM = 2;
     static int PLACE_PICKER_REQUEST_TO = 3;
     private static Spinner destinationSpinner;
@@ -109,12 +109,10 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     static MapWrapperLayout mapWrapperLayout;
     private ViewGroup infoWindow;
     private TextView infoSnippet;
-    private GoogleMap.InfoWindowAdapter infoWindowAdapter ;
+    private GoogleMap.InfoWindowAdapter infoWindowAdapter;
 
 
     private static HashMap<String, double[]> knownTown;
-
-
 
 
     static boolean IsMatch(String s, String pattern) {
@@ -149,14 +147,14 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         if (timeOfTravel != null) timeOfTravel.setText(sdf.format(myCalendar.getTime()));
     }
 
-    private void addToknownTown(String townStr){
-        if(knownTown==null) knownTown = new HashMap<>();
+    private void addToknownTown(String townStr) {
+        if (knownTown == null) knownTown = new HashMap<>();
         String[] tmp = townStr.split(Pattern.quote("|"));
-         knownTown.put(tmp[0], new double[]{Double.parseDouble(tmp[1]), Double.parseDouble(tmp[2])});
+        knownTown.put(tmp[0], new double[]{Double.parseDouble(tmp[1]), Double.parseDouble(tmp[2])});
 
     }
 
-    public void clearMap(){
+    public void clearMap() {
         googleMap.clear();
     }
 
@@ -183,7 +181,6 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         navigationItemListener.setActivity(this);
 
         navigationView.setNavigationItemSelectedListener(navigationItemListener);
-
 
 
         addToknownTown(prefs
@@ -238,9 +235,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             alert.show();
         }
 
-        Intent intent = new Intent(this, SpeedMeterService.class);
 
-        startService(intent);
 
         final Handler handler = new Handler() {
             @Override
@@ -287,14 +282,14 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         });
         t.start();
 
-        this.infoWindow = (ViewGroup)getLayoutInflater().inflate(R.layout.info_window, null);
-        this.infoSnippet = (TextView)infoWindow.findViewById(R.id.snippet);
+        this.infoWindow = (ViewGroup) getLayoutInflater().inflate(R.layout.info_window, null);
+        this.infoSnippet = (TextView) infoWindow.findViewById(R.id.snippet);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        mapWrapperLayout = (MapWrapperLayout)findViewById(R.id.map_relative_layout);
+        mapWrapperLayout = (MapWrapperLayout) findViewById(R.id.map_relative_layout);
 
 
         infoWindowAdapter = new GoogleMap.InfoWindowAdapter() {
@@ -306,22 +301,18 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             @Override
             public View getInfoContents(Marker marker) {
                 // Setting up the infoWindow with current's marker info
-                try{
+                try {
                     mapWrapperLayout.setMarkerWithInfoWindow(marker, infoWindow);
-
-
 
 
                     //  infoSnippet.setText(marker.getSnippet());
                     infoSnippet.setText(new StringBuilder().append(marker.getTitle()).append(": \n\n").append(marker.getSnippet()).toString());
 
 
-
-
                     return infoWindow;
-                }catch(Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(MyPositionActivity.this, getString(R.string.operation_failed_try_again_later),Toast.LENGTH_LONG).show();
+                    Toast.makeText(MyPositionActivity.this, getString(R.string.operation_failed_try_again_later), Toast.LENGTH_LONG).show();
                     return null;
                 }
             }
@@ -337,26 +328,30 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         mapWrapperLayout.init(map, getPixelsFromDp(this, 39 + 20));
 
 
-        if (!googleMap.isMyLocationEnabled())
-            googleMap.setMyLocationEnabled(true);
+
         // Enabling MyLocation in Google Map
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling requestPermission
-            requestPermission();
+            requestPermission(android.Manifest.permission.ACCESS_FINE_LOCATION);
             return;
         }
+
+        Intent intent = new Intent(this, SpeedMeterService.class);
+
+        startService(intent);
+
         googleMap.setMyLocationEnabled(true);
         googleMap.setBuildingsEnabled(true);
 
         setupCurrentTrip();
     }
 
-    private void requestPermission() {
+    private void requestPermission(String permission) {
         //ask user to grant permission to read fine location. Required for android 6.0+ API level 23+
         ActivityCompat.requestPermissions(MyPositionActivity.this,
-                new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
-                1);
+                new String[]{permission},
+                MainActivity.stringToInt(permission));
     }
 
     @Override
@@ -364,24 +359,35 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                                            String permissions[], int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        switch (requestCode) {
-            case 1: {
+        if (requestCode == MainActivity.stringToInt(android.Manifest.permission.ACCESS_FINE_LOCATION) &&
+                grantResults.length > 0
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-                // If request is cancelled, the result arrays are empty.
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
-                    if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
-                        return;
-                    }
-                    googleMap.setMyLocationEnabled(true);
-                    googleMap.setBuildingsEnabled(true);
-                }
+            // If request is cancelled, the result arrays are empty.
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ) {
                 return;
             }
 
+            Intent intent = new Intent(this, SpeedMeterService.class);
+
+            startService(intent);
+
+            googleMap.setMyLocationEnabled(true);
+            googleMap.setBuildingsEnabled(true);
+
         }
+
+        else if (requestCode == MainActivity.stringToInt(Manifest.permission.READ_CONTACTS)&&
+                grantResults.length > 0
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+
+            Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+            startActivityForResult(intent, PICK_CONTACT);
+
+        }
+
+
     }
 
 
@@ -603,12 +609,12 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
                 ImageButton chooseContact = (ImageButton)alertDialog.findViewById(R.id.choose_contact);
                 final Spinner companyName = (Spinner)alertDialog.findViewById(R.id.company_name);
-                 fromSpinner = (Spinner) alertDialog.findViewById(R.id.departure);
-                 destinationSpinner = (Spinner) alertDialog.findViewById(R.id.destination);
+                fromSpinner = (Spinner) alertDialog.findViewById(R.id.departure);
+                destinationSpinner = (Spinner) alertDialog.findViewById(R.id.destination);
 
                 mTrip = new Trip();
 
-               setFromSpinner();
+                setFromSpinner();
 
 
                 setToSpinner();
@@ -634,8 +640,17 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 chooseContact.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-                        startActivityForResult(intent, PICK_CONTACT);
+
+                        if (ActivityCompat.checkSelfPermission(MyPositionActivity.this, android.Manifest.permission.READ_CONTACTS)
+                                == PackageManager.PERMISSION_GRANTED) {
+                            Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+                            startActivityForResult(intent, PICK_CONTACT);
+                        }
+                        else{
+                            requestPermission(android.Manifest.permission.READ_CONTACTS);
+                        }
+
+
                     }
                 });
                 companyName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -736,7 +751,6 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                         long saveid = mTrip.save();
                         if (saveid > 0){
                             Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_successfull), Toast.LENGTH_LONG).show();
-                            currentTrip = mTrip;
                             setupCurrentTrip();
                         }else{
                             Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_failed), Toast.LENGTH_LONG).show();
@@ -819,10 +833,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
     private void setupCurrentTrip(){
         Trip trip = null;
-        if(currentTrip!=null){
-            trip = currentTrip;
-        }
-        else{
+
             List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
             //refresh layout by getting fresh view references and setting their values
 
@@ -831,7 +842,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             if (trips != null && trips.size() > 0) {
                 trip = trips.get(trips.size() - 1);
             }
-        }
+
 
 
         //refresh layout by getting fresh view references and setting their values
@@ -884,11 +895,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
     public boolean  isCurrentTripExist(){
         Trip trip = null;
-        if(currentTrip!=null){
-            trip = currentTrip;
-        }
-        else{
-            List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
+        List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
             //refresh layout by getting fresh view references and setting their values
 
 
@@ -896,7 +903,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             if (trips != null && trips.size() > 0) {
                 trip = trips.get(trips.size() - 1);
             }
-        }
+
 
 
         //refresh layout by getting fresh view references and setting their values
@@ -986,7 +993,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             }
         }
 
-       else if (requestCode == PLACE_PICKER_REQUEST_FROM) {
+        else if (requestCode == PLACE_PICKER_REQUEST_FROM) {
 
             if(resultCode == RESULT_OK){
                 Place place = PlacePicker.getPlace(data, this);

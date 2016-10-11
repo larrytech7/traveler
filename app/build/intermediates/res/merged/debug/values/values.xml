@@ -392,7 +392,7 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br/>Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br/> Version 4.0.1</string>
+    <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br/>Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br/> Version 4.5.1</string>
     <string name="about_title1">A propos</string>
     <string name="accept">Accept</string>
     <string name="account_created">Informations sauvegardees; Compte cree avec succes avec pour pseudonyme </string>
@@ -459,6 +459,7 @@
     <string name="for_publicity" translatable="false">pour la publicite/for advertising</string>
     <string name="gps_disabled_message">Veuillez activer le GPS afin que nous puissions correctement estimer votre position et votre vitesse.</string>
     <string name="howserious">Niveaux de Gravite</string>
+    <string name="immatriculation_example" translatable="false">CE111AA</string>
     <string name="incorrect_immatriculation_number">Numéro d\'immatriculation incorrect (exple: CE111AA)</string>
     <string name="information_not_available_label" translatable="false">indisponible</string>
     <string name="interstitial_ad_sample" translatable="false">Interstitial Ad Sample</string>
@@ -504,6 +505,7 @@
     <string name="provide_username_and_password">Veuillez remplir votre pseudonyme et votre mot de passe</string>
     <string name="relative_guardian">nom de votre proche</string>
     <string name="repeated_password_different_from_original">le mot de passe repete est different du mot de passe; veuillez corriger</string>
+    <string name="route_calculation">Calcul du trajet…</string>
     <string name="save">Sauvegarder</string>
     <string name="select_your_profile_image">selectionnez votre photo de profil</string>
     <string name="send">Envoyer</string>
