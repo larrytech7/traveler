@@ -104,6 +104,12 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
                         })
                         .show();
             }
+        }else if (id == R.id.nav_aid_victim){
+            //start activity to show victim aid
+            context.startActivity(new Intent(context, AidActivity.class));
+        }else if (id == R.id.nav_transport_victim){
+            //start activity to show transportation for victim
+            context.startActivity(new Intent(context, VictimeTransportationActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) context.findViewById(R.id.drawer_layout);

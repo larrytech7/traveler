@@ -287,7 +287,7 @@
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">12dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="btn_margin">16dp</dimen>
     <dimen name="btn_padding">20dp</dimen>
     <dimen name="btn_radius">20dp</dimen>
@@ -353,6 +353,9 @@
     <dimen name="place_autocomplete_progress_horizontal_margin">16dp</dimen>
     <dimen name="place_autocomplete_progress_size">24dp</dimen>
     <dimen name="place_autocomplete_separator_start">72dp</dimen>
+    <dimen name="textmargin">5dp</dimen>
+    <dimen name="textsize">18sp</dimen>
+    <dimen name="titlesize">20sp</dimen>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <item name="action_bar_activity_content" type="id"/>
     <item name="action_bar_spinner" type="id"/>
@@ -397,17 +400,23 @@
     <string name="accept">Accept</string>
     <string name="account_created">Informations sauvegardees; Compte cree avec succes avec pour pseudonyme </string>
     <string name="action_settings" translatable="false">Apropos</string>
+    <string name="aidvictim">Aidez une victime</string>
     <string name="annuler_voyage">Annuler le Voyage</string>
     <string name="app_name" translatable="false">Travelr</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="arrivee">Destination: %s</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
+    <string name="breathsigns">Ensuite, vérifier si la personne respire et s\'il a un pouls.</string>
+    <string name="callhelp">Appelez immédiatement une ambulance ou précipiter la personne à l\'hôpital. Une fois que vous en savez plus sur l\'état du patient, vous serez en meilleure position pour dire aux médecins au sujet de son / sa condition.</string>
     <string name="cancel">Annuler</string>
     <string name="car_immatriculation_regex_patern" translatable="false">[A-Z]{2}[0-9]{3}[A-Z]{2}</string>
     <string name="cencel_trip">Vous avez choisi d\'annuler ce voyage. N\'hesitez pas creer un nouveau voyage.</string>
     <string name="cencel_trip_title">Annuler Le voyage</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
     <string name="check_position">Visualisez votre position</string>
+    <string name="checkinjury">Si d\'autres personnes sont blessées, veuillez évaluer l\'étendue de ses blessures. Pour exemple saignait ti-il de la tête, le cou, bras jambes, abdomen dos etc. Traiter la personne la plus calme d\'abord, ils sont généralement plus gravement blessés ou ne peuvent pas respirer. Les gens qui peuvent parler ou crier, d\'autre part, peuvent respirer peut donc être traité un peu plus tard. Demandez le nom du patient, s\'il répond, cela signifie qu\'il est capable de comprendre la situation et a probablement pas subi une blessure grave à la tête.</string>
+    <string name="checkobstruction">Si vous n\'entendez plus de bruits respiratoires, vérifier son / sa bouche pour toute obstruction. S\'il y a quelque chose obstruant les voies respiratoires, utiliser l\'index et le majeur pour dégager les voies respiratoires.</string>
+    <string name="checkself">Si vous avez été blessé dans l\'accident, d\'abord vérifier vous-même pour les blessures. Essayez d\'évaluer dans quelle mesure vous pouvez déplacer vos membres, et si vous ressentez des symptômes tels que des étourdissements, etc. Rappelez-vous que vous devez être suffisamment en forme pour aider les autres.</string>
     <string name="click_to_change">cliquez pour modifier</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
     <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t work unless you enable Google Play services.</string>
@@ -456,6 +465,7 @@
     <string name="error_occur_please_retry">Une erreur s\'est produite; veuillez reessayer svp</string>
     <string name="estimated_speed">Vitesse estimée</string>
     <string name="estimated_speed_msg">"Nous estimons votre vitesse actuelle a "</string>
+    <string name="feedingvictim">Ne pas donner à la personne de l\'eau, de la nourriture ou d\'autres fluides à travers la bouche, elle pourrait conduire a un étouffement.</string>
     <string name="for_publicity" translatable="false">pour la publicite/for advertising</string>
     <string name="gps_disabled_message">Veuillez activer le GPS afin que nous puissions correctement estimer votre position et votre vitesse.</string>
     <string name="howserious">Niveaux de Gravite</string>
@@ -470,9 +480,11 @@
     <string name="key_account_creation_loading_msg">Tentative de synchronisation…</string>
     <string name="key_chargement">Chargement .…</string>
     <string name="label_get_a_taxi">Trouver un Taxi!</string>
+    <string name="lifesaving">S\'il n\'y a pas de pouls, commencez la RCR ou EAR. Gardez le cou de la personne directement à commencer EAR (External Air Réanimation) ou la RCR (réanimation cardio-pulmonaire). Il existe 3 types de EAR; Bouche-à-bouche, bouche-à-nez, bouche-à-masque. Vous pouvez en savoir plus sur la façon d\'effectuer EAR et CPR ici.</string>
     <string name="load_image">Charger une image</string>
     <string name="login">Continuer</string>
     <string name="main_menu_activity_title">Accueil</string>
+    <string name="manageincident">Gérer des incidents</string>
     <string name="mat_id_synchronization_failed_no_mat_id_saved">Echec de la récupération de votre compte à partir du serveur. Veuillez rééssayer ultérieurement ou tenter de créer un nouveau compte.</string>
     <string name="mat_id_synchronization_operation_failed">Echec de l\'opération de synchronisation…</string>
     <string name="mat_id_synchronization_success">opération de synchronisation réussie…</string>
@@ -480,6 +492,7 @@
     <string name="message_received">Message reçu. Notre equipe travaille en ce moment pour vous répondre. Merci d\'utiliser travelr.</string>
     <string name="message_sent">Message envoyé</string>
     <string name="mettre_a_jour_parametres_voyage">MAJ. les détails du Voyage</string>
+    <string name="movevictim">Déplacez les victimes</string>
     <string name="my_location">Ma Position</string>
     <string name="myposition">Ma Position actuelle</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
@@ -489,6 +502,7 @@
     <string name="no_current_trip_defined">Vous n\'avez aucun voyage en cours.</string>
     <string name="no_telephone">Numéro de téléphone (*)</string>
     <string name="open_settings">Reglages</string>
+    <string name="openwounds">S\'il y a de vastes plaies, essayer de contrôler le saignement en utilisant la pression de la zone à l\'aide d\'un chiffon. Appuyez avec vos paumes plutôt que du bout des doigts.</string>
     <string name="operation_failed_try_again_later">Echec de l\'opération. Merci de vérifier votre accès à internet et de rééssayer plus tard.</string>
     <string name="password">mot de passe</string>
     <string name="password_again">mot de passe (a nouveau)</string>
@@ -510,12 +524,14 @@
     <string name="select_your_profile_image">selectionnez votre photo de profil</string>
     <string name="send">Envoyer</string>
     <string name="sending">Envoie en cours</string>
+    <string name="severecondition">En cas de saignement de la bouche ou le patient vomit, tournez la personne à son / ses côtés. Cela permettra d\'éviter toutes les chances de suffocation. Placez le bras de la personne qui est sous lui en ligne droite et le bras le plus proche de vous sur sa poitrine.</string>
     <string name="situation">Choisissez la situation?</string>
     <string name="snap_image">Capturer une image</string>
-    <string name="speed_dimen">Vitesse (Kmph)</string>
+    <string formatted="false" name="speed_dimen">%s | Vitesse (%f Kmph)</string>
     <string name="speed_limit_reached">Dépassement de la limite de vitesse reglementaire</string>
     <string name="speed_limit_reached_ago">Vous avez depasse la limite de vitesse autorisee</string>
     <string name="speed_limit_reached_msg">Vous venez de depasser la limite de vitesse reglementaire pour la zone ou vous vous trouvez (</string>
+    <string name="spinalinjury">Si le cou de la personne est dans une position inconfortable (pas normalement placé) ou la personne est inconsciente, ne pas déplacer le patient. Obtenez de l\'aide immédiatement. Cela pourrait signifier que le cou de la personne est cassée, et lui / elle se déplaçant dans une telle situation peut causer plus de mal que de bien.</string>
     <string name="start_level" translatable="false">Level 1</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="store_picture_message">"Allow Ad to store image in Picture gallery?"</string>
@@ -523,8 +539,27 @@
     <string name="success_account_creation">Compte crée avec succes.</string>
     <string name="success_account_edition">Compte identifié. Informations mis à jour…</string>
     <string name="telephone_number_confirm_msg">" et le numéro de téléphone "</string>
+    <string name="tip1">\u2022 Le patient doit être transporté sur un brancard ou d\'un carton rigide. Ceci est important car la réduction de la quantité de mouvement et expériences des personnes sont essentielle pour éviter son/ses blessures de devenir pire.</string>
+    <string name="tip2">\u2022 Gardez son cous et dos en position droite. Vous pouvez placer une serviette roulée ou tissu épais sous le cou pour un meilleur support.</string>
+    <string name="tip3">\u2022 Assurez vous que la personne se couche a plat ventre.</string>
+    <string name="tip4">\u2022 S\'il n\'y a qu\'une blessure à un membre, le patient peut être transporté dans une position assise.</string>
+    <string name="tip5">\u2022 En cas de blessure qui saigne, soulevez la partie blessée au-dessus du niveau du corps de la personne et d\'appliquer une pression sur la région. Maintenir une pression jusqu\'à ce que vous atteignez l\'hôpital. Cela aide à contrôler et éventuellement arrêter le saignement.</string>
+    <string name="tip6">\u2022 Assurez-vous que la personne a un pouls et respire sur le chemin de l\'hôpital. S\'il / elle cesse de respirer, soyez prêt à commencer la RCR ou EAR dans le véhicule.</string>
+    <string name="title1">1. Vérifier soit.</string>
+    <string name="title10">10. Gardez les victimes au chaud</string>
+    <string name="title11">11. Evitez de nourrir les blessée</string>
+    <string name="title2">2. Vérifiez d\'autres blessée</string>
+    <string name="title3">3. Cherchez des signes de respiration</string>
+    <string name="title4">4. Appeler de l\'aide</string>
+    <string name="title5">5. Vérifiez l\'obstruction dans la bouche et de la gorge de la personne.</string>
+    <string name="title6">6. Techniques de sauvetage des vies</string>
+    <string name="title7">7. Fournir de l\'aide dans des situations graves</string>
+    <string name="title8">8. Traiter les plaies ouvertes</string>
+    <string name="title9">9. Suspecter les domages médullaires</string>
+    <string name="title_activity_aid">Aider une victime</string>
     <string name="title_activity_main2" translatable="false">Main2Activity</string>
     <string name="title_activity_messaging">Messages</string>
+    <string name="title_activity_victime_transportation">Transporter une victime</string>
     <string name="town_1" translatable="false">Douala|4.036072|9.6724234</string>
     <string name="town_2" translatable="false">Yaoundé|3.8306364|11.3703649</string>
     <string name="town_3" translatable="false">Bafoussam|5.4807502|10.389804</string>
@@ -541,6 +576,7 @@
     <string name="username_confirm_title">Confirmation</string>
     <string name="username_confirm_yes_label">Oui</string>
     <string name="votre_message">Votre message</string>
+    <string name="warmness">Plus souvent, les victimes d\'accidents se sentent trop froid à cause du choc. Par conséquent, les garder au chaud est essentiel à la survie. Vous pouvez utiliser ce que vous avez, comme un T-shirt, veste, etc.</string>
     <string name="welcome">Zero morts sur nos routes. Restez en alerte et en securite avec Travelr</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>

@@ -116,7 +116,7 @@
     <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br />Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br /> Version 4.5.1</string>
     <string name="about_title1">A propos</string>
     <string name="login">Continuer</string>
-    <string name="speed_dimen">Vitesse (Kmph)</string>
+    <string name="speed_dimen" formatted="false">%s | Vitesse (%f Kmph)</string>
     <string name="trip_agency">Agence de Voyage</string>
     <string name="cancel">Annuler</string>
     <string name="save">Sauvegarder</string>
@@ -154,6 +154,39 @@
     <string name="message_received">Message reçu. Notre equipe travaille en ce moment pour vous répondre. Merci d\'utiliser travelr.</string>
     <string name="emergency_contact_1">Numéro d\'urgence 1 (*)</string>
     <string name="emergency_contact2">Numéro urgence 2</string>
+    <string name="title_activity_victime_transportation">Transporter une victime</string>
+    <string name="title_activity_aid">Aider une victime</string>
+    <string name="title9">9. Suspecter les domages médullaires</string>
+    <string name="title8">8. Traiter les plaies ouvertes</string>
+    <string name="title7">7. Fournir de l\'aide dans des situations graves</string>
+    <string name="title6">6. Techniques de sauvetage des vies</string>
+    <string name="title5">5. Vérifiez l\'obstruction dans la bouche et de la gorge de la personne.</string>
+    <string name="title4">4. Appeler de l\'aide</string>
+    <string name="title3">3. Cherchez des signes de respiration</string>
+    <string name="title2">2. Vérifiez d\'autres blessée</string>
+    <string name="title11">11. Evitez de nourrir les blessée</string>
+    <string name="title10">10. Gardez les victimes au chaud</string>
+    <string name="title1">1. Vérifier soit.</string>
+    <string name="tip6">\u2022 Assurez-vous que la personne a un pouls et respire sur le chemin de l\'hôpital. S\'il / elle cesse de respirer, soyez prêt à commencer la RCR ou EAR dans le véhicule.</string>
+    <string name="tip5">\u2022 En cas de blessure qui saigne, soulevez la partie blessée au-dessus du niveau du corps de la personne et d\'appliquer une pression sur la région. Maintenir une pression jusqu\'à ce que vous atteignez l\'hôpital. Cela aide à contrôler et éventuellement arrêter le saignement.</string>
+    <string name="tip4">\u2022 S\'il n\'y a qu\'une blessure à un membre, le patient peut être transporté dans une position assise.</string>
+    <string name="tip3">\u2022 Assurez vous que la personne se couche a plat ventre.</string>
+    <string name="tip2">\u2022 Gardez son cous et dos en position droite. Vous pouvez placer une serviette roulée ou tissu épais sous le cou pour un meilleur support.</string>
+    <string name="tip1">\u2022 Le patient doit être transporté sur un brancard ou d\'un carton rigide. Ceci est important car la réduction de la quantité de mouvement et expériences des personnes sont essentielle pour éviter son/ses blessures de devenir pire.</string>
+    <string name="spinalinjury">Si le cou de la personne est dans une position inconfortable (pas normalement placé) ou la personne est inconsciente, ne pas déplacer le patient. Obtenez de l\'aide immédiatement. Cela pourrait signifier que le cou de la personne est cassée, et lui / elle se déplaçant dans une telle situation peut causer plus de mal que de bien.</string>
+    <string name="severecondition">En cas de saignement de la bouche ou le patient vomit, tournez la personne à son / ses côtés. Cela permettra d\'éviter toutes les chances de suffocation. Placez le bras de la personne qui est sous lui en ligne droite et le bras le plus proche de vous sur sa poitrine.</string>
+    <string name="aidvictim">Aidez une victime</string>
+    <string name="breathsigns">Ensuite, vérifier si la personne respire et s\'il a un pouls.</string>
+    <string name="callhelp">Appelez immédiatement une ambulance ou précipiter la personne à l\'hôpital. Une fois que vous en savez plus sur l\'état du patient, vous serez en meilleure position pour dire aux médecins au sujet de son / sa condition.</string>
+    <string name="checkinjury">Si d\'autres personnes sont blessées, veuillez évaluer l\'étendue de ses blessures. Pour exemple saignait ti-il de la tête, le cou, bras jambes, abdomen dos etc. Traiter la personne la plus calme d\'abord, ils sont généralement plus gravement blessés ou ne peuvent pas respirer. Les gens qui peuvent parler ou crier, d\'autre part, peuvent respirer peut donc être traité un peu plus tard. Demandez le nom du patient, s\'il répond, cela signifie qu\'il est capable de comprendre la situation et a probablement pas subi une blessure grave à la tête.</string>
+    <string name="checkobstruction">Si vous n\'entendez plus de bruits respiratoires, vérifier son / sa bouche pour toute obstruction. S\'il y a quelque chose obstruant les voies respiratoires, utiliser l\'index et le majeur pour dégager les voies respiratoires.</string>
+    <string name="checkself">Si vous avez été blessé dans l\'accident, d\'abord vérifier vous-même pour les blessures. Essayez d\'évaluer dans quelle mesure vous pouvez déplacer vos membres, et si vous ressentez des symptômes tels que des étourdissements, etc. Rappelez-vous que vous devez être suffisamment en forme pour aider les autres.</string>
+    <string name="feedingvictim">Ne pas donner à la personne de l\'eau, de la nourriture ou d\'autres fluides à travers la bouche, elle pourrait conduire a un étouffement.</string>
+    <string name="lifesaving">S\'il n\'y a pas de pouls, commencez la RCR ou EAR. Gardez le cou de la personne directement à commencer EAR (External Air Réanimation) ou la RCR (réanimation cardio-pulmonaire). Il existe 3 types de EAR; Bouche-à-bouche, bouche-à-nez, bouche-à-masque. Vous pouvez en savoir plus sur la façon d\'effectuer EAR et CPR ici.</string>
+    <string name="manageincident">Gérer des incidents</string>
+    <string name="movevictim">Déplacez les victimes</string>
+    <string name="openwounds">S\'il y a de vastes plaies, essayer de contrôler le saignement en utilisant la pression de la zone à l\'aide d\'un chiffon. Appuyez avec vos paumes plutôt que du bout des doigts.</string>
+    <string name="warmness">Plus souvent, les victimes d\'accidents se sentent trop froid à cause du choc. Par conséquent, les garder au chaud est essentiel à la survie. Vous pouvez utiliser ce que vous avez, comme un T-shirt, veste, etc.</string>
     <string name="success_account_edition">Compte identifié. Informations mis à jour…</string>
     <string name="place_list_option_choose">choisir…</string>
     <string name="information_not_available_label" translatable="false">indisponible</string>
@@ -169,5 +202,4 @@
     <string name="no_current_trip_defined">Vous n\'avez aucun voyage en cours.</string>
     <string name="route_calculation">Calcul du trajet…</string>
     <string name="immatriculation_example" translatable="false">CE111AA</string>
-
 </resources>

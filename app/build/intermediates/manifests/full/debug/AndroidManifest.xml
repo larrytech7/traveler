@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.satra.traveler"
-    android:versionCode="36"
+    android:versionCode="37"
     android:versionName="4.5.1" >
 
     <uses-sdk
@@ -123,6 +123,24 @@
         <activity
             android:name="com.satra.traveler.MessagingActivity"
             android:label="@string/title_activity_messaging"
+            android:parentActivityName="com.satra.traveler.MyPositionActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.satra.traveler.MyPositionActivity" />
+        </activity>
+        <activity
+            android:name="com.satra.traveler.AidActivity"
+            android:label="@string/title_activity_aid"
+            android:parentActivityName="com.satra.traveler.MyPositionActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.satra.traveler.MyPositionActivity" />
+        </activity>
+        <activity
+            android:name="com.satra.traveler.VictimeTransportationActivity"
+            android:label="@string/title_activity_victime_transportation"
             android:parentActivityName="com.satra.traveler.MyPositionActivity"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data

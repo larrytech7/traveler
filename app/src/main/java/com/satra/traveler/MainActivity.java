@@ -124,7 +124,12 @@ public class MainActivity extends Activity implements OnClickListener {
                             editor.putString(TConstants.PREF_MATRICULE, !MyPositionActivity.IsMatch(response.getData()[0].getCode().toUpperCase(), getString(R.string.car_immatriculation_regex_patern))?"":response.getData()[0].getCode());
                             editor.putString(TConstants.PREF_USERNAME, response.getData()[0].getUsername());
                             editor.putString(TConstants.PREF_EMERGENCY_CONTACT_1, response.getData()[0].getEmergency_primary());
-                            editor.putString(TConstants.PREF_EMERGENCY_CONTACT_2, response.getData()[0].getEmergency_secondary().equalsIgnoreCase(getString(R.string.information_not_available_label))?"":response.getData()[0].getEmergency_secondary());
+                            //sometimes there may not be a secondary emergency contact and this line without the error trap causes the app to fail
+                            try {
+                                editor.putString(TConstants.PREF_EMERGENCY_CONTACT_2, response.getData()[0].getEmergency_secondary().equalsIgnoreCase(getString(R.string.information_not_available_label))?"":response.getData()[0].getEmergency_secondary());
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
                             editor.commit();
 
 
