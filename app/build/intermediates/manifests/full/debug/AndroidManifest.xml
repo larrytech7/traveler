@@ -130,6 +130,24 @@
                 android:value="com.satra.traveler.MyPositionActivity" />
         </activity>
         <activity
+            android:name="com.satra.traveler.AidActivity"
+            android:label="@string/title_activity_aid"
+            android:parentActivityName="com.satra.traveler.MyPositionActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.satra.traveler.MyPositionActivity" />
+        </activity>
+        <activity
+            android:name="com.satra.traveler.VictimeTransportationActivity"
+            android:label="@string/title_activity_victime_transportation"
+            android:parentActivityName="com.satra.traveler.MyPositionActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.satra.traveler.MyPositionActivity" />
+        </activity>
+        <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />

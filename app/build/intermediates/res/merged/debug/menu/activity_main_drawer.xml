@@ -29,4 +29,17 @@
         </menu>
     </item>
 
+    <item android:title="@string/manageincident">
+        <menu>
+            <item
+                android:id="@+id/nav_aid_victim"
+                android:icon="@drawable/ic_aid"
+                android:title="@string/aidvictim" />
+            <item
+                android:id="@+id/nav_transport_victim"
+                android:icon="@drawable/ic_help"
+                android:title="@string/movevictim" />
+        </menu>
+    </item>
+
 </menu>
