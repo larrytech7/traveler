@@ -100,6 +100,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private GoogleMap googleMap;
     private boolean running = true;
     private SpeedometerGauge mspeedometer;
+    private TextView speedTextview;
     private DrawerLayout drawer;
     private static Trip mTrip;
     static int PLACE_PICKER_REQUEST_FROM = 2;
@@ -216,6 +217,9 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         Typeface tf = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/digital-7.ttf");
         usernameTextview.setTypeface(tf);
 
+        //speed textview
+        speedTextview = (TextView) navigationView.getHeaderView(0).findViewById(R.id.speedtext);
+        speedTextview.setText(getString(R.string.speed_dimen, prefs.getString(TConstants.PREF_MATRICULE, "OO000OO"), 0));
         //build speedometer
         mspeedometer = (SpeedometerGauge) navigationView.getHeaderView(0).findViewById(R.id.speedometer);
         setupSpeedometer(mspeedometer);
@@ -251,8 +255,11 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                                     + " KM/H" + ")" : " (" + round(speed) + " m/s)" ));
                     */
                     //update speedometer speed value
-                    mspeedometer.setSpeed(speed >= MAX_VITESSE_METRE_SECONDE ? Tutility.round(speed * COEFF_CONVERSION_MS_KMH) :
-                            Tutility.round(speed / COEFF_CONVERSION_MS_KMH));
+                    double mspeed = speed >= MAX_VITESSE_METRE_SECONDE ? Tutility.round(speed * COEFF_CONVERSION_MS_KMH) :
+                            Tutility.round(speed / COEFF_CONVERSION_MS_KMH);
+                    mspeedometer.setSpeed(mspeed);
+                    //update the value on the speed label
+                    speedTextview.setText(getString(R.string.speed_dimen, prefs.getString(TConstants.PREF_MATRICULE, "OO000OO"), mspeed));
                 }
             }
         };
