@@ -527,7 +527,7 @@
     <string name="severecondition">En cas de saignement de la bouche ou le patient vomit, tournez la personne à son / ses côtés. Cela permettra d\'éviter toutes les chances de suffocation. Placez le bras de la personne qui est sous lui en ligne droite et le bras le plus proche de vous sur sa poitrine.</string>
     <string name="situation">Choisissez la situation?</string>
     <string name="snap_image">Capturer une image</string>
-    <string name="speed_dimen">Vitesse (Kmph)</string>
+    <string formatted="false" name="speed_dimen">%s | Vitesse (%f Kmph)</string>
     <string name="speed_limit_reached">Dépassement de la limite de vitesse reglementaire</string>
     <string name="speed_limit_reached_ago">Vous avez depasse la limite de vitesse autorisee</string>
     <string name="speed_limit_reached_msg">Vous venez de depasser la limite de vitesse reglementaire pour la zone ou vous vous trouvez (</string>

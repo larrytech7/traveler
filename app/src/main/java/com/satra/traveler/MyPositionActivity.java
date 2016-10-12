@@ -219,7 +219,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
         //speed textview
         speedTextview = (TextView) navigationView.getHeaderView(0).findViewById(R.id.speedtext);
-        speedTextview.setText(getString(R.string.speed_dimen, prefs.getString(TConstants.PREF_MATRICULE, "OO000OO"), 0));
+        speedTextview.setText(getString(R.string.speed_dimen, prefs.getString(TConstants.PREF_MATRICULE, "OO000OO"), Float.parseFloat("0")));
         //build speedometer
         mspeedometer = (SpeedometerGauge) navigationView.getHeaderView(0).findViewById(R.id.speedometer);
         setupSpeedometer(mspeedometer);
