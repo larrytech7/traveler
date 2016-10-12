@@ -1,8 +1,10 @@
 package com.satra.traveler;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,8 +22,8 @@ import android.os.Message;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -34,6 +36,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -43,6 +46,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cardiomood.android.controls.gauge.SpeedometerGauge;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.LocationSource;
@@ -51,16 +58,19 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.satra.traveler.models.Trip;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.regex.Matcher;
@@ -68,7 +78,7 @@ import java.util.regex.Pattern;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 
-public class MyPositionActivity extends AppCompatActivity implements OnMapReadyCallback,LocationSource.OnLocationChangedListener {
+public class MyPositionActivity extends AppCompatActivity implements OnMapReadyCallback, LocationSource.OnLocationChangedListener {
 
     private static final int RAYON_TERRE = 6366000;
     private static final int MAX_VITESSE_METRE_SECONDE = 3;
@@ -81,24 +91,34 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private static SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
     final int PICK_CONTACT = 7;
     final Calendar myCalendar = Calendar.getInstance();
-    private Bitmap attachedImage = null;
     private ImageButton problemPreview;
     private AlertDialog alertDialog;
-    private FancyButton buttonSave;
-    private FancyButton buttonCancel;
     private TextView timeOfTravel;
-    private EditText guardianPhoneNumber, guardianName;
-    private NavigationView navigationView;
+    private EditText guardianPhoneNumber;
+    private String guardianName = "";
     private SharedPreferences prefs;
     private GoogleMap googleMap;
     private boolean running = true;
     private SpeedometerGauge mspeedometer;
     private DrawerLayout drawer;
-    private Trip currentTrip;
+    private static Trip mTrip;
+    static int PLACE_PICKER_REQUEST_FROM = 2;
+    static int PLACE_PICKER_REQUEST_TO = 3;
+    private static Spinner destinationSpinner;
+    private static Spinner fromSpinner;
+    static MapWrapperLayout mapWrapperLayout;
+    private ViewGroup infoWindow;
+    private TextView infoSnippet;
+    private GoogleMap.InfoWindowAdapter infoWindowAdapter;
+
+
+    private static HashMap<String, double[]> knownTown;
+
 
     static boolean IsMatch(String s, String pattern) {
         try {
             Pattern patt = Pattern.compile(pattern);
+
             Matcher matcher = patt.matcher(s);
             return matcher.matches();
         } catch (RuntimeException e) {
@@ -106,31 +126,45 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         }
     }
 
-    static double computeDistance(double latA, double lngA, double latB, double lngB){
+    static double computeDistance(double latA, double lngA, double latB, double lngB) {
 
-        double pk =  180.f/Math.PI;
+        double pk = 180.f / Math.PI;
 
         double a1 = latA / pk;
         double a2 = lngA / pk;
         double b1 = latB / pk;
         double b2 = lngB / pk;
 
-        double t1 = Math.cos(a1)*Math.cos(a2)*Math.cos(b1)*Math.cos(b2);
-        double t2 = Math.cos(a1)*Math.sin(a2)*Math.cos(b1)*Math.sin(b2);
-        double t3 = Math.sin(a1)*Math.sin(b1);
+        double t1 = Math.cos(a1) * Math.cos(a2) * Math.cos(b1) * Math.cos(b2);
+        double t2 = Math.cos(a1) * Math.sin(a2) * Math.cos(b1) * Math.sin(b2);
+        double t3 = Math.sin(a1) * Math.sin(b1);
         double tt = Math.acos(t1 + t2 + t3);
 
-        return RAYON_TERRE*tt;
+        return RAYON_TERRE * tt;
     }
 
     private void updateDateVoyage() {
         if (timeOfTravel != null) timeOfTravel.setText(sdf.format(myCalendar.getTime()));
     }
 
+    private void addToknownTown(String townStr) {
+        if (knownTown == null) knownTown = new HashMap<>();
+        String[] tmp = townStr.split(Pattern.quote("|"));
+        knownTown.put(tmp[0], new double[]{Double.parseDouble(tmp[1]), Double.parseDouble(tmp[2])});
+
+    }
+
+    public void clearMap() {
+        googleMap.clear();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_my_position);
+
+        prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -141,10 +175,41 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(new NavigationItemListener(this));
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
 
-        prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0);
+        NavigationItemListener navigationItemListener = new NavigationItemListener(this);
+        navigationItemListener.setActivity(this);
+
+        navigationView.setNavigationItemSelectedListener(navigationItemListener);
+
+
+        addToknownTown(prefs
+                .getString(TConstants.PREF_FROM_1, getString(R.string.town_1)));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_FROM_2, getString(R.string.town_2)));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_FROM_3, getString(R.string.town_3)));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_FROM_4, getString(R.string.town_4)));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_FROM_5, getString(R.string.town_5)));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_FROM_6, getString(R.string.town_6)));
+
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_1, getString(R.string.town_2)));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_2, getString(R.string.town_1)));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_3, getString(R.string.town_3)));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_4, getString(R.string.town_4)));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_5, getString(R.string.town_5)));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_6, getString(R.string.town_6)));
+
+
         final TextView usernameTextview = ((TextView) navigationView.getHeaderView(0).findViewById(R.id.username));
         usernameTextview.setText(prefs.getString(TConstants.PREF_USERNAME, "anonyme"));
 
@@ -170,9 +235,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             alert.show();
         }
 
-        Intent intent = new Intent(this, SpeedMeterService.class);
 
-        startService(intent);
 
         final Handler handler = new Handler() {
             @Override
@@ -188,8 +251,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                                     + " KM/H" + ")" : " (" + round(speed) + " m/s)" ));
                     */
                     //update speedometer speed value
-                    mspeedometer.setSpeed(speed >= MAX_VITESSE_METRE_SECONDE?Tutility.round(speed * COEFF_CONVERSION_MS_KMH):
-                    Tutility.round(speed / COEFF_CONVERSION_MS_KMH));
+                    mspeedometer.setSpeed(speed >= MAX_VITESSE_METRE_SECONDE ? Tutility.round(speed * COEFF_CONVERSION_MS_KMH) :
+                            Tutility.round(speed / COEFF_CONVERSION_MS_KMH));
                 }
             }
         };
@@ -199,7 +262,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             @Override
             public void run() {
 
-                while(running){
+                while (running) {
 
                     try {
                         Thread.sleep(100);
@@ -218,38 +281,116 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             }
         });
         t.start();
+
+        this.infoWindow = (ViewGroup) getLayoutInflater().inflate(R.layout.info_window, null);
+        this.infoSnippet = (TextView) infoWindow.findViewById(R.id.snippet);
+
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        mapWrapperLayout = (MapWrapperLayout) findViewById(R.id.map_relative_layout);
+
+
+        infoWindowAdapter = new GoogleMap.InfoWindowAdapter() {
+            @Override
+            public View getInfoWindow(Marker marker) {
+                return null;
+            }
+
+            @Override
+            public View getInfoContents(Marker marker) {
+                // Setting up the infoWindow with current's marker info
+                try {
+                    mapWrapperLayout.setMarkerWithInfoWindow(marker, infoWindow);
+
+
+                    //  infoSnippet.setText(marker.getSnippet());
+                    infoSnippet.setText(new StringBuilder().append(marker.getTitle()).append(": \n\n").append(marker.getSnippet()).toString());
+
+
+                    return infoWindow;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(MyPositionActivity.this, getString(R.string.operation_failed_try_again_later), Toast.LENGTH_LONG).show();
+                    return null;
+                }
+            }
+        };
     }
 
     @Override
     public void onMapReady(final GoogleMap map) {
-        Log.d(LOG_TAG,"Map is ready");
+        Log.d(LOG_TAG, "Map is ready");
         googleMap = map;
-        if (!googleMap.isMyLocationEnabled())
-            googleMap.setMyLocationEnabled(true);
+
+        map.setInfoWindowAdapter(infoWindowAdapter);
+        mapWrapperLayout.init(map, getPixelsFromDp(this, 39 + 20));
+
+
+
         // Enabling MyLocation in Google Map
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling requestPermission
-            requestPermission();
+            requestPermission(android.Manifest.permission.ACCESS_FINE_LOCATION);
             return;
         }
+
+        Intent intent = new Intent(this, SpeedMeterService.class);
+
+        startService(intent);
+
         googleMap.setMyLocationEnabled(true);
         googleMap.setBuildingsEnabled(true);
+
+        setupCurrentTrip();
     }
 
-    private void requestPermission(){
+    private void requestPermission(String permission) {
         //ask user to grant permission to read fine location. Required for android 6.0+ API level 23+
+        ActivityCompat.requestPermissions(MyPositionActivity.this,
+                new String[]{permission},
+                MainActivity.stringToInt(permission));
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        //TODO Handle operation appropriately
+
+        if (requestCode == MainActivity.stringToInt(android.Manifest.permission.ACCESS_FINE_LOCATION) &&
+                grantResults.length > 0
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+            // If request is cancelled, the result arrays are empty.
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ) {
+                return;
+            }
+
+            Intent intent = new Intent(this, SpeedMeterService.class);
+
+            startService(intent);
+
+            googleMap.setMyLocationEnabled(true);
+            googleMap.setBuildingsEnabled(true);
+
+        }
+
+        else if (requestCode == MainActivity.stringToInt(Manifest.permission.READ_CONTACTS)&&
+                grantResults.length > 0
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+
+            Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+            startActivityForResult(intent, PICK_CONTACT);
+
+        }
+
 
     }
+
+
 
     //initiate the speedometer controls and set it up
     public void setupSpeedometer(SpeedometerGauge mspeedometer){
@@ -354,12 +495,12 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 final  EditText busImmatriculation = (EditText)alertDialog.findViewById(R.id.bus_immatriculation);
                 final EditText problemDescription = (EditText)alertDialog.findViewById(R.id.problem_description);
 
-                buttonSave = (FancyButton)alertDialog.findViewById(R.id.button_save);
+                FancyButton buttonSave = (FancyButton) alertDialog.findViewById(R.id.button_save);
                 problemPreview = (ImageButton)alertDialog.findViewById(R.id.problem_preview);
 
                 final Spinner problemLevel = (Spinner)alertDialog.findViewById(R.id.problem_level);
                 final TextView problemLevelLabel = (TextView)alertDialog.findViewById(R.id.problem_level_label);
-                buttonCancel = (FancyButton)alertDialog.findViewById(R.id.button_cancel);
+
 
                 problemPreview.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
 
@@ -418,7 +559,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             problemLevelLabel.setVisibility(View.VISIBLE);
                         } else if (position == 2) {
                             busImmatriculation.setEnabled(false);
-                            busImmatriculation.setText("CE111AA");
+                            busImmatriculation.setText(R.string.immatriculation_example);
                         }
                     }
 
@@ -443,7 +584,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             return;
                         }
 
-                        if(!IsMatch(busImmatriculation.getText().toString(), "[A-Z]{2}[0-9]{3}[A-Z]{2}")){
+                        if(!IsMatch(busImmatriculation.getText().toString().toUpperCase(), getString(R.string.car_immatriculation_regex_patern))){
                             Toast.makeText(getApplicationContext(), getString(R.string.incorrect_immatriculation_number)+"...", Toast.LENGTH_LONG).show();
                             return;
                         }
@@ -453,7 +594,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                     }
                 });
 
-                buttonCancel.setOnClickListener(new View.OnClickListener() {
+                alertDialog.findViewById(R.id.button_cancel).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         alertDialog.dismiss();
@@ -462,23 +603,35 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 break;
 
             case NavigationItemListener.DIALOG_NEW_JOURNEY:
-                final Trip mtrip = new Trip();
-                mtrip.setDeparture("Douala");
-                mtrip.setDestination("Douala");
-                mtrip.setAgency_name("Buca Voyage");
+
 
                 alertDialog = (AlertDialog) dialog;
 
                 ImageButton chooseContact = (ImageButton)alertDialog.findViewById(R.id.choose_contact);
                 final Spinner companyName = (Spinner)alertDialog.findViewById(R.id.company_name);
-                final Spinner fromSpinner = (Spinner) alertDialog.findViewById(R.id.departure);
-                Spinner destinationSpinner = (Spinner) alertDialog.findViewById(R.id.destination);
+                fromSpinner = (Spinner) alertDialog.findViewById(R.id.departure);
+                destinationSpinner = (Spinner) alertDialog.findViewById(R.id.destination);
+
+                mTrip = new Trip();
+
+                setFromSpinner();
+
+
+                setToSpinner();
+
+                mTrip.setAgency_name(getResources().getStringArray(R.array.compagnies_names)[0]);
+
 
                 final EditText busMatriculationNumber = (EditText)alertDialog.findViewById(R.id.matriculation_number_of_bus);
                 //timeOfTravel = (EditText)alertDialog.findViewById(R.id.time_of_travel);
                 //final EditText travelDuration = (EditText)alertDialog.findViewById(R.id.journey_duration);
-                guardianName = (EditText)alertDialog.findViewById(R.id.guardian_name);
                 guardianPhoneNumber = (EditText)alertDialog.findViewById(R.id.guardian_phone_number);
+
+                guardianPhoneNumber.setText(prefs
+                        .getString(TConstants.PREF_EMERGENCY_CONTACT_1, ""));
+
+                busMatriculationNumber.setText(prefs
+                        .getString(TConstants.PREF_MATRICULE, "").toUpperCase());
 
                 buttonSave = (FancyButton) alertDialog.findViewById(R.id.button_save);
 
@@ -487,15 +640,24 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 chooseContact.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-                        startActivityForResult(intent, PICK_CONTACT);
+
+                        if (ActivityCompat.checkSelfPermission(MyPositionActivity.this, android.Manifest.permission.READ_CONTACTS)
+                                == PackageManager.PERMISSION_GRANTED) {
+                            Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+                            startActivityForResult(intent, PICK_CONTACT);
+                        }
+                        else{
+                            requestPermission(android.Manifest.permission.READ_CONTACTS);
+                        }
+
+
                     }
                 });
                 companyName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         ArrayAdapter<String> arrayAdapter = (ArrayAdapter<String>) parent.getAdapter();
-                        mtrip.setAgency_name(arrayAdapter.getItem(position));
+                        mTrip.setAgency_name(arrayAdapter.getItem(position));
                     }
 
                     @Override
@@ -507,7 +669,26 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         ArrayAdapter<String> adapter = (ArrayAdapter<String>) parent.getAdapter();
-                        mtrip.setDeparture(adapter.getItem(position));
+                        if(!adapter.getItem(position).equals(getString(R.string.place_list_option_choose))){
+                            mTrip.setDeparture(adapter.getItem(position));
+                            mTrip.setDepartureLatitude(knownTown.get(adapter.getItem(position))[0]);
+                            mTrip.setDepartureLongitude(knownTown.get(adapter.getItem(position))[1]);
+
+                        }
+                        else{
+                            //open place chooser
+
+                            PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+
+                            try {
+                                startActivityForResult(builder.build(MyPositionActivity.this), PLACE_PICKER_REQUEST_FROM);
+                            } catch (GooglePlayServicesRepairableException | GooglePlayServicesNotAvailableException e) {
+                                // TODO Auto-generated catch block
+                                e.printStackTrace();
+                                Snackbar.make(fromSpinner, R.string.operation_failed_try_again_later, Snackbar.LENGTH_LONG)
+                                        .show();
+                            }
+                        }
                     }
 
                     @Override
@@ -518,7 +699,26 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         ArrayAdapter<String> adapter = (ArrayAdapter<String>) parent.getAdapter();
-                        mtrip.setDestination(adapter.getItem(position));
+
+                        if(!adapter.getItem(position).equals(getString(R.string.place_list_option_choose))){
+                            mTrip.setDestination(adapter.getItem(position));
+                            mTrip.setDestinationLatitude(knownTown.get(adapter.getItem(position))[0]);
+                            mTrip.setDestinationLongitude(knownTown.get(adapter.getItem(position))[1]);
+                        }
+                        else{
+                            //open place chooser
+
+                            PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+
+                            try {
+                                startActivityForResult(builder.build(MyPositionActivity.this), PLACE_PICKER_REQUEST_TO);
+                            } catch (GooglePlayServicesRepairableException | GooglePlayServicesNotAvailableException e) {
+                                // TODO Auto-generated catch block
+                                e.printStackTrace();
+                                Snackbar.make(destinationSpinner, R.string.operation_failed_try_again_later, Snackbar.LENGTH_LONG)
+                                        .show();
+                            }
+                        }
                     }
 
                     @Override
@@ -530,32 +730,32 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
                     @Override
                     public void onClick(View v) {
-                        if(busMatriculationNumber.getText().toString().isEmpty()||guardianName.getText().toString().isEmpty()||guardianPhoneNumber.getText().toString().isEmpty()){
+                        if(busMatriculationNumber.getText().toString().isEmpty()||guardianPhoneNumber.getText().toString().isEmpty()){
                             Toast.makeText(getApplicationContext(), getString(R.string.provide_all_fields), Toast.LENGTH_LONG).show();
                             return;
                         }
 
-                        if(!IsMatch(busMatriculationNumber.getText().toString(), "[A-Z]{2}[0-9]{3}[A-Z]{2}")){
+                        if(!IsMatch(busMatriculationNumber.getText().toString().toUpperCase(), getString(R.string.car_immatriculation_regex_patern))){
+                            Log.e("regex: ", "pattern: "+getString(R.string.incorrect_immatriculation_number));
                             Toast.makeText(getApplicationContext(), getString(R.string.incorrect_immatriculation_number), Toast.LENGTH_LONG).show();
                             return;
                         }
-                        mtrip.setBus_immatriculation(busMatriculationNumber.getText().toString());
-                        mtrip.setContact_name(guardianName.getText().toString());
-                        mtrip.setContact_number(guardianPhoneNumber.getText().toString());
-                        mtrip.setDate_start(sdf.format(Calendar.getInstance().getTime()));
-                        mtrip.setDate_end("");
-                        mtrip.setStatus(0);
+                        mTrip.setBus_immatriculation(busMatriculationNumber.getText().toString().toUpperCase());
+                        mTrip.setContact_name(guardianName);
+                        mTrip.setContact_number(guardianPhoneNumber.getText().toString());
+                        mTrip.setDate_start(sdf.format(Calendar.getInstance().getTime()));
+                        mTrip.setDate_end("");
+                        mTrip.setStatus(0);
 
                         alertDialog.dismiss();
-                        long saveid = mtrip.save();
+                        long saveid = mTrip.save();
                         if (saveid > 0){
                             Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_successfull), Toast.LENGTH_LONG).show();
-                            currentTrip = mtrip;
                             setupCurrentTrip();
                         }else{
                             Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_failed), Toast.LENGTH_LONG).show();
                         }
-                        Log.d(TAG, mtrip.toString());
+                        Log.d(TAG, mTrip.toString());
                     }
                 });
 
@@ -571,11 +771,85 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         }
     }
 
+    private void setToSpinner(){
+        List<String> listTo = new ArrayList<>();
+        listTo.add(0,prefs
+                .getString(TConstants.PREF_TO_1, getString(R.string.town_2)).split(Pattern.quote("|"))[0]);
+        listTo.add(1,prefs
+                .getString(TConstants.PREF_TO_2, getString(R.string.town_1)).split(Pattern.quote("|"))[0]);
+        listTo.add(2,prefs
+                .getString(TConstants.PREF_TO_3, getString(R.string.town_3)).split(Pattern.quote("|"))[0]);
+        listTo.add(3,prefs
+                .getString(TConstants.PREF_TO_4, getString(R.string.town_4)).split(Pattern.quote("|"))[0]);
+        listTo.add(4,prefs
+                .getString(TConstants.PREF_TO_5, getString(R.string.town_5)).split(Pattern.quote("|"))[0]);
+        listTo.add(5,prefs
+                .getString(TConstants.PREF_TO_6, getString(R.string.town_6)).split(Pattern.quote("|"))[0]);
+        listTo.add(6, getString(R.string.place_list_option_choose));
+
+        ArrayAdapter<String> toAdapter = new ArrayAdapter<>(MyPositionActivity.this,
+                android.R.layout.simple_spinner_item, listTo);
+        toAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        destinationSpinner.setAdapter(toAdapter);
+
+        destinationSpinner.setSelection(0, true);
+
+        mTrip.setDestination(listTo.get(0));
+        mTrip.setDestinationLatitude(knownTown.get(listTo.get(0))[0]);
+        mTrip.setDestinationLongitude(knownTown.get(listTo.get(0))[1]);
+
+    }
+
+
+    private void setFromSpinner(){
+        List<String> listFrom = new ArrayList<>();
+        listFrom.add(0,prefs
+                .getString(TConstants.PREF_FROM_1, getString(R.string.town_1)).split(Pattern.quote("|"))[0]);
+        listFrom.add(1,prefs
+                .getString(TConstants.PREF_FROM_2, getString(R.string.town_2)).split(Pattern.quote("|"))[0]);
+        listFrom.add(2,prefs
+                .getString(TConstants.PREF_FROM_3, getString(R.string.town_3)).split(Pattern.quote("|"))[0]);
+        listFrom.add(3,prefs
+                .getString(TConstants.PREF_FROM_4, getString(R.string.town_4)).split(Pattern.quote("|"))[0]);
+        listFrom.add(4,prefs
+                .getString(TConstants.PREF_FROM_5, getString(R.string.town_5)).split(Pattern.quote("|"))[0]);
+        listFrom.add(5,prefs
+                .getString(TConstants.PREF_FROM_6, getString(R.string.town_6)).split(Pattern.quote("|"))[0]);
+        listFrom.add(6, getString(R.string.place_list_option_choose));
+
+        ArrayAdapter<String> fromAdapter = new ArrayAdapter<>(MyPositionActivity.this,
+                android.R.layout.simple_spinner_item, listFrom);
+        fromAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        fromSpinner.setAdapter(fromAdapter);
+
+        fromSpinner.setSelection(0, true);
+
+        mTrip.setDeparture(listFrom.get(0));
+        mTrip.setDepartureLatitude(knownTown.get(listFrom.get(0))[0]);
+        mTrip.setDepartureLongitude(knownTown.get(listFrom.get(0))[1]);
+    }
+
+
+
     private void setupCurrentTrip(){
-        List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
+        Trip trip = null;
+
+            List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
+            //refresh layout by getting fresh view references and setting their values
+
+
+
+            if (trips != null && trips.size() > 0) {
+                trip = trips.get(trips.size() - 1);
+            }
+
+
+
         //refresh layout by getting fresh view references and setting their values
-        if (trips != null && trips.size() > 0){
-            Trip trip = trips.get(trips.size() - 1);
+
+
+
+        if (trip!=null&&trip.getStatus()==0){
             TextView departure = (TextView) findViewById(R.id.departureTextview);
             TextView arrival = (TextView) findViewById(R.id.destinationTextview);
             TextView agence = (TextView) findViewById(R.id.agencyTextView);
@@ -586,7 +860,61 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             agence.setText(trip.getAgency_name());
             setDrawableStatus(agence, trip.getStatus());
             timedepart.setText(getString(R.string.datedepart, trip.getDate_start()));
+
+            LatLngBounds.Builder builder = new LatLngBounds.Builder();
+            int padding = 50;
+            googleMap.clear();
+
+            //positionnement des marqueurs et trace du trajet
+
+            LatLng from = new LatLng(trip.getDepartureLatitude(), trip.getDepartureLongitude());
+            LatLng to = new LatLng(trip.getDestinationLatitude(), trip.getDestinationLongitude());
+
+            builder.include(from);
+            builder.include(to);
+
+
+            googleMap.addMarker(new MarkerOptions().position(from).title("Départ").snippet(trip.getDeparture()).icon(BitmapDescriptorFactory .fromResource(R.drawable.ic_marker_start)));
+
+            googleMap.addMarker(new MarkerOptions().position(to).title("Arrivé").snippet(trip.getDestination()).icon(BitmapDescriptorFactory .fromResource(R.drawable.ic_marker_end)));
+
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngBounds(builder.build(), padding));
+
+            GetRouteTask getRoute1 = new GetRouteTask(MyPositionActivity.this, googleMap, from, to, Color.GREEN);
+
+            try{
+                getRoute1.execute();
+            }catch(Exception e){
+                e.printStackTrace();
+                Toast.makeText(MyPositionActivity.this, getString(R.string.operation_failed_try_again_later),Toast.LENGTH_LONG).show();
+            }
+
+
         }
+    }
+
+    public boolean  isCurrentTripExist(){
+        Trip trip = null;
+        List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
+            //refresh layout by getting fresh view references and setting their values
+
+
+
+            if (trips != null && trips.size() > 0) {
+                trip = trips.get(trips.size() - 1);
+            }
+
+
+
+        //refresh layout by getting fresh view references and setting their values
+
+
+        return trip != null && trip.getStatus() == 0;
+    }
+
+    public static int getPixelsFromDp(Context context, float dp) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int)(dp * scale + 0.5f);
     }
 
     private void setDrawableStatus(TextView view, int status){
@@ -612,6 +940,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         super.onActivityResult(requestCode, resultCode, data);
 
 
+        Bitmap attachedImage = null;
         if((requestCode==PICK_CONTACT) && resultCode == Activity.RESULT_OK) {
             Uri contactData = data.getData();
             Cursor c = managedQuery(contactData, null, null, null, null);
@@ -625,6 +954,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                     Cursor phones = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,
                             ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + id, null, null);
 
+                    assert phones != null;
                     phones.moveToFirst();
                     String Number = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
                     String Name = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
@@ -632,28 +962,26 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
                     //						label_no.setText(getString(R.string.key_number_of)+" "+Name);
                     guardianPhoneNumber.setText(Number);
-                    guardianName.setText(Name);
+                    guardianName = Name;
                     //						num = Number;
                 }
             }
         }
 
         //Detects request codes
-        if((requestCode==GET_FROM_GALLERY) && resultCode == Activity.RESULT_OK) {
+        else if((requestCode==GET_FROM_GALLERY) && resultCode == Activity.RESULT_OK) {
             Uri selectedImage = data.getData();
 
             try {
                 attachedImage = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
                 //se servir du compress pour envoyer le bitmap dans un outputstream vers le serveur
                 problemPreview.setImageBitmap(Bitmap.createScaledBitmap(attachedImage, problemPreview.getWidth(), problemPreview.getHeight(), false));
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
 
-        if(requestCode==SNAP_PICTURE && resultCode == Activity.RESULT_OK) {
+        else if(requestCode==SNAP_PICTURE && resultCode == Activity.RESULT_OK) {
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             try{
                 attachedImage = (Bitmap) data.getExtras().get("data");
@@ -664,12 +992,85 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 Toast.makeText(getApplicationContext(), getString(R.string.error_occur_please_retry)+"...", Toast.LENGTH_LONG).show();
             }
         }
+
+        else if (requestCode == PLACE_PICKER_REQUEST_FROM) {
+
+            if(resultCode == RESULT_OK){
+                Place place = PlacePicker.getPlace(data, this);
+                if(place!=null){
+                    String name = (place.getName()==null || place.getName().toString().isEmpty())?"("+place.getLatLng().latitude+", "+place.getLatLng().longitude+")":place.getName().toString();
+
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString(TConstants.PREF_FROM_6, prefs
+                            .getString(TConstants.PREF_FROM_5, getString(R.string.town_5)));
+                    editor.putString(TConstants.PREF_FROM_5, prefs
+                            .getString(TConstants.PREF_FROM_4, getString(R.string.town_4)));
+                    editor.putString(TConstants.PREF_FROM_4, prefs
+                            .getString(TConstants.PREF_FROM_3, getString(R.string.town_3)));
+                    editor.putString(TConstants.PREF_FROM_3, prefs
+                            .getString(TConstants.PREF_FROM_2, getString(R.string.town_2)));
+                    editor.putString(TConstants.PREF_FROM_2, prefs
+                            .getString(TConstants.PREF_FROM_1, getString(R.string.town_1)));
+                    editor.putString(TConstants.PREF_FROM_1, name+"|"+place.getLatLng().latitude+"|"+place.getLatLng().longitude);
+
+                    editor.commit();
+
+                    addToknownTown(name+"|"+place.getLatLng().latitude+"|"+place.getLatLng().longitude);
+
+                    setFromSpinner();
+
+                }
+            }
+            else{
+                fromSpinner.setSelection(0, true);
+            }
+
+
+
+        }
+
+        else if (requestCode == PLACE_PICKER_REQUEST_TO) {
+
+            if(resultCode == RESULT_OK){
+
+                Place place = PlacePicker.getPlace(data, this);
+                if(place!=null){
+                    String name = (place.getName()==null || place.getName().toString().isEmpty())?"("+place.getLatLng().latitude+", "+place.getLatLng().longitude+")":place.getName().toString();
+
+                    SharedPreferences.Editor editor = prefs.edit();
+
+                    editor.putString(TConstants.PREF_TO_6, prefs
+                            .getString(TConstants.PREF_TO_5, getString(R.string.town_5)));
+                    editor.putString(TConstants.PREF_TO_5, prefs
+                            .getString(TConstants.PREF_TO_4, getString(R.string.town_4)));
+                    editor.putString(TConstants.PREF_TO_4, prefs
+                            .getString(TConstants.PREF_TO_3, getString(R.string.town_3)));
+                    editor.putString(TConstants.PREF_TO_3, prefs
+                            .getString(TConstants.PREF_TO_2, getString(R.string.town_1)));
+                    editor.putString(TConstants.PREF_TO_2, prefs
+                            .getString(TConstants.PREF_TO_1, getString(R.string.town_2)));
+                    editor.putString(TConstants.PREF_TO_1, name+"|"+place.getLatLng().latitude+"|"+place.getLatLng().longitude);
+
+                    editor.commit();
+
+                    addToknownTown(name+"|"+place.getLatLng().latitude+"|"+place.getLatLng().longitude);
+
+                    setToSpinner();
+
+                }
+            }
+            else{
+                destinationSpinner.setSelection(0, true);
+            }
+
+
+        }
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        setupCurrentTrip();
+
         drawer.openDrawer(GravityCompat.START);
     }
 

@@ -24,7 +24,7 @@
         <item>"Chauffeur Incompétent/Inexpérimenté"</item>
         <item>"Véhicule surchargé"</item>
         <item>"Véhicule en panne"</item>
-        <item>"autre..."</item>
+        <item>"autre…"</item>
     </string-array>
     <string-array name="compagnies_names">
         <item>"Personnel"</item>
@@ -113,7 +113,7 @@
     <string name="username_confirm_no_label">Non</string>
     <string name="username_confirm_yes_label">Oui</string>
     <string name="speed_limit_reached_ago">Vous avez depasse la limite de vitesse autorisee</string>
-    <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br />Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br /> Version 3.9.9</string>
+    <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br />Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br /> Version 4.5.1</string>
     <string name="about_title1">A propos</string>
     <string name="login">Continuer</string>
     <string name="speed_dimen">Vitesse (Kmph)</string>
@@ -130,8 +130,8 @@
     <string name="depart">Depart: %s</string>
     <string name="arrivee">Destination: %s</string>
     <string name="datedepart">Date, Heure de depart: %s</string>
-    <string name="complete_trip_title">Voyage Complete</string>
-    <string name="complete_trip">Vous avez indique que votre voyage a bien ete complete. Merci d\'avoir utilise Travelr</string>
+    <string name="complete_trip_title">Voyage Complété</string>
+    <string name="complete_trip">Vous avez indiqué que votre voyage a bien été complété. Merci d\'avoir utilisé Travelr.</string>
     <string name="complete_trip_error_title">Erreur</string>
     <string name="complete_trip_error">Une erreur s\'est produite. Veuillez reesayer.</string>
     <string name="cencel_trip">Vous avez choisi d\'annuler ce voyage. N\'hesitez pas creer un nouveau voyage.</string>
@@ -148,11 +148,26 @@
     <string name="mat_id_synchronization_operation_failed">Echec de l\'opération de synchronisation…</string>
     <string name="mat_id_synchronization_failed_no_mat_id_saved">Echec de la récupération de votre compte à partir du serveur. Veuillez rééssayer ultérieurement ou tenter de créer un nouveau compte.</string>
     <string name="tryagain">Essayer encore</string>
-    <string name="error_message_send">Message sauvegardé hors ligne</string>
+    <string name="error_message_send">Echec de la sauvegarde du message. Nous retenterons l\'envoi plus tard.</string>
     <string name="message_sent">Message envoyé</string>
     <string name="sending">Envoie en cours</string>
-    <string name="message_received">Message recu. Notre equipe travail en ce moment pour vous repondre. Merci d\'avoir utiliser travelr</string>
+    <string name="message_received">Message reçu. Notre equipe travaille en ce moment pour vous répondre. Merci d\'utiliser travelr.</string>
     <string name="emergency_contact_1">Numéro d\'urgence 1 (*)</string>
     <string name="emergency_contact2">Numéro urgence 2</string>
+    <string name="success_account_edition">Compte identifié. Informations mis à jour…</string>
+    <string name="place_list_option_choose">choisir…</string>
+    <string name="information_not_available_label" translatable="false">indisponible</string>
+    <string name="operation_failed_try_again_later">Echec de l\'opération. Merci de vérifier votre accès à internet et de rééssayer plus tard.</string>
+    <string name="town_1" translatable="false">Douala|4.036072|9.6724234</string>
+    <string name="town_2" translatable="false">Yaoundé|3.8306364|11.3703649</string>
+    <string name="town_3" translatable="false">Bafoussam|5.4807502|10.389804</string>
+    <string name="town_4" translatable="false">Edea|3.7999774|10.1147172</string>
+    <string name="town_5" translatable="false">Maroua|10.5972501|14.2914526</string>
+    <string name="town_6" translatable="false">Buea|4.1500128|9.2220345</string>
+    <string name="car_immatriculation_regex_patern" translatable="false">[A-Z]{2}[0-9]{3}[A-Z]{2}</string>
+    <string name="current_trip_already_exist">Un voyage est déjà en cours. Vous devez le compléter ou l\'annuler avant d\'en créer un autre.</string>
+    <string name="no_current_trip_defined">Vous n\'avez aucun voyage en cours.</string>
+    <string name="route_calculation">Calcul du trajet…</string>
+    <string name="immatriculation_example" translatable="false">CE111AA</string>
 
 </resources>

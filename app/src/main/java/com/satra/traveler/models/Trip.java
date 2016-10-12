@@ -30,6 +30,46 @@ public class Trip extends SugarRecord implements Serializable{
     @NotNull
     private String destination; //town of destination
 
+    private double destinationLatitude;
+
+    private double destinationLongitude;
+
+    private double departureLatitude;
+
+    private double departureLongitude;
+
+    public double getDestinationLatitude() {
+        return destinationLatitude;
+    }
+
+    public void setDestinationLatitude(double destinationLatitude) {
+        this.destinationLatitude = destinationLatitude;
+    }
+
+    public double getDestinationLongitude() {
+        return destinationLongitude;
+    }
+
+    public void setDestinationLongitude(double destinationLongitude) {
+        this.destinationLongitude = destinationLongitude;
+    }
+
+    public double getDepartureLatitude() {
+        return departureLatitude;
+    }
+
+    public void setDepartureLatitude(double departureLatitude) {
+        this.departureLatitude = departureLatitude;
+    }
+
+    public double getDepartureLongitude() {
+        return departureLongitude;
+    }
+
+    public void setDepartureLongitude(double departureLongitude) {
+        this.departureLongitude = departureLongitude;
+    }
+
     public Trip() {
     }
 

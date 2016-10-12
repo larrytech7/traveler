@@ -21,7 +21,7 @@
         <item>"Chauffeur Incompétent/Inexpérimenté"</item>
         <item>"Véhicule surchargé"</item>
         <item>"Véhicule en panne"</item>
-        <item>"autre..."</item>
+        <item>"autre…"</item>
     </string-array>
     <string-array name="pub_images_names" translatable="false">
         <item>"we_need_advertisements"</item>
@@ -132,6 +132,12 @@
     <color name="material_grey_800">#ff424242</color>
     <color name="material_grey_850">#ff303030</color>
     <color name="material_grey_900">#ff212121</color>
+    <color name="place_autocomplete_prediction_primary_text">#212121</color>
+    <color name="place_autocomplete_prediction_primary_text_highlight">#757575</color>
+    <color name="place_autocomplete_prediction_secondary_text">#757575</color>
+    <color name="place_autocomplete_search_hint">#BDBDBD</color>
+    <color name="place_autocomplete_search_text">#212121</color>
+    <color name="place_autocomplete_separator">#1F000000</color>
     <color name="primary_dark_material_dark">@android:color/black</color>
     <color name="primary_dark_material_light">@color/material_grey_600</color>
     <color name="primary_material_dark">@color/material_grey_900</color>
@@ -337,6 +343,16 @@
     <dimen name="notification_large_icon_height">64dp</dimen>
     <dimen name="notification_large_icon_width">64dp</dimen>
     <dimen name="notification_subtext_size">12dp</dimen>
+    <dimen name="place_autocomplete_button_padding">16dp</dimen>
+    <dimen name="place_autocomplete_powered_by_google_height">40dp</dimen>
+    <dimen name="place_autocomplete_powered_by_google_start">16dp</dimen>
+    <dimen name="place_autocomplete_prediction_height">72dp</dimen>
+    <dimen name="place_autocomplete_prediction_horizontal_margin">16dp</dimen>
+    <dimen name="place_autocomplete_prediction_primary_text">16sp</dimen>
+    <dimen name="place_autocomplete_prediction_secondary_text">14sp</dimen>
+    <dimen name="place_autocomplete_progress_horizontal_margin">16dp</dimen>
+    <dimen name="place_autocomplete_progress_size">24dp</dimen>
+    <dimen name="place_autocomplete_separator_start">72dp</dimen>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <item name="action_bar_activity_content" type="id"/>
     <item name="action_bar_spinner" type="id"/>
@@ -376,7 +392,7 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br/>Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br/> Version 3.9.9</string>
+    <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br/>Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br/> Version 4.5.1</string>
     <string name="about_title1">A propos</string>
     <string name="accept">Accept</string>
     <string name="account_created">Informations sauvegardees; Compte cree avec succes avec pour pseudonyme </string>
@@ -387,6 +403,7 @@
     <string name="arrivee">Destination: %s</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="cancel">Annuler</string>
+    <string name="car_immatriculation_regex_patern" translatable="false">[A-Z]{2}[0-9]{3}[A-Z]{2}</string>
     <string name="cencel_trip">Vous avez choisi d\'annuler ce voyage. N\'hesitez pas creer un nouveau voyage.</string>
     <string name="cencel_trip_title">Annuler Le voyage</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
@@ -412,36 +429,39 @@
     <string name="common_open_on_phone">Open on phone</string>
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
-    <string name="complete_trip">Vous avez indique que votre voyage a bien ete complete. Merci d\'avoir utilise Travelr</string>
+    <string name="complete_trip">Vous avez indiqué que votre voyage a bien été complété. Merci d\'avoir utilisé Travelr.</string>
     <string name="complete_trip_error">Une erreur s\'est produite. Veuillez reesayer.</string>
     <string name="complete_trip_error_title">Erreur</string>
-    <string name="complete_trip_title">Voyage Complete</string>
+    <string name="complete_trip_title">Voyage Complété</string>
     <string name="confirm_journey">Enregistrer un Voyage</string>
     <string name="confirmer_voyage">Confirmer le Voyage</string>
     <string name="connexion_with_username">Connecte avec le pseudonyme </string>
     <string name="create_calendar_message">Allow Ad to create a calendar event?</string>
     <string name="create_calendar_title">Create calendar event</string>
     <string name="create_profile">Creation du compte</string>
+    <string name="current_trip_already_exist">Un voyage est déjà en cours. Vous devez le compléter ou l\'annuler avant d\'en créer un autre.</string>
     <string name="date_heure_voyage">date et heure du voyage</string>
     <string name="datedepart">Date, Heure de depart: %s</string>
     <string name="decline">Decline</string>
     <string name="depart">Depart: %s</string>
     <string name="departure">Ville de depart</string>
-    <string name="description">description</string>
+    <string name="description">Description</string>
     <string name="destination">Destination</string>
     <string name="duree_label" translatable="false">\? (hh)</string>
     <string name="echec_creation_compte_contact_serveur">Echec de l\'enregistrement sur le serveur. Merci de reessayer ulterieurement.</string>
-    <string name="emergency_contact2">Second emergency contact</string>
-    <string name="emergency_contact_1">First emergency contact (*)</string>
+    <string name="emergency_contact2">Numéro urgence 2</string>
+    <string name="emergency_contact_1">Numéro d\'urgence 1 (*)</string>
     <string name="end_journey">Achever le Voyage</string>
-    <string name="error_message_send">Message sauvegardé hors ligne</string>
+    <string name="error_message_send">Echec de la sauvegarde du message. Nous retenterons l\'envoi plus tard.</string>
     <string name="error_occur_please_retry">Une erreur s\'est produite; veuillez reessayer svp</string>
-    <string name="estimated_speed">Vitesse estimee</string>
+    <string name="estimated_speed">Vitesse estimée</string>
     <string name="estimated_speed_msg">"Nous estimons votre vitesse actuelle a "</string>
     <string name="for_publicity" translatable="false">pour la publicite/for advertising</string>
     <string name="gps_disabled_message">Veuillez activer le GPS afin que nous puissions correctement estimer votre position et votre vitesse.</string>
     <string name="howserious">Niveaux de Gravite</string>
+    <string name="immatriculation_example" translatable="false">CE111AA</string>
     <string name="incorrect_immatriculation_number">Numéro d\'immatriculation incorrect (exple: CE111AA)</string>
+    <string name="information_not_available_label" translatable="false">indisponible</string>
     <string name="interstitial_ad_sample" translatable="false">Interstitial Ad Sample</string>
     <string name="interstitial_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
     <string name="journey_management">Gestion du Voyage</string>
@@ -457,7 +477,7 @@
     <string name="mat_id_synchronization_operation_failed">Echec de l\'opération de synchronisation…</string>
     <string name="mat_id_synchronization_success">opération de synchronisation réussie…</string>
     <string name="matriculation_number">Immatriculation de votre vehicule</string>
-    <string name="message_received">Message received. Our team is working on a response for you. Thank you for using Travelr</string>
+    <string name="message_received">Message reçu. Notre equipe travaille en ce moment pour vous répondre. Merci d\'utiliser travelr.</string>
     <string name="message_sent">Message envoyé</string>
     <string name="mettre_a_jour_parametres_voyage">MAJ. les détails du Voyage</string>
     <string name="my_location">Ma Position</string>
@@ -466,20 +486,26 @@
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="new_repport_complaint">Messages</string>
     <string name="next_level" translatable="false">Next Level</string>
-    <string name="no_telephone">numero de telephone (*)</string>
+    <string name="no_current_trip_defined">Vous n\'avez aucun voyage en cours.</string>
+    <string name="no_telephone">Numéro de téléphone (*)</string>
     <string name="open_settings">Reglages</string>
+    <string name="operation_failed_try_again_later">Echec de l\'opération. Merci de vérifier votre accès à internet et de rééssayer plus tard.</string>
     <string name="password">mot de passe</string>
     <string name="password_again">mot de passe (a nouveau)</string>
-    <string name="phone_number">votre numero de telephone</string>
-    <string name="phone_number_guardian">Numero du proche</string>
-    <string name="problem_saved_successfull">probleme/plainte enregistre</string>
+    <string name="phone_number">Votre numéro de téléphone</string>
+    <string name="phone_number_guardian">Numéro du proche</string>
+    <string name="place_autocomplete_clear_button">Clear search</string>
+    <string name="place_autocomplete_search_hint">Search</string>
+    <string name="place_list_option_choose">choisir…</string>
+    <string name="problem_saved_successfull">Probleme/plainte enregistre</string>
     <string name="provide_account_informations">Veuillez fournir vos informations de compte</string>
     <string name="provide_all_fields">Veuillez remplir tous les champs avec * svp</string>
-    <string name="provide_car_immatriculation_number">svp remplissez au moins le numero d\'immatriculation du vehicule</string>
+    <string name="provide_car_immatriculation_number">svp remplissez au moins le numéro d\'immatriculation du vehicule</string>
     <string name="provide_problem_description">Svp veuillez fournir une description</string>
     <string name="provide_username_and_password">Veuillez remplir votre pseudonyme et votre mot de passe</string>
     <string name="relative_guardian">nom de votre proche</string>
     <string name="repeated_password_different_from_original">le mot de passe repete est different du mot de passe; veuillez corriger</string>
+    <string name="route_calculation">Calcul du trajet…</string>
     <string name="save">Sauvegarder</string>
     <string name="select_your_profile_image">selectionnez votre photo de profil</string>
     <string name="send">Envoyer</string>
@@ -487,17 +513,24 @@
     <string name="situation">Choisissez la situation?</string>
     <string name="snap_image">Capturer une image</string>
     <string name="speed_dimen">Vitesse (Kmph)</string>
-    <string name="speed_limit_reached">Depassement de la limite de vitesse reglementaire</string>
+    <string name="speed_limit_reached">Dépassement de la limite de vitesse reglementaire</string>
     <string name="speed_limit_reached_ago">Vous avez depasse la limite de vitesse autorisee</string>
     <string name="speed_limit_reached_msg">Vous venez de depasser la limite de vitesse reglementaire pour la zone ou vous vous trouvez (</string>
     <string name="start_level" translatable="false">Level 1</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="store_picture_message">"Allow Ad to store image in Picture gallery?"</string>
     <string name="store_picture_title">Save image</string>
-    <string name="success_account_creation">Compte cree avec succes.</string>
+    <string name="success_account_creation">Compte crée avec succes.</string>
+    <string name="success_account_edition">Compte identifié. Informations mis à jour…</string>
     <string name="telephone_number_confirm_msg">" et le numéro de téléphone "</string>
     <string name="title_activity_main2" translatable="false">Main2Activity</string>
     <string name="title_activity_messaging">Messages</string>
+    <string name="town_1" translatable="false">Douala|4.036072|9.6724234</string>
+    <string name="town_2" translatable="false">Yaoundé|3.8306364|11.3703649</string>
+    <string name="town_3" translatable="false">Bafoussam|5.4807502|10.389804</string>
+    <string name="town_4" translatable="false">Edea|3.7999774|10.1147172</string>
+    <string name="town_5" translatable="false">Maroua|10.5972501|14.2914526</string>
+    <string name="town_6" translatable="false">Buea|4.1500128|9.2220345</string>
     <string name="transport_company">Quelle Compagnie?</string>
     <string name="travel_info">Informations sur le Voyage</string>
     <string name="trip_agency">Agence de Voyage</string>
