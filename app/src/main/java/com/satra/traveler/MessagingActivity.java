@@ -2,13 +2,13 @@ package com.satra.traveler;
 
 import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
@@ -38,7 +38,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
+import java.util.Iterator;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 
@@ -47,10 +47,12 @@ public class MessagingActivity extends AppCompatActivity {
     private static final String LOGTAG = MessagingActivity.class.getSimpleName();
     private static final int CAPTURE_IMAGE_MESSAGE = 100;
     EditText messageBox;
-    ImageView previewMessageImage;
-    private MessagingAdapter messagingAdapter;
-    private RecyclerView messageRecyclerView;
+    private static ImageView previewMessageImage;
+
     private Bitmap attachedImage;
+    private static MessagingAdapter messagingAdapter;
+    private static RecyclerView messageRecyclerView;
+    private static ProgressDialog progress;
 
 
     @Override
@@ -83,13 +85,15 @@ public class MessagingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(!messageBox.getText().toString().equals("")){
-                    pushMessageOnline(view, messageBox.getText().toString());
+                    String message = messageBox.getText().toString();
                     messageBox.setText("");
+                    pushMessageOnline(MessagingActivity.this, view, message, null);
+
                 }
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setupMessageList();
+        setupMessageList(getApplicationContext());
     }
 
     /**
@@ -108,12 +112,12 @@ public class MessagingActivity extends AppCompatActivity {
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, CAPTURE_IMAGE_MESSAGE);
     }
 
-    private void setupMessageList(){
-        messagingAdapter = new MessagingAdapter(this, Messages.listAll(Messages.class,"date DESC"));
+
+    private static void setupMessageList(Context context){
+        messagingAdapter = new MessagingAdapter(context, Messages.listAll(Messages.class));
         messageRecyclerView.setAdapter(messagingAdapter);
     }
 
-    @Nullable
     @Override
     public Intent getSupportParentActivityIntent() {
         return super.getSupportParentActivityIntent();
@@ -151,16 +155,20 @@ public class MessagingActivity extends AppCompatActivity {
         }
     }
 
-    private void pushMessageOnline(final View view, final String message) {
-        final ProgressDialog progress = new ProgressDialog(MessagingActivity.this);
-        progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progress.setIndeterminate(true);
-        progress.setCanceledOnTouchOutside(false);
-        progress.setMessage(getString(R.string.sending));
-        progress.show();
+
+
+    private static void pushMessageOnline(final Context context, final View view, final String message, final Messages oMessage) {
+        if(view!=null){
+            progress = new ProgressDialog(context);
+            progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            progress.setIndeterminate(true);
+            progress.setMessage(context.getString(R.string.sending));
+            progress.show();
+        }
+
 
         new AsyncTask<Void, Void, ResponsStatusMsg>(){
-            String clientMatricule = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE)
+            String clientMatricule = context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE)
                     .getString(TConstants.PREF_MATRICULE,"");
 
             @Override
@@ -172,8 +180,15 @@ public class MessagingActivity extends AppCompatActivity {
                     //Create the request body as a MultiValueMap
                     MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
                     body.add(TConstants.POST_MESSAGE_PARAM_MESSAGE, message);
-                    body.add(TConstants.POST_MESSAGE_PARAM_MAT_ID, getSharedPreferences(TConstants.TRAVELR_PREFERENCE,MODE_PRIVATE)
+                    body.add(TConstants.POST_MESSAGE_PARAM_MAT_ID, context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE,MODE_PRIVATE)
                             .getString(TConstants.PREF_MAT_ID, "0"));
+
+                    body.add(TConstants.POST_MESSAGE_PARAM_MATRICULE, context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE,MODE_PRIVATE)
+                            .getString(TConstants.PREF_MATRICULE, "0"));
+                    body.add(TConstants.POST_MESSAGE_PARAM_MSISDN, context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE,MODE_PRIVATE)
+                            .getString(TConstants.PREF_PHONE, "0"));
+                    body.add(TConstants.POST_MESSAGE_PARAM_USERNAME, context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE,MODE_PRIVATE)
+                            .getString(TConstants.PREF_USERNAME, "0"));
 
                     HttpEntity<?> httpEntity = new HttpEntity<Object>(body, requestHeaders);
                     RestTemplate restTemplate = new RestTemplate(true);
@@ -194,52 +209,103 @@ public class MessagingActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(ResponsStatusMsg response) {
 
-                progress.dismiss();
-                previewMessageImage.setVisibility(View.GONE);
-                if(response == null || response.getStatus()!=100){
+                if(view!=null){
+                    progress.dismiss();
+                    previewMessageImage.setVisibility(View.GONE);
+                }
 
-                    String date = SimpleDateFormat.getDateInstance().format(new Date())+". "
-                            +SimpleDateFormat.getTimeInstance().format(new Date());
+                String date = SimpleDateFormat.getDateInstance().format(new Date())+". "
+                        +SimpleDateFormat.getTimeInstance().format(new Date());
 
-                    Messages mMessage = new Messages();
-                    mMessage.setContent(message);
-                    mMessage.setDate(date);
-                    mMessage.setSender(clientMatricule);
-                    mMessage.setSent(0);
-                    mMessage.save();
-                    setupMessageList();
-                    Snackbar.make(messageRecyclerView, getString(R.string.error_message_send), Snackbar.LENGTH_LONG)
-                            .setAction(getString(R.string.tryagain), new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    pushMessageOnline(v, message);
-                                }
-                            }).show();
+                if((response == null || response.getStatus()!=100)){
+                    Messages mMessage=null;
+                    if(oMessage==null){
+
+                        /**
+                         * TODO Quand un utilisateur essaie de sauvegarder encore via l'action optionel l'hors d'un echec d'envoie,
+                         * le message ne doit pas encore etre sauvegarde une deuxieme fois en bd locale.
+                         */
+                        mMessage = new Messages();
+                        mMessage.setContent(message);
+                        mMessage.setDate(date);
+                        mMessage.setSender(clientMatricule);
+                        mMessage.setSent(0);
+                        mMessage.save();
+                        if(view!=null){
+                            setupMessageList(context);
+                        }
+                    }
+                    else{
+                        mMessage = oMessage;
+                    }
+
+                    final Messages omMessage = mMessage;
+
+                    if(view!=null){
+                        Snackbar.make(messageRecyclerView, context.getString(R.string.error_message_send)+"\n\""+message+"\"", Snackbar.LENGTH_LONG)
+                                .setAction(context.getString(R.string.tryagain), new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        pushMessageOnline(context, v, message, omMessage);
+                                    }
+                                }).show();
+                    }
+
                 }
                 else{
-                    String date = SimpleDateFormat.getDateInstance().format(new Date())+". "
-                            +SimpleDateFormat.getTimeInstance().format(new Date());
 
-                    Messages mMessage = new Messages();
-                    mMessage.setContent(message);
-                    mMessage.setDate(date);
-                    mMessage.setSender(clientMatricule);
-                    mMessage.setSent(1); //mettre a jour le status d'un message renvoyer ou ajoute un nouveau message
+                    Messages mMessage=null;
+                    if(oMessage==null){
+
+                        mMessage = new Messages();
+                        mMessage.setContent(message);
+                        mMessage.setDate(date);
+                        mMessage.setSender(clientMatricule);
+                    }
+                    else{
+                        mMessage = oMessage;
+                    }
+                    mMessage.setSent(1);
                     mMessage.save();
+                    if(view!=null){
+                        setupMessageList(context);
+                    }
+
                     /*
                     * TODO 2 after TO DO 1
                      * @author: STEVE
                     * POST DES MESSAGES SAUVEGARDES DANS LA BD LOCALE SUR LE SERVEUR EN LIGNE
                      */
                     //voici les messages qui sont dans la bd et qui n'ont pas encore ete enregistrer en ligne
-                    List<Messages> mMessages = Messages.find(Messages.class, "sent = ?",String.valueOf(0));
 
-                    Log.d(LOGTAG, "Message Sent");
-                    Snackbar.make(view, getString(R.string.message_sent), Snackbar.LENGTH_LONG)
-                            .setAction("Undo", null).show();
-                    setupMessageList();
+                    Iterator<Messages> mMessages = Messages.find(Messages.class, "sent = ?", "0").iterator();
+
+                    if(mMessages.hasNext()){
+                        Messages nextMessage = mMessages.next();
+                        pushMessageOnline(context, view, nextMessage.getContent(), nextMessage);
+                    }
+                    else{
+                        Log.d(LOGTAG, "Message Sent");
+                        if(view!=null){
+                            Snackbar.make(view, context.getString(R.string.message_sent), Snackbar.LENGTH_LONG)
+                                    .show();
+                            setupMessageList(context);
+                        }
+                    }
+
+
+
                 }
             }
         }.execute();
+    }
+
+
+    public static  void tryToSentDataOnline(Context context){
+        Iterator<Messages> mMessages = Messages.find(Messages.class, "sent = ?", "0").iterator();
+        if(mMessages.hasNext()){
+            Messages mMessage = mMessages.next();
+            pushMessageOnline(context, null, mMessage.getContent(), mMessage);
+        }
     }
 }

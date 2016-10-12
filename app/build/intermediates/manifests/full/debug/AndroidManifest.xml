@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.satra.traveler"
-    android:versionCode="29"
-    android:versionName="4.0.0" >
+    android:versionCode="37"
+    android:versionName="4.5.1" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -65,7 +65,7 @@
             android:value="true" />
         <meta-data
             android:name="VERSION"
-            android:value="6" />
+            android:value="8" />
 
         <activity
             android:name="com.satra.traveler.MainActivity"
@@ -104,7 +104,7 @@
             android:label="@string/app_name" />
 
         <receiver
-            android:name="com.satra.traveler.BootBroadcastReceiver"
+            android:name="com.satra.traveler.broadcasts.BootBroadcastReceiver"
             android:enabled="true"
             android:exported="false" >
             <intent-filter>

@@ -7,6 +7,8 @@ import android.net.ConnectivityManager;
 import android.util.Log;
 
 import com.satra.traveler.models.Messages;
+import com.satra.traveler.MessagingActivity;
+import com.satra.traveler.SpeedMeterService;
 import com.satra.traveler.models.TrackingData;
 
 import java.util.List;
@@ -27,6 +29,12 @@ public class NetworkAvailable extends BroadcastReceiver {
             List<Messages> messagesList = Messages.find(Messages.class,"sent = ?", String.valueOf(0));
             List<TrackingData> trackingData = TrackingData.listAll(TrackingData.class);
             Log.d("Network available", "Connected");
+//            List<TrackingData> trackingData = TrackingData.listAll(TrackingData.class);
+//            Log.d("Network available", "Connected");
+
+            SpeedMeterService.tryToSentDataOnline(context);
+
+            MessagingActivity.tryToSentDataOnline(context);
         }
     }
 

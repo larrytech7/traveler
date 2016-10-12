@@ -4,6 +4,7 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -33,7 +34,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.List;
+import java.util.Iterator;
 import java.util.Vector;
 
 
@@ -45,10 +46,10 @@ public class SpeedMeterService extends Service {
     private static final int NBRE_MAX_ITERATION_POUR_MOYENNE_VITESSES = 3;
     private static final int MAX_VITESSE_METRE_SECONDE = 0;
     private static final float COEFF_CONVERSION_MS_KMH = 4;
-    private static final int MAX_SPEED_ALLOWED_KMH = 105;
+    private static final int MAX_SPEED_ALLOWED_KMH = 90;
     private static final int NATURAL_LIMIT_OF_SPEED = 200;
     private static final int ERREUR_ACCEPTE_VITESSE_MAX=2;
-    private static final int MAX_SPEED_TO_ALERT_KMH = 95;
+    private static final int MAX_SPEED_TO_ALERT_KMH = 80;
     LocationManager locationManager;
     float vitesse = 0;
     int id = 1;
@@ -158,6 +159,8 @@ public class SpeedMeterService extends Service {
             }
         };
 
+
+
         try {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 100, 0, locationListenerGPS);
             locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 200, 0, locationListenerNetwork);
@@ -167,6 +170,8 @@ public class SpeedMeterService extends Service {
             sec.printStackTrace();
         }
     }
+
+
 
     public void showAlertEnableGPS(){
 
@@ -352,7 +357,7 @@ public class SpeedMeterService extends Service {
             }
             if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_ALLOWED_KMH){
 
-                pushSpeedOnline(vitesse, location);
+                pushSpeedOnline(SpeedMeterService.this, vitesse, location, null);
 
             }
 
@@ -365,10 +370,12 @@ public class SpeedMeterService extends Service {
             }
         }
 
+        tryToSentDataOnline(getApplicationContext());
+
         return  duration;
     }
 
-    private void pushSpeedOnline(final float vitesse, final Location location) {
+    private static void pushSpeedOnline(final Context context, final float vitesse, final Location location, final TrackingData trackingData) {
         new AsyncTask<Void, Void, ResponsStatusMsg>(){
             @Override
             protected ResponsStatusMsg doInBackground(Void... params) {
@@ -380,7 +387,7 @@ public class SpeedMeterService extends Service {
                     body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_LAT, String.valueOf(location.getLatitude()));
                     body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_LNG, String.valueOf(location.getLongitude()));
                     body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_SPEED, String.valueOf(vitesse));
-                    body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_MAT_ID, getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
+                    body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_MAT_ID, context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
                             .getString(TConstants.PREF_MAT_ID, "0"));
                     HttpEntity<?> httpEntity = new HttpEntity<Object>(body, requestHeaders);
                     RestTemplate restTemplate = new RestTemplate(true);
@@ -404,17 +411,23 @@ public class SpeedMeterService extends Service {
 
                 if(response==null || response.getStatus()!=100){
 
-                    String matricule = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
-                            .getString(TConstants.PREF_MAT_ID, "0");
-                    TrackingData trackingData = new TrackingData();
-                    trackingData.setTrackingMatricule(matricule);
-                    trackingData.setLatitude(location.getLatitude());
-                    trackingData.setLongitude(location.getLongitude());
-                    trackingData.setLocation(""); //je sais pas si c'est possible d'avoir le nom de l'endroit ou ces donnees ont ete recuperer
-                    trackingData.setSpeed(vitesse);
-                    trackingData.save();
+                    if(trackingData==null){
+                        String matricule = context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
+                                .getString(TConstants.PREF_MAT_ID, "0");
+                        TrackingData trackingData = new TrackingData();
+                        trackingData.setTrackingMatricule(matricule);
+                        trackingData.setLatitude(location.getLatitude());
+                        trackingData.setLongitude(location.getLongitude());
+                        trackingData.setLocation(""); //je sais pas si c'est possible d'avoir le nom de l'endroit ou ces donnees ont ete recuperer
+                        trackingData.setSpeed(vitesse);
+                        trackingData.save();
+                    }
+
                 }
                 else{
+                    if(trackingData!=null){
+                        trackingData.delete();
+                    }
                     /*
                     * TODO 2 after TO DO 1
                      * @author: STEVE
@@ -422,13 +435,24 @@ public class SpeedMeterService extends Service {
                     * Prete attention a comment j'ai defini les TODO ci, c'est une facon speciale de permettre a
                     * ton editeur de code de reconaitre automatiquement tout les points dans les fichiers marque 'TODO'
                      */
-                    //voici les objets de vitesse/position dans la bd locale
-                    List<TrackingData> trackingData = TrackingData.listAll(TrackingData.class);
-                    //manipule cette liste pour envoyer ces donnes en ligne
+                    tryToSentDataOnline(context);
                 }
 
             }
         }.execute();
+    }
+
+    public static  void tryToSentDataOnline(Context context){
+        //voici les objets de vitesse/position dans la bd locale
+        Iterator<TrackingData> trackingDatas = TrackingData.findAll(TrackingData.class);
+        //manipule cette liste pour envoyer ces donnes en ligne
+        if(trackingDatas.hasNext()){
+            TrackingData trackingData1 = trackingDatas.next();
+            Location location1 = new Location(trackingData1.getLocation());
+            location1.setLatitude(trackingData1.getLatitude());
+            location1.setLongitude(trackingData1.getLongitude());
+            pushSpeedOnline(context, (float) trackingData1.getSpeed(), location1, trackingData1);
+        }
     }
 
     @Override
