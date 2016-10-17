@@ -81,7 +81,7 @@ import mehdi.sakout.fancybuttons.FancyButton;
 public class MyPositionActivity extends AppCompatActivity implements OnMapReadyCallback, LocationSource.OnLocationChangedListener {
 
     private static final int RAYON_TERRE = 6366000;
-    private static final int MAX_VITESSE_METRE_SECONDE = 3;
+    private static final int MAX_VITESSE_METRE_SECONDE = 0;
     private static final float COEFF_CONVERSION_MS_KMH = 4;
     private final static int GET_FROM_GALLERY = 5, MENU_LOAD_IMAGE = 10;
     private final static int SNAP_PICTURE = 6, MENU_SNAP_IMAGE = 11;
