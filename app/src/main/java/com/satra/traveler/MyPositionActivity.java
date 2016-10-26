@@ -259,7 +259,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             Tutility.round(speed / COEFF_CONVERSION_MS_KMH);
                     mspeedometer.setSpeed(mspeed);
                     //update the value on the speed label
-                    speedTextview.setText(getString(R.string.speed_dimen, prefs.getString(TConstants.PREF_MATRICULE, "OO000OO"), mspeed));
+                    speedTextview.setText(getString(R.string.speed_dimen, prefs.getString(TConstants.PREF_MATRICULE, "OO000OO"), ""+mspeed));
                 }
             }
         };
@@ -900,23 +900,28 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         }
     }
 
-    public boolean  isCurrentTripExist(){
+    public static boolean  isCurrentTripExist(){
+        Trip trip = getCurrentTrip();
+        return trip != null && trip.getStatus() == 0;
+    }
+
+    public static Trip  getCurrentTrip(){
         Trip trip = null;
         List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
-            //refresh layout by getting fresh view references and setting their values
+        //refresh layout by getting fresh view references and setting their values
 
 
 
-            if (trips != null && trips.size() > 0) {
-                trip = trips.get(trips.size() - 1);
-            }
+        if (trips != null && trips.size() > 0) {
+            trip = trips.get(trips.size() - 1);
+        }
 
 
 
         //refresh layout by getting fresh view references and setting their values
 
 
-        return trip != null && trip.getStatus() == 0;
+        return trip;
     }
 
     public static int getPixelsFromDp(Context context, float dp) {

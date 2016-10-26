@@ -56,7 +56,7 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
 //            context.showDialog(DIALOG_NEW_COMPLAINT);
         }
         else if (id == R.id.nav_new_journey) {
-            if(!activity.isCurrentTripExist()){
+            if(!MyPositionActivity.isCurrentTripExist()){
                 context.showDialog(DIALOG_NEW_JOURNEY);
             }
             else{
@@ -70,7 +70,7 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
                         .show();
             }
         } else if (id == R.id.nav_end_journey) {
-            if(activity.isCurrentTripExist()){
+            if(MyPositionActivity.isCurrentTripExist()){
                 endJourney();
             }
             else{
@@ -91,7 +91,7 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
 
         }*/
         else if (id == R.id.nav_cancel_journey) {
-            if(activity.isCurrentTripExist()){
+            if(MyPositionActivity.isCurrentTripExist()){
                 cancelJourney();
             }
             else{

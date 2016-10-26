@@ -400,7 +400,7 @@
     <string name="accept">Accept</string>
     <string name="account_created">Informations sauvegardees; Compte cree avec succes avec pour pseudonyme </string>
     <string name="action_settings" translatable="false">Apropos</string>
-    <string name="aidvictim">Aidez une victime</string>
+    <string name="aidvictim">Aider une victime</string>
     <string name="annuler_voyage">Annuler le Voyage</string>
     <string name="app_name" translatable="false">Travelr</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
@@ -527,11 +527,11 @@
     <string name="severecondition">En cas de saignement de la bouche ou de vomissements, tournez la personne vers son côté. Cela permettra de réduire le risque de suffocation. Placez le bras de la personne qui est sous lui en ligne droite et le bras le plus proche de vous sur sa poitrine.</string>
     <string name="situation">Choisissez la situation?</string>
     <string name="snap_image">Capturer une image</string>
-    <string formatted="false" name="speed_dimen">%s | Vitesse (%f Kmph)</string>
+    <string formatted="false" name="speed_dimen">%s | Vitesse: %s Kmph</string>
     <string name="speed_limit_reached">Dépassement de la limite de vitesse reglementaire</string>
     <string name="speed_limit_reached_ago">Vous avez depasse la limite de vitesse autorisee</string>
     <string name="speed_limit_reached_msg">Vous venez de depasser la limite de vitesse reglementaire pour la zone ou vous vous trouvez (</string>
-    <string name="spinalinjury">Si le cou de la personne est dans une position inconfortable (pas normalement placé) ou la personne est inconsciente, ne pas la déplacer. Obtenez de l\'aide immédiatement. Cela pourrait signifier que le cou de la personne est cassée. En décidant de la déplacer dans une telle situation, vous risquez lui causer plus de mal que de bien.</string>
+    <string name="spinalinjury">Si le cou de la personne est dans une position inconfortable (pas normalement placé) ou la personne est inconsciente, ne pas la déplacer. Obtenez de l\'aide immédiatement. Cela pourrait signifier que le cou de la personne est cassé. En décidant de la déplacer dans une telle situation, vous risquez lui causer plus de mal que de bien.</string>
     <string name="start_level" translatable="false">Level 1</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="store_picture_message">"Allow Ad to store image in Picture gallery?"</string>
