@@ -81,7 +81,7 @@ import mehdi.sakout.fancybuttons.FancyButton;
 public class MyPositionActivity extends AppCompatActivity implements OnMapReadyCallback, LocationSource.OnLocationChangedListener {
 
     private static final int RAYON_TERRE = 6366000;
-    private static final int MAX_VITESSE_METRE_SECONDE = 3;
+    private static final int MAX_VITESSE_METRE_SECONDE = 0;
     private static final float COEFF_CONVERSION_MS_KMH = 4;
     private final static int GET_FROM_GALLERY = 5, MENU_LOAD_IMAGE = 10;
     private final static int SNAP_PICTURE = 6, MENU_SNAP_IMAGE = 11;
@@ -259,7 +259,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             Tutility.round(speed / COEFF_CONVERSION_MS_KMH);
                     mspeedometer.setSpeed(mspeed);
                     //update the value on the speed label
-                    speedTextview.setText(getString(R.string.speed_dimen, prefs.getString(TConstants.PREF_MATRICULE, "OO000OO"), mspeed));
+                    speedTextview.setText(getString(R.string.speed_dimen, prefs.getString(TConstants.PREF_MATRICULE, "OO000OO"), ""+mspeed));
                 }
             }
         };
@@ -900,23 +900,28 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         }
     }
 
-    public boolean  isCurrentTripExist(){
+    public static boolean  isCurrentTripExist(){
+        Trip trip = getCurrentTrip();
+        return trip != null && trip.getStatus() == 0;
+    }
+
+    public static Trip  getCurrentTrip(){
         Trip trip = null;
         List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
-            //refresh layout by getting fresh view references and setting their values
+        //refresh layout by getting fresh view references and setting their values
 
 
 
-            if (trips != null && trips.size() > 0) {
-                trip = trips.get(trips.size() - 1);
-            }
+        if (trips != null && trips.size() > 0) {
+            trip = trips.get(trips.size() - 1);
+        }
 
 
 
         //refresh layout by getting fresh view references and setting their values
 
 
-        return trip != null && trip.getStatus() == 0;
+        return trip;
     }
 
     public static int getPixelsFromDp(Context context, float dp) {

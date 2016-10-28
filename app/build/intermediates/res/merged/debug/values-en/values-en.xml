@@ -23,7 +23,7 @@
         <item>"Dammaged vehicle"</item>
         <item>"Other..."</item>
     </string-array>
-    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 4.5.1</string>
+    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 4.7.5</string>
     <string name="about_title1">About</string>
     <string name="account_created">Account created successfully with the username </string>
     <string name="aidvictim">Aid a victim</string>
@@ -72,7 +72,7 @@
     <string name="key_account_creation_loading_msg">Contacting servers…</string>
     <string name="key_chargement">Loading…</string>
     <string name="label_get_a_taxi">Find a Taxi!</string>
-    <string name="lifesaving">If there is no pulse, start CPR or EAR. Keep the person’s neck straight to start EAR (External Air Resuscitation) or CPR (Cardio pulmonary resuscitation).  There are 3 types of EAR; Mouth-to-mouth, Mouth-to-Nose, Mouth-to-Mask. You could read more about how to perform EAR and CPR here.</string>
+    <string name="lifesaving">If there is no pulse, start CPR or EAR. Keep the person’s neck straight to start EAR (External Air Resuscitation) or CPR (Cardio pulmonary resuscitation).  There are 3 types of EAR; Mouth-to-mouth, Mouth-to-Nose, Mouth-to-Mask.</string>
     <string name="load_image">Upload a picture</string>
     <string name="login">Continue</string>
     <string name="main_menu_activity_title">Home</string>
@@ -97,7 +97,7 @@
     <string name="password_again">password (again)</string>
     <string name="phone_number">your phone number</string>
     <string name="phone_number_guardian">relative\'s phone number</string>
-    <string name="place_list_option_choose">choose...</string>
+    <string name="place_list_option_choose">choose…</string>
     <string name="problem_saved_successfull">problem/complaint saved successfully </string>
     <string name="provide_account_informations">Please provide your account information</string>
     <string name="provide_all_fields">Please complete all fields with *</string>
@@ -114,7 +114,7 @@
     <string name="severecondition">If there is bleeding from the mouth or the patient is vomiting, turn the person to his/her side. This will avoid any chances of the person choking. Place the person’s arm that is under him straight out and the arm closest to you across his chest.</string>
     <string name="situation">Choose the situation</string>
     <string name="snap_image">Snap a picture</string>
-    <string formatted="false" name="speed_dimen">%s | Speed (%f Kmph)</string>
+    <string formatted="false" name="speed_dimen">%s | Speed: %s Kmph</string>
     <string name="speed_limit_reached">Exceeding the statutory speed limit</string>
     <string name="speed_limit_reached_ago">You have exceeded speed limit</string>
     <string name="speed_limit_reached_msg">You just passed the legal speed limit for the area where you are (</string>
@@ -134,14 +134,14 @@
     <string name="title2">2. Check the other person(s) for injury</string>
     <string name="title3">3. Look for signs of breathing</string>
     <string name="title4">4. Call for help</string>
-    <string name="title5">5. Check for obstruction in person\'s mouth and throat.</string>
+    <string name="title5">5. Check for obstruction in person\'s mouth and throat</string>
     <string name="title6">6. Life saving techniques</string>
     <string name="title7">7. Provide help in severe situations</string>
     <string name="title8">8. Deal with open wounds</string>
     <string name="title9">9. Suspect spinal injuries</string>
     <string name="title_activity_aid">Help a victim</string>
     <string name="title_activity_messaging">Messages </string>
-    <string name="title_activity_victime_transportation">Victime Transportation</string>
+    <string name="title_activity_victime_transportation">Victim Transportation</string>
     <string name="transport_company">Which Company?</string>
     <string name="travel_info">Trip information</string>
     <string name="trip_agency">Travel Agency</string>
