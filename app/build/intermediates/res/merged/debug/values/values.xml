@@ -476,7 +476,7 @@
     <string name="interstitial_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
     <string name="journey_management">Gestion du Voyage</string>
     <string name="journey_saved_failed">Echec d\'enregistrement du voyage. Reessayez s\'il vous plait</string>
-    <string name="journey_saved_successfull">Voyage sauvegarde avec succes</string>
+    <string name="journey_saved_successfull">Voyage enregistrer avec succes</string>
     <string name="key_account_creation_loading_msg">Tentative de synchronisation…</string>
     <string name="key_chargement">Chargement .…</string>
     <string name="label_get_a_taxi">Trouver un Taxi!</string>

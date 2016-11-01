@@ -759,6 +759,11 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                         if (saveid > 0){
                             Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_successfull), Toast.LENGTH_LONG).show();
                             setupCurrentTrip();
+                            //save current trip matricule
+                            prefs.edit().putString(TConstants.PREF_MATRICULE, mTrip.getBus_immatriculation()).apply();
+                            //set new matricule on speedometer textview
+                            getString(R.string.speed_dimen, prefs.getString(TConstants.PREF_MATRICULE, "OO000OO"), Float.parseFloat("0"));
+
                         }else{
                             Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_failed), Toast.LENGTH_LONG).show();
                         }
