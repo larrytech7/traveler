@@ -476,7 +476,7 @@
     <string name="interstitial_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
     <string name="journey_management">Gestion du Voyage</string>
     <string name="journey_saved_failed">Echec d\'enregistrement du voyage. Reessayez s\'il vous plait</string>
-    <string name="journey_saved_successfull">Voyage sauvegarde avec succes</string>
+    <string name="journey_saved_successfull">Voyage enregistrer avec succes</string>
     <string name="key_account_creation_loading_msg">Tentative de synchronisation…</string>
     <string name="key_chargement">Chargement .…</string>
     <string name="label_get_a_taxi">Trouver un Taxi!</string>
@@ -527,7 +527,7 @@
     <string name="severecondition">En cas de saignement de la bouche ou de vomissements, tournez la personne vers son côté. Cela permettra de réduire le risque de suffocation. Placez le bras de la personne qui est sous lui en ligne droite et le bras le plus proche de vous sur sa poitrine.</string>
     <string name="situation">Choisissez la situation?</string>
     <string name="snap_image">Capturer une image</string>
-    <string formatted="false" name="speed_dimen">%s | Vitesse: %s Kmph</string>
+    <string formatted="false" name="speed_dimen">%s | Vitesse: %f Kmph</string>
     <string name="speed_limit_reached">Dépassement de la limite de vitesse reglementaire</string>
     <string name="speed_limit_reached_ago">Vous avez depasse la limite de vitesse autorisee</string>
     <string name="speed_limit_reached_msg">Vous venez de depasser la limite de vitesse reglementaire pour la zone ou vous vous trouvez (</string>

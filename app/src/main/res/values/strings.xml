@@ -88,7 +88,7 @@
     <string name="annuler_voyage">Annuler le Voyage</string>
     <string name="mettre_a_jour_parametres_voyage">MAJ. les détails du Voyage</string>
     <string name="journey_management">Gestion du Voyage</string>
-    <string name="journey_saved_successfull">Voyage sauvegarde avec succes</string>
+    <string name="journey_saved_successfull">Voyage enregistrer avec succes</string>
     <string name="duree_label" translatable="false">\? (hh)</string>
     <string name="label_get_a_taxi">Trouver un Taxi!</string>
     <string name="check_position">Visualisez votre position</string>
@@ -116,7 +116,7 @@
     <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br />Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br /> Version 4.7.5</string>
     <string name="about_title1">A propos</string>
     <string name="login">Continuer</string>
-    <string name="speed_dimen" formatted="false">%s | Vitesse: %s Kmph</string>
+    <string name="speed_dimen" formatted="false">%s | Vitesse: %f Kmph</string>
     <string name="trip_agency">Agence de Voyage</string>
     <string name="cancel">Annuler</string>
     <string name="save">Sauvegarder</string>

@@ -7,7 +7,6 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -17,11 +16,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings;
-import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.satra.traveler.models.ResponsStatusMsg;
 import com.satra.traveler.models.ResponsStatusMsgMeta;
 import com.satra.traveler.models.TrackingData;
 import com.satra.traveler.utils.TConstants;
@@ -426,7 +423,7 @@ public class SpeedMeterService extends Service {
 
                         if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_TO_ALERT_KMH){
                             if(!hasReachLimit) {
-                                showNotification(displayedSpeed, context);
+                                //showNotification(displayedSpeed, context);
                                 hasReachLimit = true;
                             }
                         }
@@ -464,7 +461,7 @@ public class SpeedMeterService extends Service {
                     else{
                         if(response.getMeta().getCode()==201){
                             if(!hasReachLimit) {
-                                showNotification(displayedSpeed, context);
+                                //showNotification(displayedSpeed, context);
                                 hasReachLimit = true;
                             }
                         }

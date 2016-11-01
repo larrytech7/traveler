@@ -114,7 +114,7 @@
     <string name="severecondition">If there is bleeding from the mouth or the patient is vomiting, turn the person to his/her side. This will avoid any chances of the person choking. Place the person’s arm that is under him straight out and the arm closest to you across his chest.</string>
     <string name="situation">Choose the situation</string>
     <string name="snap_image">Snap a picture</string>
-    <string formatted="false" name="speed_dimen">%s | Speed: %s Kmph</string>
+    <string formatted="false" name="speed_dimen">%s | Speed: %f Kmph</string>
     <string name="speed_limit_reached">Exceeding the statutory speed limit</string>
     <string name="speed_limit_reached_ago">You have exceeded speed limit</string>
     <string name="speed_limit_reached_msg">You just passed the legal speed limit for the area where you are (</string>
