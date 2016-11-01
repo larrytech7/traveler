@@ -7,7 +7,6 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -17,11 +16,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings;
-import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.satra.traveler.models.ResponsStatusMsg;
+import com.satra.traveler.models.ResponsStatusMsgMeta;
 import com.satra.traveler.models.TrackingData;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
@@ -50,10 +48,12 @@ public class SpeedMeterService extends Service {
     private static final int NATURAL_LIMIT_OF_SPEED = 200;
     private static final int ERREUR_ACCEPTE_VITESSE_MAX=2;
     private static final int MAX_SPEED_TO_ALERT_KMH = 80;
+    private static final long INTERVAL_BETWEEN_UPDATES = 10000;
     LocationManager locationManager;
     float vitesse = 0;
-    int id = 1;
-    boolean hasReachLimit = false;
+    private static int id = 1;
+    private static boolean hasReachLimit = false;
+    private static String displayedSpeed = "";
     private SharedPreferences.Editor editor;
     private Location previousLocation;
     private long durationGPS=0, durationNetwork=0;
@@ -68,20 +68,20 @@ public class SpeedMeterService extends Service {
     public int onStartCommand(Intent intent, int flags, int startid){
         Log.e("service starting...", "service SpeedMeterService is starting ");
 
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
-            return START_NOT_STICKY;
-        }
-        if (locationManager != null){
-            if(locationListenerNetwork!=null){
-                locationManager.removeUpdates(locationListenerNetwork);
-            }
-            if(locationListenerGPS!=null){
-                locationManager.removeUpdates(locationListenerGPS);
-            }
-        }
-
-        start();
+//        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//
+//            return START_NOT_STICKY;
+//        }
+//        if (locationManager != null){
+//            if(locationListenerNetwork!=null){
+//                locationManager.removeUpdates(locationListenerNetwork);
+//            }
+//            if(locationListenerGPS!=null){
+//                locationManager.removeUpdates(locationListenerGPS);
+//            }
+//        }
+//
+//        start();
 
         return START_NOT_STICKY;
     }
@@ -237,25 +237,25 @@ public class SpeedMeterService extends Service {
 
     }
 
-    public void showNotification(String vitesse){
-        Intent intent1 = new Intent(this, MyPositionActivity.class);
+    public static void showNotification(String vitesse, Context context){
+        Intent intent1 = new Intent(context, MyPositionActivity.class);
         intent1.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pendingIntent =
-                PendingIntent.getActivity(this, 0, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent.getActivity(context, 0, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationManager nm = (NotificationManager)
-                getSystemService(NOTIFICATION_SERVICE);
-        Notification.Builder build = new Notification.Builder(this);
+                context.getSystemService(NOTIFICATION_SERVICE);
+        Notification.Builder build = new Notification.Builder(context);
 
-        String message = getString(R.string.speed_limit_reached_msg)+vitesse+").";
+        String message = context.getString(R.string.speed_limit_reached_msg)+vitesse+").";
 
         build.setAutoCancel(true);
         build.setWhen(0);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             build.setStyle(new Notification.BigTextStyle().bigText(message));
         }
-        build.setTicker(getString(R.string.app_name));
-        build.setContentTitle(getString(R.string.speed_limit_reached));
+        build.setTicker(context.getString(R.string.app_name));
+        build.setContentTitle(context.getString(R.string.speed_limit_reached));
         build.setContentText(message);
         build.setSmallIcon(R.mipmap.ic_launcher);
         build.setContentIntent(pendingIntent);
@@ -308,6 +308,9 @@ public class SpeedMeterService extends Service {
 
     //calculating the speed in meters /sec from the GPS location or from our previous location should GPS not be available
     //save results as preference
+
+    private static Long lastUpdate;
+
     private long updateSpeed(Location location, long duration){
 
         if(location.hasSpeed()){
@@ -341,7 +344,7 @@ public class SpeedMeterService extends Service {
             return duration;
         }
 
-        String displayedSpeed = vitesse >= MAX_VITESSE_METRE_SECONDE ? " (" + Tutility.round(vitesse * COEFF_CONVERSION_MS_KMH) + " KM/H" + ")" : " (" + Tutility.round(vitesse) + " m/s)";
+        displayedSpeed = vitesse >= MAX_VITESSE_METRE_SECONDE ? " (" + Tutility.round(vitesse * COEFF_CONVERSION_MS_KMH) + " KM/H" + ")" : " (" + Tutility.round(vitesse) + " m/s)";
 
         //showPersistentNotification(displayedSpeed);
 
@@ -350,55 +353,58 @@ public class SpeedMeterService extends Service {
 
         Log.e("speed injected", "new speed received and injected: "+vitesse);
 
-        if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_TO_ALERT_KMH){
-            if(!hasReachLimit) {
-                showNotification(displayedSpeed);
-                hasReachLimit = true;
-            }
-            if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_ALLOWED_KMH){
+       if(MyPositionActivity.isCurrentTripExist()){
+           if(((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_ALLOWED_KMH)){
 
-                pushSpeedOnline(SpeedMeterService.this, vitesse, location, null);
+               pushSpeedOnline(SpeedMeterService.this, vitesse, location, null);
 
-            }
-
-        }
-        else{
-            if(hasReachLimit) {
-                //hideNotification();
-                id++;
-                hasReachLimit = false;
-            }
-        }
+           }
+           else if((lastUpdate==null||System.currentTimeMillis()-lastUpdate>INTERVAL_BETWEEN_UPDATES)){
+               pushSpeedOnline(SpeedMeterService.this, vitesse, location, null);
+               lastUpdate = System.currentTimeMillis();
+           }
+       }
 
         tryToSentDataOnline(getApplicationContext());
 
         return  duration;
     }
 
+    private static MultiValueMap<String, String> body ;
+    private static ResponseEntity<String> response;
+    private static TrackingData trackingDataa;
+    private static RestTemplate restTemplate;
     private static void pushSpeedOnline(final Context context, final float vitesse, final Location location, final TrackingData trackingData) {
-        new AsyncTask<Void, Void, ResponsStatusMsg>(){
+        new AsyncTask<Void, Void, ResponsStatusMsgMeta>(){
             @Override
-            protected ResponsStatusMsg doInBackground(Void... params) {
+            protected ResponsStatusMsgMeta doInBackground(Void... params) {
                 try {
                     // HttpAuthentication httpAuthentication = new HttpBasicAuthentication("username", "password");
-                    HttpHeaders requestHeaders = new HttpHeaders();
                     //Create the request body as a MultiValueMap
-                    MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
+                    if(body==null){
+                        body= new LinkedMultiValueMap<>();
+                    }
+                    else{
+                        body.clear();
+                    }
                     body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_LAT, String.valueOf(location.getLatitude()));
                     body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_LNG, String.valueOf(location.getLongitude()));
                     body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_SPEED, String.valueOf(vitesse));
+                    body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_MATRICULE, MyPositionActivity.getCurrentTrip().getBus_immatriculation());
                     body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_MAT_ID, context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
-                            .getString(TConstants.PREF_MAT_ID, "0"));
-                    HttpEntity<?> httpEntity = new HttpEntity<Object>(body, requestHeaders);
-                    RestTemplate restTemplate = new RestTemplate(true);
+                            .getString(MyPositionActivity.getCurrentTrip().getBus_immatriculation(), context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
+                                    .getString(TConstants.PREF_MAT_ID, "0")));
 
-                    Gson gson = new Gson();
 
-                    ResponseEntity<String> response = restTemplate.exchange(TConstants.POST_SPEED_AND_POSITION_URL, HttpMethod.POST, httpEntity, String.class);
-                    Log.e("Response", "res: "+response);
-                    Log.e("Response body", "body "+response.getBody());
+                    if(restTemplate==null){
+                        restTemplate = new RestTemplate(true);
+                    }
 
-                    return gson.fromJson(response.getBody(), ResponsStatusMsg.class);
+                    response = restTemplate.exchange(TConstants.POST_SPEED_AND_POSITION_URL, HttpMethod.POST, new HttpEntity<Object>(body, new HttpHeaders()), String.class);
+                    Log.e("Response speed", "res: "+response);
+                    Log.e("Response body speed", "body "+response.getBody());
+
+                    return new Gson().fromJson(response.getBody(), ResponsStatusMsgMeta.class);
                 } catch (Exception e) {
                     Log.e("MainActivity", e.getMessage(), e);
                 }
@@ -406,28 +412,74 @@ public class SpeedMeterService extends Service {
                 return null;
             }
 
+
+
             @Override
-            protected void onPostExecute(ResponsStatusMsg response) {
+            protected void onPostExecute(ResponsStatusMsgMeta response) {
 
                 if(response==null || response.getStatus()!=100){
 
                     if(trackingData==null){
-                        String matricule = context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
-                                .getString(TConstants.PREF_MAT_ID, "0");
-                        TrackingData trackingData = new TrackingData();
-                        trackingData.setTrackingMatricule(matricule);
-                        trackingData.setLatitude(location.getLatitude());
-                        trackingData.setLongitude(location.getLongitude());
-                        trackingData.setLocation(""); //je sais pas si c'est possible d'avoir le nom de l'endroit ou ces donnees ont ete recuperer
-                        trackingData.setSpeed(vitesse);
-                        trackingData.save();
+
+                        if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_TO_ALERT_KMH){
+                            if(!hasReachLimit) {
+                                //showNotification(displayedSpeed, context);
+                                hasReachLimit = true;
+                            }
+                        }
+                        else{
+                            if(hasReachLimit) {
+                                //hideNotification();
+                                id++;
+                                hasReachLimit = false;
+                            }
+                        }
+
+                        trackingDataa = new TrackingData();
+                        trackingDataa.setTrackingMatricule(context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
+                                .getString(TConstants.PREF_MAT_ID, "0"));
+                        trackingDataa.setLatitude(location.getLatitude());
+                        trackingDataa.setLongitude(location.getLongitude());
+                        trackingDataa.setLocation(""); //je sais pas si c'est possible d'avoir le nom de l'endroit ou ces donnees ont ete recuperer
+                        trackingDataa.setSpeed(vitesse);
+                        trackingDataa.save();
                     }
 
                 }
                 else{
+
                     if(trackingData!=null){
                         trackingData.delete();
+
+                        SharedPreferences.Editor editor = context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0).edit();
+                        //TODO IndexOutOfBounds error ici quand la synchronisation ne s'effectue pas correctement
+                        editor.putString(trackingData.getTrackingMatricule(), response.getMeta().getMatricule_id()+"");
+
+                        editor.commit();
+
                     }
+                    else{
+                        if(response.getMeta().getCode()==201){
+                            if(!hasReachLimit) {
+                                //showNotification(displayedSpeed, context);
+                                hasReachLimit = true;
+                            }
+                        }
+                        else{
+                            if(hasReachLimit) {
+                                //hideNotification();
+                                id++;
+                                hasReachLimit = false;
+                            }
+                        }
+
+                        SharedPreferences.Editor editor = context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0).edit();
+                        //TODO IndexOutOfBounds error ici quand la synchronisation ne s'effectue pas correctement
+                        editor.putString(MyPositionActivity.getCurrentTrip().getBus_immatriculation(), response.getMeta().getMatricule_id()+"");
+
+                        editor.commit();
+                    }
+
                     /*
                     * TODO 2 after TO DO 1
                      * @author: STEVE
@@ -451,7 +503,13 @@ public class SpeedMeterService extends Service {
             Location location1 = new Location(trackingData1.getLocation());
             location1.setLatitude(trackingData1.getLatitude());
             location1.setLongitude(trackingData1.getLongitude());
-            pushSpeedOnline(context, (float) trackingData1.getSpeed(), location1, trackingData1);
+
+            if((lastUpdate==null||System.currentTimeMillis()-lastUpdate>INTERVAL_BETWEEN_UPDATES)){
+                pushSpeedOnline(context, (float) trackingData1.getSpeed(), location1, trackingData1);
+                lastUpdate = System.currentTimeMillis();
+            }
+
+
         }
     }
 

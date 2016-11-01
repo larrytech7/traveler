@@ -304,12 +304,12 @@
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/drawable-hdpi-v4/abc_switch_track_mtrl_alpha.9.png"
     },
     {
-        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_camera.png",
-        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/ic_camera.png"
-    },
-    {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/etoile_jaune.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/etoile_jaune.png"
+    },
+    {
+        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_camera.png",
+        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/ic_camera.png"
     },
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_list_longpressed_holo.9.png",
@@ -324,12 +324,12 @@
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-hdpi/ic_trip_cancelled.png"
     },
     {
-        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/powered_by_google_dark.png",
-        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.4.0/res/drawable-hdpi-v4/powered_by_google_dark.png"
-    },
-    {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/drawable-hdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/powered_by_google_dark.png",
+        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.4.0/res/drawable-hdpi-v4/powered_by_google_dark.png"
     },
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_confirm.png",

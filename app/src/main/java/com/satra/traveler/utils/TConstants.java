@@ -43,6 +43,7 @@ public class TConstants {
     public static final String POST_SPEED_AND_POSITION_PARAM_LNG="lng";
     public static final String POST_SPEED_AND_POSITION_PARAM_LAT="lat";
     public static final String POST_SPEED_AND_POSITION_PARAM_SPEED="speed";
+    public static final String POST_SPEED_AND_POSITION_PARAM_MATRICULE="matricule";
     public static final String POST_SPEED_AND_POSITION_URL="http://travelr.iceteck.com/index.php/home/matricule/data/add";
     public static final String POST_MESSAGE_PARAM_MAT_ID="mat_id";
     public static final String POST_MESSAGE_PARAM_MSISDN="msisdn";
