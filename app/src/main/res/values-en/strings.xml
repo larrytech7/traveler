@@ -161,6 +161,6 @@
     <string name="tip5">\u2022 In case of a bleeding injury, lift the injured part above the person’s body level and apply pressure on the region. Keep applying pressure till you reach the hospital. This helps control and eventually stop the bleeding.</string>
     <string name="tip6">\u2022 Make sure the person has a pulse and is breathing on the way to the hospital. If he/she stops breathing, be prepared to start CPR or EAR in the vehicle.</string>
     <string name="aidvictim">Aid a victim</string>
-    <string name="author_title">%s @%s</string>
+    <string name="author_title" formatted="false">%s @%s</string>
 
 </resources>
