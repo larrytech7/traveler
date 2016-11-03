@@ -10,7 +10,8 @@ public class Messages extends SugarRecord {
 
     @Unique
     String content; //message content needs to be unique to avoid duplicates or redundancies
-    String sender; //name/matricule/phone of the person sending the message
+    String sender; //matricule/phone of the person sending the message
+    String author; //Main username of person writing the message
     String date; //date sent
     String imageUrl; //optional image accompanying messages
     int sent; //1-sent, 0-not sent. default should be sent
@@ -56,5 +57,13 @@ public class Messages extends SugarRecord {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }

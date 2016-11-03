@@ -203,4 +203,5 @@
     <string name="no_current_trip_defined">Vous n\'avez aucun voyage en cours.</string>
     <string name="route_calculation">Calcul du trajet…</string>
     <string name="immatriculation_example" translatable="false">CE111AA</string>
+    <string name="author_title" formatted="false">%s @%s</string>
 </resources>
