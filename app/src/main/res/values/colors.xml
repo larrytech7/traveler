@@ -9,4 +9,6 @@
     <color name="themeBG">#119955</color>
     <color name="grey">#bbb</color>
     <color name="black">#222</color>
+    <color name="bluePrimary">#3d97fe</color>
+    <color name="blueSecondary">#44e3ee</color>
 </resources>

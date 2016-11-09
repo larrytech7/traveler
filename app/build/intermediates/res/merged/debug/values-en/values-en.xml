@@ -29,6 +29,7 @@
     <string name="aidvictim">Aid a victim</string>
     <string name="annuler_voyage">Cancel journey</string>
     <string name="arrivee">Destination: %s</string>
+    <string formatted="false" name="author_title">%s @%s</string>
     <string name="breathsigns">Next, check if the person is breathing and if he has a pulse.</string>
     <string name="callhelp">Immediately call for an ambulance or rush the person to a hospital. Once you know more about the patient’s condition you will in a better position to tell the doctors about his/her condition.</string>
     <string name="cancel">Cancel</string>

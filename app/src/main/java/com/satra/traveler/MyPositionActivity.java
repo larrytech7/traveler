@@ -164,7 +164,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_my_position);
 
-        prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0);
+        prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

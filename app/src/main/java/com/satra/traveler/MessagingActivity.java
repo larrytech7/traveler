@@ -53,6 +53,8 @@ public class MessagingActivity extends AppCompatActivity {
     private static MessagingAdapter messagingAdapter;
     private static RecyclerView messageRecyclerView;
     private static ProgressDialog progress;
+    private String clientMatricule;
+    private String clientName;
 
 
     @Override
@@ -61,6 +63,11 @@ public class MessagingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_messaging);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //initialize sender variables
+        clientMatricule = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE)
+                .getString(TConstants.PREF_MATRICULE,"");
+        clientName = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE)
+                .getString(TConstants.PREF_USERNAME,"");
         previewMessageImage = (ImageView) findViewById(R.id.messageImageView);
         FancyButton buttonCaptureImage = (FancyButton) findViewById(R.id.buttonCaptureImage);
         buttonCaptureImage.setOnClickListener(new View.OnClickListener() {
@@ -155,9 +162,7 @@ public class MessagingActivity extends AppCompatActivity {
         }
     }
 
-
-
-    private static void pushMessageOnline(final Context context, final View view, final String message, final Messages oMessage) {
+    private void pushMessageOnline(final Context context, final View view, final String message, final Messages oMessage) {
         if(view!=null){
             progress = new ProgressDialog(context);
             progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -166,10 +171,7 @@ public class MessagingActivity extends AppCompatActivity {
             progress.show();
         }
 
-
         new AsyncTask<Void, Void, ResponsStatusMsg>(){
-            String clientMatricule = context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE)
-                    .getString(TConstants.PREF_MATRICULE,"");
 
             @Override
             protected ResponsStatusMsg doInBackground(Void... params) {
@@ -216,7 +218,7 @@ public class MessagingActivity extends AppCompatActivity {
 
                 String date = SimpleDateFormat.getDateInstance().format(new Date())+". "
                         +SimpleDateFormat.getTimeInstance().format(new Date());
-
+                //message not sent or server error occured. Save message offline and load list
                 if((response == null || response.getStatus()!=100)){
                     Messages mMessage=null;
                     if(oMessage==null){
@@ -229,6 +231,7 @@ public class MessagingActivity extends AppCompatActivity {
                         mMessage.setContent(message);
                         mMessage.setDate(date);
                         mMessage.setSender(clientMatricule);
+                        mMessage.setAuthor(clientName);
                         mMessage.setSent(0);
                         mMessage.save();
                         if(view!=null){
@@ -252,7 +255,7 @@ public class MessagingActivity extends AppCompatActivity {
                     }
 
                 }
-                else{
+                else{ //message sent successfully. set successful and save to DB
 
                     Messages mMessage=null;
                     if(oMessage==null){
@@ -261,6 +264,7 @@ public class MessagingActivity extends AppCompatActivity {
                         mMessage.setContent(message);
                         mMessage.setDate(date);
                         mMessage.setSender(clientMatricule);
+                        mMessage.setAuthor(clientName);
                     }
                     else{
                         mMessage = oMessage;
@@ -292,16 +296,13 @@ public class MessagingActivity extends AppCompatActivity {
                             setupMessageList(context);
                         }
                     }
-
-
-
                 }
             }
         }.execute();
     }
 
 
-    public static  void tryToSentDataOnline(Context context){
+    public void tryToSentDataOnline(Context context){
         Iterator<Messages> mMessages = Messages.find(Messages.class, "sent = ?", "0").iterator();
         if(mMessages.hasNext()){
             Messages mMessage = mMessages.next();

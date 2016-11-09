@@ -22,7 +22,7 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="@dimen/margin_layout"
             android:ems="5"
-            android:hint="@string/username"
+            android:hint=""
             android:maxLines="1"
             android:singleLine="true"
             android:textStyle="bold"
@@ -62,6 +62,7 @@
             android:drawableRight="@drawable/ic_done"
             android:drawableEnd="@drawable/ic_done"
             android:textStyle="italic|bold"
+            android:textColor="@color/app_white"
             android:text="@string/message_received"/>
     </LinearLayout>
 </android.support.v7.widget.CardView>
