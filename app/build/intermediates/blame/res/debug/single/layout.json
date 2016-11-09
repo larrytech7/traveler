@@ -144,12 +144,12 @@
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/layout/notification_template_lines.xml"
     },
     {
-        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/layout/view_my_position.xml",
-        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/layout/view_my_position.xml"
-    },
-    {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/layout/nav_header_main.xml",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/layout/nav_header_main.xml"
+    },
+    {
+        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/layout/view_my_position.xml",
+        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/layout/view_my_position.xml"
     },
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/layout/content_messaging.xml",

@@ -162,8 +162,6 @@ public class MessagingActivity extends AppCompatActivity {
         }
     }
 
-
-
     private void pushMessageOnline(final Context context, final View view, final String message, final Messages oMessage) {
         if(view!=null){
             progress = new ProgressDialog(context);
@@ -172,7 +170,6 @@ public class MessagingActivity extends AppCompatActivity {
             progress.setMessage(context.getString(R.string.sending));
             progress.show();
         }
-
 
         new AsyncTask<Void, Void, ResponsStatusMsg>(){
 
@@ -221,7 +218,7 @@ public class MessagingActivity extends AppCompatActivity {
 
                 String date = SimpleDateFormat.getDateInstance().format(new Date())+". "
                         +SimpleDateFormat.getTimeInstance().format(new Date());
-
+                //message not sent or server error occured. Save message offline and load list
                 if((response == null || response.getStatus()!=100)){
                     Messages mMessage=null;
                     if(oMessage==null){
@@ -258,7 +255,7 @@ public class MessagingActivity extends AppCompatActivity {
                     }
 
                 }
-                else{
+                else{ //message sent successfully. set successful and save to DB
 
                     Messages mMessage=null;
                     if(oMessage==null){
@@ -267,6 +264,7 @@ public class MessagingActivity extends AppCompatActivity {
                         mMessage.setContent(message);
                         mMessage.setDate(date);
                         mMessage.setSender(clientMatricule);
+                        mMessage.setAuthor(clientName);
                     }
                     else{
                         mMessage = oMessage;
@@ -298,9 +296,6 @@ public class MessagingActivity extends AppCompatActivity {
                             setupMessageList(context);
                         }
                     }
-
-
-
                 }
             }
         }.execute();

@@ -66,6 +66,8 @@
     <color name="background_material_dark">@color/material_grey_850</color>
     <color name="background_material_light">@color/material_grey_50</color>
     <color name="black">#222</color>
+    <color name="bluePrimary">#3d97fe</color>
+    <color name="blueSecondary">#44e3ee</color>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
     <color name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
@@ -405,6 +407,7 @@
     <string name="app_name" translatable="false">Travelr</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="arrivee">Destination: %s</string>
+    <string formatted="false" name="author_title">%s @%s</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="breathsigns">Ensuite, vérifiez si la personne respire et s\'il a un pouls.</string>
     <string name="callhelp">Appelez immédiatement une ambulance ou conduisez la personne à l\'hôpital. Si vous avez des informations concernant l\'état du patient, n\'hésitez pas à en parler avec les médécins.</string>
