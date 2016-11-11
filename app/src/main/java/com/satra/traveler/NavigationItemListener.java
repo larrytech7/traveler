@@ -12,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.android.gms.location.LocationServices;
 import com.satra.traveler.models.Trip;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
@@ -130,6 +131,13 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
             }else{
                 Tutility.showMessage(context, R.string.complete_trip_error, R.string.complete_trip_error_title );
             }
+
+            LocationServices.GeofencingApi.removeGeofences(
+                    activity.getGoogleApiClient(),
+                    // This is the same pending intent that was used in addGeofences().
+                    activity.getGeofencePendingIntent()
+            ).setResultCallback(activity); // Result processed in onResult().
+
         }
     }
 
@@ -146,6 +154,13 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
             }else{
                 Tutility.showMessage(context, R.string.complete_trip_error, R.string.complete_trip_error_title );
             }
+
+            LocationServices.GeofencingApi.removeGeofences(
+                    activity.getGoogleApiClient(),
+                    // This is the same pending intent that was used in addGeofences().
+                    activity.getGeofencePendingIntent()
+            ).setResultCallback(activity); // Result processed in onResult().
+
         }
     }
 

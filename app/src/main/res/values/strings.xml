@@ -113,10 +113,10 @@
     <string name="username_confirm_no_label">Non</string>
     <string name="username_confirm_yes_label">Oui</string>
     <string name="speed_limit_reached_ago">Vous avez depasse la limite de vitesse autorisee</string>
-    <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br />Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br /> Version 4.7.5</string>
+    <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br />Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br /> Version 4.7.10</string>
     <string name="about_title1">A propos</string>
     <string name="login">Continuer</string>
-    <string name="speed_dimen" formatted="false">%s | Vitesse: %f Kmph</string>
+    <string name="speed_dimen" formatted="false">%s | Vitesse: %s Kmph</string>
     <string name="trip_agency">Agence de Voyage</string>
     <string name="cancel">Annuler</string>
     <string name="save">Sauvegarder</string>
@@ -204,4 +204,14 @@
     <string name="route_calculation">Calcul du trajet…</string>
     <string name="immatriculation_example" translatable="false">CE111AA</string>
     <string name="author_title" formatted="false">%s @%s</string>
+    <string name="start_marker_string">Départ</string>
+    <string name="end_marker_string">Arrivé</string>
+    <string name="speed_overhead_marker_string">Origine de l\'excès de vitesse</string>
+    <string name="speed_overheading_marker_end_string">Fin de l\'excès de vitesse</string>
+    <string name="destination_reached">Destination atteinte</string>
+    <string name="destination_exited">Vous quittez votre destination ?</string>
+    <string name="destination_reached_msg">Vous avez atteint votre destination ou vous en êtes proche. Merci de terminer le voyage.</string>
+    <string name="destination_exited_msg">Vous êtes sur le point de quitter votre destination. Merci de terminer ou d\'annuler le voyage en cours.</string>
+    <string name="speed_overheading">" dépassements de vitesse"</string>
+    <string name="travelr_secure_your_trip">Travelr sécurise vos déplacements</string>
 </resources>

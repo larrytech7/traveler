@@ -20,6 +20,7 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.satra.traveler.models.ResponsStatusMsgMeta;
+import com.satra.traveler.models.SpeedOverhead;
 import com.satra.traveler.models.TrackingData;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
@@ -32,7 +33,10 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.Vector;
 
 
@@ -247,27 +251,28 @@ public class SpeedMeterService extends Service {
                 context.getSystemService(NOTIFICATION_SERVICE);
         Notification.Builder build = new Notification.Builder(context);
 
-        String message = context.getString(R.string.speed_limit_reached_msg)+vitesse+").";
+        int nbre = MyPositionActivity.isCurrentTripExist()?SpeedOverhead.find(SpeedOverhead.class, "tripid = ?", ""+MyPositionActivity.getCurrentTrip().getId()).size():0;
+        String message = nbre>0?nbre+context.getString(R.string.speed_overheading):context.getString(R.string.travelr_secure_your_trip);
 
-        build.setAutoCancel(true);
+        build.setAutoCancel(false);
         build.setWhen(0);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             build.setStyle(new Notification.BigTextStyle().bigText(message));
         }
         build.setTicker(context.getString(R.string.app_name));
-        build.setContentTitle(context.getString(R.string.speed_limit_reached));
+        build.setContentTitle(vitesse);
         build.setContentText(message);
         build.setSmallIcon(R.mipmap.ic_launcher);
         build.setContentIntent(pendingIntent);
         build.setOngoing(true);
-        build.setNumber(MAX_SPEED_ALLOWED_KMH);
+//        build.setNumber(MAX_SPEED_ALLOWED_KMH);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             build.build();
         }
 
         Notification notif = build.getNotification();
-        notif.vibrate = new long[] { 100, 250, 100, 500};
-        notif.sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+//        notif.vibrate = new long[] { 100, 250, 100, 500};
+//        notif.sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         nm.notify(id, notif);
 
@@ -344,9 +349,9 @@ public class SpeedMeterService extends Service {
             return duration;
         }
 
-        displayedSpeed = vitesse >= MAX_VITESSE_METRE_SECONDE ? " (" + Tutility.round(vitesse * COEFF_CONVERSION_MS_KMH) + " KM/H" + ")" : " (" + Tutility.round(vitesse) + " m/s)";
+        displayedSpeed = vitesse >= MAX_VITESSE_METRE_SECONDE ? + Tutility.round(vitesse * COEFF_CONVERSION_MS_KMH) + " KM/H" : Tutility.round(vitesse) + " M/S";
 
-        //showPersistentNotification(displayedSpeed);
+        showNotification(displayedSpeed, getApplicationContext());
 
         editor.putFloat(TConstants.SPEED_PREF, vitesse);
         editor.commit();
@@ -374,6 +379,7 @@ public class SpeedMeterService extends Service {
     private static ResponseEntity<String> response;
     private static TrackingData trackingDataa;
     private static RestTemplate restTemplate;
+    private static  SpeedOverhead so = null;
     private static void pushSpeedOnline(final Context context, final float vitesse, final Location location, final TrackingData trackingData) {
         new AsyncTask<Void, Void, ResponsStatusMsgMeta>(){
             @Override
@@ -423,14 +429,27 @@ public class SpeedMeterService extends Service {
 
                         if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_TO_ALERT_KMH){
                             if(!hasReachLimit) {
-                                //showNotification(displayedSpeed, context);
+
+                                so = new SpeedOverhead();
+                                so.setDate_start(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.US).format(Calendar.getInstance().getTime()));
+                                so.setLatitude_start(location.getLatitude());
+                                so.setLongitude_start(location.getLongitude());
+                                so.setSpeed_start(vitesse);
+                                so.setTripid(""+MyPositionActivity.getCurrentTrip().getId());
+                               // so.save();
+
                                 hasReachLimit = true;
                             }
                         }
                         else{
                             if(hasReachLimit) {
-                                //hideNotification();
-                                id++;
+                                so.setLatitude_end(location.getLatitude());
+                                so.setLongitude_end(location.getLongitude());
+                                so.setSpeed_end(vitesse);
+                                so.setDate_end(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.US).format(Calendar.getInstance().getTime()));
+                                so.save();
+
+
                                 hasReachLimit = false;
                             }
                         }
@@ -461,14 +480,28 @@ public class SpeedMeterService extends Service {
                     else{
                         if(response.getMeta().getCode()==201){
                             if(!hasReachLimit) {
-                                //showNotification(displayedSpeed, context);
+
+
+                                so = new SpeedOverhead();
+                                so.setDate_start(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.US).format(Calendar.getInstance().getTime()));
+                                so.setLatitude_start(location.getLatitude());
+                                so.setLongitude_start(location.getLongitude());
+                                so.setSpeed_start(vitesse);
+                                so.setTripid(""+MyPositionActivity.getCurrentTrip().getId());
+                                //so.save();
+
                                 hasReachLimit = true;
                             }
                         }
                         else{
                             if(hasReachLimit) {
-                                //hideNotification();
-                                id++;
+
+                                so.setLatitude_end(location.getLatitude());
+                                so.setLongitude_end(location.getLongitude());
+                                so.setSpeed_end(vitesse);
+                                so.setDate_end(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.US).format(Calendar.getInstance().getTime()));
+                                so.save();
+
                                 hasReachLimit = false;
                             }
                         }
