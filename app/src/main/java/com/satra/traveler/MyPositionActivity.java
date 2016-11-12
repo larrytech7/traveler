@@ -690,7 +690,6 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             try {
                                 startActivityForResult(builder.build(MyPositionActivity.this), PLACE_PICKER_REQUEST_FROM);
                             } catch (GooglePlayServicesRepairableException | GooglePlayServicesNotAvailableException e) {
-                                // TODO Auto-generated catch block
                                 e.printStackTrace();
                                 Snackbar.make(fromSpinner, R.string.operation_failed_try_again_later, Snackbar.LENGTH_LONG)
                                         .show();

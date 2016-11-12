@@ -41,10 +41,10 @@ public class MessagingAdapter extends RecyclerView.Adapter<MessagingAdapter.View
         int status = message.getSent();
         if (status == 1){
             holder.messageStatusText.setText(context.getString(R.string.message_received));
-            holder.messageStatusText.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, context.getResources().getDrawable(R.drawable.ic_done), null);
+            holder.messageStatusText.setCompoundDrawablesWithIntrinsicBounds(null, null, context.getResources().getDrawable(R.drawable.ic_done), null);
         }else{
             holder.messageStatusText.setText(context.getString(R.string.message_not_received));
-            holder.messageStatusText.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, context.getResources().getDrawable(R.drawable.ic_done_one), null);
+            holder.messageStatusText.setCompoundDrawablesWithIntrinsicBounds(null, null, context.getResources().getDrawable(R.drawable.ic_done_one), null);
         }
     }
 
