@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
@@ -47,14 +48,15 @@ public class MessagingActivity extends AppCompatActivity {
     private static final String LOGTAG = MessagingActivity.class.getSimpleName();
     private static final int CAPTURE_IMAGE_MESSAGE = 100;
     EditText messageBox;
-    private static ImageView previewMessageImage;
+    private ImageView previewMessageImage;
 
     private Bitmap attachedImage;
-    private static MessagingAdapter messagingAdapter;
-    private static RecyclerView messageRecyclerView;
+    private MessagingAdapter messagingAdapter;
+    private  RecyclerView messageRecyclerView;
     private static ProgressDialog progress;
     private String clientMatricule;
     private String clientName;
+    private SharedPreferences sharedPreferences;
 
 
     @Override
@@ -63,11 +65,10 @@ public class MessagingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_messaging);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        sharedPreferences = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
         //initialize sender variables
-        clientMatricule = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE)
-                .getString(TConstants.PREF_MATRICULE,"");
-        clientName = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE)
-                .getString(TConstants.PREF_USERNAME,"");
+        clientMatricule = sharedPreferences.getString(TConstants.PREF_MATRICULE,"");
+        clientName = sharedPreferences.getString(TConstants.PREF_USERNAME,"");
         previewMessageImage = (ImageView) findViewById(R.id.messageImageView);
         FancyButton buttonCaptureImage = (FancyButton) findViewById(R.id.buttonCaptureImage);
         buttonCaptureImage.setOnClickListener(new View.OnClickListener() {
@@ -120,7 +121,7 @@ public class MessagingActivity extends AppCompatActivity {
     }
 
 
-    private static void setupMessageList(Context context){
+    private void setupMessageList(Context context){
         messagingAdapter = new MessagingAdapter(context, Messages.listAll(Messages.class));
         messageRecyclerView.setAdapter(messagingAdapter);
     }
@@ -181,16 +182,16 @@ public class MessagingActivity extends AppCompatActivity {
                     HttpHeaders requestHeaders = new HttpHeaders();
                     //Create the request body as a MultiValueMap
                     MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
-                    body.add(TConstants.POST_MESSAGE_PARAM_MESSAGE, message);
-                    body.add(TConstants.POST_MESSAGE_PARAM_MAT_ID, context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE,MODE_PRIVATE)
-                            .getString(TConstants.PREF_MAT_ID, "0"));
 
-                    body.add(TConstants.POST_MESSAGE_PARAM_MATRICULE, context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE,MODE_PRIVATE)
-                            .getString(TConstants.PREF_MATRICULE, "0"));
-                    body.add(TConstants.POST_MESSAGE_PARAM_MSISDN, context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE,MODE_PRIVATE)
-                            .getString(TConstants.PREF_PHONE, "0"));
-                    body.add(TConstants.POST_MESSAGE_PARAM_USERNAME, context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE,MODE_PRIVATE)
-                            .getString(TConstants.PREF_USERNAME, "0"));
+                    body.add(TConstants.POST_MESSAGE_PARAM_MESSAGE, message);
+
+                    body.add(TConstants.POST_MESSAGE_PARAM_MAT_ID, sharedPreferences.getString(TConstants.PREF_MAT_ID, "0"));
+
+                    body.add(TConstants.POST_MESSAGE_PARAM_MATRICULE, sharedPreferences.getString(TConstants.PREF_MATRICULE, "0"));
+
+                    body.add(TConstants.POST_MESSAGE_PARAM_MSISDN, sharedPreferences.getString(TConstants.PREF_PHONE, "0"));
+
+                    body.add(TConstants.POST_MESSAGE_PARAM_USERNAME, sharedPreferences.getString(TConstants.PREF_USERNAME, "0"));
 
                     HttpEntity<?> httpEntity = new HttpEntity<Object>(body, requestHeaders);
                     RestTemplate restTemplate = new RestTemplate(true);
@@ -300,7 +301,6 @@ public class MessagingActivity extends AppCompatActivity {
             }
         }.execute();
     }
-
 
     public void tryToSentDataOnline(Context context){
         Iterator<Messages> mMessages = Messages.find(Messages.class, "sent = ?", "0").iterator();

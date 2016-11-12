@@ -38,6 +38,14 @@ public class MessagingAdapter extends RecyclerView.Adapter<MessagingAdapter.View
         holder.messageMatricule.setText(context.getString(R.string.author_title, message.getAuthor(), message.getSender()));
         holder.messageText.setText(message.getContent());
         holder.messageDate.setText(message.getDate());
+        int status = message.getSent();
+        if (status == 1){
+            holder.messageStatusText.setText(context.getString(R.string.message_received));
+            holder.messageStatusText.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, context.getResources().getDrawable(R.drawable.ic_done), null);
+        }else{
+            holder.messageStatusText.setText(context.getString(R.string.message_not_received));
+            holder.messageStatusText.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, context.getResources().getDrawable(R.drawable.ic_done_one), null);
+        }
     }
 
     public Messages getItem(int position){
@@ -51,13 +59,14 @@ public class MessagingAdapter extends RecyclerView.Adapter<MessagingAdapter.View
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView messageText, messageMatricule, messageDate;
+        TextView messageText, messageMatricule, messageDate, messageStatusText;
 
         public ViewHolder(View itemView) {
             super(itemView);
             messageText = (TextView) itemView.findViewById(R.id.messageContent);
             messageMatricule = (TextView) itemView.findViewById(R.id.messageMatricule);
             messageDate = (TextView) itemView.findViewById(R.id.messageDate);
+            messageStatusText = (TextView) itemView.findViewById(R.id.messageStatusText);
         }
     }
 }
