@@ -105,9 +105,9 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private static Trip mTrip;
     static int PLACE_PICKER_REQUEST_FROM = 2;
     static int PLACE_PICKER_REQUEST_TO = 3;
-    private static Spinner destinationSpinner;
-    private static Spinner fromSpinner;
-    static MapWrapperLayout mapWrapperLayout;
+    private  Spinner destinationSpinner;
+    private Spinner fromSpinner;
+     MapWrapperLayout mapWrapperLayout;
     private ViewGroup infoWindow;
     private TextView infoSnippet;
     private GoogleMap.InfoWindowAdapter infoWindowAdapter;
