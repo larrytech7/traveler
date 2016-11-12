@@ -64,6 +64,10 @@
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-xxhdpi/ic_cancel.png"
     },
     {
+        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/ic_done_one.png",
+        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-xxhdpi/ic_done_one.png"
+    },
+    {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/common_google_signin_btn_icon_light_disabled.9.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.4.0/res/drawable-xxhdpi-v4/common_google_signin_btn_icon_light_disabled.9.png"
     },
@@ -72,12 +76,12 @@
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-xxhdpi/ic_contact_add.png"
     },
     {
-        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/common_full_open_on_phone.png",
-        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.4.0/res/drawable-xxhdpi-v4/common_full_open_on_phone.png"
-    },
-    {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/drawable-xxhdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/common_full_open_on_phone.png",
+        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.4.0/res/drawable-xxhdpi-v4/common_full_open_on_phone.png"
     },
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/common_google_signin_btn_icon_dark_focused.9.png",

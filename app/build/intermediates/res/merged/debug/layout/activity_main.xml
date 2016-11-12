@@ -109,6 +109,7 @@
                     android:id="@+id/buttonPickContactOne"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
                     android:src="@drawable/ic_contact_add"/>
             </LinearLayout>
             <LinearLayout
@@ -126,6 +127,7 @@
                     android:id="@+id/buttonPickContactTwo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
                     android:src="@drawable/ic_contact_add"/>
             </LinearLayout>
             <mehdi.sakout.fancybuttons.FancyButton

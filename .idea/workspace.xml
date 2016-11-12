@@ -27,20 +27,23 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-hdpi-v4/ic_launcher.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-hdpi-v4/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-mdpi-v4/ic_launcher.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-mdpi-v4/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-xhdpi-v4/ic_launcher.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-xhdpi-v4/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-xxhdpi-v4/ic_launcher.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-xxhdpi-v4/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi-v4/ic_launcher.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi-v4/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MessagingActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MessagingActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/adapter/MessagingAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/adapter/MessagingAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/broadcasts/NetworkAvailable.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/broadcasts/NetworkAvailable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_messaging.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_messaging.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_message_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_message_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-hdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-hdpi-v4.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-mdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-mdpi-v4.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xhdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xhdpi-v4.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xxhdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xxhdpi-v4.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xxxhdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xxxhdpi-v4.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
     </list>
     <ignored path="traveler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,8 +83,8 @@
       <file leaf-file-name="MyPositionActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MyPositionActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="758" column="40" selection-start-line="758" selection-start-column="40" selection-end-line="758" selection-end-column="40" />
+            <state relative-caret-position="171">
+              <caret line="762" column="33" selection-start-line="762" selection-start-column="33" selection-end-line="762" selection-end-column="33" />
               <folding>
                 <element signature="method#IsMatch#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="method#computeDistance#0;class#MyPositionActivity#0" expanded="false" />
@@ -114,11 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MessagingActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MessagingActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MessagingActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2245">
-              <caret line="303" column="4" selection-start-line="303" selection-start-column="4" selection-end-line="303" selection-end-column="4" />
+            <state relative-caret-position="2191">
+              <caret line="303" column="0" selection-start-line="303" selection-start-column="0" selection-end-line="303" selection-end-column="0" />
               <folding>
                 <element signature="docComment;method#startCameraCapture#0;class#MessagingActivity#0" expanded="false" />
                 <element signature="method#startCameraCapture#0;class#MessagingActivity#0" expanded="false" />
@@ -150,8 +153,8 @@
       <file leaf-file-name="SpeedMeterService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/SpeedMeterService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="479" column="40" selection-start-line="479" selection-start-column="40" selection-end-line="479" selection-end-column="40" />
+            <state relative-caret-position="-1413">
+              <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
               <folding>
                 <element signature="docComment;method#onStartCommand#0;class#SpeedMeterService#0" expanded="false" />
                 <element signature="method#onStartCommand#0;class#SpeedMeterService#0" expanded="false" />
@@ -160,6 +163,7 @@
                 <element signature="method#showPersistentNotification#0;class#SpeedMeterService#0" expanded="false" />
                 <element signature="method#showNotification#0;class#SpeedMeterService#0" expanded="false" />
                 <element signature="method#hideNotification#0;class#SpeedMeterService#0" expanded="false" />
+                <element signature="method#pushSpeedOnline#0;class#SpeedMeterService#0" expanded="false" />
                 <element signature="method#tryToSentDataOnline#0;class#SpeedMeterService#0" expanded="false" />
                 <element signature="method#onDestroy#0;class#SpeedMeterService#0" expanded="false" />
               </folding>
@@ -167,10 +171,23 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2790">
+              <caret line="155" column="44" selection-start-line="155" selection-start-column="44" selection-end-line="155" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="NetworkAvailable.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/broadcasts/NetworkAvailable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
+            <state relative-caret-position="-5">
               <caret line="63" column="49" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
               <folding>
                 <element signature="docComment;method#sendMessageOnline#0;class#NetworkAvailable#0" expanded="false" />
@@ -1959,6 +1976,7 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_message_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/broadcasts/NetworkAvailable.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MessagingActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
       </list>
     </option>
   </component>
@@ -2021,6 +2039,24 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="traveler" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="menu" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2122,7 +2158,7 @@
     <property name="settings.editor.selected.configurable" value="Template Data Languages" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/screenshots" />
-    <property name="device.picker.selection" value="1be24b0c" />
+    <property name="device.picker.selection" value="SH55TIANYI12SN68" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlPreviewForm.SHOW" value="false" />
   </component>
   <component name="RunManager" selected="Android App.app">
@@ -2355,7 +2391,7 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="false" name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+    <configuration default="false" name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="app" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
@@ -2547,7 +2583,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478698234453</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Updated messagin UI and UX. users can now know if the message was saved on server or still pending. Refactored code for sharing app preferences">
+      <created>1478985189834</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1478985189834</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2569,7 +2612,7 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924694" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21391304" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2609,7 +2652,8 @@
     <MESSAGE value="Updated messaging activity. Added username as part of message title. Setup author and matricule at the start of the activity" />
     <MESSAGE value="Modified offline message sending when connectivity reestablishes. Adjusted the messaging activity to send matricule for each sending but to no avail yet." />
     <MESSAGE value="updated the app icon" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated the app icon" />
+    <MESSAGE value="Updated messagin UI and UX. users can now know if the message was saved on server or still pending. Refactored code for sharing app preferences" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated messagin UI and UX. users can now know if the message was saved on server or still pending. Refactored code for sharing app preferences" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3092,6 +3136,55 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="12" column="57" selection-start-line="12" selection-start-column="57" selection-end-line="12" selection-end-column="57" />
+          <folding>
+            <element signature="e#386#419#0" expanded="false" />
+            <element signature="e#444#479#0" expanded="false" />
+            <element signature="e#505#540#0" expanded="false" />
+            <element signature="e#564#597#0" expanded="false" />
+            <element signature="e#622#662#0" expanded="false" />
+            <element signature="e#1215#1242#0" expanded="false" />
+            <element signature="e#1283#1306#0" expanded="false" />
+            <element signature="e#1411#1434#0" expanded="false" />
+            <element signature="e#1481#1504#0" expanded="false" />
+            <element signature="e#1728#1742#0" expanded="false" />
+            <element signature="e#1780#1797#0" expanded="false" />
+            <element signature="e#1893#1912#0" expanded="false" />
+            <element signature="e#2229#2256#0" expanded="false" />
+            <element signature="e#2297#2320#0" expanded="false" />
+            <element signature="e#2425#2448#0" expanded="false" />
+            <element signature="e#2495#2518#0" expanded="false" />
+            <element signature="e#2742#2756#0" expanded="false" />
+            <element signature="e#2794#2811#0" expanded="false" />
+            <element signature="e#2907#2926#0" expanded="false" />
+            <element signature="e#3242#3269#0" expanded="false" />
+            <element signature="e#3310#3333#0" expanded="false" />
+            <element signature="e#3438#3461#0" expanded="false" />
+            <element signature="e#3508#3531#0" expanded="false" />
+            <element signature="e#3739#3753#0" expanded="false" />
+            <element signature="e#3787#3804#0" expanded="false" />
+            <element signature="e#3892#3911#0" expanded="false" />
+            <element signature="e#4235#4262#0" expanded="false" />
+            <element signature="e#4303#4326#0" expanded="false" />
+            <element signature="e#4431#4454#0" expanded="false" />
+            <element signature="e#4501#4524#0" expanded="false" />
+            <element signature="e#4733#4747#0" expanded="false" />
+            <element signature="e#4781#4798#0" expanded="false" />
+            <element signature="e#4886#4905#0" expanded="false" />
+            <element signature="e#5222#5249#0" expanded="false" />
+            <element signature="e#5290#5313#0" expanded="false" />
+            <element signature="e#5418#5441#0" expanded="false" />
+            <element signature="e#5488#5511#0" expanded="false" />
+            <element signature="e#5719#5733#0" expanded="false" />
+            <element signature="e#5767#5784#0" expanded="false" />
+            <element signature="e#5872#5891#0" expanded="false" />
+            <element signature="e#6204#6231#0" expanded="false" />
+            <element signature="e#6272#6295#0" expanded="false" />
+            <element signature="e#6400#6423#0" expanded="false" />
+            <element signature="e#6470#6493#0" expanded="false" />
+            <element signature="e#6701#6715#0" expanded="false" />
+            <element signature="e#6749#6766#0" expanded="false" />
+            <element signature="e#6854#6873#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3164,18 +3257,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/adapter/MessagingAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="41" column="25" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
-          <folding>
-            <element signature="e#1435#1479#0" expanded="true" />
-            <element signature="e#1702#1750#0" expanded="true" />
-            <element signature="method#getItem#0;class#MessagingAdapter#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.android/spring-android-rest-template/1.0.1.RELEASE/a3f165f517617361739eeaf2e0e7dc1cf701cab8/spring-android-rest-template-1.0.1.RELEASE-sources.jar!/org/springframework/web/client/RestTemplate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-21">
@@ -3223,10 +3304,52 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/broadcasts/NetworkAvailable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5">
+          <caret line="63" column="49" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
+          <folding>
+            <element signature="docComment;method#sendMessageOnline#0;class#NetworkAvailable#0" expanded="false" />
+            <element signature="method#sendMessageOnline#0;class#NetworkAvailable#0" expanded="false" />
+            <element signature="method#onPostExecute#0;class#2368:4791" expanded="false" />
+            <element signature="method#isNetworkAvailable#0;class#NetworkAvailable#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MessagingActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2191">
+          <caret line="303" column="0" selection-start-line="303" selection-start-column="0" selection-end-line="303" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;method#startCameraCapture#0;class#MessagingActivity#0" expanded="false" />
+            <element signature="method#startCameraCapture#0;class#MessagingActivity#0" expanded="false" />
+            <element signature="docComment;method#requestPermission#0;class#MessagingActivity#0" expanded="false" />
+            <element signature="method#requestPermission#0;class#MessagingActivity#0" expanded="false" />
+            <element signature="method#getSupportParentActivityIntent#0;class#MessagingActivity#0" expanded="false" />
+            <element signature="method#onRequestPermissionsResult#0;class#MessagingActivity#0" expanded="false" />
+            <element signature="method#onActivityResult#0;class#MessagingActivity#0" expanded="false" />
+            <element signature="method#tryToSentDataOnline#0;class#MessagingActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/adapter/MessagingAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="41" column="25" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+          <folding>
+            <element signature="e#1435#1479#0" expanded="true" />
+            <element signature="e#1702#1750#0" expanded="true" />
+            <element signature="method#getItem#0;class#MessagingAdapter#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MyPositionActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="758" column="40" selection-start-line="758" selection-start-column="40" selection-end-line="758" selection-end-column="40" />
+        <state relative-caret-position="171">
+          <caret line="762" column="33" selection-start-line="762" selection-start-column="33" selection-end-line="762" selection-end-column="33" />
           <folding>
             <element signature="method#IsMatch#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#computeDistance#0;class#MyPositionActivity#0" expanded="false" />
@@ -3258,10 +3381,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+          <folding>
+            <element signature="e#109#339#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/SpeedMeterService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="479" column="40" selection-start-line="479" selection-start-column="40" selection-end-line="479" selection-end-column="40" />
+        <state relative-caret-position="-1413">
+          <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
           <folding>
             <element signature="docComment;method#onStartCommand#0;class#SpeedMeterService#0" expanded="false" />
             <element signature="method#onStartCommand#0;class#SpeedMeterService#0" expanded="false" />
@@ -3270,40 +3417,22 @@
             <element signature="method#showPersistentNotification#0;class#SpeedMeterService#0" expanded="false" />
             <element signature="method#showNotification#0;class#SpeedMeterService#0" expanded="false" />
             <element signature="method#hideNotification#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#pushSpeedOnline#0;class#SpeedMeterService#0" expanded="false" />
             <element signature="method#tryToSentDataOnline#0;class#SpeedMeterService#0" expanded="false" />
             <element signature="method#onDestroy#0;class#SpeedMeterService#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/broadcasts/NetworkAvailable.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="63" column="49" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
-          <folding>
-            <element signature="docComment;method#sendMessageOnline#0;class#NetworkAvailable#0" expanded="false" />
-            <element signature="method#sendMessageOnline#0;class#NetworkAvailable#0" expanded="false" />
-            <element signature="method#onPostExecute#0;class#2368:4791" expanded="false" />
-            <element signature="method#isNetworkAvailable#0;class#NetworkAvailable#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="2790">
+          <caret line="155" column="44" selection-start-line="155" selection-start-column="44" selection-end-line="155" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MessagingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2245">
-          <caret line="303" column="4" selection-start-line="303" selection-start-column="4" selection-end-line="303" selection-end-column="4" />
-          <folding>
-            <element signature="docComment;method#startCameraCapture#0;class#MessagingActivity#0" expanded="false" />
-            <element signature="method#startCameraCapture#0;class#MessagingActivity#0" expanded="false" />
-            <element signature="docComment;method#requestPermission#0;class#MessagingActivity#0" expanded="false" />
-            <element signature="method#requestPermission#0;class#MessagingActivity#0" expanded="false" />
-            <element signature="method#getSupportParentActivityIntent#0;class#MessagingActivity#0" expanded="false" />
-            <element signature="method#onRequestPermissionsResult#0;class#MessagingActivity#0" expanded="false" />
-            <element signature="method#onActivityResult#0;class#MessagingActivity#0" expanded="false" />
-            <element signature="method#tryToSentDataOnline#0;class#MessagingActivity#0" expanded="false" />
-          </folding>
-        </state>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
   </component>
