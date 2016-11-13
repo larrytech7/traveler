@@ -84,12 +84,12 @@
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-xxxhdpi/ic_info.png"
     },
     {
-        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_menu_mylocation.png",
-        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-xxxhdpi/ic_menu_mylocation.png"
-    },
-    {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/etoile_rouge.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-xxxhdpi/etoile_rouge.png"
+    },
+    {
+        "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_menu_mylocation.png",
+        "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/src/main/res/drawable-xxxhdpi/ic_menu_mylocation.png"
     },
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_trip_add.png",

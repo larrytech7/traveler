@@ -397,7 +397,7 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br/>Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br/> Version 4.7.5</string>
+    <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br/>Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br/> Version 4.7.10</string>
     <string name="about_title1">A propos</string>
     <string name="accept">Accept</string>
     <string name="account_created">Informations sauvegardees; Compte cree avec succes avec pour pseudonyme </string>
@@ -459,11 +459,16 @@
     <string name="departure">Ville de depart</string>
     <string name="description">Description</string>
     <string name="destination">Destination</string>
+    <string name="destination_exited">Vous quittez votre destination ?</string>
+    <string name="destination_exited_msg">Vous êtes sur le point de quitter votre destination. Merci de terminer ou d\'annuler le voyage en cours.</string>
+    <string name="destination_reached">Destination atteinte</string>
+    <string name="destination_reached_msg">Vous avez atteint votre destination ou vous en êtes proche. Merci de terminer le voyage.</string>
     <string name="duree_label" translatable="false">\? (hh)</string>
     <string name="echec_creation_compte_contact_serveur">Echec de l\'enregistrement sur le serveur. Merci de reessayer ulterieurement.</string>
     <string name="emergency_contact2">Numéro urgence 2</string>
     <string name="emergency_contact_1">Numéro d\'urgence 1 (*)</string>
     <string name="end_journey">Achever le Voyage</string>
+    <string name="end_marker_string">Arrivé</string>
     <string name="error_message_send">Echec de la sauvegarde du message. Nous retenterons l\'envoi plus tard.</string>
     <string name="error_occur_please_retry">Une erreur s\'est produite; veuillez reessayer svp</string>
     <string name="estimated_speed">Vitesse estimée</string>
@@ -531,12 +536,16 @@
     <string name="severecondition">En cas de saignement de la bouche ou de vomissements, tournez la personne vers son côté. Cela permettra de réduire le risque de suffocation. Placez le bras de la personne qui est sous lui en ligne droite et le bras le plus proche de vous sur sa poitrine.</string>
     <string name="situation">Choisissez la situation?</string>
     <string name="snap_image">Capturer une image</string>
-    <string formatted="false" name="speed_dimen">%s | Vitesse: %f Kmph</string>
+    <string formatted="false" name="speed_dimen">%s | Vitesse: %s Kmph</string>
     <string name="speed_limit_reached">Dépassement de la limite de vitesse reglementaire</string>
     <string name="speed_limit_reached_ago">Vous avez depasse la limite de vitesse autorisee</string>
     <string name="speed_limit_reached_msg">Vous venez de depasser la limite de vitesse reglementaire pour la zone ou vous vous trouvez (</string>
+    <string name="speed_overhead_marker_string">Origine de l\'excès de vitesse</string>
+    <string name="speed_overheading">" dépassements de vitesse"</string>
+    <string name="speed_overheading_marker_end_string">Fin de l\'excès de vitesse</string>
     <string name="spinalinjury">Si le cou de la personne est dans une position inconfortable (pas normalement placé) ou la personne est inconsciente, ne pas la déplacer. Obtenez de l\'aide immédiatement. Cela pourrait signifier que le cou de la personne est cassé. En décidant de la déplacer dans une telle situation, vous risquez lui causer plus de mal que de bien.</string>
     <string name="start_level" translatable="false">Level 1</string>
+    <string name="start_marker_string">Départ</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="store_picture_message">"Allow Ad to store image in Picture gallery?"</string>
     <string name="store_picture_title">Save image</string>
@@ -572,6 +581,7 @@
     <string name="town_6" translatable="false">Buea|4.1500128|9.2220345</string>
     <string name="transport_company">Quelle Compagnie?</string>
     <string name="travel_info">Informations sur le Voyage</string>
+    <string name="travelr_secure_your_trip">Travelr sécurise vos déplacements</string>
     <string name="trip_agency">Agence de Voyage</string>
     <string name="tryagain">Essayer encore</string>
     <string name="username">pseudonyme (*)</string>

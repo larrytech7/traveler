@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -22,6 +23,8 @@ import android.os.Message;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
@@ -46,8 +49,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cardiomood.android.controls.gauge.SpeedometerGauge;
+import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.Result;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.location.Geofence;
+import com.google.android.gms.location.GeofencingRequest;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -61,6 +71,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.satra.traveler.models.SpeedOverhead;
 import com.satra.traveler.models.Trip;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
@@ -78,7 +89,10 @@ import java.util.regex.Pattern;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 
-public class MyPositionActivity extends AppCompatActivity implements OnMapReadyCallback, LocationSource.OnLocationChangedListener {
+public class MyPositionActivity extends AppCompatActivity implements OnMapReadyCallback, LocationSource.OnLocationChangedListener
+        , GoogleApiClient.ConnectionCallbacks,
+        GoogleApiClient.OnConnectionFailedListener,
+        ResultCallback {
 
     private static final int RAYON_TERRE = 6366000;
     private static final int MAX_VITESSE_METRE_SECONDE = 0;
@@ -111,6 +125,11 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private ViewGroup infoWindow;
     private TextView infoSnippet;
     private GoogleMap.InfoWindowAdapter infoWindowAdapter;
+    private Geofence geofence;
+    private PendingIntent mGeofencePendingIntent;
+    private GoogleApiClient googleApiClient;
+    private static int accessFineLocationSituation = 1;
+    private int numberOfMapSettings = 0;
 
 
     private static HashMap<String, double[]> knownTown;
@@ -162,6 +181,9 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
         setContentView(R.layout.view_my_position);
 
         prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
@@ -169,6 +191,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+    //    getSupportActionBar().setLogo(R.drawable.ic_action_name);
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -219,7 +243,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
         //speed textview
         speedTextview = (TextView) navigationView.getHeaderView(0).findViewById(R.id.speedtext);
-        speedTextview.setText(getString(R.string.speed_dimen, prefs.getString(TConstants.PREF_MATRICULE, "OO000OO"), Float.parseFloat("0")));
+        speedTextview.setText(getString(R.string.speed_dimen, prefs.getString(TConstants.PREF_MATRICULE, "OO000OO"), Float.parseFloat("0")+""));
         //build speedometer
         mspeedometer = (SpeedometerGauge) navigationView.getHeaderView(0).findViewById(R.id.speedometer);
         setupSpeedometer(mspeedometer);
@@ -240,7 +264,6 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         }
 
 
-
         final Handler handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
@@ -259,7 +282,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             Tutility.round(speed / COEFF_CONVERSION_MS_KMH);
                     mspeedometer.setSpeed(mspeed);
                     //update the value on the speed label
-                    speedTextview.setText(getString(R.string.speed_dimen, prefs.getString(TConstants.PREF_MATRICULE, "OO000OO"), mspeed));
+                    speedTextview.setText(getString(R.string.speed_dimen, prefs.getString(TConstants.PREF_MATRICULE, "OO000OO"), mspeed+""));
                 }
             }
         };
@@ -324,6 +347,21 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 }
             }
         };
+
+        // create GoogleApiClient
+        createGoogleApi();
+    }
+
+    // Create GoogleApiClient instance
+    private void createGoogleApi() {
+        Log.d(TAG, "createGoogleApi()");
+        if (googleApiClient == null) {
+            googleApiClient = new GoogleApiClient.Builder(this)
+                    .addConnectionCallbacks(this)
+                    .addOnConnectionFailedListener(this)
+                    .addApi(LocationServices.API)
+                    .build();
+        }
     }
 
     @Override
@@ -335,10 +373,10 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         mapWrapperLayout.init(map, getPixelsFromDp(this, 39 + 20));
 
 
-
         // Enabling MyLocation in Google Map
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
+            accessFineLocationSituation = 1;
             requestPermission(android.Manifest.permission.ACCESS_FINE_LOCATION);
             return;
         }
@@ -350,7 +388,10 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         googleMap.setMyLocationEnabled(true);
         googleMap.setBuildingsEnabled(true);
 
-        setupCurrentTrip();
+        if(numberOfMapSettings==0&&googleApiClient.isConnected()){
+            setupCurrentTrip();
+            numberOfMapSettings=1;
+        }
     }
 
     private void requestPermission(String permission) {
@@ -370,20 +411,28 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
             // If request is cancelled, the result arrays are empty.
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ) {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+
                 return;
             }
+            if(accessFineLocationSituation==1) {
+                Intent intent = new Intent(this, SpeedMeterService.class);
 
-            Intent intent = new Intent(this, SpeedMeterService.class);
+                startService(intent);
 
-            startService(intent);
+                googleMap.setMyLocationEnabled(true);
+                googleMap.setBuildingsEnabled(true);
+            }
+            else if(accessFineLocationSituation==2){
+                LocationServices.GeofencingApi.addGeofences(
+                        googleApiClient,
+                        getGeofencingRequest(),
+                        getGeofencePendingIntent()
+                ).setResultCallback(this);
+            }
 
-            googleMap.setMyLocationEnabled(true);
-            googleMap.setBuildingsEnabled(true);
-
-        }
-
-        else if (requestCode == MainActivity.stringToInt(Manifest.permission.READ_CONTACTS)&&
+        } else if (requestCode == MainActivity.stringToInt(Manifest.permission.READ_CONTACTS) &&
                 grantResults.length > 0
                 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
@@ -397,9 +446,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     }
 
 
-
     //initiate the speedometer controls and set it up
-    public void setupSpeedometer(SpeedometerGauge mspeedometer){
+    public void setupSpeedometer(SpeedometerGauge mspeedometer) {
 
         // Add label converter
         mspeedometer.setLabelConverter(new SpeedometerGauge.LabelConverter() {
@@ -419,7 +467,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         mspeedometer.addColoredRange(140, 180, Color.YELLOW);
         mspeedometer.addColoredRange(180, 400, Color.RED);
         //set initial speed reading
-        mspeedometer.setSpeed(1,true);
+        mspeedometer.setSpeed(1, true);
     }
 
     @Override
@@ -496,16 +544,16 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             case NavigationItemListener.DIALOG_NEW_COMPLAINT:
                 alertDialog = (AlertDialog) dialog;
 
-                final Spinner problemType = (Spinner)alertDialog.findViewById(R.id.type_of_problem);
+                final Spinner problemType = (Spinner) alertDialog.findViewById(R.id.type_of_problem);
 
-                final  EditText busImmatriculation = (EditText)alertDialog.findViewById(R.id.bus_immatriculation);
-                final EditText problemDescription = (EditText)alertDialog.findViewById(R.id.problem_description);
+                final EditText busImmatriculation = (EditText) alertDialog.findViewById(R.id.bus_immatriculation);
+                final EditText problemDescription = (EditText) alertDialog.findViewById(R.id.problem_description);
 
                 FancyButton buttonSave = (FancyButton) alertDialog.findViewById(R.id.button_save);
-                problemPreview = (ImageButton)alertDialog.findViewById(R.id.problem_preview);
+                problemPreview = (ImageButton) alertDialog.findViewById(R.id.problem_preview);
 
-                final Spinner problemLevel = (Spinner)alertDialog.findViewById(R.id.problem_level);
-                final TextView problemLevelLabel = (TextView)alertDialog.findViewById(R.id.problem_level_label);
+                final Spinner problemLevel = (Spinner) alertDialog.findViewById(R.id.problem_level);
+                final TextView problemLevelLabel = (TextView) alertDialog.findViewById(R.id.problem_level_label);
 
 
                 problemPreview.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
@@ -516,20 +564,16 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                         menu.add(0, MENU_LOAD_IMAGE, 0, getString(R.string.load_image));
                         menu.add(0, MENU_SNAP_IMAGE, 0, getString(R.string.snap_image));
 
-                        menu.getItem(0).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener()
-                        {
-                            public boolean onMenuItemClick(MenuItem clickedItem)
-                            {
+                        menu.getItem(0).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                            public boolean onMenuItemClick(MenuItem clickedItem) {
                                 startActivityForResult(new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI), GET_FROM_GALLERY);
 
                                 return true;
                             }
                         });
 
-                        menu.getItem(1).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener()
-                        {
-                            public boolean onMenuItemClick(MenuItem clickedItem)
-                            {
+                        menu.getItem(1).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                            public boolean onMenuItemClick(MenuItem clickedItem) {
                                 Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                                 startActivityForResult(intent, SNAP_PICTURE);
                                 return true;
@@ -580,21 +624,21 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                     @Override
                     public void onClick(View v) {
 
-                        if(busImmatriculation.getText().toString().equals("")){
-                            Toast.makeText(getApplicationContext(), getString(R.string.provide_car_immatriculation_number)+" ...", Toast.LENGTH_LONG).show();
+                        if (busImmatriculation.getText().toString().equals("")) {
+                            Toast.makeText(getApplicationContext(), getString(R.string.provide_car_immatriculation_number) + " ...", Toast.LENGTH_LONG).show();
                             return;
                         }
 
-                        if(problemDescription.getVisibility()==View.VISIBLE && problemDescription.getText().toString().equals("")){
-                            Toast.makeText(getApplicationContext(), getString(R.string.provide_problem_description)+" ...", Toast.LENGTH_LONG).show();
+                        if (problemDescription.getVisibility() == View.VISIBLE && problemDescription.getText().toString().equals("")) {
+                            Toast.makeText(getApplicationContext(), getString(R.string.provide_problem_description) + " ...", Toast.LENGTH_LONG).show();
                             return;
                         }
 
-                        if(!IsMatch(busImmatriculation.getText().toString().toUpperCase(), getString(R.string.car_immatriculation_regex_patern))){
-                            Toast.makeText(getApplicationContext(), getString(R.string.incorrect_immatriculation_number)+"...", Toast.LENGTH_LONG).show();
+                        if (!IsMatch(busImmatriculation.getText().toString().toUpperCase(), getString(R.string.car_immatriculation_regex_patern))) {
+                            Toast.makeText(getApplicationContext(), getString(R.string.incorrect_immatriculation_number) + "...", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        Toast.makeText(getApplicationContext(), getString(R.string.problem_saved_successfull)+"... ", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), getString(R.string.problem_saved_successfull) + "... ", Toast.LENGTH_LONG).show();
 
                         alertDialog.dismiss();
                     }
@@ -613,8 +657,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
                 alertDialog = (AlertDialog) dialog;
 
-                ImageButton chooseContact = (ImageButton)alertDialog.findViewById(R.id.choose_contact);
-                final Spinner companyName = (Spinner)alertDialog.findViewById(R.id.company_name);
+                ImageButton chooseContact = (ImageButton) alertDialog.findViewById(R.id.choose_contact);
+                final Spinner companyName = (Spinner) alertDialog.findViewById(R.id.company_name);
                 fromSpinner = (Spinner) alertDialog.findViewById(R.id.departure);
                 destinationSpinner = (Spinner) alertDialog.findViewById(R.id.destination);
 
@@ -628,10 +672,10 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 mTrip.setAgency_name(getResources().getStringArray(R.array.compagnies_names)[0]);
 
 
-                final EditText busMatriculationNumber = (EditText)alertDialog.findViewById(R.id.matriculation_number_of_bus);
+                final EditText busMatriculationNumber = (EditText) alertDialog.findViewById(R.id.matriculation_number_of_bus);
                 //timeOfTravel = (EditText)alertDialog.findViewById(R.id.time_of_travel);
                 //final EditText travelDuration = (EditText)alertDialog.findViewById(R.id.journey_duration);
-                guardianPhoneNumber = (EditText)alertDialog.findViewById(R.id.guardian_phone_number);
+                guardianPhoneNumber = (EditText) alertDialog.findViewById(R.id.guardian_phone_number);
 
                 guardianPhoneNumber.setText(prefs
                         .getString(TConstants.PREF_EMERGENCY_CONTACT_1, ""));
@@ -651,8 +695,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                                 == PackageManager.PERMISSION_GRANTED) {
                             Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
                             startActivityForResult(intent, PICK_CONTACT);
-                        }
-                        else{
+                        } else {
                             requestPermission(android.Manifest.permission.READ_CONTACTS);
                         }
 
@@ -675,13 +718,12 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         ArrayAdapter<String> adapter = (ArrayAdapter<String>) parent.getAdapter();
-                        if(!adapter.getItem(position).equals(getString(R.string.place_list_option_choose))){
+                        if (!adapter.getItem(position).equals(getString(R.string.place_list_option_choose))) {
                             mTrip.setDeparture(adapter.getItem(position));
                             mTrip.setDepartureLatitude(knownTown.get(adapter.getItem(position))[0]);
                             mTrip.setDepartureLongitude(knownTown.get(adapter.getItem(position))[1]);
 
-                        }
-                        else{
+                        } else {
                             //open place chooser
 
                             PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
@@ -705,12 +747,11 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         ArrayAdapter<String> adapter = (ArrayAdapter<String>) parent.getAdapter();
 
-                        if(!adapter.getItem(position).equals(getString(R.string.place_list_option_choose))){
+                        if (!adapter.getItem(position).equals(getString(R.string.place_list_option_choose))) {
                             mTrip.setDestination(adapter.getItem(position));
                             mTrip.setDestinationLatitude(knownTown.get(adapter.getItem(position))[0]);
                             mTrip.setDestinationLongitude(knownTown.get(adapter.getItem(position))[1]);
-                        }
-                        else{
+                        } else {
                             //open place chooser
 
                             PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
@@ -734,13 +775,13 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
                     @Override
                     public void onClick(View v) {
-                        if(busMatriculationNumber.getText().toString().isEmpty()||guardianPhoneNumber.getText().toString().isEmpty()){
+                        if (busMatriculationNumber.getText().toString().isEmpty() || guardianPhoneNumber.getText().toString().isEmpty()) {
                             Toast.makeText(getApplicationContext(), getString(R.string.provide_all_fields), Toast.LENGTH_LONG).show();
                             return;
                         }
 
-                        if(!IsMatch(busMatriculationNumber.getText().toString().toUpperCase(), getString(R.string.car_immatriculation_regex_patern))){
-                            Log.e("regex: ", "pattern: "+getString(R.string.incorrect_immatriculation_number));
+                        if (!IsMatch(busMatriculationNumber.getText().toString().toUpperCase(), getString(R.string.car_immatriculation_regex_patern))) {
+                            Log.e("regex: ", "pattern: " + getString(R.string.incorrect_immatriculation_number));
                             Toast.makeText(getApplicationContext(), getString(R.string.incorrect_immatriculation_number), Toast.LENGTH_LONG).show();
                             return;
                         }
@@ -753,15 +794,15 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
                         alertDialog.dismiss();
                         long saveid = mTrip.save();
-                        if (saveid > 0){
+                        if (saveid > 0) {
                             Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_successfull), Toast.LENGTH_LONG).show();
                             setupCurrentTrip();
                             //save current trip matricule
                             prefs.edit().putString(TConstants.PREF_MATRICULE, mTrip.getBus_immatriculation()).apply();
                             //set new matricule on speedometer textview
-                            getString(R.string.speed_dimen, prefs.getString(TConstants.PREF_MATRICULE, "OO000OO"), Float.parseFloat("0"));
+                            getString(R.string.speed_dimen, prefs.getString(TConstants.PREF_MATRICULE, "OO000OO"), Float.parseFloat("0")+"");
 
-                        }else{
+                        } else {
                             Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_failed), Toast.LENGTH_LONG).show();
                         }
                         Log.d(TAG, mTrip.toString());
@@ -780,19 +821,19 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         }
     }
 
-    private void setToSpinner(){
+    private void setToSpinner() {
         List<String> listTo = new ArrayList<>();
-        listTo.add(0,prefs
+        listTo.add(0, prefs
                 .getString(TConstants.PREF_TO_1, getString(R.string.town_2)).split(Pattern.quote("|"))[0]);
-        listTo.add(1,prefs
+        listTo.add(1, prefs
                 .getString(TConstants.PREF_TO_2, getString(R.string.town_1)).split(Pattern.quote("|"))[0]);
-        listTo.add(2,prefs
+        listTo.add(2, prefs
                 .getString(TConstants.PREF_TO_3, getString(R.string.town_3)).split(Pattern.quote("|"))[0]);
-        listTo.add(3,prefs
+        listTo.add(3, prefs
                 .getString(TConstants.PREF_TO_4, getString(R.string.town_4)).split(Pattern.quote("|"))[0]);
-        listTo.add(4,prefs
+        listTo.add(4, prefs
                 .getString(TConstants.PREF_TO_5, getString(R.string.town_5)).split(Pattern.quote("|"))[0]);
-        listTo.add(5,prefs
+        listTo.add(5, prefs
                 .getString(TConstants.PREF_TO_6, getString(R.string.town_6)).split(Pattern.quote("|"))[0]);
         listTo.add(6, getString(R.string.place_list_option_choose));
 
@@ -810,19 +851,19 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     }
 
 
-    private void setFromSpinner(){
+    private void setFromSpinner() {
         List<String> listFrom = new ArrayList<>();
-        listFrom.add(0,prefs
+        listFrom.add(0, prefs
                 .getString(TConstants.PREF_FROM_1, getString(R.string.town_1)).split(Pattern.quote("|"))[0]);
-        listFrom.add(1,prefs
+        listFrom.add(1, prefs
                 .getString(TConstants.PREF_FROM_2, getString(R.string.town_2)).split(Pattern.quote("|"))[0]);
-        listFrom.add(2,prefs
+        listFrom.add(2, prefs
                 .getString(TConstants.PREF_FROM_3, getString(R.string.town_3)).split(Pattern.quote("|"))[0]);
-        listFrom.add(3,prefs
+        listFrom.add(3, prefs
                 .getString(TConstants.PREF_FROM_4, getString(R.string.town_4)).split(Pattern.quote("|"))[0]);
-        listFrom.add(4,prefs
+        listFrom.add(4, prefs
                 .getString(TConstants.PREF_FROM_5, getString(R.string.town_5)).split(Pattern.quote("|"))[0]);
-        listFrom.add(5,prefs
+        listFrom.add(5, prefs
                 .getString(TConstants.PREF_FROM_6, getString(R.string.town_6)).split(Pattern.quote("|"))[0]);
         listFrom.add(6, getString(R.string.place_list_option_choose));
 
@@ -839,33 +880,29 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     }
 
 
-
-    private void setupCurrentTrip(){
+    private void setupCurrentTrip() {
         Trip trip = null;
 
-            List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
-            //refresh layout by getting fresh view references and setting their values
+        List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
+        //refresh layout by getting fresh view references and setting their values
 
 
-
-            if (trips != null && trips.size() > 0) {
-                trip = trips.get(trips.size() - 1);
-            }
-
+        if (trips != null && trips.size() > 0) {
+            trip = trips.get(trips.size() - 1);
+        }
 
 
         //refresh layout by getting fresh view references and setting their values
 
 
-
-        if (trip!=null&&trip.getStatus()==0){
+        if (trip != null && trip.getStatus() == 0) {
             TextView departure = (TextView) findViewById(R.id.departureTextview);
             TextView arrival = (TextView) findViewById(R.id.destinationTextview);
             TextView agence = (TextView) findViewById(R.id.agencyTextView);
             TextView timedepart = (TextView) findViewById(R.id.timeDepartureTextview);
 
             departure.setText(getString(R.string.depart, trip.getDeparture()));
-            arrival.setText(getString(R.string.arrivee,trip.getDestination()));
+            arrival.setText(getString(R.string.arrivee, trip.getDestination()));
             agence.setText(trip.getAgency_name());
             setDrawableStatus(agence, trip.getStatus());
             timedepart.setText(getString(R.string.datedepart, trip.getDate_start()));
@@ -876,30 +913,115 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
             //positionnement des marqueurs et trace du trajet
 
-            LatLng from = new LatLng(trip.getDepartureLatitude(), trip.getDepartureLongitude());
-            LatLng to = new LatLng(trip.getDestinationLatitude(), trip.getDestinationLongitude());
+
+
+            LatLng from, to;
+            GetRouteTask getRoute1;
+
+
+            from = new LatLng(trip.getDepartureLatitude(), trip.getDepartureLongitude());
+            to = new LatLng(trip.getDestinationLatitude(), trip.getDestinationLongitude());
 
             builder.include(from);
             builder.include(to);
 
 
-            googleMap.addMarker(new MarkerOptions().position(from).title("Départ").snippet(trip.getDeparture()).icon(BitmapDescriptorFactory .fromResource(R.drawable.ic_marker_start)));
+            googleMap.addMarker(new MarkerOptions().position(from).title(getString(R.string.start_marker_string)).snippet(trip.getDeparture()).icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_marker_start)));
 
-            googleMap.addMarker(new MarkerOptions().position(to).title("Arrivé").snippet(trip.getDestination()).icon(BitmapDescriptorFactory .fromResource(R.drawable.ic_marker_end)));
+            googleMap.addMarker(new MarkerOptions().position(to).title(getString(R.string.end_marker_string)).snippet(trip.getDestination()).icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_marker_end)));
 
             googleMap.animateCamera(CameraUpdateFactory.newLatLngBounds(builder.build(), padding));
 
-            GetRouteTask getRoute1 = new GetRouteTask(MyPositionActivity.this, googleMap, from, to, Color.GREEN);
+            getRoute1 = new GetRouteTask(MyPositionActivity.this, googleMap, from, to, Color.GREEN);
 
-            try{
+            try {
                 getRoute1.execute();
-            }catch(Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
-                Toast.makeText(MyPositionActivity.this, getString(R.string.operation_failed_try_again_later),Toast.LENGTH_LONG).show();
+                Toast.makeText(MyPositionActivity.this, getString(R.string.operation_failed_try_again_later), Toast.LENGTH_LONG).show();
             }
 
 
+            // PRISE EN CHARGE DE L'AFFICHAGE DES DEPASSEMENTS DE VITESSE
+            for (SpeedOverhead so : SpeedOverhead.find(SpeedOverhead.class, "tripid = ?", "" + getCurrentTrip().getId())) {
+                from = new LatLng(so.getLatitude_start(), so.getLongitude_start());
+                to = new LatLng(so.getLatitude_end(), so.getLongitude_end());
+
+                builder.include(from);
+                builder.include(to);
+
+                googleMap.addMarker(new MarkerOptions().position(from).title(getString(R.string.speed_overhead_marker_string)).snippet(so.getDate_start() + " \n\n " + Tutility.round(so.getSpeed_start() * COEFF_CONVERSION_MS_KMH) + " KM/H").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_marker_speed_overhead)));
+
+                googleMap.addMarker(new MarkerOptions().position(to).title(getString(R.string.speed_overheading_marker_end_string)).snippet(so.getDate_end() + " \n\n " + Tutility.round(so.getSpeed_end() * COEFF_CONVERSION_MS_KMH) + " KM/H").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_marker_speed_overhead)));
+
+
+                getRoute1 = new GetRouteTask(MyPositionActivity.this, googleMap, from, to, Color.RED);
+
+                try {
+                    getRoute1.execute();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(MyPositionActivity.this, getString(R.string.operation_failed_try_again_later), Toast.LENGTH_LONG).show();
+                    break;
+                }
+
+
+            }
+
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngBounds(builder.build(), padding));
+
+
+            geofence = new Geofence.Builder()
+                    // Set the request ID of the geofence. This is a string to identify this
+                    // geofence.
+                    .setRequestId(trip.getId() + "")
+
+                    .setCircularRegion(
+                            trip.getDestinationLatitude(),
+                            trip.getDestinationLongitude(),
+                            TConstants.GEOFENCE_RADIUS_IN_METERS
+                    )
+                    .setExpirationDuration(TConstants.GEOFENCE_EXPIRATION_IN_MILLISECONDS)
+                    .setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER |
+                            Geofence.GEOFENCE_TRANSITION_EXIT|Geofence.GEOFENCE_TRANSITION_DWELL)
+                    .setLoiteringDelay (TConstants.GEOFENCE_DWELL_DELAY_IN_MILLISECONDS)
+                    .build();
+
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                accessFineLocationSituation = 2;
+                requestPermission(android.Manifest.permission.ACCESS_FINE_LOCATION);
+
+                return;
+            }
+            LocationServices.GeofencingApi.addGeofences(
+                    googleApiClient,
+                    getGeofencingRequest(),
+                    getGeofencePendingIntent()
+            ).setResultCallback(this);
+
+
         }
+    }
+
+    private GeofencingRequest getGeofencingRequest() {
+        GeofencingRequest.Builder builder = new GeofencingRequest.Builder();
+        builder.setInitialTrigger(Geofence.GEOFENCE_TRANSITION_ENTER);
+        builder.addGeofence(geofence);
+        return builder.build();
+    }
+
+    public PendingIntent getGeofencePendingIntent() {
+        // Reuse the PendingIntent if we already have it.
+        if (mGeofencePendingIntent != null) {
+            return mGeofencePendingIntent;
+        }
+        Intent intent = new Intent(this, GeofenceTransitionsIntentService.class);
+        // We use FLAG_UPDATE_CURRENT so that we get the same pending intent back when
+        // calling addGeofences() and removeGeofences().
+         mGeofencePendingIntent =  PendingIntent.getService(this, 0, intent, PendingIntent.
+                FLAG_UPDATE_CURRENT);
+
+        return mGeofencePendingIntent;
     }
 
     public static boolean  isCurrentTripExist(){
@@ -1086,6 +1208,39 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         super.onStart();
 
         drawer.openDrawer(GravityCompat.START);
+
+        googleApiClient.connect();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        // Disconnect GoogleApiClient when stopping Activity
+        googleApiClient.disconnect();
+    }
+
+    // GoogleApiClient.ConnectionCallbacks connected
+    @Override
+    public void onConnected(@Nullable Bundle bundle) {
+        Log.i(TAG, "onConnected()");
+
+        if(numberOfMapSettings==0){
+            setupCurrentTrip();
+            numberOfMapSettings=1;
+        }
+    }
+
+    // GoogleApiClient.ConnectionCallbacks suspended
+    @Override
+    public void onConnectionSuspended(int i) {
+        Log.w(TAG, "onConnectionSuspended()");
+    }
+
+    // GoogleApiClient.OnConnectionFailedListener fail
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+        Log.w(TAG, "onConnectionFailed()");
     }
 
     @Override
@@ -1108,5 +1263,14 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_myposition)));
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(userAddress));
         googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+    }
+
+    @Override
+    public void onResult(@NonNull Result result) {
+
+    }
+
+    public GoogleApiClient getGoogleApiClient() {
+        return googleApiClient;
     }
 }
