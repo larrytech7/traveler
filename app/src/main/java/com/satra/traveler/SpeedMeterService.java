@@ -471,7 +471,6 @@ public class SpeedMeterService extends Service {
                                 hasReachLimit = false;
                             }
                         }
-                        //TODO. Probleme du matricule irregulier peut provenir d'ici
                         SharedPreferences.Editor editor = context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0).edit();
                         editor.putString(MyPositionActivity.getCurrentTrip().getBus_immatriculation(), response.getMeta().getMatricule_id()+"");
 
