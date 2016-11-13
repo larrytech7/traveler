@@ -23,10 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b1f5ee-bd5f-48b6-b155-f9b84c9d9c04" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_done_one.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_done_one.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_done_one.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_done_one.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_done_one.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/SpeedMeterService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/SpeedMeterService.java" />
     </list>
     <ignored path="traveler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,6 +36,7 @@
     <ignored path="local.properties" />
     <ignored path="traveler.iml" />
     <ignored path="screenshots/" />
+    <ignored path="projectFilesBackup/.idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,11 +66,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MyPositionActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MyPositionActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MyPositionActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="821">
-              <caret line="909" column="21" selection-start-line="909" selection-start-column="21" selection-end-line="909" selection-end-column="21" />
+            <state relative-caret-position="119">
+              <caret line="889" column="0" selection-start-line="889" selection-start-column="0" selection-end-line="889" selection-end-column="0" />
               <folding>
                 <element signature="method#IsMatch#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="method#computeDistance#0;class#MyPositionActivity#0" expanded="false" />
@@ -85,7 +88,6 @@
                 <element signature="method#onNothingSelected#0;class#29317:30923" expanded="false" />
                 <element signature="method#setToSpinner#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="method#setFromSpinner#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="method#setupCurrentTrip#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="method#isCurrentTripExist#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="method#getCurrentTrip#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="method#getPixelsFromDp#0;class#MyPositionActivity#0" expanded="false" />
@@ -117,7 +119,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpeedMeterService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SpeedMeterService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/SpeedMeterService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="152">
@@ -2503,7 +2505,21 @@
       <option name="project" value="LOCAL" />
       <updated>1479026411681</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Fixed Matricule missing bug when synchronisation of user account happens">
+      <created>1479029257056</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1479029257056</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Fixed Matricule missing bug when synchronisation of user account happens">
+      <created>1479029675961</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1479029675961</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2517,12 +2533,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="25" width="1380" height="722" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5091384" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2536,7 +2552,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924694" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21391304" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -2576,7 +2592,8 @@
     <MESSAGE value="updated the app icon" />
     <MESSAGE value="Updated messagin UI for start screen" />
     <MESSAGE value="Updated messagin UI and UX. users can now know if the message was saved on server or still pending. Refactored code for sharing app preferences" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated messagin UI and UX. users can now know if the message was saved on server or still pending. Refactored code for sharing app preferences" />
+    <MESSAGE value="Fixed Matricule missing bug when synchronisation of user account happens" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Matricule missing bug when synchronisation of user account happens" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2644,7 +2661,6 @@
             <element signature="method#onNothingSelected#0;class#29317:30923" expanded="false" />
             <element signature="method#setToSpinner#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#setFromSpinner#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#setupCurrentTrip#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#isCurrentTripExist#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#getCurrentTrip#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#getPixelsFromDp#0;class#MyPositionActivity#0" expanded="false" />
@@ -2717,7 +2733,6 @@
             <element signature="method#onNothingSelected#0;class#29317:30923" expanded="false" />
             <element signature="method#setToSpinner#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#setFromSpinner#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#setupCurrentTrip#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#isCurrentTripExist#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#getCurrentTrip#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#getPixelsFromDp#0;class#MyPositionActivity#0" expanded="false" />
@@ -3218,40 +3233,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MyPositionActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="821">
-          <caret line="909" column="21" selection-start-line="909" selection-start-column="21" selection-end-line="909" selection-end-column="21" />
-          <folding>
-            <element signature="method#IsMatch#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#computeDistance#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#updateDateVoyage#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#addToknownTown#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="e#10926#11020#0" expanded="true" />
-            <element signature="class#12322:13279" expanded="false" />
-            <element signature="method#requestPermission#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#onRequestPermissionsResult#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#setupSpeedometer#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#onBackPressed#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#onCreateDialog#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#onNothingSelected#0;class#29317:30923" expanded="false" />
-            <element signature="method#setToSpinner#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#setFromSpinner#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#setupCurrentTrip#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#isCurrentTripExist#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#getCurrentTrip#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#getPixelsFromDp#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#setDrawableStatus#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#onActivityResult#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#onStart#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#onLocationChanged#0;class#MyPositionActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/VictimeTransportationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
@@ -3322,6 +3303,39 @@
             <element signature="method#hideNotification#0;class#SpeedMeterService#0" expanded="false" />
             <element signature="method#tryToSentDataOnline#0;class#SpeedMeterService#0" expanded="false" />
             <element signature="method#onDestroy#0;class#SpeedMeterService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MyPositionActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="889" column="0" selection-start-line="889" selection-start-column="0" selection-end-line="889" selection-end-column="0" />
+          <folding>
+            <element signature="method#IsMatch#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#computeDistance#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#updateDateVoyage#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#addToknownTown#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="e#10926#11020#0" expanded="true" />
+            <element signature="class#12322:13279" expanded="false" />
+            <element signature="method#requestPermission#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onRequestPermissionsResult#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#setupSpeedometer#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onBackPressed#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onCreateOptionsMenu#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onCreateDialog#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onNothingSelected#0;class#29317:30923" expanded="false" />
+            <element signature="method#setToSpinner#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#setFromSpinner#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#isCurrentTripExist#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#getCurrentTrip#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#getPixelsFromDp#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#setDrawableStatus#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onActivityResult#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onStart#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onDestroy#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onLocationChanged#0;class#MyPositionActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
