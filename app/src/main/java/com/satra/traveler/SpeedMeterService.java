@@ -436,7 +436,7 @@ public class SpeedMeterService extends Service {
                         }
 
                         trackingDataa = new TrackingData();
-                        trackingDataa.setTrackingMatricule(context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
+                        trackingDataa.setTrackingMatricule(context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE)
                                 .getString(TConstants.PREF_MAT_ID, "0"));
                         trackingDataa.setLatitude(location.getLatitude());
                         trackingDataa.setLongitude(location.getLongitude());
@@ -452,7 +452,6 @@ public class SpeedMeterService extends Service {
                         trackingData.delete();
 
                         SharedPreferences.Editor editor = context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0).edit();
-                        //TODO IndexOutOfBounds error ici quand la synchronisation ne s'effectue pas correctement
                         editor.putString(trackingData.getTrackingMatricule(), response.getMeta().getMatricule_id()+"");
 
                         editor.commit();
@@ -472,21 +471,13 @@ public class SpeedMeterService extends Service {
                                 hasReachLimit = false;
                             }
                         }
-
+                        //TODO. Probleme du matricule irregulier peut provenir d'ici
                         SharedPreferences.Editor editor = context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0).edit();
-                        //TODO IndexOutOfBounds error ici quand la synchronisation ne s'effectue pas correctement
                         editor.putString(MyPositionActivity.getCurrentTrip().getBus_immatriculation(), response.getMeta().getMatricule_id()+"");
 
                         editor.commit();
                     }
 
-                    /*
-                    * TODO 2 after TO DO 1
-                     * @author: STEVE
-                    * POST DES COUPLES VITESSE+POSITION SAUVEGARDES DANS LA BD LOCALE SUR LE SERVEUR EN LIGNE
-                    * Prete attention a comment j'ai defini les TODO ci, c'est une facon speciale de permettre a
-                    * ton editeur de code de reconaitre automatiquement tout les points dans les fichiers marque 'TODO'
-                     */
                     tryToSentDataOnline(context);
                 }
 

@@ -119,7 +119,6 @@ public class MainActivity extends Activity implements OnClickListener {
                             Toast.makeText(getApplicationContext(), R.string.mat_id_synchronization_success, Toast.LENGTH_LONG).show();
                             SharedPreferences prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0);
                             SharedPreferences.Editor editor = prefs.edit();
-                            //TODO IndexOutOfBounds error ici quand la synchronisation ne s'effectue pas correctement
                             editor.putString(TConstants.PREF_MAT_ID, response.getData()[0].getId());
                             editor.putString(TConstants.PREF_MATRICULE, !MyPositionActivity.IsMatch(response.getData()[0].getCode().toUpperCase(), getString(R.string.car_immatriculation_regex_patern))?"":response.getData()[0].getCode());
                             editor.putString(TConstants.PREF_USERNAME, response.getData()[0].getUsername());

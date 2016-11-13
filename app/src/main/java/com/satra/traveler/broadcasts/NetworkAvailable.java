@@ -32,10 +32,7 @@ public class NetworkAvailable extends BroadcastReceiver {
         // Network changed. If connected and data not synced, retrieve trips the user created and sync with online data sources
         if (intent.getAction().equalsIgnoreCase("android.net.conn.CONNECTIVITY_CHANGE"))
         if (isNetworkAvailable(context)){
-            /**
-             * @Author Larry A.
-             * TODO Synchroniser ls donnes (speed, messages) non synchroniser en ligne des que la connexion redevient disponbile
-             */
+
             Log.d("Network available", "Connected");
             //send speeding data online
             SpeedMeterService.tryToSentDataOnline(context);
