@@ -16,7 +16,11 @@
         android:id="@+id/messageRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"/><!-- default: 1-->
+        android:layout_weight="1"
+        app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
+        app:layoutManager="LinearLayoutManager"
+        tools:context="com.satra.traveler.MessagingActivity"
+        tools:listitem="@layout/item_message_layout"/><!-- default: 1-->
     <ImageView
         android:visibility="gone"
         android:layout_gravity="center"
@@ -49,7 +53,7 @@
                 android:id="@+id/buttonCaptureImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
+                android:layout_gravity="end"
                 android:paddingBottom="4dp"
                 android:paddingLeft="1dp"
                 android:paddingRight="1dp"

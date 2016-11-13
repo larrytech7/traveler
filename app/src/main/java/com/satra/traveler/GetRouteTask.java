@@ -1,8 +1,4 @@
 package com.satra.traveler;
-import java.util.ArrayList;
-
-import org.w3c.dom.Document;
-
 import android.content.Context;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -11,6 +7,10 @@ import android.widget.Toast;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.PolylineOptions;
+
+import org.w3c.dom.Document;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -90,7 +90,6 @@ public class GetRouteTask extends AsyncTask<String, Void, String> {
 
 
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 				affiche(context.getString(R.string.operation_failed_try_again_later));		}
 

@@ -3,6 +3,7 @@ package com.satra.traveler.broadcasts;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -23,16 +24,15 @@ import org.springframework.web.client.RestTemplate;
 
 public class NetworkAvailable extends BroadcastReceiver {
     private boolean isConnected = false;
+    private SharedPreferences sharedPreferences;
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        sharedPreferences = context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, Context.MODE_PRIVATE);
         // Network changed. If connected and data not synced, retrieve trips the user created and sync with online data sources
         if (intent.getAction().equalsIgnoreCase("android.net.conn.CONNECTIVITY_CHANGE"))
         if (isNetworkAvailable(context)){
-            /**
-             * @Author Larry A.
-             * TODO Synchroniser ls donnes (speed, messages) non synchroniser en ligne des que la connexion redevient disponbile
-             */
+
             Log.d("Network available", "Connected");
             //send speeding data online
             SpeedMeterService.tryToSentDataOnline(context);
@@ -57,21 +57,21 @@ public class NetworkAvailable extends BroadcastReceiver {
             @Override
             protected ResponsStatusMsg doInBackground(Void... params) {
                 try {
-                    //TODO. Faudras gere aussi l'envoie de l'image capturer ci disponible. C'est un element non-facultatif
+                    //TODO. Faudras gerer aussi l'envoie de l'image capturer ci disponible. C'est un element non-facultatif
                     // HttpAuthentication httpAuthentication = new HttpBasicAuthentication("username", "password");
                     HttpHeaders requestHeaders = new HttpHeaders();
                     //Create the request body as a MultiValueMap
                     MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
-                    body.add(TConstants.POST_MESSAGE_PARAM_MESSAGE, content);
-                    body.add(TConstants.POST_MESSAGE_PARAM_MAT_ID, context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, Context.MODE_PRIVATE)
-                            .getString(TConstants.PREF_MAT_ID, "0"));
 
-                    body.add(TConstants.POST_MESSAGE_PARAM_MATRICULE, context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE,Context.MODE_PRIVATE)
-                            .getString(TConstants.PREF_MATRICULE, "0"));
-                    body.add(TConstants.POST_MESSAGE_PARAM_MSISDN, context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE,Context.MODE_PRIVATE)
-                            .getString(TConstants.PREF_PHONE, "0"));
-                    body.add(TConstants.POST_MESSAGE_PARAM_USERNAME, context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE,Context.MODE_PRIVATE)
-                            .getString(TConstants.PREF_USERNAME, "0"));
+                    body.add(TConstants.POST_MESSAGE_PARAM_MESSAGE, content);
+
+                    body.add(TConstants.POST_MESSAGE_PARAM_MAT_ID, sharedPreferences.getString(TConstants.PREF_MAT_ID, "0"));
+
+                    body.add(TConstants.POST_MESSAGE_PARAM_MATRICULE, sharedPreferences.getString(TConstants.PREF_MATRICULE, "0"));
+
+                    body.add(TConstants.POST_MESSAGE_PARAM_MSISDN, sharedPreferences.getString(TConstants.PREF_PHONE, "0"));
+
+                    body.add(TConstants.POST_MESSAGE_PARAM_USERNAME, sharedPreferences.getString(TConstants.PREF_USERNAME, "0"));
 
                     HttpEntity<?> httpEntity = new HttpEntity<Object>(body, requestHeaders);
                     RestTemplate restTemplate = new RestTemplate(true);

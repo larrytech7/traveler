@@ -63,7 +63,7 @@
     <string name="emergency_contact2">Second emergency contact </string>
     <string name="emergency_contact_1">First emergency contact (*) </string>
     <string name="end_journey">Finish journey</string>
-    <string name="end_marker_string">End</string>
+    <string name="end_marker_string">Arrived</string>
     <string name="error_message_send">Message saved offline</string>
     <string name="error_occur_please_retry">An error occurred; Please try again</string>
     <string name="estimated_speed">Estimated Speed</string>
@@ -87,6 +87,7 @@
     <string name="mat_id_synchronization_operation_failed">Failure of the synchronization process…</string>
     <string name="mat_id_synchronization_success">successful sync operation …</string>
     <string name="matriculation_number">Immatriculation of your Vehicle</string>
+    <string name="message_not_received">Saved locally. Will be synched when connectivity reestablishes</string>
     <string name="message_received">Message received. Our team is working on a response for you. Thank you for using Travelr</string>
     <string name="message_sent">Message sent</string>
     <string name="mettre_a_jour_parametres_voyage">Update travel details</string>
@@ -124,11 +125,11 @@
     <string name="speed_limit_reached">Exceeding the statutory speed limit</string>
     <string name="speed_limit_reached_ago">You have exceeded speed limit</string>
     <string name="speed_limit_reached_msg">You just passed the legal speed limit for the area where you are (</string>
-    <string name="speed_overhead_marker_string">Speed Overheading Origin</string>
-    <string name="speed_overheading">" speed overheading"</string>
-    <string name="speed_overheading_marker_end_string">Speed Overheading End</string>
+    <string name="speed_overhead_marker_string">Excess speed origin</string>
+    <string name="speed_overheading">Overspeeding</string>
+    <string name="speed_overheading_marker_end_string">End overspeeding</string>
     <string name="spinalinjury">If the person’s neck is in an awkward position (not normally placed) or the person is unconscious, do not move the patient. Get help immediately. This could mean that the person’s neck is broken, and moving him/her in such a situation can cause more harm than good.</string>
-    <string name="start_marker_string">Start</string>
+    <string name="start_marker_string">Departure</string>
     <string name="success_account_creation">account successfully saved on server</string>
     <string name="success_account_edition">Account identified. User\'s informations updated…</string>
     <string name="telephone_number_confirm_msg">" and with telephone number "</string>
@@ -154,7 +155,7 @@
     <string name="title_activity_victime_transportation">Victim Transportation</string>
     <string name="transport_company">Which Company?</string>
     <string name="travel_info">Trip information</string>
-    <string name="travelr_secure_your_trip">Travelr is securing your trips</string>
+    <string name="travelr_secure_your_trip">Traveler is securing your trip</string>
     <string name="trip_agency">Travel Agency</string>
     <string name="tryagain">Try again</string>
     <string name="username">username (*)</string>
