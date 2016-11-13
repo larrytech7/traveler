@@ -23,7 +23,7 @@
         <item>"Dammaged vehicle"</item>
         <item>"Other..."</item>
     </string-array>
-    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 4.7.5</string>
+    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 4.7.10</string>
     <string name="about_title1">About</string>
     <string name="account_created">Account created successfully with the username </string>
     <string name="aidvictim">Aid a victim</string>
@@ -55,10 +55,15 @@
     <string name="departure">Departure Town</string>
     <string name="description">Description</string>
     <string name="destination">Destination</string>
+    <string name="destination_exited">Are you leaving your destination ?</string>
+    <string name="destination_exited_msg">You are about to leave your destination. Thank you for completing or canceling the current trip.</string>
+    <string name="destination_reached">Destination reached</string>
+    <string name="destination_reached_msg">You have reached your destination or you are close to it. Thank you for finishing the trip.</string>
     <string name="echec_creation_compte_contact_serveur">Fail to contact server. Please retry later.</string>
     <string name="emergency_contact2">Second emergency contact </string>
     <string name="emergency_contact_1">First emergency contact (*) </string>
     <string name="end_journey">Finish journey</string>
+    <string name="end_marker_string">End</string>
     <string name="error_message_send">Message saved offline</string>
     <string name="error_occur_please_retry">An error occurred; Please try again</string>
     <string name="estimated_speed">Estimated Speed</string>
@@ -115,11 +120,15 @@
     <string name="severecondition">If there is bleeding from the mouth or the patient is vomiting, turn the person to his/her side. This will avoid any chances of the person choking. Place the person’s arm that is under him straight out and the arm closest to you across his chest.</string>
     <string name="situation">Choose the situation</string>
     <string name="snap_image">Snap a picture</string>
-    <string formatted="false" name="speed_dimen">%s | Speed: %f Kmph</string>
+    <string formatted="false" name="speed_dimen">%s | Speed: %s Kmph</string>
     <string name="speed_limit_reached">Exceeding the statutory speed limit</string>
     <string name="speed_limit_reached_ago">You have exceeded speed limit</string>
     <string name="speed_limit_reached_msg">You just passed the legal speed limit for the area where you are (</string>
+    <string name="speed_overhead_marker_string">Speed Overheading Origin</string>
+    <string name="speed_overheading">" speed overheading"</string>
+    <string name="speed_overheading_marker_end_string">Speed Overheading End</string>
     <string name="spinalinjury">If the person’s neck is in an awkward position (not normally placed) or the person is unconscious, do not move the patient. Get help immediately. This could mean that the person’s neck is broken, and moving him/her in such a situation can cause more harm than good.</string>
+    <string name="start_marker_string">Start</string>
     <string name="success_account_creation">account successfully saved on server</string>
     <string name="success_account_edition">Account identified. User\'s informations updated…</string>
     <string name="telephone_number_confirm_msg">" and with telephone number "</string>
@@ -145,6 +154,7 @@
     <string name="title_activity_victime_transportation">Victim Transportation</string>
     <string name="transport_company">Which Company?</string>
     <string name="travel_info">Trip information</string>
+    <string name="travelr_secure_your_trip">Travelr is securing your trips</string>
     <string name="trip_agency">Travel Agency</string>
     <string name="tryagain">Try again</string>
     <string name="username">username (*)</string>
