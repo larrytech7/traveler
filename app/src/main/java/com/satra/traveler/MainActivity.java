@@ -117,11 +117,11 @@ public class MainActivity extends Activity implements OnClickListener {
                     if(response!=null && response.getStatus()==200){
                         try {
                             Toast.makeText(getApplicationContext(), R.string.mat_id_synchronization_success, Toast.LENGTH_LONG).show();
-                            SharedPreferences prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0);
+                            SharedPreferences prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
                             SharedPreferences.Editor editor = prefs.edit();
-                            //TODO IndexOutOfBounds error ici quand la synchronisation ne s'effectue pas correctement
                             editor.putString(TConstants.PREF_MAT_ID, response.getData()[0].getId());
-                            editor.putString(TConstants.PREF_MATRICULE, !MyPositionActivity.IsMatch(response.getData()[0].getCode().toUpperCase(), getString(R.string.car_immatriculation_regex_patern))?"":response.getData()[0].getCode());
+                            //Pas besoin de mettre a jour le matricule de l'utilisateur etant donnes que ce paramtere est modifiable sur chaque voyage
+                            //editor.putString(TConstants.PREF_MATRICULE, !MyPositionActivity.IsMatch(response.getData()[0].getCode().toUpperCase(), getString(R.string.car_immatriculation_regex_patern))?"":response.getData()[0].getCode());
                             editor.putString(TConstants.PREF_USERNAME, response.getData()[0].getUsername());
                             editor.putString(TConstants.PREF_EMERGENCY_CONTACT_1, response.getData()[0].getEmergency_primary());
                             //sometimes there may not be a secondary emergency contact and this line without the error trap causes the app to fail

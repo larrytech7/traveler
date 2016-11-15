@@ -48,15 +48,19 @@ public class MessagingActivity extends AppCompatActivity {
     private static final String LOGTAG = MessagingActivity.class.getSimpleName();
     private static final int CAPTURE_IMAGE_MESSAGE = 100;
     EditText messageBox;
-    private static ImageView previewMessageImage;
+    private ImageView previewMessageImage;
 
     private Bitmap attachedImage;
-    private static MessagingAdapter messagingAdapter;
-    private static RecyclerView messageRecyclerView;
+    private MessagingAdapter messagingAdapter;
+    private  RecyclerView messageRecyclerView;
     private static ProgressDialog progress;
     private String clientMatricule;
     private String clientName;
+<<<<<<< HEAD
     SharedPreferences prefs;
+=======
+    private SharedPreferences sharedPreferences;
+>>>>>>> origin/master
 
 
     @Override
@@ -65,10 +69,17 @@ public class MessagingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_messaging);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+<<<<<<< HEAD
         prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
         //initialize sender variables
         clientMatricule = prefs.getString(TConstants.PREF_MATRICULE,"");
         clientName = prefs.getString(TConstants.PREF_USERNAME,"");
+=======
+        sharedPreferences = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
+        //initialize sender variables
+        clientMatricule = sharedPreferences.getString(TConstants.PREF_MATRICULE,"");
+        clientName = sharedPreferences.getString(TConstants.PREF_USERNAME,"");
+>>>>>>> origin/master
         previewMessageImage = (ImageView) findViewById(R.id.messageImageView);
         FancyButton buttonCaptureImage = (FancyButton) findViewById(R.id.buttonCaptureImage);
         buttonCaptureImage.setOnClickListener(new View.OnClickListener() {
@@ -121,7 +132,7 @@ public class MessagingActivity extends AppCompatActivity {
     }
 
 
-    private static void setupMessageList(Context context){
+    private void setupMessageList(Context context){
         messagingAdapter = new MessagingAdapter(context, Messages.listAll(Messages.class));
         messageRecyclerView.setAdapter(messagingAdapter);
     }
@@ -182,7 +193,9 @@ public class MessagingActivity extends AppCompatActivity {
                     HttpHeaders requestHeaders = new HttpHeaders();
                     //Create the request body as a MultiValueMap
                     MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
+
                     body.add(TConstants.POST_MESSAGE_PARAM_MESSAGE, message);
+<<<<<<< HEAD
                     body.add(TConstants.POST_MESSAGE_PARAM_MAT_ID, MyPositionActivity.isCurrentTripExist()?prefs
                             .getString(MyPositionActivity.getCurrentTrip().getBus_immatriculation(), prefs
                                     .getString(TConstants.PREF_MAT_ID, "0")):prefs
@@ -193,6 +206,16 @@ public class MessagingActivity extends AppCompatActivity {
                             .getString(TConstants.PREF_PHONE, "0"));
                     body.add(TConstants.POST_MESSAGE_PARAM_USERNAME, prefs
                             .getString(TConstants.PREF_USERNAME, "0"));
+=======
+
+                    body.add(TConstants.POST_MESSAGE_PARAM_MAT_ID, sharedPreferences.getString(TConstants.PREF_MAT_ID, "0"));
+
+                    body.add(TConstants.POST_MESSAGE_PARAM_MATRICULE, sharedPreferences.getString(TConstants.PREF_MATRICULE, "0"));
+
+                    body.add(TConstants.POST_MESSAGE_PARAM_MSISDN, sharedPreferences.getString(TConstants.PREF_PHONE, "0"));
+
+                    body.add(TConstants.POST_MESSAGE_PARAM_USERNAME, sharedPreferences.getString(TConstants.PREF_USERNAME, "0"));
+>>>>>>> origin/master
 
                     Log.e("body params", "body: "+body.toString());
 
@@ -304,7 +327,6 @@ public class MessagingActivity extends AppCompatActivity {
             }
         }.execute();
     }
-
 
     public void tryToSentDataOnline(Context context){
         Iterator<Messages> mMessages = Messages.find(Messages.class, "sent = ?", "0").iterator();

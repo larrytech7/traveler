@@ -162,15 +162,17 @@
     <string name="tip6">\u2022 Make sure the person has a pulse and is breathing on the way to the hospital. If he/she stops breathing, be prepared to start CPR or EAR in the vehicle.</string>
     <string name="aidvictim">Aid a victim</string>
     <string name="author_title" formatted="false">%s @%s</string>
-    <string name="start_marker_string">Start</string>
-    <string name="end_marker_string">End</string>
-    <string name="speed_overhead_marker_string">Speed Overheading Origin</string>
-    <string name="speed_overheading_marker_end_string">Speed Overheading End</string>
     <string name="destination_reached">Destination reached</string>
     <string name="destination_exited">Are you leaving your destination ?</string>
     <string name="destination_reached_msg">You have reached your destination or you are close to it. Thank you for finishing the trip.</string>
     <string name="destination_exited_msg">You are about to leave your destination. Thank you for completing or canceling the current trip.</string>
-    <string name="speed_overheading">" speed overheading"</string>
-    <string name="travelr_secure_your_trip">Travelr is securing your trips</string>
+    
+    <string name="end_marker_string">Arrived</string>
+    <string name="message_not_received">Saved locally. Will be synched when connectivity reestablishes</string>
+    <string name="speed_overhead_marker_string">Excess speed origin</string>
+    <string name="speed_overheading">Overspeeding</string>
+    <string name="speed_overheading_marker_end_string">End overspeeding</string>
+    <string name="start_marker_string">Departure</string>
+    <string name="travelr_secure_your_trip">Traveler is securing your trip</string>
 
 </resources>

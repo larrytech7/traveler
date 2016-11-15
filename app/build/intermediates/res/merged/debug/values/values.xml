@@ -497,7 +497,8 @@
     <string name="mat_id_synchronization_operation_failed">Echec de l\'opération de synchronisation…</string>
     <string name="mat_id_synchronization_success">opération de synchronisation réussie…</string>
     <string name="matriculation_number">Immatriculation de votre vehicule</string>
-    <string name="message_received">Message reçu. Notre equipe travaille en ce moment pour vous répondre. Merci d\'utiliser travelr.</string>
+    <string name="message_not_received">Sauvegarder en locale. Synchronisation en cours</string>
+    <string name="message_received">Message reçu. Notre equipe travail en ce moment pour vous répondre. Merci d\'utiliser travelr.</string>
     <string name="message_sent">Message envoyé</string>
     <string name="mettre_a_jour_parametres_voyage">MAJ. les détails du Voyage</string>
     <string name="movevictim">Déplacer une victime</string>

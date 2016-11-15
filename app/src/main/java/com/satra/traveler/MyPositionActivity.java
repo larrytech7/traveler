@@ -119,9 +119,9 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private static Trip mTrip;
     static int PLACE_PICKER_REQUEST_FROM = 2;
     static int PLACE_PICKER_REQUEST_TO = 3;
-    private static Spinner destinationSpinner;
-    private static Spinner fromSpinner;
-    static MapWrapperLayout mapWrapperLayout;
+    private  Spinner destinationSpinner;
+    private Spinner fromSpinner;
+     MapWrapperLayout mapWrapperLayout;
     private ViewGroup infoWindow;
     private TextView infoSnippet;
     private GoogleMap.InfoWindowAdapter infoWindowAdapter;
@@ -376,7 +376,6 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         // Enabling MyLocation in Google Map
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling requestPermission
             accessFineLocationSituation = 1;
             requestPermission(android.Manifest.permission.ACCESS_FINE_LOCATION);
             return;
@@ -732,7 +731,6 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             try {
                                 startActivityForResult(builder.build(MyPositionActivity.this), PLACE_PICKER_REQUEST_FROM);
                             } catch (GooglePlayServicesRepairableException | GooglePlayServicesNotAvailableException e) {
-                                // TODO Auto-generated catch block
                                 e.printStackTrace();
                                 Snackbar.make(fromSpinner, R.string.operation_failed_try_again_later, Snackbar.LENGTH_LONG)
                                         .show();
@@ -761,7 +759,6 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             try {
                                 startActivityForResult(builder.build(MyPositionActivity.this), PLACE_PICKER_REQUEST_TO);
                             } catch (GooglePlayServicesRepairableException | GooglePlayServicesNotAvailableException e) {
-                                // TODO Auto-generated catch block
                                 e.printStackTrace();
                                 Snackbar.make(destinationSpinner, R.string.operation_failed_try_again_later, Snackbar.LENGTH_LONG)
                                         .show();
