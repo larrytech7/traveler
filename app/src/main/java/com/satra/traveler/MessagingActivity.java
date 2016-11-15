@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
@@ -55,6 +56,7 @@ public class MessagingActivity extends AppCompatActivity {
     private static ProgressDialog progress;
     private String clientMatricule;
     private String clientName;
+    SharedPreferences prefs;
 
 
     @Override
@@ -63,11 +65,10 @@ public class MessagingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_messaging);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
         //initialize sender variables
-        clientMatricule = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE)
-                .getString(TConstants.PREF_MATRICULE,"");
-        clientName = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE)
-                .getString(TConstants.PREF_USERNAME,"");
+        clientMatricule = prefs.getString(TConstants.PREF_MATRICULE,"");
+        clientName = prefs.getString(TConstants.PREF_USERNAME,"");
         previewMessageImage = (ImageView) findViewById(R.id.messageImageView);
         FancyButton buttonCaptureImage = (FancyButton) findViewById(R.id.buttonCaptureImage);
         buttonCaptureImage.setOnClickListener(new View.OnClickListener() {
@@ -182,15 +183,18 @@ public class MessagingActivity extends AppCompatActivity {
                     //Create the request body as a MultiValueMap
                     MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
                     body.add(TConstants.POST_MESSAGE_PARAM_MESSAGE, message);
-                    body.add(TConstants.POST_MESSAGE_PARAM_MAT_ID, context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE,MODE_PRIVATE)
+                    body.add(TConstants.POST_MESSAGE_PARAM_MAT_ID, MyPositionActivity.isCurrentTripExist()?prefs
+                            .getString(MyPositionActivity.getCurrentTrip().getBus_immatriculation(), prefs
+                                    .getString(TConstants.PREF_MAT_ID, "0")):prefs
                             .getString(TConstants.PREF_MAT_ID, "0"));
 
-                    body.add(TConstants.POST_MESSAGE_PARAM_MATRICULE, context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE,MODE_PRIVATE)
-                            .getString(TConstants.PREF_MATRICULE, "0"));
-                    body.add(TConstants.POST_MESSAGE_PARAM_MSISDN, context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE,MODE_PRIVATE)
+                    body.add(TConstants.POST_MESSAGE_PARAM_MATRICULE, MyPositionActivity.isCurrentTripExist()?MyPositionActivity.getCurrentTrip().getBus_immatriculation():prefs.getString(TConstants.PREF_MATRICULE, "0"));
+                    body.add(TConstants.POST_MESSAGE_PARAM_MSISDN, prefs
                             .getString(TConstants.PREF_PHONE, "0"));
-                    body.add(TConstants.POST_MESSAGE_PARAM_USERNAME, context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE,MODE_PRIVATE)
+                    body.add(TConstants.POST_MESSAGE_PARAM_USERNAME, prefs
                             .getString(TConstants.PREF_USERNAME, "0"));
+
+                    Log.e("body params", "body: "+body.toString());
 
                     HttpEntity<?> httpEntity = new HttpEntity<Object>(body, requestHeaders);
                     RestTemplate restTemplate = new RestTemplate(true);
