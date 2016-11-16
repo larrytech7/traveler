@@ -59,4 +59,5 @@ dependencies {
     compile 'org.springframework.android:spring-android-rest-template:1.0.1.RELEASE'
 
 
+    compile 'org.jetbrains:annotations-java5:15.0'
 }

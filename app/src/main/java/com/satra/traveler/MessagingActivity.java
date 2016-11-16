@@ -56,11 +56,7 @@ public class MessagingActivity extends AppCompatActivity {
     private static ProgressDialog progress;
     private String clientMatricule;
     private String clientName;
-<<<<<<< HEAD
-    SharedPreferences prefs;
-=======
     private SharedPreferences sharedPreferences;
->>>>>>> origin/master
 
 
     @Override
@@ -69,17 +65,13 @@ public class MessagingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_messaging);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-<<<<<<< HEAD
-        prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
-        //initialize sender variables
-        clientMatricule = prefs.getString(TConstants.PREF_MATRICULE,"");
-        clientName = prefs.getString(TConstants.PREF_USERNAME,"");
-=======
+
         sharedPreferences = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
+
         //initialize sender variables
         clientMatricule = sharedPreferences.getString(TConstants.PREF_MATRICULE,"");
         clientName = sharedPreferences.getString(TConstants.PREF_USERNAME,"");
->>>>>>> origin/master
+
         previewMessageImage = (ImageView) findViewById(R.id.messageImageView);
         FancyButton buttonCaptureImage = (FancyButton) findViewById(R.id.buttonCaptureImage);
         buttonCaptureImage.setOnClickListener(new View.OnClickListener() {
@@ -195,27 +187,16 @@ public class MessagingActivity extends AppCompatActivity {
                     MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
 
                     body.add(TConstants.POST_MESSAGE_PARAM_MESSAGE, message);
-<<<<<<< HEAD
-                    body.add(TConstants.POST_MESSAGE_PARAM_MAT_ID, MyPositionActivity.isCurrentTripExist()?prefs
-                            .getString(MyPositionActivity.getCurrentTrip().getBus_immatriculation(), prefs
-                                    .getString(TConstants.PREF_MAT_ID, "0")):prefs
+                    body.add(TConstants.POST_MESSAGE_PARAM_MAT_ID, MyPositionActivity.isCurrentTripExist()?sharedPreferences
+                            .getString(MyPositionActivity.getCurrentTrip().getBus_immatriculation(), sharedPreferences
+                                    .getString(TConstants.PREF_MAT_ID, "0")):sharedPreferences
                             .getString(TConstants.PREF_MAT_ID, "0"));
 
-                    body.add(TConstants.POST_MESSAGE_PARAM_MATRICULE, MyPositionActivity.isCurrentTripExist()?MyPositionActivity.getCurrentTrip().getBus_immatriculation():prefs.getString(TConstants.PREF_MATRICULE, "0"));
-                    body.add(TConstants.POST_MESSAGE_PARAM_MSISDN, prefs
+                    body.add(TConstants.POST_MESSAGE_PARAM_MATRICULE, MyPositionActivity.isCurrentTripExist()?MyPositionActivity.getCurrentTrip().getBus_immatriculation():sharedPreferences.getString(TConstants.PREF_MATRICULE, "0"));
+                    body.add(TConstants.POST_MESSAGE_PARAM_MSISDN, sharedPreferences
                             .getString(TConstants.PREF_PHONE, "0"));
-                    body.add(TConstants.POST_MESSAGE_PARAM_USERNAME, prefs
+                    body.add(TConstants.POST_MESSAGE_PARAM_USERNAME, sharedPreferences
                             .getString(TConstants.PREF_USERNAME, "0"));
-=======
-
-                    body.add(TConstants.POST_MESSAGE_PARAM_MAT_ID, sharedPreferences.getString(TConstants.PREF_MAT_ID, "0"));
-
-                    body.add(TConstants.POST_MESSAGE_PARAM_MATRICULE, sharedPreferences.getString(TConstants.PREF_MATRICULE, "0"));
-
-                    body.add(TConstants.POST_MESSAGE_PARAM_MSISDN, sharedPreferences.getString(TConstants.PREF_PHONE, "0"));
-
-                    body.add(TConstants.POST_MESSAGE_PARAM_USERNAME, sharedPreferences.getString(TConstants.PREF_USERNAME, "0"));
->>>>>>> origin/master
 
                     Log.e("body params", "body: "+body.toString());
 
