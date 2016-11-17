@@ -186,6 +186,7 @@ public class MessagingActivity extends AppCompatActivity {
                     //Create the request body as a MultiValueMap
                     MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
 
+                    body.add(TConstants.POST_MESSAGE_PARAM_TIMESTAMP, System.currentTimeMillis()+"");
                     body.add(TConstants.POST_MESSAGE_PARAM_MESSAGE, message);
                     body.add(TConstants.POST_MESSAGE_PARAM_MAT_ID, MyPositionActivity.isCurrentTripExist()?sharedPreferences
                             .getString(MyPositionActivity.getCurrentTrip().getBus_immatriculation(), sharedPreferences
