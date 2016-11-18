@@ -380,8 +380,10 @@ public class SpeedMeterService extends Service {
     private static TrackingData trackingDataa;
     private static RestTemplate restTemplate;
     private static  SpeedOverhead so = null;
+
     private static void pushSpeedOnline(final Context context, final float vitesse, final Location location, final TrackingData trackingData) {
         new AsyncTask<Void, Void, ResponsStatusMsgMeta>(){
+            private long timestamp = System.currentTimeMillis();
             @Override
             protected ResponsStatusMsgMeta doInBackground(Void... params) {
                 try {
@@ -400,6 +402,7 @@ public class SpeedMeterService extends Service {
                     body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_MAT_ID, context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
                             .getString(MyPositionActivity.getCurrentTrip().getBus_immatriculation(), context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
                                     .getString(TConstants.PREF_MAT_ID, "0")));
+                    body.add(TConstants.POST_SPEED_POSTION_PARAM_TIMESTAMP, String.valueOf(trackingData == null? timestamp:trackingData.getTimestamp()));
 
 
                     if(restTemplate==null){
@@ -461,6 +464,7 @@ public class SpeedMeterService extends Service {
                         trackingDataa.setLongitude(location.getLongitude());
                         trackingDataa.setLocation(""); //je sais pas si c'est possible d'avoir le nom de l'endroit ou ces donnees ont ete recuperer
                         trackingDataa.setSpeed(vitesse);
+                        trackingDataa.setTimestamp(timestamp);
                         trackingDataa.save();
                     }
 
@@ -471,9 +475,7 @@ public class SpeedMeterService extends Service {
                         trackingData.delete();
 
                         SharedPreferences.Editor editor = context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0).edit();
-                        editor.putString(trackingData.getTrackingMatricule(), response.getMeta().getMatricule_id()+"");
-
-                        editor.commit();
+                        editor.putString(trackingData.getTrackingMatricule(), response.getMeta().getMatricule_id()+"").apply();
 
                     }
                     else{
@@ -504,10 +506,9 @@ public class SpeedMeterService extends Service {
                                 hasReachLimit = false;
                             }
                         }
-                        SharedPreferences.Editor editor = context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0).edit();
-                        editor.putString(MyPositionActivity.getCurrentTrip().getBus_immatriculation(), response.getMeta().getMatricule_id()+"");
-
-                        editor.commit();
+                        context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE)
+                                .edit().putString(MyPositionActivity.getCurrentTrip().getBus_immatriculation(), response.getMeta().getMatricule_id()+"")
+                                .apply();
                     }
 
                     tryToSentDataOnline(context);

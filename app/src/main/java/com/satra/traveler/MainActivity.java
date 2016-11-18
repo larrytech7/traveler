@@ -67,7 +67,7 @@ public class MainActivity extends Activity implements OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        final SharedPreferences sharedPreferences = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
 
         contact1EditText = (EditText) findViewById(R.id.emergencyContact1EditText);
         contact2EditText = (EditText) findViewById(R.id.emergencyContact2EditText);
@@ -77,8 +77,7 @@ public class MainActivity extends Activity implements OnClickListener {
         pickContactOne.setOnClickListener(this);
         pickContactTwo.setOnClickListener(this);
 
-        if(getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0).contains(TConstants.PREF_USERNAME)&&
-                getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0).contains(TConstants.PREF_PHONE)){
+        if(sharedPreferences.contains(TConstants.PREF_USERNAME)&& sharedPreferences.contains(TConstants.PREF_PHONE)){
 
             final ProgressDialog progress = new ProgressDialog(MainActivity.this);
             progress.setIcon(R.mipmap.ic_launcher);
@@ -117,11 +116,14 @@ public class MainActivity extends Activity implements OnClickListener {
                     if(response!=null && response.getStatus()==200){
                         try {
                             Toast.makeText(getApplicationContext(), R.string.mat_id_synchronization_success, Toast.LENGTH_LONG).show();
-                            SharedPreferences prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
-                            SharedPreferences.Editor editor = prefs.edit();
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
                             editor.putString(TConstants.PREF_MAT_ID, response.getData()[0].getId());
-                            //Pas besoin de mettre a jour le matricule de l'utilisateur etant donnes que ce paramtere est modifiable sur chaque voyage
-                            //editor.putString(TConstants.PREF_MATRICULE, !MyPositionActivity.IsMatch(response.getData()[0].getCode().toUpperCase(), getString(R.string.car_immatriculation_regex_patern))?"":response.getData()[0].getCode());
+                            String currentMatricule = sharedPreferences.getString(TConstants.PREF_MATRICULE, "");
+                            //Mettre a jour le matricule de l'utilisateur avec le matricule plus recement enregistrer par cet utilisateur
+                            editor.putString(TConstants.PREF_MATRICULE,
+                                    !MyPositionActivity.IsMatch(response.getData()[0].getCode().toUpperCase(),
+                                            getString(R.string.car_immatriculation_regex_patern))?
+                                            currentMatricule:response.getData()[0].getCode());
                             editor.putString(TConstants.PREF_USERNAME, response.getData()[0].getUsername());
                             editor.putString(TConstants.PREF_EMERGENCY_CONTACT_1, response.getData()[0].getEmergency_primary());
                             //sometimes there may not be a secondary emergency contact and this line without the error trap causes the app to fail
@@ -274,12 +276,12 @@ public class MainActivity extends Activity implements OnClickListener {
 
                                             SharedPreferences prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0);
                                             SharedPreferences.Editor editor = prefs.edit();
-                                            editor.putString(TConstants.PREF_USERNAME, usernameString);
-                                            editor.putString(TConstants.PREF_PHONE, telephoneString);
-                                            editor.putString(TConstants.PREF_MATRICULE, matriculeString.equalsIgnoreCase(getString(R.string.information_not_available_label))?"":matriculeString);
-                                            editor.putString(TConstants.PREF_EMERGENCY_CONTACT_1, contact1);
-                                            editor.putString(TConstants.PREF_EMERGENCY_CONTACT_2, contact2.equalsIgnoreCase(getString(R.string.information_not_available_label))?"":contact2);
-                                            editor.commit();
+                                            editor.putString(TConstants.PREF_USERNAME, usernameString)
+                                                    .putString(TConstants.PREF_PHONE, telephoneString)
+                                                    .putString(TConstants.PREF_MATRICULE, matriculeString.equalsIgnoreCase(getString(R.string.information_not_available_label))?"":matriculeString)
+                                                    .putString(TConstants.PREF_EMERGENCY_CONTACT_1, contact1)
+                                                    .putString(TConstants.PREF_EMERGENCY_CONTACT_2, contact2.equalsIgnoreCase(getString(R.string.information_not_available_label))?"":contact2)
+                                                    .apply();
 
                                             new AsyncTask<Void, Void, ResponsStatusMsgData>(){
                                                 @Override
@@ -313,10 +315,9 @@ public class MainActivity extends Activity implements OnClickListener {
                                                     if(response!=null && response.getStatus()==200){
                                                         Toast.makeText(getApplicationContext(), R.string.mat_id_synchronization_success, Toast.LENGTH_LONG).show();
 
-                                                        SharedPreferences prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0);
+                                                        SharedPreferences prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
                                                         SharedPreferences.Editor editor = prefs.edit();
-                                                        editor.putString(TConstants.PREF_MAT_ID, response.getData()[0].getId());
-                                                        editor.commit();
+                                                        editor.putString(TConstants.PREF_MAT_ID, response.getData()[0].getId()).apply();
 
                                                         progress.dismiss();
 
@@ -537,7 +538,7 @@ public class MainActivity extends Activity implements OnClickListener {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        //getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
