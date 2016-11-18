@@ -53,7 +53,6 @@ public class TConstants {
 
     public static final String POST_SPEED_POSTION_PARAM_TIMESTAMP = "timestamp";
     public static final String POST_MESSAGE_PARAM_TIMESTAMP="timestamp";
-
     public static final String POST_MESSAGE_URL="http://travelr.iceteck.com/index.php/home/matricule/message/add";
 
 
