@@ -50,10 +50,11 @@ public class TConstants {
     public static final String POST_MESSAGE_PARAM_MATRICULE="matricule";
     public static final String POST_MESSAGE_PARAM_USERNAME="username";
     public static final String POST_MESSAGE_PARAM_MESSAGE="message";
+    public static final String POST_SPEED_POSTION_PARAM_TIMESTAMP = "timestamp";
     public static final String POST_MESSAGE_URL="http://travelr.iceteck.com/index.php/home/matricule/message/add";
 
 
-    public static final int GEOFENCE_RADIUS_IN_METERS = 5000;
+    public static final int GEOFENCE_RADIUS_IN_METERS = 1000;
     public static final int GEOFENCE_EXPIRATION_IN_MILLISECONDS = 7*24*3600*1000;
     public static final int GEOFENCE_DWELL_DELAY_IN_MILLISECONDS = 30*60*1000;
 }

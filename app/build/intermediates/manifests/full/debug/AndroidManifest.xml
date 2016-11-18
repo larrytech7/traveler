@@ -65,7 +65,7 @@
             android:value="true" />
         <meta-data
             android:name="VERSION"
-            android:value="11" />
+            android:value="12" />
 
         <activity
             android:name="com.satra.traveler.MainActivity"

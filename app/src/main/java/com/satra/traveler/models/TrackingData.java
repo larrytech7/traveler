@@ -7,7 +7,7 @@ import com.orm.SugarRecord;
  */
 public class TrackingData extends SugarRecord{
 
-    private long id;
+    private long timestamp; //id of the data. Used to reprensent the timestamp for registering the data
     private String location;
     private double longitude;
     private double latitude;
@@ -23,6 +23,14 @@ public class TrackingData extends SugarRecord{
 
     public void setTrackingMatricule(String trackingMatricule) {
         this.trackingMatricule = trackingMatricule;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 
     public String getLocation() {

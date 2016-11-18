@@ -1,30 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b1f5ee-bd5f-48b6-b155-f9b84c9d9c04" name="Default" comment="Merge remote branch 'origin'&#10;&#10;Conflicts:&#10;&#9;.gradle/2.14.1/taskArtifacts/cache.properties.lock&#10;&#9;.gradle/2.14.1/taskArtifacts/fileHashes.bin&#10;&#9;.gradle/2.14.1/taskArtifacts/fileSnapshots.bin&#10;&#9;.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin&#10;&#9;.gradle/2.14.1/taskArtifacts/taskArtifacts.bin&#10;&#9;.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin&#10;&#9;.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock&#10;&#9;.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock&#10;&#9;.idea/workspace.xml&#10;&#9;app/build/intermediates/blame/res/debug/multi/values.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-hdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-mdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-xhdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-xxhdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-xxxhdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/layout.json&#10;&#9;app/build/intermediates/incremental/mergeDebugResources/merger.xml&#10;&#9;app/build/intermediates/res/merged/debug/mipmap-hdpi-v4/ic_launcher.png&#10;&#9;app/build/intermediates/res/merged/debug/mipmap-mdpi-v4/ic_launcher.png&#10;&#9;app/src/main/java/com/satra/traveler/MyPositionActivity.java&#10;&#9;app/src/main/res/values/strings.xml&#10;&#9;build/intermediates/dex-cache/cache.xml&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/ic_launcher-web_gen1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/ic_marker_speed_overhead-web.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_name.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_marker_speed_overhead.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_name.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_marker_speed_overhead.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_name.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_marker_speed_overhead.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_action_name.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_marker_speed_overhead.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_marker_speed_overhead.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_marker_speed_overhead.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_marker_speed_overhead.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_marker_speed_overhead.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_marker_speed_overhead.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_location_9_4_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/GeofenceTransitionsIntentService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/SpeedOverhead.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_old.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_old.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
@@ -34,186 +20,16 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app-release.apk" afterPath="$PROJECT_DIR$/app/app-release.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-hdpi-v4/ic_launcher.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-hdpi-v4/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-mdpi-v4/ic_launcher.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-mdpi-v4/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_23_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_23_2_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_2_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/cardview_v7_23_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/cardview_v7_23_2_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/design_23_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/design_23_2_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/gson_2_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/gson_2_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/jackson_annotations_2_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/jackson_annotations_2_3_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/jackson_core_2_3_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/jackson_core_2_3_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/jackson_core_asl_1_9_12.xml" afterPath="$PROJECT_DIR$/.idea/libraries/jackson_core_asl_1_9_12.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/jackson_databind_2_3_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/jackson_databind_2_3_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/jackson_mapper_asl_1_9_12.xml" afterPath="$PROJECT_DIR$/.idea/libraries/jackson_mapper_asl_1_9_12.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" afterPath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_2_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/spring_android_core_1_0_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/spring_android_core_1_0_1_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/spring_android_rest_template_1_0_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/spring_android_rest_template_1_0_1_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_2_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_23_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_23_2_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_23_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_23_2_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/satra/traveler/BuildConfig.java" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/satra/traveler/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-af.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-af.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-am.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-am.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ar.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ar.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-az-rAZ.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-az-rAZ.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-bg.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-bg.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-bn-rBD.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-bn-rBD.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ca.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ca.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-cs.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-cs.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-da.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-da.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-de.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-de.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-el.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-el.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-en-rAU.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-en-rAU.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-en-rGB.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-en-rGB.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-en-rIN.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-en-rIN.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-en.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-en.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-es-rUS.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-es-rUS.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-es.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-es.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-et-rEE.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-et-rEE.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-eu-rES.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-eu-rES.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-fa.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-fa.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-fi.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-fi.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-fr-rCA.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-fr-rCA.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-fr.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-fr.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-gl-rES.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-gl-rES.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-gu-rIN.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-gu-rIN.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-h320dp-v13.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-h320dp-v13.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-h720dp-v13.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-h720dp-v13.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-hdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-hdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-hi.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-hi.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-hr.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-hr.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-hu.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-hu.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-hy-rAM.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-hy-rAM.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-in.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-in.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-is-rIS.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-is-rIS.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-it.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-it.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-iw.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-iw.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ja.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ja.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ka-rGE.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ka-rGE.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-kk-rKZ.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-kk-rKZ.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-km-rKH.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-km-rKH.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-kn-rIN.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-kn-rIN.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ko.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ko.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ky-rKG.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ky-rKG.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-land.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-land.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-large-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-large-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ldltr-v21.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ldltr-v21.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-lo-rLA.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-lo-rLA.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-lt.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-lt.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-lv.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-lv.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-mk-rMK.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-mk-rMK.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ml-rIN.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ml-rIN.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-mn-rMN.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-mn-rMN.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-mr-rIN.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-mr-rIN.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ms-rMY.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ms-rMY.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-my-rMM.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-my-rMM.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-nb.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-nb.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ne-rNP.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ne-rNP.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-nl.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-nl.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-pa-rIN.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-pa-rIN.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-pl.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-pl.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-port.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-port.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-pt-rBR.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-pt-rBR.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-pt-rPT.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-pt-rPT.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-pt.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-pt.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ro.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ro.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ru.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ru.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-si-rLK.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-si-rLK.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-sk.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-sk.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-sl.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-sl.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-sq-rAL.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-sq-rAL.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-sr.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-sr.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-sv.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-sv.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-sw.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-sw.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-sw600dp-v13.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-sw600dp-v13.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ta-rIN.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ta-rIN.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-te-rIN.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-te-rIN.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-th.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-th.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-tl.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-tl.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-tr.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-tr.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-uk.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-uk.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ur-rPK.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-ur-rPK.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-uz-rUZ.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-uz-rUZ.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v11.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v11.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v12.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v12.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v14.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v14.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v17.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v17.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v18.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v18.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v21.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v21.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v22.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v22.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v23.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v23.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-vi.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-vi.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-w360dp-v13.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-w360dp-v13.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-w480dp-v13.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-w480dp-v13.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-w500dp-v13.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-w500dp-v13.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-w600dp-v13.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-w600dp-v13.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-w720dp-v13.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-w720dp-v13.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-w820dp-v13.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-w820dp-v13.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-xlarge-land-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-xlarge-land-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-xlarge-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-xlarge-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-zh-rCN.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-zh-rCN.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-zh-rHK.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-zh-rHK.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-zh-rTW.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-zh-rTW.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-zu.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-zu.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/anim.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/anim.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/color-v11.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/color-v11.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/color-v23.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/color-v23.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/color.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/color.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-hdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-hdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-ldrtl-hdpi-v17.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-ldrtl-hdpi-v17.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-ldrtl-mdpi-v17.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-ldrtl-mdpi-v17.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-ldrtl-xhdpi-v17.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-ldrtl-xhdpi-v17.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-ldrtl-xxhdpi-v17.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-ldrtl-xxhdpi-v17.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-ldrtl-xxxhdpi-v17.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-ldrtl-xxxhdpi-v17.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-mdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-mdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-tvdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-tvdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-v21.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-v21.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-v23.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-v23.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xhdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xhdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xxhdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xxhdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xxxhdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xxxhdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/layout-sw600dp-v13.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/layout-sw600dp-v13.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/layout.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/layout.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/menu.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/menu.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/mipmap-hdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/mipmap-hdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/mipmap-mdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/mipmap-mdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/mipmap-xhdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/mipmap-xhdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/mipmap-xxhdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/mipmap-xxhdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/mipmap-xxxhdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/mipmap-xxxhdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAssets/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values-en/values-en.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values-en/values-en.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MyPositionActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MyPositionActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/NavigationItemListener.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/NavigationItemListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/SpeedMeterService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/SpeedMeterService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/TrackingData.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/TrackingData.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/utils/TConstants.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/utils/TConstants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values-en/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-en/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
     </list>
+    <list id="d78bb084-dbcd-4d2c-8e2a-1b883f620460" name="Failed commit: Default" comment="Fixed conflicts" />
     <ignored path="traveler.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="build/" />
@@ -250,184 +66,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MyPositionActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MyPositionActivity.java">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="378" column="0" selection-start-line="378" selection-start-column="0" selection-end-line="378" selection-end-column="0" />
+            <state relative-caret-position="234">
+              <caret line="127" column="128" selection-start-line="127" selection-start-column="128" selection-end-line="127" selection-end-column="128" />
               <folding>
-                <element signature="method#IsMatch#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="method#computeDistance#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="method#updateDateVoyage#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="method#addToknownTown#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="e#6809#6810#0" expanded="true" />
-                <element signature="e#6842#6843#0" expanded="true" />
-                <element signature="method#onCreate#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="e#7443#7474#0" expanded="true" />
-                <element signature="e#7476#7508#0" expanded="true" />
-                <element signature="e#7974#8000#0" expanded="true" />
-                <element signature="e#8084#8110#0" expanded="true" />
-                <element signature="e#8194#8220#0" expanded="true" />
-                <element signature="e#8304#8330#0" expanded="true" />
-                <element signature="e#8414#8440#0" expanded="true" />
-                <element signature="e#8524#8550#0" expanded="true" />
-                <element signature="e#8633#8659#0" expanded="true" />
-                <element signature="e#8741#8767#0" expanded="true" />
-                <element signature="e#8849#8875#0" expanded="true" />
-                <element signature="e#8957#8983#0" expanded="true" />
-                <element signature="e#9065#9091#0" expanded="true" />
-                <element signature="e#9173#9199#0" expanded="true" />
-                <element signature="e#9713#9825#0" expanded="true" />
-                <element signature="e#10278#10307#0" expanded="true" />
-                <element signature="e#10348#10370#0" expanded="true" />
-                <element signature="e#10372#10686#0" expanded="true" />
-                <element signature="e#10685#10686#0" expanded="true" />
-                <element signature="e#10810#12038#0" expanded="true" />
-                <element signature="e#11897#11994#0" expanded="true" />
-                <element signature="e#12037#12038#0" expanded="true" />
-                <element signature="e#12118#12805#0" expanded="true" />
-                <element signature="e#12804#12805#0" expanded="true" />
-                <element signature="e#13403#13404#0" expanded="true" />
-                <element signature="e#13446#13447#0" expanded="true" />
-                <element signature="e#14098#14150#0" expanded="true" />
-                <element signature="method#createGoogleApi#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="method#requestPermission#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="method#onRequestPermissionsResult#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="method#setupSpeedometer#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="e#17926#18155#0" expanded="true" />
-                <element signature="e#18154#18155#0" expanded="true" />
-                <element signature="method#onBackPressed#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="method#onCreateOptionsMenu#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="method#onOptionsItemSelected#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="e#19390#19413#0" expanded="true" />
-                <element signature="e#19415#19436#0" expanded="true" />
-                <element signature="method#onCreateDialog#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="e#20064#20094#0" expanded="true" />
-                <element signature="e#20527#20551#0" expanded="true" />
-                <element signature="method#onPrepareDialog#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="e#21753#23160#0" expanded="true" />
-                <element signature="e#22051#22081#0" expanded="true" />
-                <element signature="e#22140#22170#0" expanded="true" />
-                <element signature="e#22241#22635#0" expanded="true" />
-                <element signature="e#22634#22635#0" expanded="true" />
-                <element signature="e#22706#23118#0" expanded="true" />
-                <element signature="e#23117#23118#0" expanded="true" />
-                <element signature="e#23159#23160#0" expanded="true" />
-                <element signature="e#23214#23419#0" expanded="true" />
-                <element signature="e#23418#23419#0" expanded="true" />
-                <element signature="e#24621#24653#0" expanded="true" />
-                <element signature="e#24900#26270#0" expanded="true" />
-                <element signature="e#25161#25215#0" expanded="true" />
-                <element signature="e#25520#25567#0" expanded="true" />
-                <element signature="e#25760#25812#0" expanded="true" />
-                <element signature="e#25885#25937#0" expanded="true" />
-                <element signature="e#26100#26145#0" expanded="true" />
-                <element signature="e#26269#26270#0" expanded="true" />
-                <element signature="e#26354#26549#0" expanded="true" />
-                <element signature="e#26548#26549#0" expanded="true" />
-                <element signature="e#28217#28909#0" expanded="true" />
-                <element signature="e#28908#28909#0" expanded="true" />
-                <element signature="e#29892#29936#0" expanded="true" />
-                <element signature="e#30792#30833#0" expanded="true" />
-                <element signature="e#31534#31578#0" expanded="true" />
-                <element signature="e#32444#32485#0" expanded="true" />
-                <element signature="e#32831#35216#0" expanded="true" />
-                <element signature="e#33148#33186#0" expanded="true" />
-                <element signature="e#33374#33426#0" expanded="true" />
-                <element signature="e#33490#33542#0" expanded="true" />
-                <element signature="e#33613#33665#0" expanded="true" />
-                <element signature="e#34413#34458#0" expanded="true" />
-                <element signature="e#34812#34924#0" expanded="true" />
-                <element signature="e#35028#35068#0" expanded="true" />
-                <element signature="e#35215#35216#0" expanded="true" />
-                <element signature="e#35268#35464#0" expanded="true" />
-                <element signature="e#35463#35464#0" expanded="true" />
-                <element signature="method#setToSpinner#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="e#35703#35729#0" expanded="true" />
-                <element signature="e#35839#35865#0" expanded="true" />
-                <element signature="e#35975#36001#0" expanded="true" />
-                <element signature="e#36111#36137#0" expanded="true" />
-                <element signature="e#36247#36273#0" expanded="true" />
-                <element signature="e#36383#36409#0" expanded="true" />
-                <element signature="e#36464#36508#0" expanded="true" />
-                <element signature="method#setFromSpinner#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="e#37217#37243#0" expanded="true" />
-                <element signature="e#37357#37383#0" expanded="true" />
-                <element signature="e#37497#37523#0" expanded="true" />
-                <element signature="e#37637#37663#0" expanded="true" />
-                <element signature="e#37777#37803#0" expanded="true" />
-                <element signature="e#37917#37943#0" expanded="true" />
-                <element signature="e#38000#38044#0" expanded="true" />
-                <element signature="method#setupCurrentTrip#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="e#39417#39464#0" expanded="true" />
-                <element signature="e#39495#39545#0" expanded="true" />
-                <element signature="e#39687#39739#0" expanded="true" />
-                <element signature="e#40334#40373#0" expanded="true" />
-                <element signature="e#40549#40586#0" expanded="true" />
-                <element signature="e#41078#41130#0" expanded="true" />
-                <element signature="e#41690#41738#0" expanded="true" />
-                <element signature="e#42009#42064#0" expanded="true" />
-                <element signature="e#42565#42617#0" expanded="true" />
-                <element signature="method#getGeofencingRequest#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="method#getGeofencePendingIntent#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="method#isCurrentTripExist#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="method#getCurrentTrip#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="method#getPixelsFromDp#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="method#setDrawableStatus#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="method#onActivityResult#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="e#49661#49705#0" expanded="true" />
-                <element signature="e#50358#50384#0" expanded="true" />
-                <element signature="e#50518#50544#0" expanded="true" />
-                <element signature="e#50678#50704#0" expanded="true" />
-                <element signature="e#50838#50864#0" expanded="true" />
-                <element signature="e#50998#51024#0" expanded="true" />
-                <element signature="e#52061#52087#0" expanded="true" />
-                <element signature="e#52217#52243#0" expanded="true" />
-                <element signature="e#52373#52399#0" expanded="true" />
-                <element signature="e#52529#52555#0" expanded="true" />
-                <element signature="e#52685#52711#0" expanded="true" />
-                <element signature="method#onStart#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="method#onStop#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="method#onConnected#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="method#onConnectionFailed#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="method#onDestroy#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="method#onLocationChanged#0;class#MyPositionActivity#0" expanded="false" />
-                <element signature="e#54709#54739#0" expanded="true" />
-                <element signature="method#onResult#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="e#5839#5891#0" expanded="true" />
+                <element signature="method#requestPermission#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#onRequestPermissionsResult#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#onCreateDialog#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#onPrepareDialog#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-540">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#471#788#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SpeedMeterService.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SpeedMeterService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/SpeedMeterService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3749">
-              <caret line="253" column="0" selection-start-line="253" selection-start-column="0" selection-end-line="253" selection-end-column="0" />
+            <state relative-caret-position="33">
+              <caret line="405" column="0" selection-start-line="405" selection-start-column="0" selection-end-line="405" selection-end-column="0" />
               <folding>
-                <element signature="e#6902#6942#0" expanded="true" />
-                <element signature="e#6980#7008#0" expanded="true" />
-                <element signature="e#7041#7074#0" expanded="true" />
-                <element signature="e#7106#7146#0" expanded="true" />
-                <element signature="e#8301#8329#0" expanded="true" />
-                <element signature="e#8362#8397#0" expanded="true" />
-                <element signature="e#9616#9661#0" expanded="true" />
-                <element signature="e#9662#9714#0" expanded="true" />
-                <element signature="e#9962#9998#0" expanded="true" />
-                <element signature="e#11256#11284#0" expanded="true" />
-                <element signature="e#11317#11360#0" expanded="true" />
+                <element signature="docComment;method#onStartCommand#0;class#SpeedMeterService#0" expanded="false" />
+                <element signature="method#onStartCommand#0;class#SpeedMeterService#0" expanded="false" />
+                <element signature="method#onBind#0;class#SpeedMeterService#0" expanded="false" />
+                <element signature="method#onCreate#0;class#SpeedMeterService#0" expanded="false" />
+                <element signature="method#start#0;class#SpeedMeterService#0" expanded="false" />
+                <element signature="class#4364:4979" expanded="false" />
+                <element signature="method#showAlertEnableGPS#0;class#SpeedMeterService#0" expanded="false" />
+                <element signature="method#showPersistentNotification#0;class#SpeedMeterService#0" expanded="false" />
+                <element signature="method#showNotification#0;class#SpeedMeterService#0" expanded="false" />
+                <element signature="method#hideNotification#0;class#SpeedMeterService#0" expanded="false" />
                 <element signature="method#tryToSentDataOnline#0;class#SpeedMeterService#0" expanded="false" />
                 <element signature="method#onDestroy#0;class#SpeedMeterService#0" expanded="false" />
               </folding>
@@ -435,11 +109,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GeofenceTransitionsIntentService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/GeofenceTransitionsIntentService.java">
+      <file leaf-file-name="TrackingData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/TrackingData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="288">
+              <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+              <folding>
+                <element signature="e#721#722#0" expanded="true" />
+                <element signature="e#769#770#0" expanded="true" />
+                <element signature="e#811#812#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="63" column="29" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
+              <folding>
+                <element signature="e#2581#3048#0" expanded="false" />
+                <element signature="e#3057#3315#0" expanded="false" />
+                <element signature="e#3325#3464#0" expanded="false" />
+                <element signature="e#3473#3610#0" expanded="false" />
+                <element signature="e#3685#3945#0" expanded="false" />
+                <element signature="e#3955#4139#0" expanded="false" />
+                <element signature="e#4148#4257#0" expanded="false" />
+                <element signature="e#4267#4566#0" expanded="false" />
+                <element signature="e#4575#4868#0" expanded="false" />
+                <element signature="e#4878#5291#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+          <provider editor-type-id="android-manifest">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TConstants.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/utils/TConstants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="172">
+              <caret line="52" column="80" selection-start-line="52" selection-start-column="80" selection-end-line="52" selection-end-column="80" />
               <folding />
             </state>
           </provider>
@@ -2155,14 +1867,18 @@
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/GeofenceTransitionsIntentService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MyPositionActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/utils/TConstants.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/TrackingData.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/SpeedMeterService.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-6" />
     <option name="y" value="25" />
-    <option name="width" value="1380" />
-    <option name="height" value="722" />
+    <option name="width" value="1368" />
+    <option name="height" value="718" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -2189,10 +1905,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2214,13 +1929,23 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+              <option name="myItemId" value="traveler" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="values" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="traveler" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2233,18 +1958,16 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="traveler" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemId" value="adapter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2263,7 +1986,11 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="device.picker.selection" value="TFJE08BNCOX9V61" />
   </component>
   <component name="RunManager" selected="Android App.app">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
@@ -2386,7 +2113,7 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="false" name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+    <configuration default="false" name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="app" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
@@ -2450,40 +2177,48 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="88b1f5ee-bd5f-48b6-b155-f9b84c9d9c04" name="Default" comment="Merge remote branch 'origin'&#10;&#10;Conflicts:&#10;&#9;.gradle/2.14.1/taskArtifacts/cache.properties.lock&#10;&#9;.gradle/2.14.1/taskArtifacts/fileHashes.bin&#10;&#9;.gradle/2.14.1/taskArtifacts/fileSnapshots.bin&#10;&#9;.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin&#10;&#9;.gradle/2.14.1/taskArtifacts/taskArtifacts.bin&#10;&#9;.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin&#10;&#9;.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock&#10;&#9;.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock&#10;&#9;.idea/workspace.xml&#10;&#9;app/build/intermediates/blame/res/debug/multi/values.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-hdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-mdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-xhdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-xxhdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-xxxhdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/layout.json&#10;&#9;app/build/intermediates/incremental/mergeDebugResources/merger.xml&#10;&#9;app/build/intermediates/res/merged/debug/mipmap-hdpi-v4/ic_launcher.png&#10;&#9;app/build/intermediates/res/merged/debug/mipmap-mdpi-v4/ic_launcher.png&#10;&#9;app/src/main/java/com/satra/traveler/MyPositionActivity.java&#10;&#9;app/src/main/res/values/strings.xml&#10;&#9;build/intermediates/dex-cache/cache.xml&#10;" />
+      <created>1479036053825</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1479036053825</updated>
+    </task>
     <servers />
   </component>
   <component name="TodoView" selected-index="4" />
   <component name="ToolWindowManager">
-    <frame x="-6" y="25" width="1380" height="722" extended-state="6" />
+    <frame x="0" y="25" width="1368" height="718" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30956522" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5091384" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21217391" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19864048" sideWeight="0.49086162" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30956522" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21391304" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19864048" sideWeight="0.49086162" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2491,13 +2226,27 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixed merge conflicts and resolved bugs" />
     <MESSAGE value="Merge remote branch 'origin'&#10;&#10;Conflicts:&#10;&#9;.gradle/2.14.1/taskArtifacts/cache.properties.lock&#10;&#9;.gradle/2.14.1/taskArtifacts/fileHashes.bin&#10;&#9;.gradle/2.14.1/taskArtifacts/fileSnapshots.bin&#10;&#9;.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin&#10;&#9;.gradle/2.14.1/taskArtifacts/taskArtifacts.bin&#10;&#9;.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin&#10;&#9;.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock&#10;&#9;.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock&#10;&#9;.idea/workspace.xml&#10;&#9;app/build/intermediates/blame/res/debug/multi/values.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-hdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-mdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-xhdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-xxhdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-xxxhdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/layout.json&#10;&#9;app/build/intermediates/incremental/mergeDebugResources/merger.xml&#10;&#9;app/build/intermediates/res/merged/debug/mipmap-hdpi-v4/ic_launcher.png&#10;&#9;app/build/intermediates/res/merged/debug/mipmap-mdpi-v4/ic_launcher.png&#10;&#9;app/src/main/java/com/satra/traveler/MyPositionActivity.java&#10;&#9;app/src/main/res/values/strings.xml&#10;&#9;build/intermediates/dex-cache/cache.xml&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote branch 'origin'&#10;&#10;Conflicts:&#10;&#9;.gradle/2.14.1/taskArtifacts/cache.properties.lock&#10;&#9;.gradle/2.14.1/taskArtifacts/fileHashes.bin&#10;&#9;.gradle/2.14.1/taskArtifacts/fileSnapshots.bin&#10;&#9;.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin&#10;&#9;.gradle/2.14.1/taskArtifacts/taskArtifacts.bin&#10;&#9;.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin&#10;&#9;.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock&#10;&#9;.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock&#10;&#9;.idea/workspace.xml&#10;&#9;app/build/intermediates/blame/res/debug/multi/values.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-hdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-mdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-xhdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-xxhdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-xxxhdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/layout.json&#10;&#9;app/build/intermediates/incremental/mergeDebugResources/merger.xml&#10;&#9;app/build/intermediates/res/merged/debug/mipmap-hdpi-v4/ic_launcher.png&#10;&#9;app/build/intermediates/res/merged/debug/mipmap-mdpi-v4/ic_launcher.png&#10;&#9;app/src/main/java/com/satra/traveler/MyPositionActivity.java&#10;&#9;app/src/main/res/values/strings.xml&#10;&#9;build/intermediates/dex-cache/cache.xml&#10;" />
+    <MESSAGE value="Fixed conflicts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed conflicts" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2514,36 +2263,28 @@
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/SpeedMeterService.java</url>
+          <line>411</line>
+          <properties />
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MainActivity.java</url>
+          <line>130</line>
+          <properties />
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="17" />
+      <option name="time" value="19" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MessagingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="80" column="41" selection-start-line="80" selection-start-column="41" selection-end-line="80" selection-end-column="41" />
-          <folding>
-            <element signature="docComment;method#startCameraCapture#0;class#MessagingActivity#0" expanded="false" />
-            <element signature="method#startCameraCapture#0;class#MessagingActivity#0" expanded="false" />
-            <element signature="docComment;method#requestPermission#0;class#MessagingActivity#0" expanded="false" />
-            <element signature="method#requestPermission#0;class#MessagingActivity#0" expanded="false" />
-            <element signature="method#getSupportParentActivityIntent#0;class#MessagingActivity#0" expanded="false" />
-            <element signature="method#onRequestPermissionsResult#0;class#MessagingActivity#0" expanded="false" />
-            <element signature="method#tryToSentDataOnline#0;class#MessagingActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/adapter/MessagingAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="57" column="72" selection-start-line="57" selection-start-column="72" selection-end-line="57" selection-end-column="72" />
-          <folding>
-            <element signature="e#1435#1479#0" expanded="false" />
-            <element signature="method#getItem#0;class#MessagingAdapter#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2551,11 +2292,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="64" column="47" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="47" />
-          <folding>
-            <element signature="e#1884#2408#0" expanded="false" />
-            <element signature="e#2417#2569#0" expanded="false" />
-            <element signature="e#2578#2980#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2568,114 +2304,17 @@
             <element signature="method#computeDistance#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#updateDateVoyage#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#addToknownTown#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="e#6809#6810#0" expanded="true" />
-            <element signature="e#6842#6843#0" expanded="true" />
             <element signature="method#onCreate#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="e#7443#7474#0" expanded="true" />
-            <element signature="e#7476#7508#0" expanded="true" />
-            <element signature="e#7974#8000#0" expanded="true" />
-            <element signature="e#8084#8110#0" expanded="true" />
-            <element signature="e#8194#8220#0" expanded="true" />
-            <element signature="e#8304#8330#0" expanded="true" />
-            <element signature="e#8414#8440#0" expanded="true" />
-            <element signature="e#8524#8550#0" expanded="true" />
-            <element signature="e#8633#8659#0" expanded="true" />
-            <element signature="e#8741#8767#0" expanded="true" />
-            <element signature="e#8849#8875#0" expanded="true" />
-            <element signature="e#8957#8983#0" expanded="true" />
-            <element signature="e#9065#9091#0" expanded="true" />
-            <element signature="e#9173#9199#0" expanded="true" />
-            <element signature="e#9713#9825#0" expanded="true" />
-            <element signature="e#10278#10307#0" expanded="true" />
-            <element signature="e#10348#10370#0" expanded="true" />
-            <element signature="e#10372#10686#0" expanded="true" />
-            <element signature="e#10685#10686#0" expanded="true" />
-            <element signature="e#10810#12038#0" expanded="true" />
-            <element signature="e#11897#11994#0" expanded="true" />
-            <element signature="e#12037#12038#0" expanded="true" />
-            <element signature="e#12118#12805#0" expanded="true" />
-            <element signature="e#12804#12805#0" expanded="true" />
-            <element signature="e#13403#13404#0" expanded="true" />
-            <element signature="e#13446#13447#0" expanded="true" />
-            <element signature="e#14098#14150#0" expanded="true" />
             <element signature="method#createGoogleApi#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#requestPermission#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#onRequestPermissionsResult#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#setupSpeedometer#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="e#17926#18155#0" expanded="true" />
-            <element signature="e#18154#18155#0" expanded="true" />
             <element signature="method#onBackPressed#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#onCreateOptionsMenu#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#onOptionsItemSelected#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="e#19390#19413#0" expanded="true" />
-            <element signature="e#19415#19436#0" expanded="true" />
             <element signature="method#onCreateDialog#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="e#20064#20094#0" expanded="true" />
-            <element signature="e#20527#20551#0" expanded="true" />
-            <element signature="method#onPrepareDialog#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="e#21753#23160#0" expanded="true" />
-            <element signature="e#22051#22081#0" expanded="true" />
-            <element signature="e#22140#22170#0" expanded="true" />
-            <element signature="e#22241#22635#0" expanded="true" />
-            <element signature="e#22634#22635#0" expanded="true" />
-            <element signature="e#22706#23118#0" expanded="true" />
-            <element signature="e#23117#23118#0" expanded="true" />
-            <element signature="e#23159#23160#0" expanded="true" />
-            <element signature="e#23214#23419#0" expanded="true" />
-            <element signature="e#23418#23419#0" expanded="true" />
-            <element signature="e#24621#24653#0" expanded="true" />
-            <element signature="e#24900#26270#0" expanded="true" />
-            <element signature="e#25161#25215#0" expanded="true" />
-            <element signature="e#25520#25567#0" expanded="true" />
-            <element signature="e#25760#25812#0" expanded="true" />
-            <element signature="e#25885#25937#0" expanded="true" />
-            <element signature="e#26100#26145#0" expanded="true" />
-            <element signature="e#26269#26270#0" expanded="true" />
-            <element signature="e#26354#26549#0" expanded="true" />
-            <element signature="e#26548#26549#0" expanded="true" />
-            <element signature="e#28217#28909#0" expanded="true" />
-            <element signature="e#28908#28909#0" expanded="true" />
-            <element signature="e#29892#29936#0" expanded="true" />
-            <element signature="e#30792#30833#0" expanded="true" />
-            <element signature="e#31534#31578#0" expanded="true" />
-            <element signature="e#32444#32485#0" expanded="true" />
-            <element signature="e#32831#35216#0" expanded="true" />
-            <element signature="e#33148#33186#0" expanded="true" />
-            <element signature="e#33374#33426#0" expanded="true" />
-            <element signature="e#33490#33542#0" expanded="true" />
-            <element signature="e#33613#33665#0" expanded="true" />
-            <element signature="e#34413#34458#0" expanded="true" />
-            <element signature="e#34812#34924#0" expanded="true" />
-            <element signature="e#35028#35068#0" expanded="true" />
-            <element signature="e#35215#35216#0" expanded="true" />
-            <element signature="e#35268#35464#0" expanded="true" />
-            <element signature="e#35463#35464#0" expanded="true" />
             <element signature="method#setToSpinner#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="e#35703#35729#0" expanded="true" />
-            <element signature="e#35839#35865#0" expanded="true" />
-            <element signature="e#35975#36001#0" expanded="true" />
-            <element signature="e#36111#36137#0" expanded="true" />
-            <element signature="e#36247#36273#0" expanded="true" />
-            <element signature="e#36383#36409#0" expanded="true" />
-            <element signature="e#36464#36508#0" expanded="true" />
             <element signature="method#setFromSpinner#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="e#37217#37243#0" expanded="true" />
-            <element signature="e#37357#37383#0" expanded="true" />
-            <element signature="e#37497#37523#0" expanded="true" />
-            <element signature="e#37637#37663#0" expanded="true" />
-            <element signature="e#37777#37803#0" expanded="true" />
-            <element signature="e#37917#37943#0" expanded="true" />
-            <element signature="e#38000#38044#0" expanded="true" />
-            <element signature="method#setupCurrentTrip#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="e#39417#39464#0" expanded="true" />
-            <element signature="e#39495#39545#0" expanded="true" />
-            <element signature="e#39687#39739#0" expanded="true" />
-            <element signature="e#40334#40373#0" expanded="true" />
-            <element signature="e#40549#40586#0" expanded="true" />
-            <element signature="e#41078#41130#0" expanded="true" />
-            <element signature="e#41690#41738#0" expanded="true" />
-            <element signature="e#42009#42064#0" expanded="true" />
-            <element signature="e#42565#42617#0" expanded="true" />
             <element signature="method#getGeofencingRequest#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#getGeofencePendingIntent#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#isCurrentTripExist#0;class#MyPositionActivity#0" expanded="false" />
@@ -2683,24 +2322,12 @@
             <element signature="method#getPixelsFromDp#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#setDrawableStatus#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#onActivityResult#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="e#49661#49705#0" expanded="true" />
-            <element signature="e#50358#50384#0" expanded="true" />
-            <element signature="e#50518#50544#0" expanded="true" />
-            <element signature="e#50678#50704#0" expanded="true" />
-            <element signature="e#50838#50864#0" expanded="true" />
-            <element signature="e#50998#51024#0" expanded="true" />
-            <element signature="e#52061#52087#0" expanded="true" />
-            <element signature="e#52217#52243#0" expanded="true" />
-            <element signature="e#52373#52399#0" expanded="true" />
-            <element signature="e#52529#52555#0" expanded="true" />
-            <element signature="e#52685#52711#0" expanded="true" />
             <element signature="method#onStart#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#onStop#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#onConnected#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#onConnectionFailed#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#onDestroy#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#onLocationChanged#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="e#54709#54739#0" expanded="true" />
             <element signature="method#onResult#0;class#MyPositionActivity#0" expanded="false" />
           </folding>
         </state>
@@ -2727,9 +2354,16 @@
         <state relative-caret-position="0">
           <caret line="133" column="33" selection-start-line="133" selection-start-column="33" selection-end-line="133" selection-end-column="33" />
           <folding>
+            <element signature="e#2581#3048#0" expanded="false" />
+            <element signature="e#3057#3315#0" expanded="false" />
+            <element signature="e#3325#3464#0" expanded="false" />
             <element signature="e#3473#3610#0" expanded="false" />
             <element signature="e#3685#3945#0" expanded="false" />
             <element signature="e#3955#4139#0" expanded="false" />
+            <element signature="e#4148#4257#0" expanded="false" />
+            <element signature="e#4267#4566#0" expanded="false" />
+            <element signature="e#4575#4868#0" expanded="false" />
+            <element signature="e#4878#5291#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2759,7 +2393,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="23" column="48" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2767,7 +2400,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2775,115 +2407,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
-          <folding>
-            <element signature="e#386#419#0" expanded="false" />
-            <element signature="e#444#479#0" expanded="false" />
-            <element signature="e#505#540#0" expanded="false" />
-            <element signature="e#564#597#0" expanded="false" />
-            <element signature="e#622#662#0" expanded="false" />
-            <element signature="e#910#1146#0" expanded="false" />
-            <element signature="e#1042#1058#0" expanded="false" />
-            <element signature="e#1088#1106#0" expanded="false" />
-            <element signature="e#1391#1418#0" expanded="false" />
-            <element signature="e#1455#1478#0" expanded="false" />
-            <element signature="e#1575#1598#0" expanded="false" />
-            <element signature="e#1641#1664#0" expanded="false" />
-            <element signature="e#1852#1871#0" expanded="false" />
-            <element signature="e#1901#1918#0" expanded="false" />
-            <element signature="e#1998#2017#0" expanded="false" />
-            <element signature="e#2074#2309#0" expanded="false" />
-            <element signature="e#2206#2222#0" expanded="false" />
-            <element signature="e#2252#2270#0" expanded="false" />
-            <element signature="e#2554#2581#0" expanded="false" />
-            <element signature="e#2618#2641#0" expanded="false" />
-            <element signature="e#2738#2761#0" expanded="false" />
-            <element signature="e#2804#2827#0" expanded="false" />
-            <element signature="e#3015#3036#0" expanded="false" />
-            <element signature="e#3066#3083#0" expanded="false" />
-            <element signature="e#3163#3182#0" expanded="false" />
-            <element signature="e#3239#3474#0" expanded="false" />
-            <element signature="e#3371#3387#0" expanded="false" />
-            <element signature="e#3417#3435#0" expanded="false" />
-            <element signature="e#3719#3746#0" expanded="false" />
-            <element signature="e#3783#3806#0" expanded="false" />
-            <element signature="e#3903#3926#0" expanded="false" />
-            <element signature="e#3969#3992#0" expanded="false" />
-            <element signature="e#4180#4201#0" expanded="false" />
-            <element signature="e#4231#4248#0" expanded="false" />
-            <element signature="e#4328#4347#0" expanded="false" />
-            <element signature="e#4536#4552#0" expanded="false" />
-            <element signature="e#4582#4600#0" expanded="false" />
-            <element signature="e#4884#4911#0" expanded="false" />
-            <element signature="e#4948#4971#0" expanded="false" />
-            <element signature="e#5068#5091#0" expanded="false" />
-            <element signature="e#5134#5157#0" expanded="false" />
-            <element signature="e#5345#5363#0" expanded="false" />
-            <element signature="e#5393#5410#0" expanded="false" />
-            <element signature="e#5490#5509#0" expanded="false" />
-            <element signature="e#5698#5714#0" expanded="false" />
-            <element signature="e#5744#5762#0" expanded="false" />
-            <element signature="e#6046#6073#0" expanded="false" />
-            <element signature="e#6110#6133#0" expanded="false" />
-            <element signature="e#6230#6253#0" expanded="false" />
-            <element signature="e#6296#6319#0" expanded="false" />
-            <element signature="e#6507#6533#0" expanded="false" />
-            <element signature="e#6563#6580#0" expanded="false" />
-            <element signature="e#6660#6679#0" expanded="false" />
-            <element signature="e#6868#6884#0" expanded="false" />
-            <element signature="e#6914#6932#0" expanded="false" />
-            <element signature="e#7216#7243#0" expanded="false" />
-            <element signature="e#7280#7303#0" expanded="false" />
-            <element signature="e#7400#7423#0" expanded="false" />
-            <element signature="e#7466#7489#0" expanded="false" />
-            <element signature="e#7677#7697#0" expanded="false" />
-            <element signature="e#7727#7744#0" expanded="false" />
-            <element signature="e#7824#7843#0" expanded="false" />
-            <element signature="e#8032#8048#0" expanded="false" />
-            <element signature="e#8078#8096#0" expanded="false" />
-            <element signature="e#8380#8407#0" expanded="false" />
-            <element signature="e#8444#8467#0" expanded="false" />
-            <element signature="e#8564#8587#0" expanded="false" />
-            <element signature="e#8630#8653#0" expanded="false" />
-            <element signature="e#8841#8866#0" expanded="false" />
-            <element signature="e#8896#8913#0" expanded="false" />
-            <element signature="e#8993#9012#0" expanded="false" />
-            <element signature="e#9201#9217#0" expanded="false" />
-            <element signature="e#9247#9265#0" expanded="false" />
-            <element signature="e#9549#9576#0" expanded="false" />
-            <element signature="e#9613#9636#0" expanded="false" />
-            <element signature="e#9733#9756#0" expanded="false" />
-            <element signature="e#9799#9822#0" expanded="false" />
-            <element signature="e#10010#10030#0" expanded="false" />
-            <element signature="e#10060#10077#0" expanded="false" />
-            <element signature="e#10157#10176#0" expanded="false" />
-            <element signature="e#10365#10381#0" expanded="false" />
-            <element signature="e#10411#10429#0" expanded="false" />
-            <element signature="e#10713#10740#0" expanded="false" />
-            <element signature="e#10777#10800#0" expanded="false" />
-            <element signature="e#10897#10920#0" expanded="false" />
-            <element signature="e#10963#10986#0" expanded="false" />
-            <element signature="e#11174#11196#0" expanded="false" />
-            <element signature="e#11226#11243#0" expanded="false" />
-            <element signature="e#11323#11342#0" expanded="false" />
-            <element signature="e#11531#11548#0" expanded="false" />
-            <element signature="e#11578#11596#0" expanded="false" />
-            <element signature="e#11880#11907#0" expanded="false" />
-            <element signature="e#11944#11967#0" expanded="false" />
-            <element signature="e#12064#12087#0" expanded="false" />
-            <element signature="e#12130#12153#0" expanded="false" />
-            <element signature="e#12341#12359#0" expanded="false" />
-            <element signature="e#12389#12406#0" expanded="false" />
-            <element signature="e#12486#12505#0" expanded="false" />
-            <element signature="e#12694#12711#0" expanded="false" />
-            <element signature="e#12741#12759#0" expanded="false" />
-            <element signature="e#13043#13070#0" expanded="false" />
-            <element signature="e#13107#13130#0" expanded="false" />
-            <element signature="e#13227#13250#0" expanded="false" />
-            <element signature="e#13293#13316#0" expanded="false" />
-            <element signature="e#13504#13527#0" expanded="false" />
-            <element signature="e#13557#13574#0" expanded="false" />
-            <element signature="e#13654#13673#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2891,55 +2414,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="12" column="57" selection-start-line="12" selection-start-column="57" selection-end-line="12" selection-end-column="57" />
-          <folding>
-            <element signature="e#386#419#0" expanded="false" />
-            <element signature="e#444#479#0" expanded="false" />
-            <element signature="e#505#540#0" expanded="false" />
-            <element signature="e#564#597#0" expanded="false" />
-            <element signature="e#622#662#0" expanded="false" />
-            <element signature="e#1215#1242#0" expanded="false" />
-            <element signature="e#1283#1306#0" expanded="false" />
-            <element signature="e#1411#1434#0" expanded="false" />
-            <element signature="e#1481#1504#0" expanded="false" />
-            <element signature="e#1728#1742#0" expanded="false" />
-            <element signature="e#1780#1797#0" expanded="false" />
-            <element signature="e#1893#1912#0" expanded="false" />
-            <element signature="e#2229#2256#0" expanded="false" />
-            <element signature="e#2297#2320#0" expanded="false" />
-            <element signature="e#2425#2448#0" expanded="false" />
-            <element signature="e#2495#2518#0" expanded="false" />
-            <element signature="e#2742#2756#0" expanded="false" />
-            <element signature="e#2794#2811#0" expanded="false" />
-            <element signature="e#2907#2926#0" expanded="false" />
-            <element signature="e#3242#3269#0" expanded="false" />
-            <element signature="e#3310#3333#0" expanded="false" />
-            <element signature="e#3438#3461#0" expanded="false" />
-            <element signature="e#3508#3531#0" expanded="false" />
-            <element signature="e#3739#3753#0" expanded="false" />
-            <element signature="e#3787#3804#0" expanded="false" />
-            <element signature="e#3892#3911#0" expanded="false" />
-            <element signature="e#4235#4262#0" expanded="false" />
-            <element signature="e#4303#4326#0" expanded="false" />
-            <element signature="e#4431#4454#0" expanded="false" />
-            <element signature="e#4501#4524#0" expanded="false" />
-            <element signature="e#4733#4747#0" expanded="false" />
-            <element signature="e#4781#4798#0" expanded="false" />
-            <element signature="e#4886#4905#0" expanded="false" />
-            <element signature="e#5222#5249#0" expanded="false" />
-            <element signature="e#5290#5313#0" expanded="false" />
-            <element signature="e#5418#5441#0" expanded="false" />
-            <element signature="e#5488#5511#0" expanded="false" />
-            <element signature="e#5719#5733#0" expanded="false" />
-            <element signature="e#5767#5784#0" expanded="false" />
-            <element signature="e#5872#5891#0" expanded="false" />
-            <element signature="e#6204#6231#0" expanded="false" />
-            <element signature="e#6272#6295#0" expanded="false" />
-            <element signature="e#6400#6423#0" expanded="false" />
-            <element signature="e#6470#6493#0" expanded="false" />
-            <element signature="e#6701#6715#0" expanded="false" />
-            <element signature="e#6749#6766#0" expanded="false" />
-            <element signature="e#6854#6873#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2955,7 +2429,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2976,7 +2449,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2989,79 +2461,63 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-21">
           <caret line="168" column="11" selection-start-line="168" selection-start-column="11" selection-end-line="168" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_messaging.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="51" column="50" selection-start-line="51" selection-start-column="50" selection-end-line="51" selection-end-column="50" />
-          <folding>
-            <element signature="e#1899#2445#0" expanded="false" />
-            <element signature="e#2458#3509#0" expanded="false" />
-          </folding>
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_message_layout.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="e#1884#2408#0" expanded="false" />
-            <element signature="e#2417#2569#0" expanded="false" />
-            <element signature="e#2948#2978#0" expanded="true" />
-          </folding>
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/main.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
           <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
-          <folding>
-            <element signature="e#109#339#0" expanded="false" />
-          </folding>
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
-          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/settings.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3069,15 +2525,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/TrackingData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3085,18 +2532,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/adapter/MessagingAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-152">
-          <caret line="45" column="71" selection-start-line="45" selection-start-column="71" selection-end-line="45" selection-end-column="71" />
-          <folding>
-            <element signature="e#1435#1479#0" expanded="false" />
-            <element signature="method#getItem#0;class#MessagingAdapter#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3104,15 +2539,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1199">
           <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/Trip.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3120,14 +2546,110 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="android-dummy:///root/AndroidStudioProjects/TravelrPSG/traveler/app/Translations Editor">
+      <provider selected="true" editor-type-id="string-resource-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="373" column="0" selection-start-line="373" selection-start-column="0" selection-end-line="373" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-en/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2970">
+          <caret line="168" column="4" selection-start-line="168" selection-start-column="4" selection-end-line="168" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="202" column="68" selection-start-line="202" selection-start-column="68" selection-end-line="202" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-540">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/broadcasts/NetworkAvailable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="65" column="77" selection-start-line="65" selection-start-column="77" selection-end-line="65" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/GeofenceTransitionsIntentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/Trip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="983">
+          <caret line="83" column="18" selection-start-line="83" selection-start-column="18" selection-end-line="83" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/DataMatID.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/ResponsStatusMsgData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/NavigationItemListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="174" column="1" selection-start-line="174" selection-start-column="1" selection-end-line="174" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MessagingActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1523">
-          <caret line="279" column="22" selection-start-line="279" selection-start-column="22" selection-end-line="279" selection-end-column="22" />
+        <state relative-caret-position="631">
+          <caret line="190" column="0" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
           <folding>
             <element signature="docComment;method#startCameraCapture#0;class#MessagingActivity#0" expanded="false" />
             <element signature="method#startCameraCapture#0;class#MessagingActivity#0" expanded="false" />
@@ -3140,82 +2662,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/DataMatID.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MyPositionActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="58" column="18" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
+        <state relative-caret-position="388">
+          <caret line="981" column="48" selection-start-line="981" selection-start-column="48" selection-end-line="981" selection-end-column="48" />
           <folding>
-            <element signature="e#1318#1319#0" expanded="false" />
-            <element signature="e#1345#1346#0" expanded="false" />
+            <element signature="method#IsMatch#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#computeDistance#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#updateDateVoyage#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#addToknownTown#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onCreate#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#createGoogleApi#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#requestPermission#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onRequestPermissionsResult#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#setupSpeedometer#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onBackPressed#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onCreateOptionsMenu#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onCreateDialog#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#setToSpinner#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#setFromSpinner#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#getGeofencingRequest#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#getGeofencePendingIntent#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#isCurrentTripExist#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#getCurrentTrip#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#getPixelsFromDp#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#setDrawableStatus#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onActivityResult#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onStart#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onStop#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onConnected#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onConnectionFailed#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onDestroy#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onLocationChanged#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onResult#0;class#MyPositionActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="android-dummy:///root/AndroidStudioProjects/TravelrPSG/traveler/app/Translations Editor">
-      <provider selected="true" editor-type-id="string-resource-editor">
-        <state />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/adapter/MessagingAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="45" column="71" selection-start-line="45" selection-start-column="71" selection-end-line="45" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="127" column="128" selection-start-line="127" selection-start-column="128" selection-end-line="127" selection-end-column="128" />
+          <folding>
+            <element signature="e#5839#5891#0" expanded="true" />
+            <element signature="method#requestPermission#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onRequestPermissionsResult#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onCreateDialog#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onPrepareDialog#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/utils/TConstants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/local.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/NavigationItemListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="174" column="1" selection-start-line="174" selection-start-column="1" selection-end-line="174" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="373" column="0" selection-start-line="373" selection-start-column="0" selection-end-line="373" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-en/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2970">
-          <caret line="168" column="4" selection-start-line="168" selection-start-column="4" selection-end-line="168" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="202" column="68" selection-start-line="202" selection-start-column="68" selection-end-line="202" selection-end-column="68" />
+        <state relative-caret-position="172">
+          <caret line="52" column="80" selection-start-line="52" selection-start-column="80" selection-end-line="52" selection-end-column="80" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-67">
-          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        <state relative-caret-position="324">
+          <caret line="63" column="29" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
           <folding>
             <element signature="e#2581#3048#0" expanded="false" />
             <element signature="e#3057#3315#0" expanded="false" />
@@ -3234,218 +2756,35 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/TrackingData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-540">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="288">
+          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
           <folding>
-            <element signature="e#471#788#0" expanded="false" />
+            <element signature="e#721#722#0" expanded="true" />
+            <element signature="e#769#770#0" expanded="true" />
+            <element signature="e#811#812#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1303">
-          <caret line="124" column="40" selection-start-line="124" selection-start-column="40" selection-end-line="124" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/broadcasts/NetworkAvailable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="65" column="77" selection-start-line="65" selection-start-column="77" selection-end-line="65" selection-end-column="77" />
-          <folding>
-            <element signature="docComment;method#sendMessageOnline#0;class#NetworkAvailable#0" expanded="false" />
-            <element signature="method#sendMessageOnline#0;class#NetworkAvailable#0" expanded="false" />
-            <element signature="method#onPostExecute#0;class#2176:4599" expanded="false" />
-            <element signature="method#isNetworkAvailable#0;class#NetworkAvailable#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/SpeedMeterService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3749">
-          <caret line="253" column="0" selection-start-line="253" selection-start-column="0" selection-end-line="253" selection-end-column="0" />
+        <state relative-caret-position="33">
+          <caret line="405" column="0" selection-start-line="405" selection-start-column="0" selection-end-line="405" selection-end-column="0" />
           <folding>
-            <element signature="e#6902#6942#0" expanded="true" />
-            <element signature="e#6980#7008#0" expanded="true" />
-            <element signature="e#7041#7074#0" expanded="true" />
-            <element signature="e#7106#7146#0" expanded="true" />
-            <element signature="e#8301#8329#0" expanded="true" />
-            <element signature="e#8362#8397#0" expanded="true" />
-            <element signature="e#9616#9661#0" expanded="true" />
-            <element signature="e#9662#9714#0" expanded="true" />
-            <element signature="e#9962#9998#0" expanded="true" />
-            <element signature="e#11256#11284#0" expanded="true" />
-            <element signature="e#11317#11360#0" expanded="true" />
+            <element signature="docComment;method#onStartCommand#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#onStartCommand#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#onBind#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#onCreate#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#start#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="class#4364:4979" expanded="false" />
+            <element signature="method#showAlertEnableGPS#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#showPersistentNotification#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#showNotification#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#hideNotification#0;class#SpeedMeterService#0" expanded="false" />
             <element signature="method#tryToSentDataOnline#0;class#SpeedMeterService#0" expanded="false" />
             <element signature="method#onDestroy#0;class#SpeedMeterService#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/GeofenceTransitionsIntentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MyPositionActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="378" column="0" selection-start-line="378" selection-start-column="0" selection-end-line="378" selection-end-column="0" />
-          <folding>
-            <element signature="method#IsMatch#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#computeDistance#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#updateDateVoyage#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#addToknownTown#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="e#6809#6810#0" expanded="true" />
-            <element signature="e#6842#6843#0" expanded="true" />
-            <element signature="method#onCreate#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="e#7443#7474#0" expanded="true" />
-            <element signature="e#7476#7508#0" expanded="true" />
-            <element signature="e#7974#8000#0" expanded="true" />
-            <element signature="e#8084#8110#0" expanded="true" />
-            <element signature="e#8194#8220#0" expanded="true" />
-            <element signature="e#8304#8330#0" expanded="true" />
-            <element signature="e#8414#8440#0" expanded="true" />
-            <element signature="e#8524#8550#0" expanded="true" />
-            <element signature="e#8633#8659#0" expanded="true" />
-            <element signature="e#8741#8767#0" expanded="true" />
-            <element signature="e#8849#8875#0" expanded="true" />
-            <element signature="e#8957#8983#0" expanded="true" />
-            <element signature="e#9065#9091#0" expanded="true" />
-            <element signature="e#9173#9199#0" expanded="true" />
-            <element signature="e#9713#9825#0" expanded="true" />
-            <element signature="e#10278#10307#0" expanded="true" />
-            <element signature="e#10348#10370#0" expanded="true" />
-            <element signature="e#10372#10686#0" expanded="true" />
-            <element signature="e#10685#10686#0" expanded="true" />
-            <element signature="e#10810#12038#0" expanded="true" />
-            <element signature="e#11897#11994#0" expanded="true" />
-            <element signature="e#12037#12038#0" expanded="true" />
-            <element signature="e#12118#12805#0" expanded="true" />
-            <element signature="e#12804#12805#0" expanded="true" />
-            <element signature="e#13403#13404#0" expanded="true" />
-            <element signature="e#13446#13447#0" expanded="true" />
-            <element signature="e#14098#14150#0" expanded="true" />
-            <element signature="method#createGoogleApi#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#requestPermission#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#onRequestPermissionsResult#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#setupSpeedometer#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="e#17926#18155#0" expanded="true" />
-            <element signature="e#18154#18155#0" expanded="true" />
-            <element signature="method#onBackPressed#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="e#19390#19413#0" expanded="true" />
-            <element signature="e#19415#19436#0" expanded="true" />
-            <element signature="method#onCreateDialog#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="e#20064#20094#0" expanded="true" />
-            <element signature="e#20527#20551#0" expanded="true" />
-            <element signature="method#onPrepareDialog#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="e#21753#23160#0" expanded="true" />
-            <element signature="e#22051#22081#0" expanded="true" />
-            <element signature="e#22140#22170#0" expanded="true" />
-            <element signature="e#22241#22635#0" expanded="true" />
-            <element signature="e#22634#22635#0" expanded="true" />
-            <element signature="e#22706#23118#0" expanded="true" />
-            <element signature="e#23117#23118#0" expanded="true" />
-            <element signature="e#23159#23160#0" expanded="true" />
-            <element signature="e#23214#23419#0" expanded="true" />
-            <element signature="e#23418#23419#0" expanded="true" />
-            <element signature="e#24621#24653#0" expanded="true" />
-            <element signature="e#24900#26270#0" expanded="true" />
-            <element signature="e#25161#25215#0" expanded="true" />
-            <element signature="e#25520#25567#0" expanded="true" />
-            <element signature="e#25760#25812#0" expanded="true" />
-            <element signature="e#25885#25937#0" expanded="true" />
-            <element signature="e#26100#26145#0" expanded="true" />
-            <element signature="e#26269#26270#0" expanded="true" />
-            <element signature="e#26354#26549#0" expanded="true" />
-            <element signature="e#26548#26549#0" expanded="true" />
-            <element signature="e#28217#28909#0" expanded="true" />
-            <element signature="e#28908#28909#0" expanded="true" />
-            <element signature="e#29892#29936#0" expanded="true" />
-            <element signature="e#30792#30833#0" expanded="true" />
-            <element signature="e#31534#31578#0" expanded="true" />
-            <element signature="e#32444#32485#0" expanded="true" />
-            <element signature="e#32831#35216#0" expanded="true" />
-            <element signature="e#33148#33186#0" expanded="true" />
-            <element signature="e#33374#33426#0" expanded="true" />
-            <element signature="e#33490#33542#0" expanded="true" />
-            <element signature="e#33613#33665#0" expanded="true" />
-            <element signature="e#34413#34458#0" expanded="true" />
-            <element signature="e#34812#34924#0" expanded="true" />
-            <element signature="e#35028#35068#0" expanded="true" />
-            <element signature="e#35215#35216#0" expanded="true" />
-            <element signature="e#35268#35464#0" expanded="true" />
-            <element signature="e#35463#35464#0" expanded="true" />
-            <element signature="method#setToSpinner#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="e#35703#35729#0" expanded="true" />
-            <element signature="e#35839#35865#0" expanded="true" />
-            <element signature="e#35975#36001#0" expanded="true" />
-            <element signature="e#36111#36137#0" expanded="true" />
-            <element signature="e#36247#36273#0" expanded="true" />
-            <element signature="e#36383#36409#0" expanded="true" />
-            <element signature="e#36464#36508#0" expanded="true" />
-            <element signature="method#setFromSpinner#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="e#37217#37243#0" expanded="true" />
-            <element signature="e#37357#37383#0" expanded="true" />
-            <element signature="e#37497#37523#0" expanded="true" />
-            <element signature="e#37637#37663#0" expanded="true" />
-            <element signature="e#37777#37803#0" expanded="true" />
-            <element signature="e#37917#37943#0" expanded="true" />
-            <element signature="e#38000#38044#0" expanded="true" />
-            <element signature="method#setupCurrentTrip#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="e#39417#39464#0" expanded="true" />
-            <element signature="e#39495#39545#0" expanded="true" />
-            <element signature="e#39687#39739#0" expanded="true" />
-            <element signature="e#40334#40373#0" expanded="true" />
-            <element signature="e#40549#40586#0" expanded="true" />
-            <element signature="e#41078#41130#0" expanded="true" />
-            <element signature="e#41690#41738#0" expanded="true" />
-            <element signature="e#42009#42064#0" expanded="true" />
-            <element signature="e#42565#42617#0" expanded="true" />
-            <element signature="method#getGeofencingRequest#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#getGeofencePendingIntent#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#isCurrentTripExist#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#getCurrentTrip#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#getPixelsFromDp#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#setDrawableStatus#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#onActivityResult#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="e#49661#49705#0" expanded="true" />
-            <element signature="e#50358#50384#0" expanded="true" />
-            <element signature="e#50518#50544#0" expanded="true" />
-            <element signature="e#50678#50704#0" expanded="true" />
-            <element signature="e#50838#50864#0" expanded="true" />
-            <element signature="e#50998#51024#0" expanded="true" />
-            <element signature="e#52061#52087#0" expanded="true" />
-            <element signature="e#52217#52243#0" expanded="true" />
-            <element signature="e#52373#52399#0" expanded="true" />
-            <element signature="e#52529#52555#0" expanded="true" />
-            <element signature="e#52685#52711#0" expanded="true" />
-            <element signature="method#onStart#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#onStop#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#onConnected#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#onConnectionFailed#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="method#onLocationChanged#0;class#MyPositionActivity#0" expanded="false" />
-            <element signature="e#54709#54739#0" expanded="true" />
-            <element signature="method#onResult#0;class#MyPositionActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
