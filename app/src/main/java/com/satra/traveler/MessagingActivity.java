@@ -65,10 +65,13 @@ public class MessagingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_messaging);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         sharedPreferences = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
+
         //initialize sender variables
         clientMatricule = sharedPreferences.getString(TConstants.PREF_MATRICULE,"");
         clientName = sharedPreferences.getString(TConstants.PREF_USERNAME,"");
+
         previewMessageImage = (ImageView) findViewById(R.id.messageImageView);
         FancyButton buttonCaptureImage = (FancyButton) findViewById(R.id.buttonCaptureImage);
         buttonCaptureImage.setOnClickListener(new View.OnClickListener() {
@@ -183,15 +186,20 @@ public class MessagingActivity extends AppCompatActivity {
                     //Create the request body as a MultiValueMap
                     MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
 
+                    body.add(TConstants.POST_MESSAGE_PARAM_TIMESTAMP, System.currentTimeMillis()+"");
                     body.add(TConstants.POST_MESSAGE_PARAM_MESSAGE, message);
+                    body.add(TConstants.POST_MESSAGE_PARAM_MAT_ID, MyPositionActivity.isCurrentTripExist()?sharedPreferences
+                            .getString(MyPositionActivity.getCurrentTrip().getBus_immatriculation(), sharedPreferences
+                                    .getString(TConstants.PREF_MAT_ID, "0")):sharedPreferences
+                            .getString(TConstants.PREF_MAT_ID, "0"));
 
-                    body.add(TConstants.POST_MESSAGE_PARAM_MAT_ID, sharedPreferences.getString(TConstants.PREF_MAT_ID, "0"));
+                    body.add(TConstants.POST_MESSAGE_PARAM_MATRICULE, MyPositionActivity.isCurrentTripExist()?MyPositionActivity.getCurrentTrip().getBus_immatriculation():sharedPreferences.getString(TConstants.PREF_MATRICULE, "0"));
+                    body.add(TConstants.POST_MESSAGE_PARAM_MSISDN, sharedPreferences
+                            .getString(TConstants.PREF_PHONE, "0"));
+                    body.add(TConstants.POST_MESSAGE_PARAM_USERNAME, sharedPreferences
+                            .getString(TConstants.PREF_USERNAME, "0"));
 
-                    body.add(TConstants.POST_MESSAGE_PARAM_MATRICULE, sharedPreferences.getString(TConstants.PREF_MATRICULE, "0"));
-
-                    body.add(TConstants.POST_MESSAGE_PARAM_MSISDN, sharedPreferences.getString(TConstants.PREF_PHONE, "0"));
-
-                    body.add(TConstants.POST_MESSAGE_PARAM_USERNAME, sharedPreferences.getString(TConstants.PREF_USERNAME, "0"));
+                    Log.e("body params", "body: "+body.toString());
 
                     HttpEntity<?> httpEntity = new HttpEntity<Object>(body, requestHeaders);
                     RestTemplate restTemplate = new RestTemplate(true);

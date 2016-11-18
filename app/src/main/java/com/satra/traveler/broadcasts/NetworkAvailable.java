@@ -9,6 +9,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.satra.traveler.MyPositionActivity;
 import com.satra.traveler.SpeedMeterService;
 import com.satra.traveler.models.Messages;
 import com.satra.traveler.models.ResponsStatusMsg;
@@ -63,15 +64,18 @@ public class NetworkAvailable extends BroadcastReceiver {
                     //Create the request body as a MultiValueMap
                     MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
 
+                    body.add(TConstants.POST_MESSAGE_PARAM_TIMESTAMP, System.currentTimeMillis()+"");
                     body.add(TConstants.POST_MESSAGE_PARAM_MESSAGE, content);
+                    body.add(TConstants.POST_MESSAGE_PARAM_MAT_ID, MyPositionActivity.isCurrentTripExist()?sharedPreferences
+                            .getString(MyPositionActivity.getCurrentTrip().getBus_immatriculation(), sharedPreferences
+                                    .getString(TConstants.PREF_MAT_ID, "0")):sharedPreferences
+                            .getString(TConstants.PREF_MAT_ID, "0"));
 
-                    body.add(TConstants.POST_MESSAGE_PARAM_MAT_ID, sharedPreferences.getString(TConstants.PREF_MAT_ID, "0"));
-
-                    body.add(TConstants.POST_MESSAGE_PARAM_MATRICULE, sharedPreferences.getString(TConstants.PREF_MATRICULE, "0"));
-
-                    body.add(TConstants.POST_MESSAGE_PARAM_MSISDN, sharedPreferences.getString(TConstants.PREF_PHONE, "0"));
-
-                    body.add(TConstants.POST_MESSAGE_PARAM_USERNAME, sharedPreferences.getString(TConstants.PREF_USERNAME, "0"));
+                    body.add(TConstants.POST_MESSAGE_PARAM_MATRICULE, MyPositionActivity.isCurrentTripExist()?MyPositionActivity.getCurrentTrip().getBus_immatriculation():sharedPreferences.getString(TConstants.PREF_MATRICULE, "0"));
+                    body.add(TConstants.POST_MESSAGE_PARAM_MSISDN, sharedPreferences
+                            .getString(TConstants.PREF_PHONE, "0"));
+                    body.add(TConstants.POST_MESSAGE_PARAM_USERNAME, sharedPreferences
+                            .getString(TConstants.PREF_USERNAME, "0"));
 
                     HttpEntity<?> httpEntity = new HttpEntity<Object>(body, requestHeaders);
                     RestTemplate restTemplate = new RestTemplate(true);
