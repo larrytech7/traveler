@@ -10,23 +10,8 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88b1f5ee-bd5f-48b6-b155-f9b84c9d9c04" name="Default" comment="Merge remote branch 'origin'&#10;&#10;Conflicts:&#10;&#9;.gradle/2.14.1/taskArtifacts/cache.properties.lock&#10;&#9;.gradle/2.14.1/taskArtifacts/fileHashes.bin&#10;&#9;.gradle/2.14.1/taskArtifacts/fileSnapshots.bin&#10;&#9;.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin&#10;&#9;.gradle/2.14.1/taskArtifacts/taskArtifacts.bin&#10;&#9;.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin&#10;&#9;.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock&#10;&#9;.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock&#10;&#9;.idea/workspace.xml&#10;&#9;app/build/intermediates/blame/res/debug/multi/values.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-hdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-mdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-xhdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-xxhdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-xxxhdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/layout.json&#10;&#9;app/build/intermediates/incremental/mergeDebugResources/merger.xml&#10;&#9;app/build/intermediates/res/merged/debug/mipmap-hdpi-v4/ic_launcher.png&#10;&#9;app/build/intermediates/res/merged/debug/mipmap-mdpi-v4/ic_launcher.png&#10;&#9;app/src/main/java/com/satra/traveler/MyPositionActivity.java&#10;&#9;app/src/main/res/values/strings.xml&#10;&#9;build/intermediates/dex-cache/cache.xml&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+    <list default="true" id="88b1f5ee-bd5f-48b6-b155-f9b84c9d9c04" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/SpeedMeterService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/SpeedMeterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/TrackingData.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/TrackingData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/utils/TConstants.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/utils/TConstants.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
     </list>
     <list id="d78bb084-dbcd-4d2c-8e2a-1b883f620460" name="Failed commit: Default" comment="Fixed conflicts" />
@@ -89,8 +74,8 @@
       <file leaf-file-name="SpeedMeterService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/SpeedMeterService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33">
-              <caret line="405" column="0" selection-start-line="405" selection-start-column="0" selection-end-line="405" selection-end-column="0" />
+            <state relative-caret-position="195">
+              <caret line="399" column="101" selection-start-line="399" selection-start-column="101" selection-end-line="399" selection-end-column="101" />
               <folding>
                 <element signature="docComment;method#onStartCommand#0;class#SpeedMeterService#0" expanded="false" />
                 <element signature="method#onStartCommand#0;class#SpeedMeterService#0" expanded="false" />
@@ -105,54 +90,6 @@
                 <element signature="method#tryToSentDataOnline#0;class#SpeedMeterService#0" expanded="false" />
                 <element signature="method#onDestroy#0;class#SpeedMeterService#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TrackingData.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/TrackingData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
-              <folding>
-                <element signature="e#721#722#0" expanded="true" />
-                <element signature="e#769#770#0" expanded="true" />
-                <element signature="e#811#812#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="63" column="29" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
-              <folding>
-                <element signature="e#2581#3048#0" expanded="false" />
-                <element signature="e#3057#3315#0" expanded="false" />
-                <element signature="e#3325#3464#0" expanded="false" />
-                <element signature="e#3473#3610#0" expanded="false" />
-                <element signature="e#3685#3945#0" expanded="false" />
-                <element signature="e#3955#4139#0" expanded="false" />
-                <element signature="e#4148#4257#0" expanded="false" />
-                <element signature="e#4267#4566#0" expanded="false" />
-                <element signature="e#4575#4868#0" expanded="false" />
-                <element signature="e#4878#5291#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-manifest">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TConstants.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/utils/TConstants.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="52" column="80" selection-start-line="52" selection-start-column="80" selection-end-line="52" selection-end-column="80" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -2188,12 +2125,20 @@
       <option name="presentableId" value="Default" />
       <updated>1479036053825</updated>
     </task>
+    <task id="LOCAL-00001" summary="Updated the app with latest API version">
+      <created>1479483710095</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1479483710095</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4" />
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1368" height="718" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30956522" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2203,11 +2148,11 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3269565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21217391" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21217391" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -2246,7 +2191,8 @@
     <MESSAGE value="Fixed merge conflicts and resolved bugs" />
     <MESSAGE value="Merge remote branch 'origin'&#10;&#10;Conflicts:&#10;&#9;.gradle/2.14.1/taskArtifacts/cache.properties.lock&#10;&#9;.gradle/2.14.1/taskArtifacts/fileHashes.bin&#10;&#9;.gradle/2.14.1/taskArtifacts/fileSnapshots.bin&#10;&#9;.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin&#10;&#9;.gradle/2.14.1/taskArtifacts/taskArtifacts.bin&#10;&#9;.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin&#10;&#9;.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock&#10;&#9;.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock&#10;&#9;.idea/workspace.xml&#10;&#9;app/build/intermediates/blame/res/debug/multi/values.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-hdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-mdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-xhdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-xxhdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/drawable-xxxhdpi-v4.json&#10;&#9;app/build/intermediates/blame/res/debug/single/layout.json&#10;&#9;app/build/intermediates/incremental/mergeDebugResources/merger.xml&#10;&#9;app/build/intermediates/res/merged/debug/mipmap-hdpi-v4/ic_launcher.png&#10;&#9;app/build/intermediates/res/merged/debug/mipmap-mdpi-v4/ic_launcher.png&#10;&#9;app/src/main/java/com/satra/traveler/MyPositionActivity.java&#10;&#9;app/src/main/res/values/strings.xml&#10;&#9;build/intermediates/dex-cache/cache.xml&#10;" />
     <MESSAGE value="Fixed conflicts" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed conflicts" />
+    <MESSAGE value="Updated the app with latest API version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated the app with latest API version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2770,8 +2716,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/SpeedMeterService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="405" column="0" selection-start-line="405" selection-start-column="0" selection-end-line="405" selection-end-column="0" />
+        <state relative-caret-position="195">
+          <caret line="399" column="101" selection-start-line="399" selection-start-column="101" selection-end-line="399" selection-end-column="101" />
           <folding>
             <element signature="docComment;method#onStartCommand#0;class#SpeedMeterService#0" expanded="false" />
             <element signature="method#onStartCommand#0;class#SpeedMeterService#0" expanded="false" />
