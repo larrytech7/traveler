@@ -50,15 +50,10 @@ public class TConstants {
     public static final String POST_MESSAGE_PARAM_MATRICULE="matricule";
     public static final String POST_MESSAGE_PARAM_USERNAME="username";
     public static final String POST_MESSAGE_PARAM_MESSAGE="message";
-<<<<<<< .merge_file_aIk7Sx
-<<<<<<< .merge_file_Sb0EHu
+
     public static final String POST_SPEED_POSTION_PARAM_TIMESTAMP = "timestamp";
-=======
     public static final String POST_MESSAGE_PARAM_TIMESTAMP="timestamp";
->>>>>>> .merge_file_AxA3mw
-=======
-    public static final String POST_MESSAGE_PARAM_TIMESTAMP="timestamp";
->>>>>>> .merge_file_Grglfy
+
     public static final String POST_MESSAGE_URL="http://travelr.iceteck.com/index.php/home/matricule/message/add";
 
 
