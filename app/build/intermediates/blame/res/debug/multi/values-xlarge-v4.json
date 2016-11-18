@@ -1,5 +1,6 @@
 [
     {
+<<<<<<< .merge_file_ZB1Vfe
         "outputFile": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\values-xlarge-v4\\values-xlarge-v4.xml",
         "map": [
             {
@@ -353,6 +354,9 @@
     },
     {
         "outputFile": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/res/merged/debug/values-xlarge-v4/values-xlarge-v4.xml",
+=======
+        "outputFile": "C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\values-xlarge-v4\\values-xlarge-v4.xml",
+>>>>>>> .merge_file_PniZte
         "map": [
             {
                 "to": {
@@ -363,7 +367,7 @@
                     "endOffset": 127
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "file": "C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -382,7 +386,7 @@
                     "endOffset": 198
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "file": "C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -401,7 +405,7 @@
                     "endOffset": 269
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "file": "C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -420,7 +424,7 @@
                     "endOffset": 339
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "file": "C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -439,7 +443,7 @@
                     "endOffset": 409
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "file": "C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -458,7 +462,7 @@
                     "endOffset": 477
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "file": "C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -477,7 +481,7 @@
                     "endOffset": 545
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "file": "C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -496,7 +500,7 @@
                     "endOffset": 609
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "file": "C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -515,7 +519,183 @@
                     "endOffset": 664
                 },
                 "from": {
-                    "file": "/root/AndroidStudioProjects/TravelrPSG/traveler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "file": "C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 614,
+                        "endColumn": 54,
+                        "endOffset": 664
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\values-xlarge-v4\\values-xlarge-v4.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 76,
+                    "endOffset": 127
+                },
+                "from": {
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 76,
+                        "endOffset": 127
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 132,
+                    "endColumn": 70,
+                    "endOffset": 198
+                },
+                "from": {
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 132,
+                        "endColumn": 70,
+                        "endOffset": 198
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 203,
+                    "endColumn": 70,
+                    "endOffset": 269
+                },
+                "from": {
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 203,
+                        "endColumn": 70,
+                        "endOffset": 269
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 274,
+                    "endColumn": 69,
+                    "endOffset": 339
+                },
+                "from": {
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 274,
+                        "endColumn": 69,
+                        "endOffset": 339
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 344,
+                    "endColumn": 69,
+                    "endOffset": 409
+                },
+                "from": {
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 344,
+                        "endColumn": 69,
+                        "endOffset": 409
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 414,
+                    "endColumn": 67,
+                    "endOffset": 477
+                },
+                "from": {
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 414,
+                        "endColumn": 67,
+                        "endOffset": 477
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 482,
+                    "endColumn": 67,
+                    "endOffset": 545
+                },
+                "from": {
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 482,
+                        "endColumn": 67,
+                        "endOffset": 545
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 550,
+                    "endColumn": 63,
+                    "endOffset": 609
+                },
+                "from": {
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 550,
+                        "endColumn": 63,
+                        "endOffset": 609
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 614,
+                    "endColumn": 54,
+                    "endOffset": 664
+                },
+                "from": {
+                    "file": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,

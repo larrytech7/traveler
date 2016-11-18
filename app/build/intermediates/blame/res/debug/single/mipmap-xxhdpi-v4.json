@@ -1,5 +1,6 @@
 [
     {
+<<<<<<< .merge_file_Dn5DDp
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\ic_marker_speed_overhead.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_marker_speed_overhead.png"
     },
@@ -22,5 +23,21 @@
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\ic_launcher.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+=======
+        "merged": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\ic_marker_speed_overhead.png",
+        "source": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_marker_speed_overhead.png"
+    },
+    {
+        "merged": "C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\ic_marker_speed_overhead.png",
+        "source": "C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_marker_speed_overhead.png"
+    },
+    {
+        "merged": "C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\ic_launcher.png",
+        "source": "C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+>>>>>>> .merge_file_J9Qh0o
     }
 ]

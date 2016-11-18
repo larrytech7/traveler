@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.satra.traveler"
+<<<<<<< .merge_file_ZEpifr
     android:versionCode="50"
+=======
+    android:versionCode="49"
+>>>>>>> .merge_file_Yt0Tkr
     android:versionName="4.7.10" >
 
     <uses-sdk

@@ -1,5 +1,6 @@
 [
     {
+<<<<<<< .merge_file_wx36Wj
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_launcher.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
@@ -34,5 +35,29 @@
     {
         "merged": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_launcher_old.png",
         "source": "/root/AndroidStudioProjects/TravelrPSG/traveler/C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_old.png"
+=======
+        "merged": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_launcher.png",
+        "source": "C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_marker_speed_overhead.png",
+        "source": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\src\\main\\res\\mipmap-mdpi\\ic_marker_speed_overhead.png"
+    },
+    {
+        "merged": "C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_launcher_old.png",
+        "source": "C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_old.png"
+    },
+    {
+        "merged": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_launcher_old.png",
+        "source": "C:\\Users\\Steve Jeff\\AndroidStudioProjects\\traveler\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_old.png"
+    },
+    {
+        "merged": "C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_marker_speed_overhead.png",
+        "source": "C:\\root\\AndroidStudioProjects\\TravelrPSG\\traveler\\app\\src\\main\\res\\mipmap-mdpi\\ic_marker_speed_overhead.png"
+>>>>>>> .merge_file_14Aoqk
     }
 ]
