@@ -294,7 +294,6 @@ public class MessagingActivity extends AppCompatActivity {
                     }
 
                     /*
-                    * TODO 2 after TO DO 1
                      * @author: STEVE
                     * POST DES MESSAGES SAUVEGARDES DANS LA BD LOCALE SUR LE SERVEUR EN LIGNE
                      */
