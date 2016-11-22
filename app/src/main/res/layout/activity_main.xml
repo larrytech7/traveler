@@ -43,9 +43,9 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        card_view:cardBackgroundColor="@color/grey"
+        card_view:cardBackgroundColor="@color/themeBG"
         card_view:cardCornerRadius="@dimen/card_corner_radius"
-        card_view:cardElevation="@dimen/card_elevation"
+        card_view:cardElevation="@dimen/card_corner_radius"
         card_view:cardPreventCornerOverlap="false">
         <LinearLayout
             android:layout_width="match_parent"
@@ -62,7 +62,6 @@
                 android:ems="5"
                 android:hint="@string/username"
                 android:maxLines="1"
-                android:singleLine="true"
                 android:textColor="@color/abc_search_url_text_selected" />
 
             <EditText
@@ -141,7 +140,7 @@
                 android:paddingTop="@dimen/btn_small_padding"
                 fancy:fb_borderColor="#FFFFFF"
                 fancy:fb_borderWidth="1dp"
-                fancy:fb_defaultColor="@color/colorButtonPrimary"
+                fancy:fb_defaultColor="@color/themeBG"
                 fancy:fb_focusColor="@color/colorPrimaryDark"
                 fancy:fb_iconPosition="left"
                 fancy:fb_radius="@dimen/btn_radius"

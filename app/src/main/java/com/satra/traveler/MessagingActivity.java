@@ -111,7 +111,7 @@ public class MessagingActivity extends AppCompatActivity {
      * Lancer la capture d'image via camera
      */
     private void startCameraCapture() {
-        //capter image via camera
+        //capter image via camera pour ajouter au message
         Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, CAPTURE_IMAGE_MESSAGE);
     }
@@ -127,6 +127,7 @@ public class MessagingActivity extends AppCompatActivity {
     private void setupMessageList(Context context){
         messagingAdapter = new MessagingAdapter(context, Messages.listAll(Messages.class));
         messageRecyclerView.setAdapter(messagingAdapter);
+        messageRecyclerView.scrollToPosition(messagingAdapter.getItemCount() - 1);
     }
 
     @Override
@@ -193,11 +194,19 @@ public class MessagingActivity extends AppCompatActivity {
                                     .getString(TConstants.PREF_MAT_ID, "0")):sharedPreferences
                             .getString(TConstants.PREF_MAT_ID, "0"));
 
-                    body.add(TConstants.POST_MESSAGE_PARAM_MATRICULE, MyPositionActivity.isCurrentTripExist()?MyPositionActivity.getCurrentTrip().getBus_immatriculation():sharedPreferences.getString(TConstants.PREF_MATRICULE, "0"));
+                    body.add(TConstants.POST_MESSAGE_PARAM_MATRICULE, MyPositionActivity.isCurrentTripExist()?
+                            MyPositionActivity.getCurrentTrip().getBus_immatriculation():sharedPreferences.getString(TConstants.PREF_MATRICULE, "0"));
                     body.add(TConstants.POST_MESSAGE_PARAM_MSISDN, sharedPreferences
                             .getString(TConstants.PREF_PHONE, "0"));
                     body.add(TConstants.POST_MESSAGE_PARAM_USERNAME, sharedPreferences
                             .getString(TConstants.PREF_USERNAME, "0"));
+                    body.add(TConstants.POST_MESSAGE_SPEED, sharedPreferences.getString(TConstants.SPEED_PREF, "0"));
+                    body.add(TConstants.POST_MESSAGE_AGENCY, MyPositionActivity.isCurrentTripExist()?
+                            MyPositionActivity.getCurrentTrip().getAgency_name():"unregistered");
+                    body.add(TConstants.POST_MESSAGE_DEPARTURE, MyPositionActivity.isCurrentTripExist()?
+                            MyPositionActivity.getCurrentTrip().getDeparture():"NONE");
+                    body.add(TConstants.POST_MESSAGE_DESTINATION, MyPositionActivity.isCurrentTripExist()?
+                            MyPositionActivity.getCurrentTrip().getDestination():"NONE");
 
                     Log.e("body params", "body: "+body.toString());
 

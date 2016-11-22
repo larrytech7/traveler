@@ -57,12 +57,12 @@ public class SpeedMeterService extends Service {
     float vitesse = 0;
     private static int id = 1;
     private static boolean hasReachLimit = false;
-    private static String displayedSpeed = "";
     private SharedPreferences.Editor editor;
     private Location previousLocation;
     private long durationGPS=0, durationNetwork=0;
     private Vector<Float> vitesses = new Vector<>();
     private LocationListener locationListenerGPS, locationListenerNetwork;
+    static final String LOGTAG = SpeedMeterService.class.getSimpleName();
 
     /**
      * A constructor is required, and must call the super IntentService(String)
@@ -349,14 +349,14 @@ public class SpeedMeterService extends Service {
             return duration;
         }
 
-        displayedSpeed = vitesse >= MAX_VITESSE_METRE_SECONDE ? + Tutility.round(vitesse * COEFF_CONVERSION_MS_KMH) + " KM/H" : Tutility.round(vitesse) + " M/S";
+        String displayedSpeed = vitesse >= MAX_VITESSE_METRE_SECONDE ? +Tutility.round(vitesse * COEFF_CONVERSION_MS_KMH) + " KM/H" : Tutility.round(vitesse) + " M/S";
 
         showNotification(displayedSpeed, getApplicationContext());
 
         editor.putFloat(TConstants.SPEED_PREF, vitesse);
         editor.commit();
 
-        Log.e("speed injected", "new speed received and injected: "+vitesse);
+        Log.e(LOGTAG, "new speed received and injected: "+vitesse);
 
        if(MyPositionActivity.isCurrentTripExist()){
            if(((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_ALLOWED_KMH)){
@@ -389,6 +389,7 @@ public class SpeedMeterService extends Service {
                 try {
                     // HttpAuthentication httpAuthentication = new HttpBasicAuthentication("username", "password");
                     //Create the request body as a MultiValueMap
+                    SharedPreferences sharedPreferences = context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
                     if(body==null){
                         body= new LinkedMultiValueMap<>();
                     }
@@ -399,9 +400,8 @@ public class SpeedMeterService extends Service {
                     body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_LNG, String.valueOf(location.getLongitude()));
                     body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_SPEED, String.valueOf(vitesse));
                     body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_MATRICULE, MyPositionActivity.getCurrentTrip().getBus_immatriculation());
-                    body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_MAT_ID, context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
-                            .getString(MyPositionActivity.getCurrentTrip().getBus_immatriculation(), context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
-                                    .getString(TConstants.PREF_MAT_ID, "0")));
+                    body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_MAT_ID, sharedPreferences.getString(MyPositionActivity.getCurrentTrip().getBus_immatriculation(),
+                            sharedPreferences.getString(TConstants.PREF_MAT_ID, "0")));
                     body.add(TConstants.POST_SPEED_POSTION_PARAM_TIMESTAMP, String.valueOf(trackingData == null? timestamp:trackingData.getTimestamp()));
 
 
@@ -410,12 +410,12 @@ public class SpeedMeterService extends Service {
                     }
 
                     response = restTemplate.exchange(TConstants.POST_SPEED_AND_POSITION_URL, HttpMethod.POST, new HttpEntity<Object>(body, new HttpHeaders()), String.class);
-                    Log.e("Response speed", "res: "+response);
-                    Log.e("Response body speed", "body "+response.getBody());
+                    Log.e(LOGTAG, "res: "+response);
+                    Log.e(LOGTAG, "body "+response.getBody());
 
                     return new Gson().fromJson(response.getBody(), ResponsStatusMsgMeta.class);
                 } catch (Exception e) {
-                    Log.e("MainActivity", e.getMessage(), e);
+                    Log.e(LOGTAG, e.getMessage(), e);
                 }
 
                 return null;
@@ -438,7 +438,7 @@ public class SpeedMeterService extends Service {
                                 so.setLatitude_start(location.getLatitude());
                                 so.setLongitude_start(location.getLongitude());
                                 so.setSpeed_start(vitesse);
-                                so.setTripid(""+MyPositionActivity.getCurrentTrip().getId());
+                                so.setTripid(String.valueOf(MyPositionActivity.getCurrentTrip().getId()));
                                // so.save();
 
                                 hasReachLimit = true;
@@ -474,8 +474,8 @@ public class SpeedMeterService extends Service {
                     if(trackingData!=null){
                         trackingData.delete();
 
-                        SharedPreferences.Editor editor = context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0).edit();
-                        editor.putString(trackingData.getTrackingMatricule(), response.getMeta().getMatricule_id()+"").apply();
+                        SharedPreferences.Editor editor = context.getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE).edit();
+                        editor.putString(trackingData.getTrackingMatricule(), String.valueOf(response.getMeta().getMatricule_id())).apply();
 
                     }
                     else{
