@@ -174,7 +174,6 @@ public class MainActivity extends Activity implements OnClickListener {
             }.execute();
         }
 
-        //TODO. Prend aussi en consideration les contacte en urgence pour envoyer au serveur.
         username = (EditText)findViewById(R.id.username);
         matricule = (EditText)findViewById(R.id.matricule1);
         noTelephone = (EditText)findViewById(R.id.no_telephone);
