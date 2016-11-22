@@ -399,6 +399,7 @@ public class SpeedMeterService extends Service {
                     body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_LAT, String.valueOf(location.getLatitude()));
                     body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_LNG, String.valueOf(location.getLongitude()));
                     body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_SPEED, String.valueOf(vitesse));
+                    body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_PHONE, sharedPreferences.getString(TConstants.PREF_PHONE, "000000000"));
                     body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_MATRICULE, MyPositionActivity.getCurrentTrip().getBus_immatriculation());
                     body.add(TConstants.POST_SPEED_AND_POSITION_PARAM_MAT_ID, sharedPreferences.getString(MyPositionActivity.getCurrentTrip().getBus_immatriculation(),
                             sharedPreferences.getString(TConstants.PREF_MAT_ID, "0")));
