@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.satra.traveler"
-    android:versionCode="51"
+    android:versionCode="50"
     android:versionName="4.7.10">
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -61,7 +61,7 @@
             android:value="true" />
         <meta-data
             android:name="VERSION"
-            android:value="13" />
+            android:value="12" />
 
         <activity
             android:name=".MainActivity"
