@@ -19,4 +19,5 @@
     <dimen name="titlesize">20sp</dimen>
     <dimen name="textsize">18sp</dimen>
     <dimen name="textmargin">5dp</dimen>
+    <dimen name="text_padding">8dp</dimen>
 </resources>

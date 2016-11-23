@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     xmlns:fancy="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:paddingLeft="@dimen/margin_layout"
-    android:paddingRight="@dimen/margin_layout"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.satra.traveler.MessagingActivity"
     tools:showIn="@layout/activity_messaging">
@@ -15,8 +13,9 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/messageRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="1"
+        android:background="@color/grey"
         app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
         app:layoutManager="LinearLayoutManager"
         tools:context="com.satra.traveler.MessagingActivity"

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    card_view:cardBackgroundColor="@color/grey"
+    card_view:cardBackgroundColor="@android:color/transparent"
     card_view:cardCornerRadius="@dimen/card_corner_radius"
     card_view:cardElevation="@dimen/card_elevation"
     card_view:cardPreventCornerOverlap="false"
@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="@drawable/balloon_incoming_normal"
         android:padding="@dimen/cardview_default_elevation">
         <TextView
             android:id="@+id/messageMatricule"
@@ -21,10 +22,13 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:layout_marginTop="@dimen/margin_layout"
+            android:paddingRight="@dimen/text_padding"
+            android:paddingLeft="@dimen/text_padding"
+            android:paddingStart="@dimen/text_padding"
+            android:paddingEnd="@dimen/text_padding"
             android:ems="5"
             android:hint=""
             android:maxLines="1"
-            android:singleLine="true"
             android:textStyle="bold"
             android:fontFamily="sans-serif"
             android:textColor="@color/black" />
@@ -38,7 +42,7 @@
             android:hint="@string/votre_message"
             android:textSize="@dimen/contetextsize"
             android:fontFamily="sans-serif-condensed"
-            android:textColor="@color/black" />
+            style="@style/chat_text_message_style" />
         <TextView
             android:id="@+id/messageDate"
             android:layout_width="match_parent"
@@ -55,6 +59,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
+            android:padding="@dimen/text_padding"
             android:background="@color/colorPrimaryDark"/>
         <TextView
             android:id="@+id/messageStatusText"
@@ -62,8 +67,65 @@
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/ic_done"
             android:drawableEnd="@drawable/ic_done"
+            android:paddingLeft="@dimen/text_padding"
+            android:paddingStart="@dimen/text_padding"
+            android:paddingRight="@dimen/text_padding"
+            android:paddingEnd="@dimen/text_padding"
             android:textStyle="italic"
             android:textColor="@color/black"
             android:text="@string/message_not_received"/>
+
+        <!--<RelativeLayout
+            android:layout_width="match_parent"
+            android:background="@drawable/balloon_incoming_normal"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/chat_company_reply_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/chat_company_reply_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="5dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/bluePrimary"
+                    android:text="User1"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/message_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    style="@style/chat_text_message_style"
+                    android:paddingLeft="20dp"
+
+                    android:autoLink="web"
+                    android:maxWidth="280dp"
+                    android:text="Rahul Agrawal is a good boy but he does not know what he wants." />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/time_text"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_alignBottom="@id/chat_company_reply_text"
+                android:layout_marginLeft="10dp"
+                style="@style/chat_timings"
+                android:paddingRight="10dp"
+                android:textColor="@color/grey"
+                android:paddingBottom="5dp"
+                android:layout_toRightOf="@id/chat_company_reply_text"
+                android:text="17:10" />
+
+        </RelativeLayout>-->
     </LinearLayout>
 </android.support.v7.widget.CardView>
