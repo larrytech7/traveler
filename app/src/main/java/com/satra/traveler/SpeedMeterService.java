@@ -175,8 +175,6 @@ public class SpeedMeterService extends Service {
         }
     }
 
-
-
     public void showAlertEnableGPS(){
 
         Intent intent1 = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);

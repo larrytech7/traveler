@@ -50,8 +50,6 @@ public class MessagingActivity extends AppCompatActivity {
     EditText messageBox;
     private ImageView previewMessageImage;
 
-    private Bitmap attachedImage;
-    private MessagingAdapter messagingAdapter;
     private  RecyclerView messageRecyclerView;
     private static ProgressDialog progress;
     private String clientMatricule;
@@ -89,6 +87,7 @@ public class MessagingActivity extends AppCompatActivity {
         messageRecyclerView = (RecyclerView) findViewById(R.id.messageRecyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         messageRecyclerView.setLayoutManager(layoutManager);
+        messageRecyclerView.setHasFixedSize(true);
         messageBox = (EditText)findViewById(R.id.messageText);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabSend);
@@ -125,7 +124,7 @@ public class MessagingActivity extends AppCompatActivity {
 
 
     private void setupMessageList(Context context){
-        messagingAdapter = new MessagingAdapter(context, Messages.listAll(Messages.class));
+        MessagingAdapter messagingAdapter = new MessagingAdapter(context, Messages.listAll(Messages.class));
         messageRecyclerView.setAdapter(messagingAdapter);
         messageRecyclerView.scrollToPosition(messagingAdapter.getItemCount() - 1);
     }
@@ -154,7 +153,7 @@ public class MessagingActivity extends AppCompatActivity {
                 //TODO. Gerer l'image capturer ici pour envoyer sur le serveur
                 //Uri imageData = data.getData();
                 try{
-                    attachedImage = (Bitmap) data.getExtras().get("data");
+                    Bitmap attachedImage = (Bitmap) data.getExtras().get("data");
                     previewMessageImage.setImageBitmap(attachedImage);
 /*                    previewMessageImage.setImageBitmap(Bitmap.createScaledBitmap(attachedImage, previewMessageImage.getWidth(),
                             previewMessageImage.getHeight(), false));*/
