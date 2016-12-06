@@ -14,7 +14,9 @@ public class Messages extends SugarRecord {
     String author; //Main username of person writing the message
     String date; //date sent
     String imageUrl; //optional image accompanying messages
+    long timestamp; // timestamp messaeg was sent (when user first pressed send to send the message)
     int sent; //1-sent, 0-not sent. default should be sent
+    boolean source; //true - sent by this user, false - from other users or Traveler
 
     public Messages() {
     }
@@ -65,5 +67,21 @@ public class Messages extends SugarRecord {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public boolean isSource() {
+        return source;
+    }
+
+    public void setSource(boolean source) {
+        this.source = source;
     }
 }
