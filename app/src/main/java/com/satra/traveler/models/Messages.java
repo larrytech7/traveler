@@ -9,14 +9,15 @@ import com.orm.dsl.Unique;
 public class Messages extends SugarRecord {
 
     @Unique
+    private
     String content; //message content needs to be unique to avoid duplicates or redundancies
-    String sender; //matricule/phone of the person sending the message
-    String author; //Main username of person writing the message
-    String date; //date sent
-    String imageUrl; //optional image accompanying messages
-    long timestamp; // timestamp messaeg was sent (when user first pressed send to send the message)
-    int sent; //1-sent, 0-not sent. default should be sent
-    boolean source; //true - sent by this user, false - from other users or Traveler
+    private String sender; //matricule/phone of the person sending the message
+    private String author; //Main username of person writing the message
+    private String date; //date sent
+    private String imageUrl; //optional image accompanying messages
+    private long timestamp; // timestamp messaeg was sent (when user first pressed send to send the message)
+    private int sent; //1-sent, 0-not sent. default should be sent
+    private boolean source; //true - sent by this user, false - from other users or Traveler
 
     public Messages() {
     }

@@ -10,11 +10,15 @@ import com.orm.dsl.Unique;
 public class User extends SugarRecord{
 
     @Unique
-    private long uid;
-    private String username;
-    private String userphone;
+    private long uid; //unique user id.
+    private String username; //pseudo
+    private String userphone; //phone number
     private String password;
     private String date_registered;
+    private String current_matricule; ///currently registered matricule
+    private String emergency_primary; //first emergency contact number
+    private String emergency_secondary; // secondary emergency contact number
+    private long updated_at; // lastly updated date
 
     public User() {
     }
@@ -57,5 +61,37 @@ public class User extends SugarRecord{
 
     public void setDate_registered(String date_registered) {
         this.date_registered = date_registered;
+    }
+
+    public String getCurrent_matricule() {
+        return current_matricule;
+    }
+
+    public void setCurrent_matricule(String current_matricule) {
+        this.current_matricule = current_matricule;
+    }
+
+    public String getEmergency_primary() {
+        return emergency_primary;
+    }
+
+    public void setEmergency_primary(String emergency_primary) {
+        this.emergency_primary = emergency_primary;
+    }
+
+    public String getEmergency_secondary() {
+        return emergency_secondary;
+    }
+
+    public void setEmergency_secondary(String emergency_secondary) {
+        this.emergency_secondary = emergency_secondary;
+    }
+
+    public long getUpdated_at() {
+        return updated_at;
+    }
+
+    public void setUpdated_at(long updated_at) {
+        this.updated_at = updated_at;
     }
 }
