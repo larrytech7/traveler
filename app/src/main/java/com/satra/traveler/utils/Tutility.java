@@ -11,6 +11,8 @@ import com.satra.traveler.R;
  */
 public class Tutility {
 
+    public static final String FIREBASE_USER = "users";
+
     //show a dialog to the user about a certain message/information
     public static void showMessage(Context c, String message, String title){
         AlertDialog alertDialog = new AlertDialog
@@ -38,6 +40,14 @@ public class Tutility {
         alertDialog.show();
     }
 
+    /**
+     * Format and returns a traveler email for this user to be used for authentication and acount creation
+     * @param phone user's phone number to serve as unique feature
+     * @return new traveler authenticating email
+     */
+    public static String getAuthenticationEmail(String phone){
+        return phone + TConstants.TRAVELR_EMAIL_EXT;
+    }
     public static double round(double c){
         return Math.round(c*100)/100.0;
     }

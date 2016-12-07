@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 public class Trip extends SugarRecord implements Serializable{
 
-    public String date_end; //date trip is ended or cancelled by user
+    private String date_end; //date trip is ended or cancelled by user
     @NotNull
     public int status; //indicates the state of teh current trip [0-on going/active, 1-finished, 2-cancelled]
     @Unique
@@ -37,6 +37,8 @@ public class Trip extends SugarRecord implements Serializable{
     private double departureLatitude;
 
     private double departureLongitude;
+
+    User user;
 
     public double getDestinationLatitude() {
         return destinationLatitude;

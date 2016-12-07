@@ -72,6 +72,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.satra.traveler.models.SpeedOverhead;
 import com.satra.traveler.models.Trip;
+import com.satra.traveler.models.User;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
 
@@ -131,7 +132,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private GoogleApiClient googleApiClient;
     private static int accessFineLocationSituation = 1;
     private int numberOfMapSettings = 0;
-
+    private User travelerUser;
 
     private static HashMap<String, double[]> knownTown;
 
@@ -183,8 +184,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-
+        travelerUser = User.findAll(User.class).next();
         setContentView(R.layout.view_my_position);
 
         prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
@@ -235,16 +235,15 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         addToknownTown(prefs
                 .getString(TConstants.PREF_TO_6, getString(R.string.town_6)));
 
-
         final TextView usernameTextview = ((TextView) navigationView.getHeaderView(0).findViewById(R.id.username));
-        usernameTextview.setText(prefs.getString(TConstants.PREF_USERNAME, "anonyme"));
+        usernameTextview.setText(travelerUser == null?"anonyme":travelerUser.getUsername());
 
         Typeface tf = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/digital-7.ttf");
         usernameTextview.setTypeface(tf);
 
         //speed textview
         speedTextview = (TextView) navigationView.getHeaderView(0).findViewById(R.id.speedtext);
-        speedTextview.setText(getString(R.string.speed_dimen, prefs.getString(TConstants.PREF_MATRICULE, "OO000OO"), Float.parseFloat("0")+""));
+        speedTextview.setText(getString(R.string.speed_dimen, travelerUser ==null?"OO000OO":travelerUser.getCurrent_matricule(), Float.parseFloat("0")+""));
         //build speedometer
         mspeedometer = (SpeedometerGauge) navigationView.getHeaderView(0).findViewById(R.id.speedometer);
         setupSpeedometer(mspeedometer);

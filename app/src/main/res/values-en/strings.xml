@@ -174,5 +174,7 @@
     <string name="speed_overheading_marker_end_string">End overspeeding</string>
     <string name="start_marker_string">Departure</string>
     <string name="travelr_secure_your_trip">Traveler is securing your trip</string>
+    <string name="assurance_voyage">Travel insurance</string>
+    <string name="signinerror">Phone number or %s</string>
 
 </resources>

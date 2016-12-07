@@ -3,6 +3,8 @@ package com.satra.traveler.models;
 import com.orm.SugarRecord;
 import com.orm.dsl.Unique;
 
+import java.util.List;
+
 /**
  * Created by Larry Akah on 6/11/16.
  */
@@ -12,6 +14,7 @@ public class User extends SugarRecord{
     @Unique
     private long uid; //unique user id.
     private String username; //pseudo
+    private String useremail;
     private String userphone; //phone number
     private String password;
     private String date_registered;
@@ -85,6 +88,18 @@ public class User extends SugarRecord{
 
     public void setEmergency_secondary(String emergency_secondary) {
         this.emergency_secondary = emergency_secondary;
+    }
+
+    public String getUseremail() {
+        return useremail;
+    }
+
+    public List<Trip> getTrips(){
+        return Trip.find(Trip.class, "user = ?", String.valueOf(getId()));
+    }
+
+    public void setUseremail(String useremail) {
+        this.useremail = useremail;
     }
 
     public long getUpdated_at() {

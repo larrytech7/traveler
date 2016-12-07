@@ -216,4 +216,5 @@
     <string name="speed_overheading">" dépassements de vitesse"</string>
     <string name="travelr_secure_your_trip">Travelr sécurise vos déplacements</string>
     <string name="assurance_voyage">Assurance voyage</string>
+    <string name="signinerror">Numéro de téléphone ou %s</string>
 </resources>
