@@ -236,7 +236,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 .getString(TConstants.PREF_TO_6, getString(R.string.town_6)));
 
         final TextView usernameTextview = ((TextView) navigationView.getHeaderView(0).findViewById(R.id.username));
-        usernameTextview.setText(travelerUser == null?"anonyme":travelerUser.getUsername());
+        usernameTextview.setText(travelerUser == null ? "anonyme" : travelerUser.getUsername());
 
         Typeface tf = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/digital-7.ttf");
         usernameTextview.setTypeface(tf);
@@ -270,8 +270,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
                 if (msg.getData().containsKey(TConstants.SPEED_PREF)) {
                     double speed = Tutility.round(msg.getData().getFloat(TConstants.SPEED_PREF));
-                    usernameTextview
-                            .setText(prefs.getString(TConstants.PREF_USERNAME, "anonyme"));
+                    /*usernameTextview
+                            .setText(prefs.getString(TConstants.PREF_USERNAME, "anonyme"));*/
                     /*
                                     +( speed >= MAX_VITESSE_METRE_SECONDE ? " ("
                                     + round(speed * COEFF_CONVERSION_MS_KMH)
