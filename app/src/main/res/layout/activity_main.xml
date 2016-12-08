@@ -9,7 +9,7 @@
     android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/accent_material_light"
+    android:background="@color/colorPrimary"
     android:orientation="vertical"
     android:paddingBottom="@dimen/margin_layout"
     android:paddingLeft="@dimen/activity_horizontal_margin"
