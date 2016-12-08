@@ -12,6 +12,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.satra.traveler.R;
 import com.satra.traveler.models.Messages;
 import com.satra.traveler.models.User;
+import com.satra.traveler.utils.Tutility;
 
 import java.util.List;
 
@@ -76,7 +77,7 @@ public class MessagingAdapter extends FirebaseRecyclerAdapter<Messages, Messagin
     private void populateView(ViewHolder holder, Messages model){
         holder.messageMatricule.setText(context.getString(R.string.author_title, model.getAuthor(), model.getSender()));
         holder.messageText.setText(model.getContent());
-        holder.messageDate.setText(model.getDate());
+        holder.messageDate.setText(Tutility.getTimeDifference(context, model.getTimestamp(), System.nanoTime(), model.getDate()));
         int status = model.getSent();
         if (status == 1){
             holder.messageStatusText.setText(context.getString(R.string.message_received));

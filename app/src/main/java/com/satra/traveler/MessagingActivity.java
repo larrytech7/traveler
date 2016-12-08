@@ -43,9 +43,11 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.Map;
 
 import mehdi.sakout.fancybuttons.FancyButton;
@@ -117,8 +119,8 @@ public class MessagingActivity extends AppCompatActivity {
                     textMessage.setSender(travelerUser.getCurrent_matricule());
                     textMessage.setPhonenumber(travelerUser.getUserphone());
                     textMessage.setContent(message);
-                    textMessage.setTimestamp(System.currentTimeMillis());
-                    textMessage.setDate(SimpleDateFormat.getDateInstance().format(new Date(textMessage.getTimestamp())));
+                    textMessage.setTimestamp(System.nanoTime());
+                    textMessage.setDate(new SimpleDateFormat("MMMM dd, yyyy HH:mm:ss a", Locale.US).format(Calendar.getInstance().getTime()));
                     textMessage.setImageUrl(""); //TODO. If image available , send first before message
 
                     //push to reference
