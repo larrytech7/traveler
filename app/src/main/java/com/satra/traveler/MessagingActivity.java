@@ -82,6 +82,7 @@ public class MessagingActivity extends AppCompatActivity {
         //prepare message reference base for sending and receiving messages
         reference = FirebaseDatabase.getInstance().getReference(Tutility.FIREBASE_MESSAGES)
                 .child(travelerUser.getCurrent_matricule());
+        reference.keepSynced(true);
         //setup remaining view
         previewMessageImage = (ImageView) findViewById(R.id.messageImageView);
         FancyButton buttonCaptureImage = (FancyButton) findViewById(R.id.buttonCaptureImage);
