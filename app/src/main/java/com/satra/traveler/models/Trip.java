@@ -30,6 +30,8 @@ public class Trip extends SugarRecord implements Serializable{
     @NotNull
     private String destination; //town of destination
 
+    private String tripKey; //key used in firebase database to identify a trip
+
     private double destinationLatitude;
 
     private double destinationLongitude;
@@ -38,7 +40,7 @@ public class Trip extends SugarRecord implements Serializable{
 
     private double departureLongitude;
 
-    User user;
+    //public User user;
 
     public double getDestinationLatitude() {
         return destinationLatitude;
@@ -79,8 +81,10 @@ public class Trip extends SugarRecord implements Serializable{
         return tid;
     }
 
-    public void setId(long id) {
+    @Override
+    public void setId(Long id) {
         this.tid = id;
+        super.setId(id);
     }
 
     public String getBus_immatriculation() {
@@ -153,6 +157,14 @@ public class Trip extends SugarRecord implements Serializable{
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public String getTripKey() {
+        return tripKey;
+    }
+
+    public void setTripKey(String tripKey) {
+        this.tripKey = tripKey;
     }
 
     @Override

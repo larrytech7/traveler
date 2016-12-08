@@ -61,7 +61,7 @@
             android:value="true" />
         <meta-data
             android:name="VERSION"
-            android:value="15" />
+            android:value="17" />
 
         <activity
             android:name=".MainActivity"

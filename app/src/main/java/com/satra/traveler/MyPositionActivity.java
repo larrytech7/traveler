@@ -70,6 +70,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.satra.traveler.models.SpeedOverhead;
 import com.satra.traveler.models.Trip;
 import com.satra.traveler.models.User;
@@ -83,9 +85,11 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -103,7 +107,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private final static int SNAP_PICTURE = 6, MENU_SNAP_IMAGE = 11;
     private static final String TAG = MyPositionActivity.class.getSimpleName();
     private static final String LOG_TAG = MyPositionActivity.class.getSimpleName();
-    private static String myFormat = "dd/MM/yyyy HH:mm";
+    private static String myFormat = "dd-MM-yyyy HH:mm";
     private static SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
     final int PICK_CONTACT = 7;
     final Calendar myCalendar = Calendar.getInstance();
@@ -133,6 +137,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private static int accessFineLocationSituation = 1;
     private int numberOfMapSettings = 0;
     private User travelerUser;
+    //firebase database fields
+    DatabaseReference firebaseDatabase;
 
     private static HashMap<String, double[]> knownTown;
 
@@ -188,7 +194,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         setContentView(R.layout.view_my_position);
 
         prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
-
+        //initialize database
+        firebaseDatabase = FirebaseDatabase.getInstance().getReference(Tutility.FIREBASE_TRIPS);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -538,7 +545,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     }
 
     @Override
-    protected void onPrepareDialog(int id, Dialog dialog) {
+    protected void onPrepareDialog(int id, final Dialog dialog) {
 
         switch (id) {
             case NavigationItemListener.DIALOG_NEW_COMPLAINT:
@@ -775,37 +782,58 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
                     @Override
                     public void onClick(View v) {
+                        dialog.findViewById(R.id.tripProgressbar).setVisibility(View.VISIBLE);
                         if (busMatriculationNumber.getText().toString().isEmpty() || guardianPhoneNumber.getText().toString().isEmpty()) {
                             Toast.makeText(getApplicationContext(), getString(R.string.provide_all_fields), Toast.LENGTH_LONG).show();
+                            dialog.findViewById(R.id.tripProgressbar).setVisibility(View.GONE);
                             return;
                         }
 
                         if (!IsMatch(busMatriculationNumber.getText().toString().toUpperCase(), getString(R.string.car_immatriculation_regex_patern))) {
                             Log.e("regex: ", "pattern: " + getString(R.string.incorrect_immatriculation_number));
                             Toast.makeText(getApplicationContext(), getString(R.string.incorrect_immatriculation_number), Toast.LENGTH_LONG).show();
+                            dialog.findViewById(R.id.tripProgressbar).setVisibility(View.GONE);
                             return;
                         }
                         mTrip.setBus_immatriculation(busMatriculationNumber.getText().toString().toUpperCase());
                         mTrip.setContact_name(guardianName);
                         mTrip.setContact_number(guardianPhoneNumber.getText().toString());
-                        mTrip.setDate_start(sdf.format(Calendar.getInstance().getTime()));
+                        mTrip.setDate_start(new SimpleDateFormat("MMMM-dd-yyyy", Locale.US).format(new Date()));
                         mTrip.setDate_end("");
                         mTrip.setStatus(0);
+                        mTrip.setTripKey(Tutility.getTripKeyAsString(mTrip.getDeparture(), mTrip.getDestination(), mTrip.getDate_start()));
+                        //mTrip.user = travelerUser;
 
-                        alertDialog.dismiss();
                         long saveid = mTrip.save();
                         if (saveid > 0) {
                             Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_successfull), Toast.LENGTH_LONG).show();
+                            //update map with current trip
                             setupCurrentTrip();
-                            //save current trip matricule
+                            //update user's current matricule
+                            travelerUser.setCurrent_matricule(mTrip.getBus_immatriculation());
+                            travelerUser.save();
+                            //save trip to firebase
+                            Map<String, Object> tripMap = new HashMap<>();
+                            tripMap.put(mTrip.getTripKey(), mTrip);
+                            firebaseDatabase
+                                    .child(mTrip.getBus_immatriculation())
+                                    .updateChildren(tripMap);
+                            firebaseDatabase.child(mTrip.getBus_immatriculation())
+                                    .child(mTrip.getTripKey())
+                                    .child("passengers")
+                                    .push()
+                                    .setValue(travelerUser);
+                            //save current trip matricule to preference
                             prefs.edit().putString(TConstants.PREF_MATRICULE, mTrip.getBus_immatriculation()).apply();
                             //set new matricule on speedometer textview
-                            getString(R.string.speed_dimen, prefs.getString(TConstants.PREF_MATRICULE, "OO000OO"), Float.parseFloat("0")+"");
+                            getString(R.string.speed_dimen, mTrip.getBus_immatriculation(), Float.parseFloat("0")+"");
 
                         } else {
                             Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_failed), Toast.LENGTH_LONG).show();
                         }
                         Log.d(TAG, mTrip.toString());
+                        dialog.findViewById(R.id.tripProgressbar).setVisibility(View.GONE);
+                        alertDialog.dismiss();
                     }
                 });
 
@@ -817,6 +845,9 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                     }
                 });
                 updateDateVoyage();
+                break;
+            case NavigationItemListener.DIALOG_NEW_INSURANCE:
+                //TODO: handle insurance selection here
                 break;
         }
     }

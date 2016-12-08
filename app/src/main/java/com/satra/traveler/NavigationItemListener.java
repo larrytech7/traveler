@@ -23,6 +23,7 @@ import java.util.List;
 public class NavigationItemListener implements NavigationView.OnNavigationItemSelectedListener {
     final static int DIALOG_NEW_COMPLAINT = 3;
     final static int DIALOG_NEW_JOURNEY = 4;
+    final static int DIALOG_NEW_INSURANCE = 5;
     private Activity context;
     private MyPositionActivity activity;
 
