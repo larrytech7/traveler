@@ -10,7 +10,6 @@ import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -23,11 +22,17 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 import com.satra.traveler.adapter.MessagingAdapter;
 import com.satra.traveler.models.Messages;
 import com.satra.traveler.models.ResponsStatusMsg;
+import com.satra.traveler.models.User;
 import com.satra.traveler.utils.TConstants;
+import com.satra.traveler.utils.Tutility;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -39,7 +44,9 @@ import org.springframework.web.client.RestTemplate;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 
@@ -55,7 +62,9 @@ public class MessagingActivity extends AppCompatActivity {
     private String clientMatricule;
     private String clientName;
     private SharedPreferences sharedPreferences;
+    private User travelerUser;
 
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,10 +75,14 @@ public class MessagingActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
 
+        travelerUser = User.findAll(User.class).next();
         //initialize sender variables
-        clientMatricule = sharedPreferences.getString(TConstants.PREF_MATRICULE,"");
-        clientName = sharedPreferences.getString(TConstants.PREF_USERNAME,"");
-
+        clientMatricule = travelerUser == null? "" : travelerUser.getCurrent_matricule();
+        clientName = travelerUser == null? "": travelerUser.getUsername();//sharedPreferences.getString(TConstants.PREF_USERNAME,"");
+        //prepare message reference base for sending and receiving messages
+        reference = FirebaseDatabase.getInstance().getReference(Tutility.FIREBASE_MESSAGES)
+                .child(travelerUser.getCurrent_matricule());
+        //setup remaining view
         previewMessageImage = (ImageView) findViewById(R.id.messageImageView);
         FancyButton buttonCaptureImage = (FancyButton) findViewById(R.id.buttonCaptureImage);
         buttonCaptureImage.setOnClickListener(new View.OnClickListener() {
@@ -90,20 +103,45 @@ public class MessagingActivity extends AppCompatActivity {
         messageRecyclerView.setHasFixedSize(true);
         messageBox = (EditText)findViewById(R.id.messageText);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabSend);
+        FancyButton fab = (FancyButton) findViewById(R.id.fabSend);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(!messageBox.getText().toString().equals("")){
                     String message = messageBox.getText().toString();
                     messageBox.setText("");
-                    pushMessageOnline(MessagingActivity.this, view, message, null);
+                    //prepare message
+                    Messages textMessage = new Messages();
+                    textMessage.setAuthor(travelerUser.getUsername());
+                    textMessage.setSender(travelerUser.getCurrent_matricule());
+                    textMessage.setPhonenumber(travelerUser.getUserphone());
+                    textMessage.setContent(message);
+                    textMessage.setTimestamp(System.currentTimeMillis());
+                    textMessage.setDate(SimpleDateFormat.getDateInstance().format(new Date(textMessage.getTimestamp())));
+                    textMessage.setImageUrl(""); //TODO. If image available , send first before message
+
+                    //push to reference
+                    final String key = reference.push().getKey();
+                    reference.child(key)
+                            .setValue(textMessage)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    //if task completed, update sent status
+                                    if (task.isSuccessful()){
+                                        Map<String, Object> statusUpdate = new HashMap<>();
+                                        statusUpdate.put("sent", 1);
+                                        reference.child(key).updateChildren(statusUpdate);
+                                    }
+                                }
+                            });
+                    //pushMessageOnline(MessagingActivity.this, view, message, null);
 
                 }
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setupMessageList(getApplicationContext());
+        setupMessageList(this);
     }
 
     /**
@@ -124,9 +162,23 @@ public class MessagingActivity extends AppCompatActivity {
 
 
     private void setupMessageList(Context context){
-        MessagingAdapter messagingAdapter = new MessagingAdapter(context, Messages.listAll(Messages.class));
+
+        //populate list view
+        MessagingAdapter messagingAdapter = new MessagingAdapter(Messages.class, R.layout.item_message_layout,
+                MessagingAdapter.ViewHolder.class,reference,
+                null,travelerUser,MessagingActivity.this);
         messageRecyclerView.setAdapter(messagingAdapter);
         messageRecyclerView.scrollToPosition(messagingAdapter.getItemCount() - 1);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        try {
+            ((MessagingAdapter)messageRecyclerView.getAdapter()).cleanup();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

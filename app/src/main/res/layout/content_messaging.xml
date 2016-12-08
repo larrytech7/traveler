@@ -32,10 +32,10 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <android.support.v7.widget.CardView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:layout_marginTop="5dp"
+            android:layout_margin="5dp"
             app:cardBackgroundColor="@color/themeBG"
             app:cardCornerRadius="@dimen/btn_small_padding">
             <EditText
@@ -72,13 +72,37 @@
                 android:layout_marginBottom="3dp"/>
         </android.support.v7.widget.CardView>
 
-        <android.support.design.widget.FloatingActionButton
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/fabSend"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            android:paddingBottom="2dp"
+            android:paddingLeft="1dp"
+            android:paddingRight="1dp"
+            android:paddingTop="5dp"
+            fancy:fb_borderColor="@color/colorPrimary"
+            fancy:fb_borderWidth="1dp"
+            fancy:fb_defaultColor="@color/colorPrimary"
+            fancy:fb_focusColor="@color/bluePrimary"
+            fancy:fb_iconResource="@drawable/ic_send"
+            fancy:fb_iconPosition="right"
+            fancy:fb_radius="60dp"
+            fancy:fb_text=""
+            fancy:fb_textColor="#000"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="3dp"/>
+        <!--<android.support.design.widget.FloatingActionButton
             android:id="@+id/fabSend"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="center_vertical"
             android:layout_margin="@dimen/margin_layout"
             android:src="@drawable/ic_send"
-            app:backgroundTint="@android:color/holo_blue_light" />
+            app:srcCompat="@drawable/ic_send"
+            app:backgroundTint="@android:color/holo_blue_light"
+            app:borderWidth="0dp"/>-->
     </LinearLayout>
 </LinearLayout>

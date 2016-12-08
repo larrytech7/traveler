@@ -652,7 +652,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 });
                 break;
 
-            case NavigationItemListener.DIALOG_NEW_JOURNEY:
+            case NavigationItemListener.DIALOG_NEW_JOURNEY: //register a new journey
 
 
                 alertDialog = (AlertDialog) dialog;

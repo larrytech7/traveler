@@ -7,38 +7,77 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.DatabaseReference;
 import com.satra.traveler.R;
 import com.satra.traveler.models.Messages;
+import com.satra.traveler.models.User;
 
 import java.util.List;
 
 /**
  * Created by Larry Akah on 9/6/16.
  */
-public class MessagingAdapter extends RecyclerView.Adapter<MessagingAdapter.ViewHolder> {
+public class MessagingAdapter extends FirebaseRecyclerAdapter<Messages, MessagingAdapter.ViewHolder> {
 
-    Context context;
-    List<Messages> messagesList;
+    private Context context;
+    private List<Messages> messagesList;
+    private User muser;
+    private final int incoming_viewType = 0;
+    private final int outgoing_viewType = 1;
 
-    public MessagingAdapter(Context context, List<Messages> messagesList) {
-        this.context = context;
+    public MessagingAdapter(Class<Messages> modelClass, int modelLayout,
+                            Class<ViewHolder> viewHolderClass, DatabaseReference ref,
+                            List<Messages> messagesList, User me, Context ctx) {
+        super(modelClass, modelLayout, viewHolderClass, ref);
+        setHasStableIds(true);
+        this.context = ctx;
         this.messagesList = messagesList;
+        this.muser = me;
     }
+
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(context).inflate(R.layout.item_message_layout, parent, false);
-        ViewHolder vh = new ViewHolder(itemView);
-        return vh;
+        switch (viewType){
+            case incoming_viewType:
+                return new ViewHolder(LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.item_message_layout, parent, false));
+            case outgoing_viewType:
+                return new ViewHolder((LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_message_layout_outgoing, parent, false)));
+        }
+        return super.onCreateViewHolder(parent, viewType);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        Messages message = getItem(position);
-        holder.messageMatricule.setText(context.getString(R.string.author_title, message.getAuthor(), message.getSender()));
-        holder.messageText.setText(message.getContent());
-        holder.messageDate.setText(message.getDate());
-        int status = message.getSent();
+    public int getItemViewType(int position) {
+        Messages m = getItem(position);
+        if (muser.getUserphone().equalsIgnoreCase(m.getPhonenumber()))
+            return outgoing_viewType;
+        return incoming_viewType;
+    }
+
+
+    @Override
+    public void cleanup() {
+        super.cleanup();
+    }
+
+    @Override
+    protected void populateViewHolder(ViewHolder holder, Messages model, int position) {
+       // if (model.getPhonenumber().equalsIgnoreCase(muser.getUserphone())){
+        //    populateView(new ViewHolder(), model);
+       // }else{
+            populateView(holder,model);
+       // }
+    }
+
+    private void populateView(ViewHolder holder, Messages model){
+        holder.messageMatricule.setText(context.getString(R.string.author_title, model.getAuthor(), model.getSender()));
+        holder.messageText.setText(model.getContent());
+        holder.messageDate.setText(model.getDate());
+        int status = model.getSent();
         if (status == 1){
             holder.messageStatusText.setText(context.getString(R.string.message_received));
             holder.messageStatusText.setCompoundDrawablesWithIntrinsicBounds(null, null, context.getResources().getDrawable(R.drawable.ic_done), null);
@@ -47,21 +86,11 @@ public class MessagingAdapter extends RecyclerView.Adapter<MessagingAdapter.View
             holder.messageStatusText.setCompoundDrawablesWithIntrinsicBounds(null, null, context.getResources().getDrawable(R.drawable.ic_done_one), null);
         }
     }
-
-    public Messages getItem(int position){
-        return messagesList == null? null:messagesList.get(position);
-    }
-
-    @Override
-    public int getItemCount() {
-        return messagesList == null? 0: messagesList.size();
-    }
-
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView messageText, messageMatricule, messageDate, messageStatusText;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
             messageText = (TextView) itemView.findViewById(R.id.messageContent);
             messageMatricule = (TextView) itemView.findViewById(R.id.messageMatricule);
