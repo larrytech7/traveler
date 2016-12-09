@@ -3,7 +3,8 @@
     xmlns:fancy="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 <LinearLayout
     android:id="@+id/root_layout"
@@ -52,12 +53,13 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="@dimen/text_padding">
-            <!--<android.support.design.widget.TextInputLayout
-                android:textColorHint="#333"
+            <android.support.design.widget.TextInputLayout
+                android:textColorHint="#ccc"
                 android:textColor="#000"
                 android:layout_marginBottom="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">-->
+                android:layout_height="wrap_content"
+                app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
             <EditText
                 android:id="@+id/username"
                 android:layout_width="match_parent"
@@ -70,9 +72,17 @@
                 android:drawableLeft="@drawable/ic_person"
                 android:drawableStart="@drawable/ic_person"
                 android:textColor="@color/abc_search_url_text_selected" />
-            <!--</android.support.design.widget.TextInputLayout>-->
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
+            <android.support.design.widget.TextInputLayout
+                android:textColorHint="#ccc"
+                android:textColor="#000"
+                android:layout_marginBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                <EditText
                 android:id="@+id/no_telephone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,7 +97,17 @@
                 android:textColor="@color/abc_search_url_text_selected"
                 android:inputType="phone" />
 
-            <EditText
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:textColorHint="#ccc"
+                android:textColor="#000"
+                android:layout_marginBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                <EditText
                 android:id="@+id/matricule1"
                 android:layout_width= "match_parent"
                 android:layout_height="wrap_content"
@@ -101,23 +121,34 @@
                 android:drawableStart="@drawable/ic_car"
                 android:textColor="@color/abc_search_url_text_selected" />
 
+            </android.support.design.widget.TextInputLayout>
+
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+                <android.support.design.widget.TextInputLayout
+                    android:textColorHint="#ccc"
+                    android:textColor="#000"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
                 <EditText
                     android:id="@+id/emergencyContact1EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="phone"
-                    android:layout_weight="1"
                     android:drawableLeft="@drawable/ic_contact"
                     android:drawableStart="@drawable/ic_contact"
                     android:hint="@string/emergency_contact_1"/>
+                </android.support.design.widget.TextInputLayout>
                 <ImageButton
                     android:id="@+id/buttonPickContactOne"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:background="@android:color/transparent"
                     android:src="@drawable/ic_contact_add"/>
             </LinearLayout>
@@ -125,21 +156,30 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <EditText
-                    android:id="@+id/emergencyContact2EditText"
+                <android.support.design.widget.TextInputLayout
+                    android:textColorHint="#ccc"
+                    android:textColor="#000"
+                    android:layout_marginBottom="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="phone"
                     android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_contact"
-                    android:drawableStart="@drawable/ic_contact"
-                    android:hint="@string/emergency_contact2"/>
-                <ImageButton
-                    android:id="@+id/buttonPickContactTwo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:src="@drawable/ic_contact_add"/>
+                    app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+                    <EditText
+                        android:id="@+id/emergencyContact2EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        android:drawableLeft="@drawable/ic_contact"
+                        android:drawableStart="@drawable/ic_contact"
+                        android:hint="@string/emergency_contact2"/>
+                </android.support.design.widget.TextInputLayout>
+                    <ImageButton
+                        android:id="@+id/buttonPickContactTwo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/ic_contact_add"/>
             </LinearLayout>
             <mehdi.sakout.fancybuttons.FancyButton
                 android:id="@+id/button_login"

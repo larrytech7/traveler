@@ -32,6 +32,7 @@
     </android.support.design.widget.AppBarLayout>
 
         <FrameLayout
+            android:id="@+id/my_frame_host"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -120,6 +121,24 @@
                         android:text="@string/datedepart"/>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+
+            <android.support.v4.widget.NestedScrollView
+                android:id="@+id/bottom_sheet"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:clipToPadding="true"
+                android:layout_gravity="bottom"
+                android:background="@color/bluePrimary"
+                app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/select_insurance_plan"
+                    android:padding="16dp"
+                    android:textSize="16sp"/>
+
+            </android.support.v4.widget.NestedScrollView>
         </FrameLayout>
 
     </LinearLayout>

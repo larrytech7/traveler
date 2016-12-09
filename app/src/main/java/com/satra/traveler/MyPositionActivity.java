@@ -24,6 +24,7 @@ import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
@@ -97,7 +98,7 @@ import mehdi.sakout.fancybuttons.FancyButton;
 
 public class MyPositionActivity extends AppCompatActivity implements OnMapReadyCallback, LocationSource.OnLocationChangedListener
         , GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener,
+        GoogleApiClient.OnConnectionFailedListener, View.OnClickListener,
         ResultCallback {
 
     private static final int RAYON_TERRE = 6366000;
@@ -139,6 +140,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private User travelerUser;
     //firebase database fields
     DatabaseReference firebaseDatabase;
+    //bottom sheet for insurance
+    BottomSheetBehavior bottomSheetBehavior;
 
     private static HashMap<String, double[]> knownTown;
 
@@ -192,6 +195,9 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
         travelerUser = User.findAll(User.class).next();
         setContentView(R.layout.view_my_position);
+        //setup bottom sheet
+        View bottomView = findViewById(R.id.bottom_sheet);
+        bottomSheetBehavior = BottomSheetBehavior.from(bottomView);
 
         prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
         //initialize database
@@ -827,7 +833,10 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             prefs.edit().putString(TConstants.PREF_MATRICULE, mTrip.getBus_immatriculation()).apply();
                             //set new matricule on speedometer textview
                             getString(R.string.speed_dimen, mTrip.getBus_immatriculation(), Float.parseFloat("0")+"");
-
+                            //TODO. Show snackbar asking user to setup insurance plan
+                            Snackbar.make(findViewById(R.id.my_frame_host), getString(R.string.insurance_plan), Snackbar.LENGTH_LONG)
+                                    .setAction(getString(R.string.get_insurance), this)
+                                    .show();
                         } else {
                             Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_failed), Toast.LENGTH_LONG).show();
                         }
@@ -1303,5 +1312,13 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
     public GoogleApiClient getGoogleApiClient() {
         return googleApiClient;
+    }
+
+    @Override
+    public void onClick(View v) {
+        //handle snackbar insurance interaction click
+        Toast.makeText(this, "Selecting plan", Toast.LENGTH_SHORT).show();
+        //TODO. Bring up bottom sheet with different insurance plans
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
     }
 }

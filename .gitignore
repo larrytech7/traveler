@@ -6,6 +6,7 @@ ehthumbs.db
 Desktop.ini
 #build folders
 app/build
+app/app.iml
 /build
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
@@ -50,3 +51,4 @@ Temporary Items
 local.properties
 /.idea
 .gradle
+gen/

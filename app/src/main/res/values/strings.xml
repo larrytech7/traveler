@@ -218,4 +218,7 @@
     <string name="assurance_voyage">Assurance voyage</string>
     <string name="signinerror">Numéro de téléphone ou %s</string>
     <string name="timeinterval" formatted="false">%d %s</string>
+    <string name="insurance_plan">Get insurance for this trip</string>
+    <string name="get_insurance">Setup</string>
+    <string name="select_insurance_plan">Pick an insurance plan below</string>
 </resources>
