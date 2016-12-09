@@ -2,7 +2,7 @@
 <resources>
 
     <string name="create_profile">Account Creation </string>
-    <string name="welcome">Zero deaths on our roads. Remain Alert and safe with Travelr</string>
+    <string name="welcome">Zero deaths on our roads. Remain Alert and safe with Traveler</string>
     <string name="username">username (*)</string>
     <string name="password">password</string>
     <string name="password_again">password (again)</string>

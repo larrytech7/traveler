@@ -9,7 +9,7 @@
     android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/bg_gradient"
     android:orientation="vertical"
     android:paddingBottom="@dimen/margin_layout"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -33,12 +33,12 @@
         android:textAlignment="center"
         android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="25dp" />
+        android:textSize="25sp" />
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@mipmap/ic_launcher" />
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -51,18 +51,26 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="@dimen/btn_padding">
+            android:padding="@dimen/text_padding">
+            <!--<android.support.design.widget.TextInputLayout
+                android:textColorHint="#333"
+                android:textColor="#000"
+                android:layout_marginBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">-->
             <EditText
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:ems="5"
                 android:hint="@string/username"
                 android:maxLines="1"
+                android:drawableLeft="@drawable/ic_person"
+                android:drawableStart="@drawable/ic_person"
                 android:textColor="@color/abc_search_url_text_selected" />
+            <!--</android.support.design.widget.TextInputLayout>-->
 
             <EditText
                 android:id="@+id/no_telephone"
@@ -74,7 +82,8 @@
                 android:ems="5"
                 android:hint="@string/no_telephone"
                 android:maxLines="1"
-                android:singleLine="true"
+                android:drawableStart="@drawable/ic_phone"
+                android:drawableLeft="@drawable/ic_phone"
                 android:textColor="@color/abc_search_url_text_selected"
                 android:inputType="phone" />
 
@@ -88,7 +97,8 @@
                 android:hint="@string/matriculation_number"
                 android:inputType="textCapSentences|textPostalAddress"
                 android:maxLines="1"
-                android:singleLine="true"
+                android:drawableLeft="@drawable/ic_car"
+                android:drawableStart="@drawable/ic_car"
                 android:textColor="@color/abc_search_url_text_selected" />
 
             <LinearLayout
@@ -101,6 +111,8 @@
                     android:layout_height="wrap_content"
                     android:inputType="phone"
                     android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_contact"
+                    android:drawableStart="@drawable/ic_contact"
                     android:hint="@string/emergency_contact_1"/>
                 <ImageButton
                     android:id="@+id/buttonPickContactOne"
@@ -119,6 +131,8 @@
                     android:layout_height="wrap_content"
                     android:inputType="phone"
                     android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_contact"
+                    android:drawableStart="@drawable/ic_contact"
                     android:hint="@string/emergency_contact2"/>
                 <ImageButton
                     android:id="@+id/buttonPickContactTwo"

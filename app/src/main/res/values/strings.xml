@@ -6,7 +6,7 @@
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
     <string name="action_settings" translatable="false">Apropos</string>
     <string name="create_profile">Creation du compte</string>
-    <string name="welcome">Zero morts sur nos routes. Restez en alerte et en securite avec Travelr</string>
+    <string name="welcome">Zero morts sur nos routes. Restez en alerte et en securite avec Traveler</string>
     <string name="username">pseudonyme (*)</string>
     <string name="password">mot de passe</string>
     <string name="for_publicity" translatable="false">pour la publicite/for advertising</string>
