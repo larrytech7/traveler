@@ -8,11 +8,14 @@ import com.orm.SugarRecord;
 public class TrackingData extends SugarRecord{
 
     private long timestamp; //id of the data. Used to reprensent the timestamp for registering the data
-    private String location;
+    private String location; //text location
     private double longitude;
     private double latitude;
     private double speed;
     private String trackingMatricule;
+    private double bearing; //represent altitude,orientation
+    private double temperature; //temperature
+    private String sender; //phone number of sending device
 
     public TrackingData() {
     }
@@ -23,6 +26,30 @@ public class TrackingData extends SugarRecord{
 
     public void setTrackingMatricule(String trackingMatricule) {
         this.trackingMatricule = trackingMatricule;
+    }
+
+    public double getBearing() {
+        return bearing;
+    }
+
+    public void setBearing(double bearing) {
+        this.bearing = bearing;
+    }
+
+    public double getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(double temperature) {
+        this.temperature = temperature;
+    }
+
+    public String getSender() {
+        return sender;
+    }
+
+    public void setSender(String sender) {
+        this.sender = sender;
     }
 
     public long getTimestamp() {

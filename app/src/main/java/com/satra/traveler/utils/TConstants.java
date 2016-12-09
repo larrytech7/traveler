@@ -65,4 +65,6 @@ public class TConstants {
     public static final String POST_MESSAGE_DESTINATION = "destination";
     public static final String POST_SPEED_AND_POSITION_PARAM_PHONE = "msisdn";
     public static final String TRAVELR_EMAIL_EXT = "_traveler@traveler.cm";
+    public static final String FIREBASE_DATA = "data";
+    public static final String FIREBASE_TEMP_DATA = "temp_data";
 }

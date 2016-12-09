@@ -10,7 +10,6 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.satra.traveler.MyPositionActivity;
-import com.satra.traveler.SpeedMeterService;
 import com.satra.traveler.models.Messages;
 import com.satra.traveler.models.ResponsStatusMsg;
 import com.satra.traveler.utils.TConstants;
@@ -24,7 +23,6 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 public class NetworkAvailable extends BroadcastReceiver {
-    private boolean isConnected = false;
     private SharedPreferences sharedPreferences;
 
     @Override
@@ -36,7 +34,7 @@ public class NetworkAvailable extends BroadcastReceiver {
 
             Log.d("Network available", "Connected");
             //send speeding data online
-            SpeedMeterService.tryToSentDataOnline(context);
+            //SpeedMeterService.tryToSentDataOnline(context);
             //send message data when internet is reestablished
             sendMessageOnline(context);
         }
@@ -110,6 +108,6 @@ public class NetworkAvailable extends BroadcastReceiver {
         ConnectivityManager connectivity = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (connectivity.getActiveNetworkInfo() != null)
             return connectivity.getActiveNetworkInfo().isConnected();
-        return isConnected;
+        return false;
     }
 }
