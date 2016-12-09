@@ -176,5 +176,12 @@
     <string name="travelr_secure_your_trip">Traveler is securing your trip</string>
     <string name="assurance_voyage">Travel insurance</string>
     <string name="signinerror">Phone number or %s</string>
+    <string name="select_insurance_plan">Pick an insurance plan below</string>
+    <string name="pro_insurance">Pro (Week)</string>
+    <string name="modest_insurance">Modest (Aller-retour)</string>
+    <string name="insurance_plan">Get insurance for this trip</string>
+    <string name="get_insurance">Get</string>
+    <string name="enterprise_insurance">Enterprise (month)</string>
+    <string name="basic_insurance">Basic plan (Aller)</string>
 
 </resources>

@@ -83,7 +83,7 @@ public class MainActivity extends Activity implements OnClickListener {
                 if (user != null){
                     //user is logged-in. synchronise user info and send user to home screen
                     Log.d(LOGTAG, "user is signed in");
-
+                    launchHomeActivity();
                 }else{
                     //signed out. allow user to sign in
                     Log.d(LOGTAG, "user is signed out");

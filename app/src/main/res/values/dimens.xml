@@ -20,4 +20,5 @@
     <dimen name="textsize">18sp</dimen>
     <dimen name="textmargin">5dp</dimen>
     <dimen name="text_padding">8dp</dimen>
+    <dimen name="insurance_button_dimen">200dp</dimen>
 </resources>

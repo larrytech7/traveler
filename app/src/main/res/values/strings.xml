@@ -217,8 +217,12 @@
     <string name="travelr_secure_your_trip">Travelr sécurise vos déplacements</string>
     <string name="assurance_voyage">Assurance voyage</string>
     <string name="signinerror">Numéro de téléphone ou %s</string>
-    <string name="timeinterval" formatted="false">%d %s</string>
-    <string name="insurance_plan">Get insurance for this trip</string>
-    <string name="get_insurance">Setup</string>
-    <string name="select_insurance_plan">Pick an insurance plan below</string>
+    <string name="timeinterval" formatted="false" translatable="false">%d %s</string>
+    <string name="insurance_plan">Assurez votre voyage avec une assurance</string>
+    <string name="get_insurance">Obtenir</string>
+    <string name="select_insurance_plan">Choisisser un plan d\'assurance voyage</string>
+    <string name="basic_insurance">Basic plan (Aller)</string>
+    <string name="enterprise_insurance">Entreprise (Mois)</string>
+    <string name="pro_insurance">Pro (semaine)</string>
+    <string name="modest_insurance">Modest (Alller-retour)</string>
 </resources>
