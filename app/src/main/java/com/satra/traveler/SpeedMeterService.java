@@ -31,7 +31,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.Vector;
 
 import static com.satra.traveler.MyPositionActivity.getCurrentTrip;
@@ -404,6 +407,29 @@ public class SpeedMeterService extends Service {
                 .push()
                 .setValue(data);
         //TODO: Determine if has reached speed limit so as to notify
+        if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_TO_ALERT_KMH)
+        if(!hasReachLimit) {
+
+
+            so = new SpeedOverhead();
+            so.setDate_start(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.US).format(Calendar.getInstance().getTime()));
+            so.setLatitude_start(location.getLatitude());
+            so.setLongitude_start(location.getLongitude());
+            so.setSpeed_start(vitesse);
+            so.setTripid(""+MyPositionActivity.getCurrentTrip().getId());
+            //so.save();
+
+            hasReachLimit = true;
+        } else if(hasReachLimit) {
+
+            so.setLatitude_end(location.getLatitude());
+            so.setLongitude_end(location.getLongitude());
+            so.setSpeed_end(vitesse);
+            so.setDate_end(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.US).format(Calendar.getInstance().getTime()));
+            so.save();
+
+            hasReachLimit = false;
+        }
         /*
         new AsyncTask<Void, Void, ResponsStatusMsgMeta>(){
             private long timestamp = System.currentTimeMillis();

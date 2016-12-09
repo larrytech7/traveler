@@ -198,7 +198,20 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         //setup bottom sheet
         View bottomView = findViewById(R.id.bottom_sheet);
         bottomSheetBehavior = BottomSheetBehavior.from(bottomView);
+        bottomSheetBehavior.setPeekHeight(0);
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+                if (newState == BottomSheetBehavior.STATE_COLLAPSED)
+                    bottomSheetBehavior.setPeekHeight(0);
+            }
 
+            @Override
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+
+            }
+        });
         prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
         //initialize database
         firebaseDatabase = FirebaseDatabase.getInstance().getReference(Tutility.FIREBASE_TRIPS);
@@ -835,7 +848,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             getString(R.string.speed_dimen, mTrip.getBus_immatriculation(), Float.parseFloat("0")+"");
                             //TODO. Show snackbar asking user to setup insurance plan
                             Snackbar.make(findViewById(R.id.my_frame_host), getString(R.string.insurance_plan), Snackbar.LENGTH_LONG)
-                                    .setAction(getString(R.string.get_insurance), this)
+                                    .setAction(getString(R.string.get_insurance), MyPositionActivity.this)
                                     .show();
                         } else {
                             Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_failed), Toast.LENGTH_LONG).show();
@@ -936,7 +949,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
 
         if (trip != null && trip.getStatus() == 0) {
-            TextView departure = (TextView) findViewById(R.id.departureTextview);
+            /*TextView departure = (TextView) findViewById(R.id.departureTextview);
             TextView arrival = (TextView) findViewById(R.id.destinationTextview);
             TextView agence = (TextView) findViewById(R.id.agencyTextView);
             TextView timedepart = (TextView) findViewById(R.id.timeDepartureTextview);
@@ -945,7 +958,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             arrival.setText(getString(R.string.arrivee, trip.getDestination()));
             agence.setText(trip.getAgency_name());
             setDrawableStatus(agence, trip.getStatus());
-            timedepart.setText(getString(R.string.datedepart, trip.getDate_start()));
+            timedepart.setText(getString(R.string.datedepart, trip.getDate_start()));*/
 
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
             int padding = 50;
@@ -1072,18 +1085,10 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     public static Trip  getCurrentTrip(){
         Trip trip = null;
         List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
-        //refresh layout by getting fresh view references and setting their values
-
-
 
         if (trips != null && trips.size() > 0) {
             trip = trips.get(trips.size() - 1);
         }
-
-
-
-        //refresh layout by getting fresh view references and setting their values
-
 
         return trip;
     }
@@ -1091,24 +1096,6 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     public static int getPixelsFromDp(Context context, float dp) {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int)(dp * scale + 0.5f);
-    }
-
-    private void setDrawableStatus(TextView view, int status){
-        switch (status){
-            case 0:
-                view.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_trip_running), null,null,null);
-//                view.setCompoundDrawables(getDrawable(R.drawable.ic_trip_running), null,null,null);
-                break;
-            case 1:
-                view.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_trip_complete), null,null,null);
-                break;
-            case 2:
-                view.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_trip_cancelled),null,null,null);
-                break;
-            default:
-                view.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_trip_running),null,null,null);
-                break;
-        }
     }
 
     @Override
@@ -1319,6 +1306,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         //handle snackbar insurance interaction click
         Toast.makeText(this, "Selecting plan", Toast.LENGTH_SHORT).show();
         //TODO. Bring up bottom sheet with different insurance plans
+        bottomSheetBehavior.setPeekHeight(200);
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
     }
 }

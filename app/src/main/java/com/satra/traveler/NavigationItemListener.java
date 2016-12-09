@@ -15,6 +15,8 @@ import com.satra.traveler.models.Trip;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 /**
@@ -56,7 +58,7 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
                            .setAction(context.getString(R.string.end_journey), new View.OnClickListener() {
                                @Override
                                public void onClick(View v) {
-                                   endJourney();
+                                   endJourney(MyPositionActivity.getCurrentTrip());
                                }
                            })
                            .show();
@@ -64,7 +66,7 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
            } break;
            case (R.id.nav_end_journey): {
                if (MyPositionActivity.isCurrentTripExist()) {
-                   endJourney();
+                   endJourney(MyPositionActivity.getCurrentTrip());
                } else {
                    Snackbar.make(context.findViewById(R.id.drawer_layout), R.string.no_current_trip_defined, Snackbar.LENGTH_LONG)
                            .setAction(context.getString(R.string.confirm_journey), new View.OnClickListener() {
@@ -79,7 +81,7 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
            }break;
            case (R.id.nav_cancel_journey): {
                if (MyPositionActivity.isCurrentTripExist()) {
-                   cancelJourney();
+                   cancelJourney(MyPositionActivity.getCurrentTrip());
                } else {
                    Snackbar.make(context.findViewById(R.id.drawer_layout), R.string.no_current_trip_defined, Snackbar.LENGTH_LONG)
                            .setAction(context.getString(R.string.confirm_journey), new View.OnClickListener() {
@@ -113,11 +115,8 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
         return true;
     }
 
-    private void endJourney(){
-        List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
-        // Confirm/complete a trip
-        if (trips != null && trips.size() > 0){
-            Trip trip = trips.get(trips.size() - 1);
+    private void endJourney(@NotNull  Trip trip){
+        //update trip to status of finished
             trip.status = 1;
             long updateid = trip.save();
             if (updateid > 0){
@@ -132,15 +131,10 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
                     // This is the same pending intent that was used in addGeofences().
                     activity.getGeofencePendingIntent()
             ).setResultCallback(activity); // Result processed in onResult().
-
-        }
     }
 
-    private void cancelJourney(){
-        List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
-        // Confirm/complete a trip
-        if (trips != null && trips.size() > 0){
-            Trip trip = trips.get(trips.size() - 1);
+    private void cancelJourney(@NotNull Trip trip){
+            //updated the status of teh current trip to completed
             trip.status = 2;
             long updateid = trip.save();
             if (updateid > 0){
@@ -156,6 +150,5 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
                     activity.getGeofencePendingIntent()
             ).setResultCallback(activity); // Result processed in onResult().
 
-        }
     }
 }

@@ -93,9 +93,11 @@
                 android:orientation="horizontal">
                 <ProgressBar
                     style="?android:attr/progressBarStyleSmall"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/tripProgressbar"
+                    android:gravity="end"
+                    android:background="@color/bluePrimary"
                     android:visibility="gone"/>
             </LinearLayout>
 

@@ -21,7 +21,7 @@
         <item>"Dammaged vehicle"</item>
         <item>"Other..."</item>
     </string-array>
-        <string name="matriculation_number">Immatriculation of your Vehicle</string>
+        <string name="matriculation_number">Immatriculation of your Vehicle (*)</string>
         <string name="description">Description</string>
 		    <string name="load_image">Upload a picture</string>
     <string name="snap_image">Snap a picture</string>

@@ -40,7 +40,7 @@ public class Trip extends SugarRecord implements Serializable{
 
     private double departureLongitude;
 
-    //public User user;
+    User user;
 
     public double getDestinationLatitude() {
         return destinationLatitude;
