@@ -8,14 +8,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -28,22 +27,25 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.satra.traveler.models.ResponsStatusMsg;
-import com.satra.traveler.models.ResponsStatusMsgData;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.satra.traveler.models.User;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
 
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestTemplate;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Iterator;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 
@@ -52,11 +54,16 @@ public class MainActivity extends Activity implements OnClickListener {
     final private static int DIALOG_SIGNUP = 1;
     private static final int PICK_FIRST_CONTACT = 100;
     private static final int PICK_SECOND_CONTACT = 200;
+    private static final String LOGTAG = "MainActivity";
     private static int contactToPick=0;
     private static int GET_FROM_GALLERY=2;
     EditText username, matricule, noTelephone, contact1EditText, contact2EditText;
     FancyButton buttonLogin;
     ImageButton profilePicture, pickContactOne, pickContactTwo;
+
+    //firebase fields
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     public static Integer stringToInt(String str){
         if(str.length()==0) return 0;
@@ -67,6 +74,23 @@ public class MainActivity extends Activity implements OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null){
+                    //user is logged-in. synchronise user info and send user to home screen
+                    Log.d(LOGTAG, "user is signed in");
+                    launchHomeActivity();
+                }else{
+                    //signed out. allow user to sign in
+                    Log.d(LOGTAG, "user is signed out");
+                }
+            }
+        };
+
         final SharedPreferences sharedPreferences = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
 
         contact1EditText = (EditText) findViewById(R.id.emergencyContact1EditText);
@@ -76,9 +100,10 @@ public class MainActivity extends Activity implements OnClickListener {
 
         pickContactOne.setOnClickListener(this);
         pickContactTwo.setOnClickListener(this);
-
-        if(sharedPreferences.contains(TConstants.PREF_USERNAME)&& sharedPreferences.contains(TConstants.PREF_PHONE)){
-
+        //check if user account was already created and saved
+        Iterator<User> musers = User.findAll(User.class);
+        if (musers.hasNext()){
+            //Log.d(LOGTAG, "User available: "+musers.next().getUsername());
             final ProgressDialog progress = new ProgressDialog(MainActivity.this);
             progress.setIcon(R.mipmap.ic_launcher);
             progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -87,91 +112,28 @@ public class MainActivity extends Activity implements OnClickListener {
             progress.setTitle(getString(R.string.key_chargement));
             progress.setMessage(getString(R.string.key_account_creation_loading_msg));
             progress.show();
+            //synchronize with firebase and login
+            User user = musers.next();
+            mAuth.signInWithEmailAndPassword(Tutility.getAuthenticationEmail(user.getUserphone()),
+                    Tutility.getAuthenticationEmail(user.getUserphone()));
+            //update user info in firebase. Works even if offline
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference(Tutility.FIREBASE_USER);
+            reference
+                    .child(user.getUserphone())
+                    .setValue(user)
+                    .addOnCompleteListener(MainActivity.this,
+                            new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful())
+                                        Log.d(LOGTAG, "User synchronisation succeeded");
+                                    else
+                                        Log.d(LOGTAG, "User synchronisation failed");
+                                    progress.dismiss();
+                                    launchHomeActivity();
+                                }
+                            });
 
-            new AsyncTask<Void, Void, ResponsStatusMsgData>(){
-                @Override
-                protected ResponsStatusMsgData doInBackground(Void... params) {
-                    try {
-                        HttpHeaders requestHeaders = new HttpHeaders();
-                        //Create the request body as a MultiValueMap
-                        MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
-
-                        HttpEntity<?> httpEntity = new HttpEntity<Object>(body, requestHeaders);
-                        RestTemplate restTemplate = new RestTemplate(true);
-                        Gson gson = new Gson();
-
-                        ResponseEntity<String>  response = restTemplate.exchange(TConstants.GET_MAT_ID_URL+getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
-                                .getString(TConstants.PREF_PHONE, ""), HttpMethod.GET, httpEntity, String.class);
-                        Log.e("response: ", response.getBody());
-                        return gson.fromJson(response.getBody(), ResponsStatusMsgData.class);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-
-                    return null;
-                }
-
-                @Override
-                protected void onPostExecute(ResponsStatusMsgData response) {
-                    if(response!=null && response.getStatus()==200){
-                        try {
-                            Toast.makeText(getApplicationContext(), R.string.mat_id_synchronization_success, Toast.LENGTH_LONG).show();
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putString(TConstants.PREF_MAT_ID, response.getData()[0].getId());
-                            String currentMatricule = sharedPreferences.getString(TConstants.PREF_MATRICULE, "");
-                            //Mettre a jour le matricule de l'utilisateur avec le matricule plus recement enregistrer par cet utilisateur
-                            editor.putString(TConstants.PREF_MATRICULE,
-                                    !MyPositionActivity.IsMatch(response.getData()[0].getCode().toUpperCase(),
-                                            getString(R.string.car_immatriculation_regex_patern))?
-                                            currentMatricule:response.getData()[0].getCode());
-                            editor.putString(TConstants.PREF_USERNAME, response.getData()[0].getUsername());
-                            editor.putString(TConstants.PREF_EMERGENCY_CONTACT_1, response.getData()[0].getEmergency_primary());
-                            //sometimes there may not be a secondary emergency contact and this line without the error trap causes the app to fail
-                            try {
-                                editor.putString(TConstants.PREF_EMERGENCY_CONTACT_2, response.getData()[0].getEmergency_secondary().equalsIgnoreCase(getString(R.string.information_not_available_label))?"":response.getData()[0].getEmergency_secondary());
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                            editor.commit();
-
-
-                            progress.dismiss();
-                            Toast.makeText(getApplicationContext(), getString(R.string.connexion_with_username)+" "
-                                            +getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
-                                            .getString(TConstants.PREF_USERNAME, "anonyme-Travelr"),
-                                    Toast.LENGTH_LONG)
-                                    .show();
-                            startActivity(new Intent(getApplicationContext(), MyPositionActivity.class));
-                            finish();
-
-                            Log.e("message", "reponse: "+response.getMessage());
-                        } catch (Resources.NotFoundException | IndexOutOfBoundsException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    else{
-                        progress.dismiss();
-                        Log.e("message", "response: "+response);
-                        Toast.makeText(getApplicationContext(), R.string.mat_id_synchronization_operation_failed, Toast.LENGTH_LONG).show();
-
-                        if(getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0).contains(TConstants.PREF_MAT_ID)){
-                            Toast.makeText(getApplicationContext(), getString(R.string.connexion_with_username)+" "
-                                            +getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
-                                            .getString(TConstants.PREF_USERNAME, "anonyme-Travelr"),
-                                    Toast.LENGTH_LONG)
-                                    .show();
-
-                            startActivity(new Intent(getApplicationContext(), MyPositionActivity.class));
-                            finish();
-                        }
-                        else{
-
-                            Toast.makeText(getApplicationContext(), R.string.mat_id_synchronization_failed_no_mat_id_saved, Toast.LENGTH_LONG).show();
-                        }
-
-                    }
-                }
-            }.execute();
         }
 
         username = (EditText)findViewById(R.id.username);
@@ -185,7 +147,6 @@ public class MainActivity extends Activity implements OnClickListener {
         else{
             requestPermission(android.Manifest.permission.READ_PHONE_STATE);
         }
-
 
         buttonLogin = (FancyButton)findViewById(R.id.button_login);
 
@@ -225,6 +186,18 @@ public class MainActivity extends Activity implements OnClickListener {
                                 final String usernameString = username.getText().toString();
                                 final String contact1 = contact1EditText.getText().toString();
                                 final String contact2 = (contact2EditText.getText().toString().isEmpty())?getString(R.string.information_not_available_label):contact2EditText.getText().toString();
+                                //new application/system user
+                                final User tuser = new User();
+                                tuser.setCurrent_matricule(matriculeString);
+                                tuser.setPassword(Tutility.getAuthenticationEmail(telephoneString));
+                                tuser.setEmergency_primary(contact1);
+                                tuser.setEmergency_secondary(contact2);
+                                tuser.setUserphone(telephoneString);
+                                tuser.setDate_registered(SimpleDateFormat.getDateInstance().format(new Date()));
+                                tuser.setUseremail(Tutility.getAuthenticationEmail(telephoneString));
+                                tuser.setUsername(usernameString);
+                                tuser.setUpdated_at(System.currentTimeMillis());
+                                //progress dialog to show ongoing process
                                 final ProgressDialog progress = new ProgressDialog(MainActivity.this);
                                 progress.setIcon(R.mipmap.ic_launcher);
                                 progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -232,121 +205,43 @@ public class MainActivity extends Activity implements OnClickListener {
                                 progress.setTitle(getString(R.string.key_chargement));
                                 progress.setMessage(getString(R.string.key_account_creation_loading_msg));
                                 progress.show();
-
-                                new AsyncTask<Void, Void, ResponsStatusMsg>(){
+                                //signup user via firebase
+                                mAuth.createUserWithEmailAndPassword(Tutility.getAuthenticationEmail(telephoneString),
+                                        Tutility.getAuthenticationEmail(telephoneString))
+                                .addOnSuccessListener(MainActivity.this,new OnSuccessListener<AuthResult>() {
                                     @Override
-                                    protected ResponsStatusMsg doInBackground(Void... params) {
-                                        try {
-                                            HttpHeaders requestHeaders = new HttpHeaders();
-                                            MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
-                                            body.add(TConstants.REGISTRATION_URL_PARAM_CODE, matriculeString);
-                                            body.add(TConstants.REGISTRATION_URL_PARAM_MSISDN, telephoneString);
-                                            body.add(TConstants.REGISTRATION_URL_PARAM_USERNAME, usernameString);
-                                            body.add(TConstants.REGISTRATION_URL_PARAM_EMERGENCY_ONE, contact1);
-                                            body.add(TConstants.REGISTRATION_URL_PARAM_EMERGENCY_TWO, contact2);
-
-                                            //Log.e("error", "no: "+telephoneString);
-                                            HttpEntity<?> httpEntity = new HttpEntity<Object>(body, requestHeaders);
-                                            RestTemplate restTemplate = new RestTemplate(true);
-                                            Gson gson = new Gson();
-
-                                            ResponseEntity<String>  response = restTemplate.exchange(TConstants.REGISTRATION_URL, HttpMethod.POST, httpEntity, String.class);
-                                            Log.e("Response", "res: "+response);
-                                            Log.e("Response body", "body "+response.getBody());
-
-                                            return gson.fromJson(response.getBody(), ResponsStatusMsg.class);
-                                        } catch (Exception e) {
-                                            Log.e("MainActivity", e.getMessage(), e);
-                                        }
-
-                                        return null;
+                                    public void onSuccess(AuthResult authResult) {
+                                        //account creation succeeded
+                                        Log.d(LOGTAG, "Account created!");
+                                        sharedPreferences.edit().putString(TConstants.PREF_MATRICULE, tuser.getCurrent_matricule()).apply();
+                                        //save user profile to device
+                                        tuser.save();
+                                        //get user and update display name
+                                        FirebaseUser user = authResult.getUser();
+                                        UserProfileChangeRequest updateRequest = new UserProfileChangeRequest.Builder()
+                                                .setDisplayName(usernameString)
+                                                .build();
+                                        user.updateProfile(updateRequest)
+                                            .addOnCompleteListener(MainActivity.this, new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if (task.isSuccessful()){
+                                                        Log.d(LOGTAG, "Display name updated Successfully");
+                                                    }
+                                                    progress.dismiss();
+                                                    launchHomeActivity();
+                                                }
+                                            });
                                     }
-
+                                })
+                                .addOnFailureListener(MainActivity.this, new OnFailureListener() {
                                     @Override
-                                    protected void onPostExecute(ResponsStatusMsg response) {
-
-                                        if(response!=null && (response.getStatus()==100||response.getStatus()==101)){
-                                            if(response.getStatus()==100){
-                                                Toast.makeText(getApplicationContext(), R.string.success_account_creation, Toast.LENGTH_LONG).show();
-                                            }
-                                            else{
-                                                Toast.makeText(getApplicationContext(), R.string.success_account_edition, Toast.LENGTH_LONG).show();
-                                            }
-
-                                            SharedPreferences prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0);
-                                            SharedPreferences.Editor editor = prefs.edit();
-                                            editor.putString(TConstants.PREF_USERNAME, usernameString)
-                                                    .putString(TConstants.PREF_PHONE, telephoneString)
-                                                    .putString(TConstants.PREF_MATRICULE, matriculeString.equalsIgnoreCase(getString(R.string.information_not_available_label))?"":matriculeString)
-                                                    .putString(TConstants.PREF_EMERGENCY_CONTACT_1, contact1)
-                                                    .putString(TConstants.PREF_EMERGENCY_CONTACT_2, contact2.equalsIgnoreCase(getString(R.string.information_not_available_label))?"":contact2)
-                                                    .apply();
-
-                                            new AsyncTask<Void, Void, ResponsStatusMsgData>(){
-                                                @Override
-                                                protected ResponsStatusMsgData doInBackground(Void... params) {
-                                                    try {
-                                                        // HttpAuthentication httpAuthentication = new HttpBasicAuthentication("username", "password");
-                                                        HttpHeaders requestHeaders = new HttpHeaders();
-
-                                                        //Create the request body as a MultiValueMap
-                                                        MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
-
-                                                        HttpEntity<?> httpEntity = new HttpEntity<Object>(body, requestHeaders);
-                                                        RestTemplate restTemplate = new RestTemplate(true);
-
-                                                        Gson gson = new Gson();
-                                                        ResponseEntity<String>  response = restTemplate.exchange(TConstants.GET_MAT_ID_URL+getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
-                                                                .getString(TConstants.PREF_PHONE, ""), HttpMethod.GET, httpEntity, String.class);
-
-                                                        Log.e("response get_mat", "response: "+response.getBody());
-                                                        return gson.fromJson(response.getBody(), ResponsStatusMsgData.class);
-                                                    } catch (Exception e) {
-                                                        Log.e("MainActivity", e.getMessage(), e);
-                                                    }
-
-                                                    return null;
-                                                }
-
-                                                @Override
-                                                protected void onPostExecute(ResponsStatusMsgData response) {
-
-                                                    if(response!=null && response.getStatus()==200){
-                                                        Toast.makeText(getApplicationContext(), R.string.mat_id_synchronization_success, Toast.LENGTH_LONG).show();
-
-                                                        SharedPreferences prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
-                                                        SharedPreferences.Editor editor = prefs.edit();
-                                                        editor.putString(TConstants.PREF_MAT_ID, response.getData()[0].getId()).apply();
-
-                                                        progress.dismiss();
-
-                                                        Toast.makeText(getApplicationContext(), getString(R.string.connexion_with_username)+" "
-                                                                        +getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0)
-                                                                        .getString(TConstants.PREF_USERNAME, usernameString),
-                                                                Toast.LENGTH_LONG)
-                                                                .show();
-                                                        startActivity(new Intent(getApplicationContext(), MyPositionActivity.class));
-                                                        finish();
-
-                                                        Log.e("message", "reponse: "+response.getMessage());
-                                                    }
-                                                    else{
-                                                        progress.dismiss();
-                                                        Log.e("message", "response: "+response);
-                                                        Toast.makeText(getApplicationContext(), R.string.mat_id_synchronization_operation_failed, Toast.LENGTH_LONG).show();
-                                                        Toast.makeText(getApplicationContext(), R.string.mat_id_synchronization_failed_no_mat_id_saved, Toast.LENGTH_LONG).show();
-                                                    }
-                                                }
-                                            }.execute();
-                                        }
-                                        else{
-                                            progress.dismiss();
-                                            Log.e("message", "response: "+response);
-                                            Toast.makeText(getApplicationContext(), R.string.echec_creation_compte_contact_serveur, Toast.LENGTH_LONG).show();
-                                        }
+                                    public void onFailure(@NonNull Exception e) {
+                                        //account creation failed
+                                        progress.dismiss();
+                                        Tutility.showMessage(MainActivity.this, getString(R.string.signinerror, e.getMessage()),getString(R.string.app_name));
                                     }
-                                }.execute();
-
+                                });
                             }
                         }
                 );
@@ -356,11 +251,28 @@ public class MainActivity extends Activity implements OnClickListener {
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mAuth.removeAuthStateListener(mAuthListener);
+    }
+
     private void requestPermission(String permission) {
         //ask user to grant permission to read fine location. Required for android 6.0+ API level 23+
         ActivityCompat.requestPermissions(MainActivity.this,
                 new String[]{permission},
                 stringToInt(permission));
+    }
+
+    private void launchHomeActivity(){
+        startActivity(new Intent(MainActivity.this, MyPositionActivity.class));
+        finish();
     }
 
     @Override

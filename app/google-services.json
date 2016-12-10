@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "252590530317",
+    "firebase_url": "https://traveler-844e2.firebaseio.com",
+    "project_id": "traveler-844e2",
+    "storage_bucket": "traveler-844e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252590530317:android:1c616e86150d3983",
+        "android_client_info": {
+          "package_name": "com.satra.traveler"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "252590530317-r6ra1f93b2li9vshkkj1nv4766sc079o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.satra.traveler",
+            "certificate_hash": "97444CD501FFC75D694B12A3A234B6365E4C8860"
+          }
+        },
+        {
+          "client_id": "252590530317-m6l0kjd349qufp9qeqsa49lh1kic599i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0WOBmdURbV2tN2VtQYrb2W3XDSJ9A4iM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "252590530317-m6l0kjd349qufp9qeqsa49lh1kic599i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

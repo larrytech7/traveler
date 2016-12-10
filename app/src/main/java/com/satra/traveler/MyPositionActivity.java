@@ -24,6 +24,7 @@ import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
@@ -70,8 +71,11 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.satra.traveler.models.SpeedOverhead;
 import com.satra.traveler.models.Trip;
+import com.satra.traveler.models.User;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
 
@@ -82,9 +86,11 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -92,7 +98,7 @@ import mehdi.sakout.fancybuttons.FancyButton;
 
 public class MyPositionActivity extends AppCompatActivity implements OnMapReadyCallback, LocationSource.OnLocationChangedListener
         , GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener,
+        GoogleApiClient.OnConnectionFailedListener, View.OnClickListener,
         ResultCallback {
 
     private static final int RAYON_TERRE = 6366000;
@@ -102,7 +108,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private final static int SNAP_PICTURE = 6, MENU_SNAP_IMAGE = 11;
     private static final String TAG = MyPositionActivity.class.getSimpleName();
     private static final String LOG_TAG = MyPositionActivity.class.getSimpleName();
-    private static String myFormat = "dd/MM/yyyy HH:mm";
+    private static String myFormat = "dd-MM-yyyy HH:mm";
     private static SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
     final int PICK_CONTACT = 7;
     final Calendar myCalendar = Calendar.getInstance();
@@ -131,7 +137,11 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private GoogleApiClient googleApiClient;
     private static int accessFineLocationSituation = 1;
     private int numberOfMapSettings = 0;
-
+    private User travelerUser;
+    //firebase database fields
+    DatabaseReference firebaseDatabase;
+    //bottom sheet for insurance
+    BottomSheetBehavior bottomSheetBehavior;
 
     private static HashMap<String, double[]> knownTown;
 
@@ -183,12 +193,28 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-
+        travelerUser = User.findAll(User.class).next();
         setContentView(R.layout.view_my_position);
+        //setup bottom sheet
+        View bottomView = findViewById(R.id.bottom_sheet);
+        bottomSheetBehavior = BottomSheetBehavior.from(bottomView);
+        bottomSheetBehavior.setPeekHeight(0);
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+                if (newState == BottomSheetBehavior.STATE_COLLAPSED)
+                    bottomSheetBehavior.setPeekHeight(0);
+            }
 
+            @Override
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+
+            }
+        });
         prefs = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
-
+        //initialize database
+        firebaseDatabase = FirebaseDatabase.getInstance().getReference(Tutility.FIREBASE_TRIPS);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -235,16 +261,15 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         addToknownTown(prefs
                 .getString(TConstants.PREF_TO_6, getString(R.string.town_6)));
 
-
         final TextView usernameTextview = ((TextView) navigationView.getHeaderView(0).findViewById(R.id.username));
-        usernameTextview.setText(prefs.getString(TConstants.PREF_USERNAME, "anonyme"));
+        usernameTextview.setText(travelerUser == null ? "anonyme" : travelerUser.getUsername());
 
         Typeface tf = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/digital-7.ttf");
         usernameTextview.setTypeface(tf);
 
         //speed textview
         speedTextview = (TextView) navigationView.getHeaderView(0).findViewById(R.id.speedtext);
-        speedTextview.setText(getString(R.string.speed_dimen, prefs.getString(TConstants.PREF_MATRICULE, "OO000OO"), Float.parseFloat("0")+""));
+        speedTextview.setText(getString(R.string.speed_dimen, travelerUser ==null?"OO000OO":travelerUser.getCurrent_matricule(), Float.parseFloat("0")+""));
         //build speedometer
         mspeedometer = (SpeedometerGauge) navigationView.getHeaderView(0).findViewById(R.id.speedometer);
         setupSpeedometer(mspeedometer);
@@ -271,8 +296,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
                 if (msg.getData().containsKey(TConstants.SPEED_PREF)) {
                     double speed = Tutility.round(msg.getData().getFloat(TConstants.SPEED_PREF));
-                    usernameTextview
-                            .setText(prefs.getString(TConstants.PREF_USERNAME, "anonyme"));
+                    /*usernameTextview
+                            .setText(prefs.getString(TConstants.PREF_USERNAME, "anonyme"));*/
                     /*
                                     +( speed >= MAX_VITESSE_METRE_SECONDE ? " ("
                                     + round(speed * COEFF_CONVERSION_MS_KMH)
@@ -539,7 +564,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     }
 
     @Override
-    protected void onPrepareDialog(int id, Dialog dialog) {
+    protected void onPrepareDialog(int id, final Dialog dialog) {
 
         switch (id) {
             case NavigationItemListener.DIALOG_NEW_COMPLAINT:
@@ -653,7 +678,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 });
                 break;
 
-            case NavigationItemListener.DIALOG_NEW_JOURNEY:
+            case NavigationItemListener.DIALOG_NEW_JOURNEY: //register a new journey
 
 
                 alertDialog = (AlertDialog) dialog;
@@ -776,37 +801,61 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
                     @Override
                     public void onClick(View v) {
+                        dialog.findViewById(R.id.tripProgressbar).setVisibility(View.VISIBLE);
                         if (busMatriculationNumber.getText().toString().isEmpty() || guardianPhoneNumber.getText().toString().isEmpty()) {
                             Toast.makeText(getApplicationContext(), getString(R.string.provide_all_fields), Toast.LENGTH_LONG).show();
+                            dialog.findViewById(R.id.tripProgressbar).setVisibility(View.GONE);
                             return;
                         }
 
                         if (!IsMatch(busMatriculationNumber.getText().toString().toUpperCase(), getString(R.string.car_immatriculation_regex_patern))) {
                             Log.e("regex: ", "pattern: " + getString(R.string.incorrect_immatriculation_number));
                             Toast.makeText(getApplicationContext(), getString(R.string.incorrect_immatriculation_number), Toast.LENGTH_LONG).show();
+                            dialog.findViewById(R.id.tripProgressbar).setVisibility(View.GONE);
                             return;
                         }
                         mTrip.setBus_immatriculation(busMatriculationNumber.getText().toString().toUpperCase());
                         mTrip.setContact_name(guardianName);
                         mTrip.setContact_number(guardianPhoneNumber.getText().toString());
-                        mTrip.setDate_start(sdf.format(Calendar.getInstance().getTime()));
+                        mTrip.setDate_start(new SimpleDateFormat("MMMM-dd-yyyy", Locale.US).format(new Date()));
                         mTrip.setDate_end("");
                         mTrip.setStatus(0);
+                        mTrip.setTripKey(Tutility.getTripKeyAsString(mTrip.getDeparture(), mTrip.getDestination(), mTrip.getDate_start()));
+                        //mTrip.user = travelerUser;
 
-                        alertDialog.dismiss();
                         long saveid = mTrip.save();
                         if (saveid > 0) {
                             Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_successfull), Toast.LENGTH_LONG).show();
+                            //update map with current trip
                             setupCurrentTrip();
-                            //save current trip matricule
+                            //update user's current matricule
+                            travelerUser.setCurrent_matricule(mTrip.getBus_immatriculation());
+                            travelerUser.save();
+                            //save trip to firebase
+                            Map<String, Object> tripMap = new HashMap<>();
+                            tripMap.put(mTrip.getTripKey(), mTrip);
+                            firebaseDatabase
+                                    .child(mTrip.getBus_immatriculation())
+                                    .updateChildren(tripMap);
+                            firebaseDatabase.child(mTrip.getBus_immatriculation())
+                                    .child(mTrip.getTripKey())
+                                    .child("passengers")
+                                    .push()
+                                    .setValue(travelerUser);
+                            //save current trip matricule to preference
                             prefs.edit().putString(TConstants.PREF_MATRICULE, mTrip.getBus_immatriculation()).apply();
                             //set new matricule on speedometer textview
-                            getString(R.string.speed_dimen, prefs.getString(TConstants.PREF_MATRICULE, "OO000OO"), Float.parseFloat("0")+"");
-
+                            getString(R.string.speed_dimen, mTrip.getBus_immatriculation(), Float.parseFloat("0")+"");
+                            //TODO. Show snackbar asking user to setup insurance plan
+                            Snackbar.make(findViewById(R.id.my_frame_host), getString(R.string.insurance_plan), Snackbar.LENGTH_LONG)
+                                    .setAction(getString(R.string.get_insurance), MyPositionActivity.this)
+                                    .show();
                         } else {
                             Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_failed), Toast.LENGTH_LONG).show();
                         }
                         Log.d(TAG, mTrip.toString());
+                        dialog.findViewById(R.id.tripProgressbar).setVisibility(View.GONE);
+                        alertDialog.dismiss();
                     }
                 });
 
@@ -818,6 +867,9 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                     }
                 });
                 updateDateVoyage();
+                break;
+            case NavigationItemListener.DIALOG_NEW_INSURANCE:
+                //TODO: handle insurance selection here
                 break;
         }
     }
@@ -897,7 +949,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
 
         if (trip != null && trip.getStatus() == 0) {
-            TextView departure = (TextView) findViewById(R.id.departureTextview);
+            /*TextView departure = (TextView) findViewById(R.id.departureTextview);
             TextView arrival = (TextView) findViewById(R.id.destinationTextview);
             TextView agence = (TextView) findViewById(R.id.agencyTextView);
             TextView timedepart = (TextView) findViewById(R.id.timeDepartureTextview);
@@ -906,7 +958,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             arrival.setText(getString(R.string.arrivee, trip.getDestination()));
             agence.setText(trip.getAgency_name());
             setDrawableStatus(agence, trip.getStatus());
-            timedepart.setText(getString(R.string.datedepart, trip.getDate_start()));
+            timedepart.setText(getString(R.string.datedepart, trip.getDate_start()));*/
 
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
             int padding = 50;
@@ -1033,18 +1085,10 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     public static Trip  getCurrentTrip(){
         Trip trip = null;
         List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
-        //refresh layout by getting fresh view references and setting their values
-
-
 
         if (trips != null && trips.size() > 0) {
             trip = trips.get(trips.size() - 1);
         }
-
-
-
-        //refresh layout by getting fresh view references and setting their values
-
 
         return trip;
     }
@@ -1052,24 +1096,6 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     public static int getPixelsFromDp(Context context, float dp) {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int)(dp * scale + 0.5f);
-    }
-
-    private void setDrawableStatus(TextView view, int status){
-        switch (status){
-            case 0:
-                view.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_trip_running), null,null,null);
-//                view.setCompoundDrawables(getDrawable(R.drawable.ic_trip_running), null,null,null);
-                break;
-            case 1:
-                view.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_trip_complete), null,null,null);
-                break;
-            case 2:
-                view.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_trip_cancelled),null,null,null);
-                break;
-            default:
-                view.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_trip_running),null,null,null);
-                break;
-        }
     }
 
     @Override
@@ -1273,5 +1299,14 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
     public GoogleApiClient getGoogleApiClient() {
         return googleApiClient;
+    }
+
+    @Override
+    public void onClick(View v) {
+        //handle snackbar insurance interaction click
+        Toast.makeText(this, "Selecting plan", Toast.LENGTH_SHORT).show();
+        //TODO. Bring up bottom sheet with different insurance plans
+        bottomSheetBehavior.setPeekHeight(200);
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
     }
 }

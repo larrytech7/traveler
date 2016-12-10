@@ -11,6 +11,10 @@ import com.satra.traveler.R;
  */
 public class Tutility {
 
+    public static final String FIREBASE_USER = "users";
+    public static final String FIREBASE_MESSAGES = "messages";
+    public static final String FIREBASE_TRIPS = "trips";
+
     //show a dialog to the user about a certain message/information
     public static void showMessage(Context c, String message, String title){
         AlertDialog alertDialog = new AlertDialog
@@ -38,7 +42,42 @@ public class Tutility {
         alertDialog.show();
     }
 
+    /**
+     * Format and returns a traveler email for this user to be used for authentication and acount creation
+     * @param phone user's phone number to serve as unique feature
+     * @return new traveler authenticating email
+     */
+    public static String getAuthenticationEmail(String phone){
+        return phone + TConstants.TRAVELR_EMAIL_EXT;
+    }
     public static double round(double c){
         return Math.round(c*100)/100.0;
+    }
+
+    /**
+     * Get simple time elapsed and represent as human readable
+     * @param c context to fetch string resources
+     * @param previousTimestamp previous timestamp in the past
+     * @param currentTimeStamp current timestamp
+     * @param date string date to return if time lapse is more than 24 hours
+     * @return string time for elapsed time since @param previousTimestamp
+     */
+    public static String getTimeDifference(Context  c, long previousTimestamp, long currentTimeStamp, String date ){
+        long diff = Math.abs(currentTimeStamp - previousTimestamp); //avoid negative values however
+        if (diff > 86 * Math.pow(10,11))
+            return date;
+        //now do calculations and round up to nearest second, minute or hour
+        double intervalInSeconds = diff / Math.pow(10, 9); //convert to seconds
+        if (intervalInSeconds < 60)
+            return c.getString(R.string.timeinterval, Math.round(intervalInSeconds), "s"); //time in seconds
+        if (intervalInSeconds < 3600)
+            return c.getString(R.string.timeinterval, Math.round((intervalInSeconds / 60 )), "m"); //time in minutes
+        if (intervalInSeconds > 3600)
+            return c.getString(R.string.timeinterval, Math.round((intervalInSeconds / 3600 )), "h"); //time in hours
+        return date;
+    }
+
+    public static String getTripKeyAsString(String departure, String destination, String date){
+        return departure+"_"+destination+"_"+date;
     }
 }

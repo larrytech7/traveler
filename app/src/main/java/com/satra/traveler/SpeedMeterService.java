@@ -11,25 +11,23 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.media.RingtoneManager;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings;
 import android.util.Log;
 
-import com.google.gson.Gson;
-import com.satra.traveler.models.ResponsStatusMsgMeta;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.satra.traveler.models.SpeedOverhead;
 import com.satra.traveler.models.TrackingData;
+import com.satra.traveler.models.Trip;
+import com.satra.traveler.models.User;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
 
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
@@ -38,6 +36,8 @@ import java.util.Calendar;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.Vector;
+
+import static com.satra.traveler.MyPositionActivity.getCurrentTrip;
 
 
 /**
@@ -63,6 +63,8 @@ public class SpeedMeterService extends Service {
     private Vector<Float> vitesses = new Vector<>();
     private LocationListener locationListenerGPS, locationListenerNetwork;
     static final String LOGTAG = SpeedMeterService.class.getSimpleName();
+    DatabaseReference databaseReference;
+    private User travelerUser;
 
     /**
      * A constructor is required, and must call the super IntentService(String)
@@ -71,7 +73,10 @@ public class SpeedMeterService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startid){
         Log.e("service starting...", "service SpeedMeterService is starting ");
-
+        databaseReference = FirebaseDatabase.getInstance().getReference(Tutility.FIREBASE_TRIPS);
+        Iterator<User> users = User.findAll(User.class);
+        if (users.hasNext())
+            travelerUser = users.next();
 //        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 //
 //            return START_NOT_STICKY;
@@ -111,7 +116,7 @@ public class SpeedMeterService extends Service {
         id = 1;
         ((NotificationManager) getSystemService(NOTIFICATION_SERVICE)).cancelAll();
 
-        editor = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, 0).edit();
+        editor = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE).edit();
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
@@ -168,14 +173,10 @@ public class SpeedMeterService extends Service {
         try {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 100, 0, locationListenerGPS);
             locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 200, 0, locationListenerNetwork);
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException | SecurityException e) {
             e.printStackTrace();
-        }catch (SecurityException sec){
-            sec.printStackTrace();
         }
     }
-
-
 
     public void showAlertEnableGPS(){
 
@@ -251,7 +252,7 @@ public class SpeedMeterService extends Service {
                 context.getSystemService(NOTIFICATION_SERVICE);
         Notification.Builder build = new Notification.Builder(context);
 
-        int nbre = MyPositionActivity.isCurrentTripExist()?SpeedOverhead.find(SpeedOverhead.class, "tripid = ?", ""+MyPositionActivity.getCurrentTrip().getId()).size():0;
+        int nbre = MyPositionActivity.isCurrentTripExist()?SpeedOverhead.find(SpeedOverhead.class, "tripid = ?", ""+ getCurrentTrip().getId()).size():0;
         String message = nbre>0?nbre+context.getString(R.string.speed_overheading):context.getString(R.string.travelr_secure_your_trip);
 
         build.setAutoCancel(false);
@@ -359,18 +360,19 @@ public class SpeedMeterService extends Service {
         Log.e(LOGTAG, "new speed received and injected: "+vitesse);
 
        if(MyPositionActivity.isCurrentTripExist()){
+           Trip mtrip = MyPositionActivity.getCurrentTrip();
            if(((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_ALLOWED_KMH)){
 
-               pushSpeedOnline(SpeedMeterService.this, vitesse, location, null);
+               pushSpeedOnline(SpeedMeterService.this, vitesse * COEFF_CONVERSION_MS_KMH, location, mtrip);
 
            }
            else if((lastUpdate==null||System.currentTimeMillis()-lastUpdate>INTERVAL_BETWEEN_UPDATES)){
-               pushSpeedOnline(SpeedMeterService.this, vitesse, location, null);
+               pushSpeedOnline(SpeedMeterService.this, vitesse * COEFF_CONVERSION_MS_KMH, location, mtrip);
                lastUpdate = System.currentTimeMillis();
            }
        }
 
-        tryToSentDataOnline(getApplicationContext());
+        //tryToSentDataOnline(getApplicationContext());
 
         return  duration;
     }
@@ -381,7 +383,54 @@ public class SpeedMeterService extends Service {
     private static RestTemplate restTemplate;
     private static  SpeedOverhead so = null;
 
-    private static void pushSpeedOnline(final Context context, final float vitesse, final Location location, final TrackingData trackingData) {
+    private void pushSpeedOnline(final Context context, final float vitesse, @NotNull final Location location,@NotNull final Trip trip) {
+        //push speed to firebase
+        long timestamp = System.currentTimeMillis();
+        TrackingData data = new TrackingData();
+        data.setTimestamp(timestamp);
+        data.setLatitude(location.getLatitude());
+        data.setLongitude(location.getLongitude());
+        data.setSpeed(vitesse);
+        data.setTrackingMatricule(trip.getBus_immatriculation());
+        data.setSender(travelerUser.getUserphone());
+        data.setBearing(0f);
+        data.setTemperature(0f);
+
+        databaseReference.child(trip.getBus_immatriculation())
+                .child(trip.getTripKey())
+                .child(TConstants.FIREBASE_DATA)
+                .push()
+                .setValue(data);
+        databaseReference.child(trip.getBus_immatriculation())
+                .child(trip.getTripKey())
+                .child(TConstants.FIREBASE_TEMP_DATA)
+                .push()
+                .setValue(data);
+        //TODO: Determine if has reached speed limit so as to notify
+        if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_TO_ALERT_KMH)
+        if(!hasReachLimit) {
+
+
+            so = new SpeedOverhead();
+            so.setDate_start(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.US).format(Calendar.getInstance().getTime()));
+            so.setLatitude_start(location.getLatitude());
+            so.setLongitude_start(location.getLongitude());
+            so.setSpeed_start(vitesse);
+            so.setTripid(""+MyPositionActivity.getCurrentTrip().getId());
+            //so.save();
+
+            hasReachLimit = true;
+        } else if(hasReachLimit) {
+
+            so.setLatitude_end(location.getLatitude());
+            so.setLongitude_end(location.getLongitude());
+            so.setSpeed_end(vitesse);
+            so.setDate_end(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.US).format(Calendar.getInstance().getTime()));
+            so.save();
+
+            hasReachLimit = false;
+        }
+        /*
         new AsyncTask<Void, Void, ResponsStatusMsgMeta>(){
             private long timestamp = System.currentTimeMillis();
             @Override
@@ -517,8 +566,14 @@ public class SpeedMeterService extends Service {
 
             }
         }.execute();
+        */
     }
 
+    /**
+     * Manage offline sending of data when connection re-establishes.
+     * @Deprecated: No longer necessary, firebase handles offline capabilities
+     */
+    /*
     public static  void tryToSentDataOnline(Context context){
         //voici les objets de vitesse/position dans la bd locale
         Iterator<TrackingData> trackingDatas = TrackingData.findAll(TrackingData.class);
@@ -537,7 +592,7 @@ public class SpeedMeterService extends Service {
 
         }
     }
-
+    */
     @Override
     public void onDestroy() {
         super.onDestroy();
