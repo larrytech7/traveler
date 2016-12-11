@@ -260,7 +260,7 @@ public class SpeedMeterService extends Service {
         build.setTicker(context.getString(R.string.app_name));
         build.setContentTitle(vitesse);
         build.setContentText(message);
-        build.setSmallIcon(R.mipmap.ic_launcher);
+        build.setSmallIcon(R.drawable.ic_launcher_web);
         build.setContentIntent(pendingIntent);
         build.setOngoing(true);
 //        build.setNumber(MAX_SPEED_ALLOWED_KMH);
