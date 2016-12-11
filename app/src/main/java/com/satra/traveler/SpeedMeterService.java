@@ -27,9 +27,6 @@ import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
 
 import org.jetbrains.annotations.NotNull;
-import org.springframework.http.ResponseEntity;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestTemplate;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -377,10 +374,10 @@ public class SpeedMeterService extends Service {
         return  duration;
     }
 
-    private static MultiValueMap<String, String> body ;
+    /*private static MultiValueMap<String, String> body ;
     private static ResponseEntity<String> response;
     private static TrackingData trackingDataa;
-    private static RestTemplate restTemplate;
+    private static RestTemplate restTemplate;*/
     private static  SpeedOverhead so = null;
 
     private void pushSpeedOnline(final Context context, final float vitesse, @NotNull final Location location,@NotNull final Trip trip) {

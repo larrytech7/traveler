@@ -225,4 +225,11 @@
     <string name="enterprise_insurance">Entreprise (Mois)</string>
     <string name="pro_insurance">Pro (semaine)</string>
     <string name="modest_insurance">Modest (Alller-retour)</string>
+    <string name="invalid_image">Image invalid. Essayer encore</string>
+    <string name="error_upload_image">Erreure de telechargement de l\'image. Veuillez re-essayer</string>
+    <string name="message_category_send">type de message a envoyer</string>
+    <string name="message_simple">message simple</string>
+    <string name="message_incident">message incident</string>
+    <string name="matriculation_number_other">matricule autre vehicule si incident</string>
+    <string name="no_message">Entrer votre message</string>
 </resources>

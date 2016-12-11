@@ -183,5 +183,12 @@
     <string name="get_insurance">Get</string>
     <string name="enterprise_insurance">Enterprise (month)</string>
     <string name="basic_insurance">Basic plan (Aller)</string>
+    <string name="error_upload_image">Error uploading image. Please try again</string>
+    <string name="invalid_image">Incorrect image please try again</string>
+    <string name="matriculation_number_other">matricule of vehicle if different from yours</string>
+    <string name="message_category_send">message type to send</string>
+    <string name="message_incident">incidence message</string>
+    <string name="message_simple">simple message</string>
+    <string name="no_message">type your message</string>
 
 </resources>

@@ -14,7 +14,7 @@
     <dimen name="card_elevation">5dp</dimen>
     <dimen name="btn_small_padding">10dp</dimen>
     <dimen name="margin_layout">5dp</dimen>
-    <dimen name="contetextsize">25sp</dimen>
+    <dimen name="contetextsize">20sp</dimen>
     <dimen name="margin_element">50dp</dimen>
     <dimen name="titlesize">20sp</dimen>
     <dimen name="textsize">18sp</dimen>
