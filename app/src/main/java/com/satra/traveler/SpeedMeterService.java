@@ -193,7 +193,7 @@ public class SpeedMeterService extends Service {
         build.setTicker(getString(R.string.app_name));
         build.setContentTitle(getString(R.string.open_settings));
         build.setContentText(getString(R.string.gps_disabled_message));
-        build.setSmallIcon(R.mipmap.ic_launcher);
+        build.setSmallIcon(R.drawable.ic_launcher_web);
         build.setContentIntent(pendingIntent);
         build.setOngoing(false);
 
