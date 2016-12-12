@@ -56,7 +56,7 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0' //remote image loading and caching
     compile 'com.iceteck.silicompressorr:silicompressor:1.1.0' //image compression
     compile 'com.github.clans:fab:1.6.4' //floating action menu and buttons
-    compile 'com.getbase:floatingactionbutton:1.10.1'
+    //compile 'com.getbase:floatingactionbutton:1.10.1'
     //compile 'com.google.code.gson:gson:2.4'
     //compile 'org.springframework.android:spring-android-rest-template:1.0.1.RELEASE'
     compile 'org.jetbrains:annotations-java5:15.0'
