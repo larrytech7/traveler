@@ -67,4 +67,6 @@ public class TConstants {
     public static final String TRAVELR_EMAIL_EXT = "_traveler@traveler.cm";
     public static final String FIREBASE_DATA = "data";
     public static final String FIREBASE_TEMP_DATA = "temp_data";
+    public static final String FIREBASE_MEDIA_DATA = "media";
+    public static final String FIREBASE_MEDIA_DATA_IMAGES = "images";
 }

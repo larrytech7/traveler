@@ -214,7 +214,7 @@
     <string name="destination_reached_msg">Vous avez atteint votre destination ou vous en êtes proche. Merci de terminer le voyage.</string>
     <string name="destination_exited_msg">Vous êtes sur le point de quitter votre destination. Merci de terminer ou d\'annuler le voyage en cours.</string>
     <string name="speed_overheading">" dépassements de vitesse"</string>
-    <string name="travelr_secure_your_trip">Travelr sécurise vos déplacements</string>
+    <string name="travelr_secure_your_trip">Traveler sécurise vos déplacements</string>
     <string name="assurance_voyage">Assurance voyage</string>
     <string name="signinerror">Numéro de téléphone ou %s</string>
     <string name="timeinterval" formatted="false" translatable="false">%d %s</string>
@@ -225,4 +225,12 @@
     <string name="enterprise_insurance">Entreprise (Mois)</string>
     <string name="pro_insurance">Pro (semaine)</string>
     <string name="modest_insurance">Modest (Alller-retour)</string>
+    <string name="invalid_image">Image invalid. Essayer encore</string>
+    <string name="error_upload_image">Erreure de telechargement de l\'image. Veuillez re-essayer</string>
+    <string name="message_category_send">type de message a envoyer</string>
+    <string name="message_simple">message simple</string>
+    <string name="message_incident">message incident</string>
+    <string name="matriculation_number_other">matricule autre vehicule si incident</string>
+    <string name="no_message">Entrer votre message</string>
+    <string name="signup">Inscrivez vous et sécuriser vos trajets</string>
 </resources>

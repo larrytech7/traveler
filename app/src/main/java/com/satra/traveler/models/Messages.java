@@ -16,8 +16,9 @@ public class Messages extends SugarRecord {
     private String author; //Main username of person writing the message
     private String date; //date sent
     private String imageUrl; //optional image accompanying messages
-    private long timestamp; // timestamp messaeg was sent (when user first pressed send to send the message)
+    private long timestamp; // timestamp message was sent (when user first pressed send to send the message)
     private int sent; //1-sent, 0-not sent. default should be sent
+    private String category;
 
     public Messages() {
     }
@@ -80,6 +81,14 @@ public class Messages extends SugarRecord {
 
     public String getPhonenumber() {
         return phonenumber;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public void setPhonenumber(String phonenumber) {

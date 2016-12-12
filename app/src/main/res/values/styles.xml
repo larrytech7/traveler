@@ -43,4 +43,9 @@
         <item name="android:textColor">@color/bluePrimary</item>
     </style>
 
+    <style name="menu_labels_style">
+        <item name="android:background">@drawable/ic_send</item>
+        <item name="android:textColor">@color/app_white</item>
+    </style>
+
 </resources>

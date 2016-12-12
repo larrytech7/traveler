@@ -27,9 +27,6 @@ import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
 
 import org.jetbrains.annotations.NotNull;
-import org.springframework.http.ResponseEntity;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestTemplate;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -196,7 +193,7 @@ public class SpeedMeterService extends Service {
         build.setTicker(getString(R.string.app_name));
         build.setContentTitle(getString(R.string.open_settings));
         build.setContentText(getString(R.string.gps_disabled_message));
-        build.setSmallIcon(R.mipmap.ic_launcher);
+        build.setSmallIcon(R.drawable.ic_launcher_web);
         build.setContentIntent(pendingIntent);
         build.setOngoing(false);
 
@@ -263,7 +260,7 @@ public class SpeedMeterService extends Service {
         build.setTicker(context.getString(R.string.app_name));
         build.setContentTitle(vitesse);
         build.setContentText(message);
-        build.setSmallIcon(R.mipmap.ic_launcher);
+        build.setSmallIcon(R.drawable.ic_launcher_web);
         build.setContentIntent(pendingIntent);
         build.setOngoing(true);
 //        build.setNumber(MAX_SPEED_ALLOWED_KMH);
@@ -377,10 +374,10 @@ public class SpeedMeterService extends Service {
         return  duration;
     }
 
-    private static MultiValueMap<String, String> body ;
+    /*private static MultiValueMap<String, String> body ;
     private static ResponseEntity<String> response;
     private static TrackingData trackingDataa;
-    private static RestTemplate restTemplate;
+    private static RestTemplate restTemplate;*/
     private static  SpeedOverhead so = null;
 
     private void pushSpeedOnline(final Context context, final float vitesse, @NotNull final Location location,@NotNull final Trip trip) {

@@ -17,8 +17,6 @@ import com.satra.traveler.utils.Tutility;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
-
 /**
  * Created by Steve Jeff on 16/02/2016.
  */

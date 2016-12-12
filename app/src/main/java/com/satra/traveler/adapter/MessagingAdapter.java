@@ -1,12 +1,15 @@
 package com.satra.traveler.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.satra.traveler.R;
@@ -86,10 +89,18 @@ public class MessagingAdapter extends FirebaseRecyclerAdapter<Messages, Messagin
             holder.messageStatusText.setText(context.getString(R.string.message_not_received));
             holder.messageStatusText.setCompoundDrawablesWithIntrinsicBounds(null, null, context.getResources().getDrawable(R.drawable.ic_done_one), null);
         }
+        if (model.getImageUrl() != null && !model.getImageUrl().isEmpty())
+            Glide.with(context)
+                    .load(Uri.parse(model.getImageUrl()))
+                    .crossFade()
+                    .placeholder(R.drawable.loading)
+                    .into(holder.mediaImage);
     }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView messageText, messageMatricule, messageDate, messageStatusText;
+        ImageView mediaImage;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -97,6 +108,7 @@ public class MessagingAdapter extends FirebaseRecyclerAdapter<Messages, Messagin
             messageMatricule = (TextView) itemView.findViewById(R.id.messageMatricule);
             messageDate = (TextView) itemView.findViewById(R.id.messageDate);
             messageStatusText = (TextView) itemView.findViewById(R.id.messageStatusText);
+            mediaImage = (ImageView) itemView.findViewById(R.id.mediaImageView);
         }
     }
 }
