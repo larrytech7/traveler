@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.satra.traveler.R;
@@ -92,8 +93,8 @@ public class MessagingAdapter extends FirebaseRecyclerAdapter<Messages, Messagin
         if (model.getImageUrl() != null && !model.getImageUrl().isEmpty())
             Glide.with(context)
                     .load(Uri.parse(model.getImageUrl()))
-                    .crossFade()
                     .placeholder(R.drawable.loading)
+                    .crossFade()
                     .into(holder.mediaImage);
     }
 

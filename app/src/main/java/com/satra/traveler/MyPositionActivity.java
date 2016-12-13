@@ -73,6 +73,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.satra.traveler.models.SpeedOverhead;
 import com.satra.traveler.models.Trip;
 import com.satra.traveler.models.User;
@@ -376,6 +377,9 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
         // create GoogleApiClient
         createGoogleApi();
+
+        //subscribe to FCM services to receive incoming notifs
+        FirebaseMessaging.getInstance().subscribeToTopic(TConstants.FIREBASE_MESSAGING_TOPIC);
     }
 
     // Create GoogleApiClient instance
