@@ -16,15 +16,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f606ed2b-c641-4c63-87da-c5d9334666cf" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/android_widgets_0_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/fancybuttons_1_8_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jackson_annotations_2_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jackson_core_2_3_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jackson_core_asl_1_9_12.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jackson_databind_2_3_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jackson_mapper_asl_1_9_12.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/sugar_1_5.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MessagingActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MessagingActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MyPositionActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MyPositionActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/adapter/MessagingAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/adapter/MessagingAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/utils/TConstants.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/utils/TConstants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_messaging.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_messaging.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
     </list>
     <ignored path="traveler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,58 +85,116 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
+      <file leaf-file-name="MessagingAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/adapter/MessagingAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+            <state relative-caret-position="183">
+              <caret line="93" column="31" selection-start-line="93" selection-start-column="31" selection-end-line="93" selection-end-column="31" />
               <folding>
-                <element signature="e#3852#4546#0" expanded="false" />
-                <element signature="e#5011#5673#0" expanded="false" />
-                <element signature="e#8940#9903#0" expanded="false" />
-                <element signature="e#9975#10179#0" expanded="false" />
+                <element signature="method#MessagingAdapter#0;class#MessagingAdapter#0" expanded="false" />
+                <element signature="method#onCreateViewHolder#0;class#MessagingAdapter#0" expanded="false" />
+                <element signature="method#getItemViewType#0;class#MessagingAdapter#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="content_messaging.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="content_messaging.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_messaging.xml">
           <provider editor-type-id="android-designer2">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
+            <state relative-caret-position="194">
+              <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
               <folding>
                 <element signature="e#623#1100#0" expanded="false" />
-                <element signature="e#1123#1860#0" expanded="false" />
-                <element signature="e#1357#1569#0" expanded="false" />
-                <element signature="e#1866#2241#0" expanded="false" />
-                <element signature="e#2247#8655#0" expanded="false" />
-                <element signature="e#4426#4961#0" expanded="false" />
-                <element signature="e#5543#6089#0" expanded="false" />
-                <element signature="e#6103#7154#0" expanded="false" />
-                <element signature="e#7210#8150#0" expanded="false" />
-                <element signature="e#8159#8636#0" expanded="false" />
+                <element signature="e#1332#1351#0" expanded="true" />
+                <element signature="e#1629#1890#0" expanded="false" />
+                <element signature="e#4476#5011#0" expanded="false" />
+                <element signature="e#5593#6139#0" expanded="false" />
+                <element signature="e#7260#8200#0" expanded="false" />
+                <element signature="e#8209#8686#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <file leaf-file-name="MyPositionActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MyPositionActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="42" column="34" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+            <state relative-caret-position="162">
+              <caret line="381" column="40" selection-start-line="381" selection-start-column="40" selection-end-line="381" selection-end-column="40" />
               <folding>
-                <element signature="e#284#446#0" expanded="false" />
-                <element signature="e#469#786#0" expanded="false" />
-                <element signature="e#807#814#0" expanded="false" />
+                <element signature="method#IsMatch#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#computeDistance#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#updateDateVoyage#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#addToknownTown#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="class#7908:8324" expanded="false" />
+                <element signature="method#onSlide#0;class#7908:8324" expanded="false" />
+                <element signature="class#14758:15715" expanded="false" />
+                <element signature="method#getInfoContents#0;class#14758:15715" expanded="false" />
+                <element signature="method#createGoogleApi#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#onMapReady#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#requestPermission#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#onRequestPermissionsResult#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#setupSpeedometer#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#onBackPressed#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#onCreateOptionsMenu#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#onOptionsItemSelected#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#onCreateDialog#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="class#25108:26477" expanded="false" />
+                <element signature="class#31208:32781" expanded="false" />
+                <element signature="method#onNothingSelected#0;class#31208:32781" expanded="false" />
+                <element signature="class#32849:34434" expanded="false" />
+                <element signature="method#setToSpinner#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#setFromSpinner#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#setupCurrentTrip#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#getGeofencingRequest#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#getGeofencePendingIntent#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#isCurrentTripExist#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#getCurrentTrip#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#getPixelsFromDp#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#onActivityResult#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#onStart#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#onStop#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#onConnected#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#onConnectionFailed#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#onDestroy#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#onLocationChanged#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="method#onResult#0;class#MyPositionActivity#0" expanded="false" />
+                <marker date="1481614172849" expanded="false" signature="43196:43246" ph="&quot;Destination: {trip.getDestination()}&quot;" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MessagingActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MessagingActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="94" column="75" selection-start-line="94" selection-start-column="75" selection-end-line="94" selection-end-column="75" />
+              <folding>
+                <element signature="e#7338#7368#0" expanded="true" />
+                <element signature="docComment;method#startCameraCapture#0;class#MessagingActivity#0" expanded="false" />
+                <element signature="method#startCameraCapture#0;class#MessagingActivity#0" expanded="false" />
+                <element signature="docComment;method#requestPermission#0;class#MessagingActivity#0" expanded="false" />
+                <element signature="method#requestPermission#0;class#MessagingActivity#0" expanded="false" />
+                <element signature="method#setupMessageList#0;class#MessagingActivity#0" expanded="false" />
+                <element signature="method#onDestroy#0;class#MessagingActivity#0" expanded="false" />
+                <element signature="method#getSupportParentActivityIntent#0;class#MessagingActivity#0" expanded="false" />
+                <element signature="method#onRequestPermissionsResult#0;class#MessagingActivity#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TConstants.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/utils/TConstants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="71" column="31" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -252,11 +330,6 @@
                 <option name="description" value="Displays the components produced by root project 'traveler'. [incubating]" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="components" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.firebase:firebase-auth:10.0.0" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComGoogleFirebaseFirebaseAuth1000Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
@@ -517,6 +590,11 @@
                 <option name="name" value="lintRelease" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-auth:10.0.1" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseAuth1001Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="generateDebugAssets" />
               </ExternalTaskPojo>
@@ -611,6 +689,11 @@
                 <option name="description" value="Prepare com.android.support:support-fragment:25.0.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="prepareComAndroidSupportSupportFragment2501Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-messaging:10.0.1" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseMessaging1001Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Prepare com.android.support:support-v4:25.0.1" />
@@ -993,6 +1076,11 @@
           <value>
             <list>
               <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-messaging:10.0.1" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseMessaging1001Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Displays the sub-projects of project ':app'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="projects" />
@@ -1171,11 +1259,6 @@
                 <option name="description" value="Displays the components produced by project ':app'. [incubating]" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="components" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.firebase:firebase-auth:10.0.0" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComGoogleFirebaseFirebaseAuth1000Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Prepare com.google.firebase:firebase-database:10.0.1" />
@@ -1624,6 +1707,11 @@
                 <option name="name" value="lintRelease" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-auth:10.0.1" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseAuth1001Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Assembles and tests this project and all projects that depend on it." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="buildDependents" />
@@ -1811,7 +1899,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4427961038775" />
+        <entry key="$PROJECT_DIR$" value="4428129927579" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -2153,7 +2241,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/bg_gradient.xml" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/register_a_journey.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MyPositionActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/NavigationItemListener.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values-en/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/Trip.java" />
@@ -2161,19 +2248,20 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/view_my_position.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/Messages.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/utils/TConstants.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_message_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/broadcasts/NetworkAvailable.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_message_layout_outgoing.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/adapter/MessagingAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MessagingActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_messaging.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/SpeedMeterService.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/adapter/MessagingAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MyPositionActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/utils/TConstants.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MessagingActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_messaging.xml" />
       </list>
     </option>
   </component>
@@ -2361,66 +2449,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="traveler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="traveler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drawable" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="traveler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="traveler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -2460,40 +2488,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="tapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="traveler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="traveler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="traveler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3089,7 +3083,14 @@
       <option name="project" value="LOCAL" />
       <updated>1481444336643</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Updated main UI, set main icon in drawable">
+      <created>1481585413558</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1481585413558</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3103,15 +3104,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1368" height="718" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28347826" sideWeight="0.43806645" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29391304" sideWeight="0.5619335" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29391304" sideWeight="0.5619335" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Assistant" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31722054" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -3126,7 +3128,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32347825" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28347826" sideWeight="0.43806645" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1925982" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1925982" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -3134,7 +3136,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Assistant" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31722054" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -3215,11 +3216,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/anonyme.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/travelr.png" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/new_account.xml">
       <provider editor-type-id="android-designer2">
@@ -3228,6 +3224,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="109">
           <caret line="96" column="29" selection-start-line="96" selection-start-column="29" selection-end-line="96" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3286,6 +3283,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="59" column="46" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3311,6 +3309,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3318,6 +3317,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3354,6 +3354,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+          <folding>
+            <element signature="e#453#9288#0" expanded="false" />
+            <element signature="e#738#1312#0" expanded="false" />
+            <element signature="e#1526#3215#0" expanded="false" />
+            <element signature="e#1710#3187#0" expanded="false" />
+            <element signature="e#2017#2477#0" expanded="false" />
+            <element signature="e#2499#3152#0" expanded="false" />
+            <element signature="e#3671#9150#0" expanded="false" />
+            <element signature="e#3870#4166#0" expanded="false" />
+            <element signature="e#4038#4069#0" expanded="false" />
+            <element signature="e#4191#5339#0" expanded="false" />
+            <element signature="e#4348#4379#0" expanded="false" />
+            <element signature="e#4566#4592#0" expanded="false" />
+            <element signature="e#4751#4777#0" expanded="false" />
+            <element signature="e#5254#5279#0" expanded="false" />
+            <element signature="e#5364#6591#0" expanded="false" />
+            <element signature="e#5522#5553#0" expanded="false" />
+            <element signature="e#5743#5765#0" expanded="false" />
+            <element signature="e#5816#5842#0" expanded="false" />
+            <element signature="e#6001#6027#0" expanded="false" />
+            <element signature="e#6505#6531#0" expanded="false" />
+            <element signature="e#6616#7844#0" expanded="false" />
+            <element signature="e#6771#6802#0" expanded="false" />
+            <element signature="e#6992#7014#0" expanded="false" />
+            <element signature="e#7065#7091#0" expanded="false" />
+            <element signature="e#7250#7276#0" expanded="false" />
+            <element signature="e#7761#7784#0" expanded="false" />
+            <element signature="e#7869#9118#0" expanded="false" />
+            <element signature="e#8031#8062#0" expanded="false" />
+            <element signature="e#8252#8274#0" expanded="false" />
+            <element signature="e#8325#8351#0" expanded="false" />
+            <element signature="e#8510#8536#0" expanded="false" />
+            <element signature="e#9028#9058#0" expanded="false" />
+            <element signature="e#9294#9643#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3361,20 +3396,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/utils/TConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="70" column="68" selection-start-line="70" selection-start-column="68" selection-end-line="70" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -3395,6 +3416,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="15" column="65" selection-start-line="15" selection-start-column="65" selection-end-line="15" selection-end-column="65" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3402,6 +3424,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3409,6 +3432,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3416,6 +3440,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3423,13 +3448,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MyPositionActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3440,13 +3459,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/adapter/MessagingAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_message_layout_outgoing.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -3454,6 +3466,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3464,6 +3477,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+          <folding>
+            <element signature="e#433#1155#0" expanded="false" />
+            <element signature="e#1458#1481#0" expanded="false" />
+            <element signature="e#1511#1533#0" expanded="false" />
+            <element signature="e#1857#2348#0" expanded="false" />
+            <element signature="e#2357#2750#0" expanded="false" />
+            <element signature="e#2759#3378#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3471,6 +3492,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+          <folding>
+            <element signature="method#Messages#0;class#Messages#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3489,6 +3513,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-16118">
           <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3496,6 +3521,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+          <folding>
+            <element signature="method#onNavigationItemSelected#0;class#NavigationItemListener#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3503,28 +3531,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-666">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#stringToInt#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onStart#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onStop#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#requestPermission#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#launchHomeActivity#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onRequestPermissionsResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onCreateDialog#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onPrepareDialog#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3568,25 +3574,197 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="490">
           <caret line="195" column="53" selection-start-line="195" selection-start-column="53" selection-end-line="195" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="docComment;class#SpeedMeterService#0" expanded="false" />
+            <element signature="docComment;method#onStartCommand#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#onStartCommand#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="e#2864#3141#0" expanded="false" />
+            <element signature="method#onBind#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#onCreate#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#start#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#showPersistentNotification#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="e#10079#10115#0" expanded="false" />
+            <element signature="method#hideNotification#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#pushSpeedOnline#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="docComment;method#onDestroy#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#onDestroy#0;class#SpeedMeterService#0" expanded="false" />
+            <marker date="1481444253769" expanded="false" signature="23962:24779" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MessagingActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/loading.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1609">
-          <caret line="152" column="81" selection-start-line="152" selection-start-column="81" selection-end-line="152" selection-end-column="81" />
+        <state relative-caret-position="109">
+          <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+          <folding>
+            <element signature="e#618#640#0" expanded="true" />
+            <element signature="e#665#700#0" expanded="true" />
+            <element signature="e#726#761#0" expanded="true" />
+            <element signature="e#785#807#0" expanded="true" />
+            <element signature="e#1069#1825#0" expanded="false" />
+            <element signature="e#1326#1361#0" expanded="true" />
+            <element signature="e#1396#1431#0" expanded="true" />
+            <element signature="e#1467#1502#0" expanded="true" />
+            <element signature="e#1538#1573#0" expanded="true" />
+            <element signature="e#1634#1650#0" expanded="true" />
+            <element signature="e#2046#2073#0" expanded="true" />
+            <element signature="e#2106#2133#0" expanded="true" />
+            <element signature="e#2376#2397#0" expanded="true" />
+            <element signature="e#3044#3077#0" expanded="true" />
+            <element signature="e#3139#3157#0" expanded="true" />
+            <element signature="e#3852#4546#0" expanded="false" />
+            <element signature="e#4158#4191#0" expanded="true" />
+            <element signature="e#4253#4275#0" expanded="true" />
+            <element signature="e#5011#5673#0" expanded="false" />
+            <element signature="e#5263#5285#0" expanded="true" />
+            <element signature="e#5347#5377#0" expanded="true" />
+            <element signature="e#6787#6816#0" expanded="true" />
+            <element signature="e#8385#8413#0" expanded="true" />
+            <element signature="e#8940#9903#0" expanded="false" />
+            <element signature="e#9231#9250#0" expanded="true" />
+            <element signature="e#9330#9356#0" expanded="true" />
+            <element signature="e#9479#9505#0" expanded="true" />
+            <element signature="e#9790#9809#0" expanded="true" />
+            <element signature="e#9840#9855#0" expanded="true" />
+            <element signature="e#9975#10179#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="51" column="13" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
+          <folding>
+            <element signature="method#stringToInt#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onStart#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onStop#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#requestPermission#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#launchHomeActivity#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onRequestPermissionsResult#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onCreateDialog#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onPrepareDialog#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="42" column="34" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+        <state relative-caret-position="-626">
+          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
           <folding>
+            <element signature="e#165#268#0" expanded="false" />
             <element signature="e#284#446#0" expanded="false" />
             <element signature="e#469#786#0" expanded="false" />
             <element signature="e#807#814#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/utils/TConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="71" column="31" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MyPositionActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="381" column="40" selection-start-line="381" selection-start-column="40" selection-end-line="381" selection-end-column="40" />
+          <folding>
+            <element signature="method#IsMatch#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#computeDistance#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#updateDateVoyage#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#addToknownTown#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="class#7908:8324" expanded="false" />
+            <element signature="method#onSlide#0;class#7908:8324" expanded="false" />
+            <element signature="class#14758:15715" expanded="false" />
+            <element signature="method#getInfoContents#0;class#14758:15715" expanded="false" />
+            <element signature="method#createGoogleApi#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onMapReady#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#requestPermission#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onRequestPermissionsResult#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#setupSpeedometer#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onBackPressed#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onCreateOptionsMenu#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onCreateDialog#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="class#25108:26477" expanded="false" />
+            <element signature="class#31208:32781" expanded="false" />
+            <element signature="method#onNothingSelected#0;class#31208:32781" expanded="false" />
+            <element signature="class#32849:34434" expanded="false" />
+            <element signature="method#setToSpinner#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#setFromSpinner#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#setupCurrentTrip#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#getGeofencingRequest#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#getGeofencePendingIntent#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#isCurrentTripExist#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#getCurrentTrip#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#getPixelsFromDp#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onActivityResult#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onStart#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onStop#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onConnected#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onConnectionFailed#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onDestroy#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onLocationChanged#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="method#onResult#0;class#MyPositionActivity#0" expanded="false" />
+            <marker date="1481614172849" expanded="false" signature="43196:43246" ph="&quot;Destination: {trip.getDestination()}&quot;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MessagingActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="94" column="75" selection-start-line="94" selection-start-column="75" selection-end-line="94" selection-end-column="75" />
+          <folding>
+            <element signature="e#7338#7368#0" expanded="true" />
+            <element signature="docComment;method#startCameraCapture#0;class#MessagingActivity#0" expanded="false" />
+            <element signature="method#startCameraCapture#0;class#MessagingActivity#0" expanded="false" />
+            <element signature="docComment;method#requestPermission#0;class#MessagingActivity#0" expanded="false" />
+            <element signature="method#requestPermission#0;class#MessagingActivity#0" expanded="false" />
+            <element signature="method#setupMessageList#0;class#MessagingActivity#0" expanded="false" />
+            <element signature="method#onDestroy#0;class#MessagingActivity#0" expanded="false" />
+            <element signature="method#getSupportParentActivityIntent#0;class#MessagingActivity#0" expanded="false" />
+            <element signature="method#onRequestPermissionsResult#0;class#MessagingActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/adapter/MessagingAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="93" column="31" selection-start-line="93" selection-start-column="31" selection-end-line="93" selection-end-column="31" />
+          <folding>
+            <element signature="method#MessagingAdapter#0;class#MessagingAdapter#0" expanded="false" />
+            <element signature="method#onCreateViewHolder#0;class#MessagingAdapter#0" expanded="false" />
+            <element signature="method#getItemViewType#0;class#MessagingAdapter#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3595,35 +3773,16 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
+        <state relative-caret-position="194">
+          <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
           <folding>
             <element signature="e#623#1100#0" expanded="false" />
-            <element signature="e#1123#1860#0" expanded="false" />
-            <element signature="e#1357#1569#0" expanded="false" />
-            <element signature="e#1866#2241#0" expanded="false" />
-            <element signature="e#2247#8655#0" expanded="false" />
-            <element signature="e#4426#4961#0" expanded="false" />
-            <element signature="e#5543#6089#0" expanded="false" />
-            <element signature="e#6103#7154#0" expanded="false" />
-            <element signature="e#7210#8150#0" expanded="false" />
-            <element signature="e#8159#8636#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-          <folding>
-            <element signature="e#3852#4546#0" expanded="false" />
-            <element signature="e#5011#5673#0" expanded="false" />
-            <element signature="e#8940#9903#0" expanded="false" />
-            <element signature="e#9975#10179#0" expanded="false" />
+            <element signature="e#1332#1351#0" expanded="true" />
+            <element signature="e#1629#1890#0" expanded="false" />
+            <element signature="e#4476#5011#0" expanded="false" />
+            <element signature="e#5593#6139#0" expanded="false" />
+            <element signature="e#7260#8200#0" expanded="false" />
+            <element signature="e#8209#8686#0" expanded="false" />
           </folding>
         </state>
       </provider>

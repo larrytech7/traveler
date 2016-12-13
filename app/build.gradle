@@ -37,6 +37,13 @@ repositories {
 
 dependencies {
 
+    //remote image loading and caching
+    //image compression
+    //floating action menu and buttons
+    //compile 'com.getbase:floatingactionbutton:1.10.1'
+    //compile 'com.google.code.gson:gson:2.4'
+    //compile 'org.springframework.android:spring-android-rest-template:1.0.1.RELEASE'
+    //-- Firebase --
     compile 'com.google.firebase:firebase-appindexing:10.0.1'
     compile 'com.google.android.gms:play-services-maps:10.0.1'
     compile 'com.google.android.gms:play-services-places:10.0.1'
@@ -53,20 +60,18 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-databind:2.3.2'
     compile 'org.codehaus.jackson:jackson-core-asl:1.9.12'
     compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.12'
-    compile 'com.github.bumptech.glide:glide:3.7.0' //remote image loading and caching
-    compile 'com.iceteck.silicompressorr:silicompressor:1.1.0' //image compression
-    compile 'com.github.clans:fab:1.6.4' //floating action menu and buttons
-    //compile 'com.getbase:floatingactionbutton:1.10.1'
-    //compile 'com.google.code.gson:gson:2.4'
-    //compile 'org.springframework.android:spring-android-rest-template:1.0.1.RELEASE'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.iceteck.silicompressorr:silicompressor:1.1.0'
+    compile 'com.github.clans:fab:1.6.4'
     compile 'org.jetbrains:annotations-java5:15.0'
-    //-- Firebase --
-    compile 'com.google.firebase:firebase-auth:10.0.0'
+    compile 'com.google.firebase:firebase-auth:10.0.1'
     compile 'com.google.firebase:firebase-database:10.0.1'
     compile 'com.firebaseui:firebase-ui-database:1.0.1'
     compile 'com.google.firebase:firebase-storage:10.0.1'
+    compile 'com.google.firebase:firebase-messaging:10.0.1'
     testCompile 'junit:junit:4.12'
 }
+
 
 
 

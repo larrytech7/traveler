@@ -69,4 +69,5 @@ public class TConstants {
     public static final String FIREBASE_TEMP_DATA = "temp_data";
     public static final String FIREBASE_MEDIA_DATA = "media";
     public static final String FIREBASE_MEDIA_DATA_IMAGES = "images";
+    public static final String FIREBASE_MESSAGING_TOPIC = "/topics/messages_";
 }
