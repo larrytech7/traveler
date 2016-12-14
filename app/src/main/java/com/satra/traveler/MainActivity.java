@@ -214,6 +214,7 @@ public class MainActivity extends Activity implements OnClickListener {
                                         //account creation succeeded
                                         Log.d(LOGTAG, "Account created!");
                                         sharedPreferences.edit().putString(TConstants.PREF_MATRICULE, tuser.getCurrent_matricule()).apply();
+                                        sharedPreferences.edit().putString(TConstants.PREF_EMERGENCY_CONTACT_1, tuser.getEmergency_primary()).apply();
                                         //save user profile to device
                                         tuser.save();
                                         //get user and update display name

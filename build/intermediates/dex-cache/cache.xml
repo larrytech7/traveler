@@ -3,6 +3,15 @@
 
     <item
         is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\10.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4b17463c814bdc562fb0392fa3494063623a0904">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-messaging-10.0.1_c7f225ec28cd2ea2630dedfa64bcfa6558f83ee3.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Steve Jeff\.gradle\caches\modules-2\files-2.1\org.codehaus.jackson\jackson-mapper-asl\1.9.12\8b290aae44213e2f6da00c07af59b0d442068f4d\jackson-mapper-asl-1.9.12.jar"
         jumboMode="false"
         optimize="true"
@@ -156,6 +165,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\10.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-auth-10.0.1_6c6c18b3c780c87679e7b021572013ee5d3c3b60.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.0.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -261,15 +279,6 @@
         revision="25.0.0"
         sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
         <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-database-connection-10.0.1_99d2617d1cc42863add91f172008f948266fb0fd.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\10.0.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="8bb364f67ec2eba2356872b2b4ddfe8aada2d5ac">
-        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-auth-10.0.0_9dc5d5da6181da3698d82dab8317b5b9d356b721.jar" />
     </item>
     <item
         is-multidex="false"
