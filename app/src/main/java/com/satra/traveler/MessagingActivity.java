@@ -147,6 +147,7 @@ public class MessagingActivity extends AppCompatActivity {
                                     }
                                 }
                             });
+                    imageFrame.setVisibility(View.GONE);
                     //pushMessageOnline(MessagingActivity.this, view, message, null);
 
                 }else{
@@ -194,6 +195,7 @@ public class MessagingActivity extends AppCompatActivity {
                                     }
                                 }
                             });
+                    imageFrame.setVisibility(View.GONE);
                 }
             }
         });
@@ -321,10 +323,16 @@ public class MessagingActivity extends AppCompatActivity {
     }
 
     private void toggleSendButton(){
+        //activating button
         if (fab.isActivated())
             fab.setActivated(false);
+        else
+            fab.setActivated(true);
+        //enabling button
         if (fab.isEnabled())
             fab.setEnabled(false);
+        else
+            fab.setEnabled(true);
     }
 
 }
