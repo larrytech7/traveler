@@ -111,7 +111,11 @@ public class MainActivity extends Activity implements OnClickListener {
             progress.setCanceledOnTouchOutside(false);
             progress.setTitle(getString(R.string.key_chargement));
             progress.setMessage(getString(R.string.key_account_creation_loading_msg));
-            progress.show();
+            try {
+                progress.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             //synchronize with firebase and login
             User user = musers.next();
             mAuth.signInWithEmailAndPassword(Tutility.getAuthenticationEmail(user.getUserphone()),

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="5dp"
     tools:context="com.satra.traveler.MainActivity">
 
@@ -23,7 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/trip_agency"
-                android:textSize="@dimen/btn_margin"/>
+                android:textSize="@dimen/textsize"/>
 
             <Spinner
                 android:id="@+id/company_name"
@@ -51,20 +52,39 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
                 android:entries="@array/villes" />
+            <android.support.design.widget.TextInputLayout
+                android:textColorHint="#ccc"
+                android:textColor="#000"
+                android:layout_marginBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                app:hintTextAppearance="@style/TextAppearence.App.TextInputLayoutTrip">
 
             <EditText
                 android:id="@+id/matriculation_number_of_bus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:inputType="textCapCharacters"
                 android:hint="@string/matriculation_number">
                 <requestFocus />
+
             </EditText>
+            </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+                <android.support.design.widget.TextInputLayout
+                    android:textColorHint="#ccc"
+                    android:textColor="#000"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:hintTextAppearance="@style/TextAppearence.App.TextInputLayoutTrip">
 
                 <EditText
                     android:id="@+id/guardian_phone_number"
@@ -75,6 +95,7 @@
                     android:layout_weight="1"
                     android:hint="@string/phone_number_guardian"
                     android:inputType="phone" />
+                </android.support.design.widget.TextInputLayout>
 
                 <ImageButton
                     android:id="@+id/choose_contact"

@@ -5,6 +5,8 @@ import com.orm.dsl.NotNull;
 import com.orm.dsl.Unique;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Larry Akah on 6/14/16.
@@ -173,4 +175,5 @@ public class Trip extends SugarRecord implements Serializable{
                 +"\nDestination -> "+destination+"\nDeparture Time -> "+date_start+"\nDate end -> "+date_end
                 +"\nStatus -> "+status;
     }
+
 }
