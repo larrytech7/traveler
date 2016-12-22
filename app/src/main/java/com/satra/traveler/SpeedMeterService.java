@@ -7,6 +7,10 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -15,6 +19,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings;
+import android.util.FloatMath;
 import android.util.Log;
 
 import com.google.firebase.database.DatabaseReference;
@@ -40,7 +45,7 @@ import static com.satra.traveler.MyPositionActivity.getCurrentTrip;
 /**
  * Created by Steve Jeff on 17/04/2016.
  */
-public class SpeedMeterService extends Service {
+public class SpeedMeterService extends Service implements SensorEventListener {
 
     private static final int NBRE_MAX_ITERATION_POUR_MOYENNE_VITESSES = 3;
     private static final int MAX_VITESSE_METRE_SECONDE = 0;
@@ -50,6 +55,7 @@ public class SpeedMeterService extends Service {
     private static final int ERREUR_ACCEPTE_VITESSE_MAX=2;
     private static final int MAX_SPEED_TO_ALERT_KMH = 80;
     private static final long INTERVAL_BETWEEN_UPDATES = 10000;
+    private static final int MAX_NORMAL_ACCELERATION_COEFF = 5;
     LocationManager locationManager;
     float vitesse = 0;
     private static int id = 1;
@@ -62,6 +68,14 @@ public class SpeedMeterService extends Service {
     static final String LOGTAG = SpeedMeterService.class.getSimpleName();
     DatabaseReference databaseReference;
     private User travelerUser;
+
+    private SensorManager sensorMan;
+    private Sensor accelerometer;
+
+    private float[] mGravity;
+    private float mAccelCurrent;
+    private float mAccelLast;
+
 
     /**
      * A constructor is required, and must call the super IntentService(String)
@@ -173,7 +187,44 @@ public class SpeedMeterService extends Service {
         } catch (IllegalArgumentException | SecurityException e) {
             e.printStackTrace();
         }
+
+        sensorMan = (SensorManager)getSystemService(SENSOR_SERVICE);
+
+        accelerometer = sensorMan.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mAccelCurrent = SensorManager.GRAVITY_EARTH;
+        mAccelLast = SensorManager.GRAVITY_EARTH;
+
+        sensorMan.registerListener(this, accelerometer,
+                SensorManager.SENSOR_DELAY_UI);
+
     }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER){
+            mGravity = event.values.clone();
+            // Shake detection
+            float x = mGravity[0];
+            float y = mGravity[1];
+            float z = mGravity[2];
+            mAccelLast = mAccelCurrent;
+            mAccelCurrent = (float) Math.sqrt(x*x + y*y + z*z);
+
+            if(mAccelCurrent/SensorManager.GRAVITY_EARTH>MAX_NORMAL_ACCELERATION_COEFF){
+                Log.e("Accident detected: ", " -- mAccelCurrent: "+mAccelCurrent+" -- mAccelCurrent/9.8: "+(mAccelCurrent/SensorManager.GRAVITY_EARTH));
+            @// TODO: 22/12/2016 SEND ACCIDENT DETECTION DETAILS TO SERVERS 
+            }
+
+        }
+
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+        // required method
+    }
+
+
 
     public void showAlertEnableGPS(){
 
