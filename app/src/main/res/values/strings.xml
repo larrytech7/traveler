@@ -62,7 +62,7 @@
         <item>"5- très grave"</item>
     </string-array>
 
-    <string name="matriculation_number">Immatriculation de votre vehicule (*)</string>
+    <string name="matriculation_number">Immatriculation du vehicule (*)</string>
     <string name="description">Description</string>
     <string name="load_image">Charger une image</string>
     <string name="snap_image">Capturer une image</string>

@@ -3,7 +3,11 @@ package com.satra.traveler.models;
 import com.orm.SugarRecord;
 import com.orm.dsl.Unique;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import static com.satra.traveler.R.id.bus_immatriculation;
 
 /**
  * Created by Larry Akah on 6/11/16.
@@ -108,5 +112,18 @@ public class User extends SugarRecord{
 
     public void setUpdated_at(long updated_at) {
         this.updated_at = updated_at;
+    }
+
+    public Map getUserMap(){
+        Map<String, Object> usermap = new HashMap<>();
+        usermap.put("matricule", current_matricule);
+        usermap.put("emergency_primary", emergency_primary);
+        usermap.put("emergency_secondary", emergency_secondary);
+        usermap.put("updated_at", updated_at );
+        usermap.put("useremail", useremail);
+        usermap.put("username", username);
+        usermap.put("userphone", userphone);
+
+        return usermap;
     }
 }

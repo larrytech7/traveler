@@ -71,6 +71,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -707,11 +708,10 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 //final EditText travelDuration = (EditText)alertDialog.findViewById(R.id.journey_duration);
                 guardianPhoneNumber = (EditText) alertDialog.findViewById(R.id.guardian_phone_number);
 
-                guardianPhoneNumber.setText(prefs
-                        .getString(TConstants.PREF_EMERGENCY_CONTACT_1, ""));
+                guardianPhoneNumber.setText(travelerUser.getEmergency_primary());
 
-                busMatriculationNumber.setText(prefs
-                        .getString(TConstants.PREF_MATRICULE, "").toUpperCase());
+                busMatriculationNumber.setText(IsMatch(prefs.getString(TConstants.PREF_MATRICULE, "").toUpperCase(), getString(R.string.car_immatriculation_regex_patern))?
+                        prefs.getString(TConstants.PREF_MATRICULE, "").toUpperCase():"");
 
                 buttonSave = (FancyButton) alertDialog.findViewById(R.id.button_save);
 
@@ -838,14 +838,21 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             //save trip to firebase
                             Map<String, Object> tripMap = new HashMap<>();
                             tripMap.put(mTrip.getTripKey(), mTrip);
+
                             firebaseDatabase
                                     .child(mTrip.getBus_immatriculation())
-                                    .updateChildren(tripMap);
-                            firebaseDatabase.child(mTrip.getBus_immatriculation())
-                                    .child(mTrip.getTripKey())
-                                    .child("passengers")
-                                    .push()
-                                    .setValue(travelerUser);
+                                    .updateChildren(tripMap)
+                            .addOnSuccessListener(MyPositionActivity.this, new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    //add passengers of the matricule for this trip
+                                   FirebaseDatabase.getInstance().getReference("passengers")
+                                           .child(mTrip.getTripKey())
+                                            .push()
+                                            .setValue(travelerUser.getUserMap()); //+travelerUser.getUserphone()
+                                }
+                            });
+
                             //save current trip matricule to preference
                             prefs.edit().putString(TConstants.PREF_MATRICULE, mTrip.getBus_immatriculation()).apply();
                             //set new matricule on speedometer textview

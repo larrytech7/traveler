@@ -99,12 +99,12 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
                //start activity to show transportation for victim
                context.startActivity(new Intent(context, VictimeTransportationActivity.class));
            }break;
-           case R.id.nav_asssurance:
+           /*case R.id.nav_asssurance:
                //TODO: launch screen with recent assurances list and ability to create new assurance
                break;
            case R.id.nav_settings:
                //TODO: launch screen with simple settings
-               break;
+               break;*/
            default:
                break;
        }
