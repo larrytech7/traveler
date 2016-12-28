@@ -15,27 +15,9 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f606ed2b-c641-4c63-87da-c5d9334666cf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+    <list default="true" id="f606ed2b-c641-4c63-87da-c5d9334666cf" name="Default" comment="Adjusted UI. Fixed passenger association to a given trip now every passenger can be mapped to a given trip.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MyPositionActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MyPositionActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/NavigationItemListener.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/NavigationItemListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/Trip.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/Trip.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/User.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/register_a_journey.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/register_a_journey.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
     </list>
     <ignored path="traveler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,11 +58,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MyPositionActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MyPositionActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MyPositionActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-610">
-              <caret line="571" column="64" selection-start-line="571" selection-start-column="64" selection-end-line="571" selection-end-column="64" />
+            <state relative-caret-position="186">
+              <caret line="341" column="0" selection-start-line="341" selection-start-column="0" selection-end-line="341" selection-end-column="0" />
               <folding>
                 <element signature="method#IsMatch#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="method#computeDistance#0;class#MyPositionActivity#0" expanded="false" />
@@ -88,43 +70,166 @@
                 <element signature="method#addToknownTown#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="class#7963:8379" expanded="false" />
                 <element signature="method#onSlide#0;class#7963:8379" expanded="false" />
+                <element signature="e#8936#8967#0" expanded="true" />
+                <element signature="e#8969#9001#0" expanded="true" />
+                <element signature="e#9467#9493#0" expanded="true" />
+                <element signature="e#9577#9603#0" expanded="true" />
+                <element signature="e#9687#9713#0" expanded="true" />
+                <element signature="e#9797#9823#0" expanded="true" />
+                <element signature="e#9907#9933#0" expanded="true" />
+                <element signature="e#10017#10043#0" expanded="true" />
+                <element signature="e#10126#10152#0" expanded="true" />
+                <element signature="e#10234#10260#0" expanded="true" />
+                <element signature="e#10342#10368#0" expanded="true" />
+                <element signature="e#10450#10476#0" expanded="true" />
+                <element signature="e#10558#10584#0" expanded="true" />
+                <element signature="e#10666#10692#0" expanded="true" />
+                <element signature="e#11214#11338#0" expanded="true" />
+                <element signature="e#11791#11820#0" expanded="true" />
+                <element signature="e#11861#11883#0" expanded="true" />
+                <element signature="e#11885#12199#0" expanded="true" />
+                <element signature="e#12198#12199#0" expanded="true" />
+                <element signature="e#12323#13555#0" expanded="true" />
+                <element signature="e#13414#13511#0" expanded="true" />
+                <element signature="e#13554#13555#0" expanded="true" />
+                <element signature="e#13635#14322#0" expanded="true" />
+                <element signature="e#14321#14322#0" expanded="true" />
                 <element signature="class#14813:15770" expanded="false" />
                 <element signature="method#getInfoContents#0;class#14813:15770" expanded="false" />
+                <element signature="e#15615#15667#0" expanded="true" />
                 <element signature="method#createGoogleApi#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="method#onMapReady#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="method#requestPermission#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="method#onRequestPermissionsResult#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="method#setupSpeedometer#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="e#19602#19831#0" expanded="true" />
+                <element signature="e#19830#19831#0" expanded="true" />
                 <element signature="method#onBackPressed#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="method#onCreateOptionsMenu#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="method#onOptionsItemSelected#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="e#21066#21089#0" expanded="true" />
+                <element signature="e#21091#21112#0" expanded="true" />
                 <element signature="method#onCreateDialog#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="e#21740#21770#0" expanded="true" />
+                <element signature="e#22203#22227#0" expanded="true" />
                 <element signature="method#onPrepareDialog#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="e#23435#24842#0" expanded="true" />
+                <element signature="e#23733#23763#0" expanded="true" />
+                <element signature="e#23822#23852#0" expanded="true" />
+                <element signature="e#23923#24317#0" expanded="true" />
+                <element signature="e#24316#24317#0" expanded="true" />
+                <element signature="e#24388#24800#0" expanded="true" />
+                <element signature="e#24799#24800#0" expanded="true" />
+                <element signature="e#24841#24842#0" expanded="true" />
                 <element signature="class#25163:26532" expanded="false" />
+                <element signature="e#26303#26335#0" expanded="true" />
+                <element signature="e#26582#27952#0" expanded="true" />
+                <element signature="e#26843#26897#0" expanded="true" />
+                <element signature="e#27202#27249#0" expanded="true" />
+                <element signature="e#27442#27494#0" expanded="true" />
+                <element signature="e#27567#27619#0" expanded="true" />
+                <element signature="e#27782#27827#0" expanded="true" />
+                <element signature="e#27951#27952#0" expanded="true" />
                 <element signature="e#29612#29664#0" expanded="true" />
+                <element signature="e#30005#30697#0" expanded="true" />
+                <element signature="e#30696#30697#0" expanded="true" />
                 <element signature="class#30758:31283" expanded="false" />
                 <element signature="class#31344:32917" expanded="false" />
+                <element signature="e#31680#31724#0" expanded="true" />
+                <element signature="e#32580#32621#0" expanded="true" />
                 <element signature="method#onNothingSelected#0;class#31344:32917" expanded="false" />
                 <element signature="class#32985:34570" expanded="false" />
+                <element signature="e#33322#33366#0" expanded="true" />
+                <element signature="e#34232#34273#0" expanded="true" />
+                <element signature="e#34619#39298#0" expanded="true" />
+                <element signature="e#35031#35069#0" expanded="true" />
+                <element signature="e#35353#35405#0" expanded="true" />
+                <element signature="e#35469#35521#0" expanded="true" />
+                <element signature="e#35592#35644#0" expanded="true" />
+                <element signature="e#36656#36701#0" expanded="true" />
                 <element signature="e#37495#38112#0" expanded="true" />
                 <element signature="e#38111#38112#0" expanded="true" />
+                <element signature="e#38407#38496#0" expanded="true" />
+                <element signature="e#38660#38694#0" expanded="true" />
+                <element signature="e#38765#38798#0" expanded="true" />
+                <element signature="e#38971#39011#0" expanded="true" />
+                <element signature="e#39297#39298#0" expanded="true" />
                 <element signature="method#setToSpinner#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="e#39926#39952#0" expanded="true" />
+                <element signature="e#40062#40088#0" expanded="true" />
+                <element signature="e#40198#40224#0" expanded="true" />
+                <element signature="e#40334#40360#0" expanded="true" />
+                <element signature="e#40470#40496#0" expanded="true" />
+                <element signature="e#40606#40632#0" expanded="true" />
+                <element signature="e#40687#40731#0" expanded="true" />
                 <element signature="method#setFromSpinner#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="e#41440#41466#0" expanded="true" />
+                <element signature="e#41580#41606#0" expanded="true" />
+                <element signature="e#41720#41746#0" expanded="true" />
+                <element signature="e#41860#41886#0" expanded="true" />
+                <element signature="e#42000#42026#0" expanded="true" />
+                <element signature="e#42140#42166#0" expanded="true" />
+                <element signature="e#42223#42267#0" expanded="true" />
                 <element signature="method#setupCurrentTrip#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="e#44561#44600#0" expanded="true" />
+                <element signature="e#44776#44813#0" expanded="true" />
+                <element signature="e#45305#45357#0" expanded="true" />
+                <element signature="e#45917#45965#0" expanded="true" />
+                <element signature="e#46236#46291#0" expanded="true" />
+                <element signature="e#46792#46844#0" expanded="true" />
                 <element signature="method#getGeofencingRequest#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="method#getGeofencePendingIntent#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="method#isCurrentTripExist#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="method#getCurrentTrip#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="method#getPixelsFromDp#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="method#onActivityResult#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="e#52799#52843#0" expanded="true" />
+                <element signature="e#53496#53522#0" expanded="true" />
+                <element signature="e#53656#53682#0" expanded="true" />
+                <element signature="e#53816#53842#0" expanded="true" />
+                <element signature="e#53976#54002#0" expanded="true" />
+                <element signature="e#54136#54162#0" expanded="true" />
+                <element signature="e#55199#55225#0" expanded="true" />
+                <element signature="e#55355#55381#0" expanded="true" />
+                <element signature="e#55511#55537#0" expanded="true" />
+                <element signature="e#55667#55693#0" expanded="true" />
+                <element signature="e#55823#55849#0" expanded="true" />
                 <element signature="method#onStart#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="method#onStop#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="method#onConnected#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="method#onConnectionFailed#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="method#onDestroy#0;class#MyPositionActivity#0" expanded="false" />
                 <element signature="method#onLocationChanged#0;class#MyPositionActivity#0" expanded="false" />
+                <element signature="e#57847#57877#0" expanded="true" />
                 <element signature="method#onResult#0;class#MyPositionActivity#0" expanded="false" />
                 <marker date="1482445993672" expanded="false" signature="43720:43770" ph="&quot;Destination: {trip.getDestination()}&quot;" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpeedMeterService.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/SpeedMeterService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="646">
+              <caret line="177" column="36" selection-start-line="177" selection-start-column="36" selection-end-line="177" selection-end-column="36" />
+              <folding>
+                <element signature="docComment;class#SpeedMeterService#0" expanded="false" />
+                <element signature="docComment;method#onStartCommand#0;class#SpeedMeterService#0" expanded="false" />
+                <element signature="method#onStartCommand#0;class#SpeedMeterService#0" expanded="false" />
+                <element signature="e#2864#3141#0" expanded="false" />
+                <element signature="method#onBind#0;class#SpeedMeterService#0" expanded="false" />
+                <element signature="method#onCreate#0;class#SpeedMeterService#0" expanded="false" />
+                <element signature="method#start#0;class#SpeedMeterService#0" expanded="false" />
+                <element signature="method#showAlertEnableGPS#0;class#SpeedMeterService#0" expanded="false" />
+                <element signature="method#showPersistentNotification#0;class#SpeedMeterService#0" expanded="false" />
+                <element signature="method#showNotification#0;class#SpeedMeterService#0" expanded="false" />
+                <element signature="method#hideNotification#0;class#SpeedMeterService#0" expanded="false" />
+                <element signature="method#updateSpeed#0;class#SpeedMeterService#0" expanded="false" />
+                <element signature="method#pushSpeedOnline#0;class#SpeedMeterService#0" expanded="false" />
+                <element signature="docComment;method#onDestroy#0;class#SpeedMeterService#0" expanded="false" />
+                <element signature="method#onDestroy#0;class#SpeedMeterService#0" expanded="false" />
+                <marker date="1481444253769" expanded="false" signature="23962:24779" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -133,7 +238,7 @@
       <file leaf-file-name="Trip.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/Trip.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="708">
+            <state relative-caret-position="2196">
               <caret line="176" column="5" selection-start-line="176" selection-start-column="5" selection-end-line="176" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -145,7 +250,7 @@
       <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
+            <state relative-caret-position="1314">
               <caret line="123" column="25" selection-start-line="123" selection-start-column="25" selection-end-line="123" selection-end-column="25" />
               <folding>
                 <element signature="method#User#0;class#User#0" expanded="false" />
@@ -165,18 +270,16 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
+            <state relative-caret-position="324">
               <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
               <folding>
                 <element signature="e#861#1079#0" expanded="false" />
-                <element signature="e#1060#1077#0" expanded="true" />
                 <element signature="e#1093#1363#0" expanded="false" />
                 <element signature="e#1376#1541#0" expanded="false" />
                 <element signature="e#1554#1811#0" expanded="false" />
                 <element signature="e#1824#1991#0" expanded="false" />
                 <element signature="e#2004#2263#0" expanded="false" />
                 <element signature="e#2276#3141#0" expanded="false" />
-                <element signature="e#2991#3021#0" expanded="true" />
                 <element signature="e#3155#4718#0" expanded="false" />
                 <element signature="e#3340#4289#0" expanded="false" />
                 <element signature="e#3794#4224#0" expanded="false" />
@@ -192,7 +295,7 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
+            <state relative-caret-position="1170">
               <caret line="115" column="35" selection-start-line="115" selection-start-column="35" selection-end-line="115" selection-end-column="35" />
               <folding>
                 <element signature="method#stringToInt#0;class#MainActivity#0" expanded="false" />
@@ -218,7 +321,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-56">
+            <state relative-caret-position="828">
               <caret line="61" column="12" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
               <folding>
                 <element signature="e#1069#1825#0" expanded="false" />
@@ -234,7 +337,6 @@
             <state relative-caret-position="864">
               <caret line="94" column="75" selection-start-line="94" selection-start-column="75" selection-end-line="94" selection-end-column="75" />
               <folding>
-                <element signature="imports" expanded="false" />
                 <element signature="docComment;method#startCameraCapture#0;class#MessagingActivity#0" expanded="false" />
                 <element signature="method#startCameraCapture#0;class#MessagingActivity#0" expanded="false" />
                 <element signature="docComment;method#requestPermission#0;class#MessagingActivity#0" expanded="false" />
@@ -2361,8 +2463,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2469,112 +2570,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="menu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="traveler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="traveler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="traveler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="traveler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="traveler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="traveler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="traveler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="traveler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -3150,7 +3158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1481646109755</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Adjusted UI. Fixed passenger association to a given trip now every passenger can be mapped to a given trip.">
+      <created>1482446356584</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1482446356584</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3164,32 +3179,31 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="25" width="1380" height="722" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28347826" sideWeight="0.43806645" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29391304" sideWeight="0.5619335" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869565" sideWeight="0.5287009" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30589125" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28347826" sideWeight="0.43806645" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29391304" sideWeight="0.5619335" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32229966" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28347826" sideWeight="0.43806645" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1925982" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -3198,6 +3212,7 @@
       <window_info id="Assistant" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31722054" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30589125" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -3268,7 +3283,8 @@
     <MESSAGE value="Added image upload to messages" />
     <MESSAGE value="Updated main UI, set main icon in drawable" />
     <MESSAGE value="adjusted messaging component for button active and deactive. Added cloud messaging" />
-    <option name="LAST_COMMIT_MESSAGE" value="adjusted messaging component for button active and deactive. Added cloud messaging" />
+    <MESSAGE value="Adjusted UI. Fixed passenger association to a given trip now every passenger can be mapped to a given trip." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusted UI. Fixed passenger association to a given trip now every passenger can be mapped to a given trip." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3472,7 +3488,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3483,14 +3498,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
-          <folding>
-            <element signature="e#433#1155#0" expanded="false" />
-            <element signature="e#1458#1481#0" expanded="false" />
-            <element signature="e#1511#1533#0" expanded="false" />
-            <element signature="e#1857#2348#0" expanded="false" />
-            <element signature="e#2357#2750#0" expanded="false" />
-            <element signature="e#2759#3378#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3498,9 +3505,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
-          <folding>
-            <element signature="method#Messages#0;class#Messages#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3542,31 +3546,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/SpeedMeterService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="195" column="53" selection-start-line="195" selection-start-column="53" selection-end-line="195" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;class#SpeedMeterService#0" expanded="false" />
-            <element signature="docComment;method#onStartCommand#0;class#SpeedMeterService#0" expanded="false" />
-            <element signature="method#onStartCommand#0;class#SpeedMeterService#0" expanded="false" />
-            <element signature="e#2864#3141#0" expanded="false" />
-            <element signature="method#onBind#0;class#SpeedMeterService#0" expanded="false" />
-            <element signature="method#onCreate#0;class#SpeedMeterService#0" expanded="false" />
-            <element signature="method#start#0;class#SpeedMeterService#0" expanded="false" />
-            <element signature="method#showPersistentNotification#0;class#SpeedMeterService#0" expanded="false" />
-            <element signature="e#10079#10115#0" expanded="false" />
-            <element signature="method#hideNotification#0;class#SpeedMeterService#0" expanded="false" />
-            <element signature="method#pushSpeedOnline#0;class#SpeedMeterService#0" expanded="false" />
-            <element signature="docComment;method#onDestroy#0;class#SpeedMeterService#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#SpeedMeterService#0" expanded="false" />
-            <marker date="1481444253769" expanded="false" signature="23962:24779" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3593,7 +3572,6 @@
         <state relative-caret-position="864">
           <caret line="94" column="75" selection-start-line="94" selection-start-column="75" selection-end-line="94" selection-end-column="75" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="docComment;method#startCameraCapture#0;class#MessagingActivity#0" expanded="false" />
             <element signature="method#startCameraCapture#0;class#MessagingActivity#0" expanded="false" />
             <element signature="docComment;method#requestPermission#0;class#MessagingActivity#0" expanded="false" />
@@ -3621,20 +3599,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="55" column="16" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
-          <folding>
-            <element signature="e#623#1100#0" expanded="false" />
-            <element signature="e#1123#1910#0" expanded="false" />
-            <element signature="e#1629#1890#0" expanded="false" />
-            <element signature="e#1916#2291#0" expanded="false" />
-            <element signature="e#2297#8705#0" expanded="false" />
-            <element signature="e#2486#5063#0" expanded="false" />
-            <element signature="e#3917#4462#0" expanded="false" />
-            <element signature="e#4476#5011#0" expanded="false" />
-            <element signature="e#5072#7250#0" expanded="false" />
-            <element signature="e#5593#6139#0" expanded="false" />
-            <element signature="e#7260#8200#0" expanded="false" />
-            <element signature="e#8209#8686#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3642,7 +3606,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3650,10 +3613,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="45" column="51" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
-          <folding>
-            <element signature="e#901#1355#0" expanded="false" />
-            <element signature="e#1361#1576#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3696,9 +3655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
           <caret line="34" column="52" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="52" />
-          <folding>
-            <marker date="1482430908255" expanded="false" signature="1322:1348" ph="&quot;Assurance voyage&quot;" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3707,7 +3663,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-56">
+        <state relative-caret-position="828">
           <caret line="61" column="12" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
           <folding>
             <element signature="e#1069#1825#0" expanded="false" />
@@ -3720,7 +3676,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3729,18 +3684,16 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
+        <state relative-caret-position="324">
           <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
           <folding>
             <element signature="e#861#1079#0" expanded="false" />
-            <element signature="e#1060#1077#0" expanded="true" />
             <element signature="e#1093#1363#0" expanded="false" />
             <element signature="e#1376#1541#0" expanded="false" />
             <element signature="e#1554#1811#0" expanded="false" />
             <element signature="e#1824#1991#0" expanded="false" />
             <element signature="e#2004#2263#0" expanded="false" />
             <element signature="e#2276#3141#0" expanded="false" />
-            <element signature="e#2991#3021#0" expanded="true" />
             <element signature="e#3155#4718#0" expanded="false" />
             <element signature="e#3340#4289#0" expanded="false" />
             <element signature="e#3794#4224#0" expanded="false" />
@@ -3756,17 +3709,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="93" column="31" selection-start-line="93" selection-start-column="31" selection-end-line="93" selection-end-column="31" />
-          <folding>
-            <element signature="method#MessagingAdapter#0;class#MessagingAdapter#0" expanded="false" />
-            <element signature="method#onCreateViewHolder#0;class#MessagingAdapter#0" expanded="false" />
-            <element signature="method#getItemViewType#0;class#MessagingAdapter#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
+        <state relative-caret-position="1170">
           <caret line="115" column="35" selection-start-line="115" selection-start-column="35" selection-end-line="115" selection-end-column="35" />
           <folding>
             <element signature="method#stringToInt#0;class#MainActivity#0" expanded="false" />
@@ -3787,7 +3735,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
+        <state relative-caret-position="1314">
           <caret line="123" column="25" selection-start-line="123" selection-start-column="25" selection-end-line="123" selection-end-column="25" />
           <folding>
             <element signature="method#User#0;class#User#0" expanded="false" />
@@ -3802,7 +3750,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/models/Trip.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="708">
+        <state relative-caret-position="2196">
           <caret line="176" column="5" selection-start-line="176" selection-start-column="5" selection-end-line="176" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -3812,8 +3760,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/MyPositionActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-610">
-          <caret line="571" column="64" selection-start-line="571" selection-start-column="64" selection-end-line="571" selection-end-column="64" />
+        <state relative-caret-position="186">
+          <caret line="341" column="0" selection-start-line="341" selection-start-column="0" selection-end-line="341" selection-end-column="0" />
           <folding>
             <element signature="method#IsMatch#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#computeDistance#0;class#MyPositionActivity#0" expanded="false" />
@@ -3821,43 +3769,164 @@
             <element signature="method#addToknownTown#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="class#7963:8379" expanded="false" />
             <element signature="method#onSlide#0;class#7963:8379" expanded="false" />
+            <element signature="e#8936#8967#0" expanded="true" />
+            <element signature="e#8969#9001#0" expanded="true" />
+            <element signature="e#9467#9493#0" expanded="true" />
+            <element signature="e#9577#9603#0" expanded="true" />
+            <element signature="e#9687#9713#0" expanded="true" />
+            <element signature="e#9797#9823#0" expanded="true" />
+            <element signature="e#9907#9933#0" expanded="true" />
+            <element signature="e#10017#10043#0" expanded="true" />
+            <element signature="e#10126#10152#0" expanded="true" />
+            <element signature="e#10234#10260#0" expanded="true" />
+            <element signature="e#10342#10368#0" expanded="true" />
+            <element signature="e#10450#10476#0" expanded="true" />
+            <element signature="e#10558#10584#0" expanded="true" />
+            <element signature="e#10666#10692#0" expanded="true" />
+            <element signature="e#11214#11338#0" expanded="true" />
+            <element signature="e#11791#11820#0" expanded="true" />
+            <element signature="e#11861#11883#0" expanded="true" />
+            <element signature="e#11885#12199#0" expanded="true" />
+            <element signature="e#12198#12199#0" expanded="true" />
+            <element signature="e#12323#13555#0" expanded="true" />
+            <element signature="e#13414#13511#0" expanded="true" />
+            <element signature="e#13554#13555#0" expanded="true" />
+            <element signature="e#13635#14322#0" expanded="true" />
+            <element signature="e#14321#14322#0" expanded="true" />
             <element signature="class#14813:15770" expanded="false" />
             <element signature="method#getInfoContents#0;class#14813:15770" expanded="false" />
+            <element signature="e#15615#15667#0" expanded="true" />
             <element signature="method#createGoogleApi#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#onMapReady#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#requestPermission#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#onRequestPermissionsResult#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#setupSpeedometer#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="e#19602#19831#0" expanded="true" />
+            <element signature="e#19830#19831#0" expanded="true" />
             <element signature="method#onBackPressed#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#onCreateOptionsMenu#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#onOptionsItemSelected#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="e#21066#21089#0" expanded="true" />
+            <element signature="e#21091#21112#0" expanded="true" />
             <element signature="method#onCreateDialog#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="e#21740#21770#0" expanded="true" />
+            <element signature="e#22203#22227#0" expanded="true" />
             <element signature="method#onPrepareDialog#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="e#23435#24842#0" expanded="true" />
+            <element signature="e#23733#23763#0" expanded="true" />
+            <element signature="e#23822#23852#0" expanded="true" />
+            <element signature="e#23923#24317#0" expanded="true" />
+            <element signature="e#24316#24317#0" expanded="true" />
+            <element signature="e#24388#24800#0" expanded="true" />
+            <element signature="e#24799#24800#0" expanded="true" />
+            <element signature="e#24841#24842#0" expanded="true" />
             <element signature="class#25163:26532" expanded="false" />
+            <element signature="e#26303#26335#0" expanded="true" />
+            <element signature="e#26582#27952#0" expanded="true" />
+            <element signature="e#26843#26897#0" expanded="true" />
+            <element signature="e#27202#27249#0" expanded="true" />
+            <element signature="e#27442#27494#0" expanded="true" />
+            <element signature="e#27567#27619#0" expanded="true" />
+            <element signature="e#27782#27827#0" expanded="true" />
+            <element signature="e#27951#27952#0" expanded="true" />
             <element signature="e#29612#29664#0" expanded="true" />
+            <element signature="e#30005#30697#0" expanded="true" />
+            <element signature="e#30696#30697#0" expanded="true" />
             <element signature="class#30758:31283" expanded="false" />
             <element signature="class#31344:32917" expanded="false" />
+            <element signature="e#31680#31724#0" expanded="true" />
+            <element signature="e#32580#32621#0" expanded="true" />
             <element signature="method#onNothingSelected#0;class#31344:32917" expanded="false" />
             <element signature="class#32985:34570" expanded="false" />
+            <element signature="e#33322#33366#0" expanded="true" />
+            <element signature="e#34232#34273#0" expanded="true" />
+            <element signature="e#34619#39298#0" expanded="true" />
+            <element signature="e#35031#35069#0" expanded="true" />
+            <element signature="e#35353#35405#0" expanded="true" />
+            <element signature="e#35469#35521#0" expanded="true" />
+            <element signature="e#35592#35644#0" expanded="true" />
+            <element signature="e#36656#36701#0" expanded="true" />
             <element signature="e#37495#38112#0" expanded="true" />
             <element signature="e#38111#38112#0" expanded="true" />
+            <element signature="e#38407#38496#0" expanded="true" />
+            <element signature="e#38660#38694#0" expanded="true" />
+            <element signature="e#38765#38798#0" expanded="true" />
+            <element signature="e#38971#39011#0" expanded="true" />
+            <element signature="e#39297#39298#0" expanded="true" />
             <element signature="method#setToSpinner#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="e#39926#39952#0" expanded="true" />
+            <element signature="e#40062#40088#0" expanded="true" />
+            <element signature="e#40198#40224#0" expanded="true" />
+            <element signature="e#40334#40360#0" expanded="true" />
+            <element signature="e#40470#40496#0" expanded="true" />
+            <element signature="e#40606#40632#0" expanded="true" />
+            <element signature="e#40687#40731#0" expanded="true" />
             <element signature="method#setFromSpinner#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="e#41440#41466#0" expanded="true" />
+            <element signature="e#41580#41606#0" expanded="true" />
+            <element signature="e#41720#41746#0" expanded="true" />
+            <element signature="e#41860#41886#0" expanded="true" />
+            <element signature="e#42000#42026#0" expanded="true" />
+            <element signature="e#42140#42166#0" expanded="true" />
+            <element signature="e#42223#42267#0" expanded="true" />
             <element signature="method#setupCurrentTrip#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="e#44561#44600#0" expanded="true" />
+            <element signature="e#44776#44813#0" expanded="true" />
+            <element signature="e#45305#45357#0" expanded="true" />
+            <element signature="e#45917#45965#0" expanded="true" />
+            <element signature="e#46236#46291#0" expanded="true" />
+            <element signature="e#46792#46844#0" expanded="true" />
             <element signature="method#getGeofencingRequest#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#getGeofencePendingIntent#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#isCurrentTripExist#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#getCurrentTrip#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#getPixelsFromDp#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#onActivityResult#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="e#52799#52843#0" expanded="true" />
+            <element signature="e#53496#53522#0" expanded="true" />
+            <element signature="e#53656#53682#0" expanded="true" />
+            <element signature="e#53816#53842#0" expanded="true" />
+            <element signature="e#53976#54002#0" expanded="true" />
+            <element signature="e#54136#54162#0" expanded="true" />
+            <element signature="e#55199#55225#0" expanded="true" />
+            <element signature="e#55355#55381#0" expanded="true" />
+            <element signature="e#55511#55537#0" expanded="true" />
+            <element signature="e#55667#55693#0" expanded="true" />
+            <element signature="e#55823#55849#0" expanded="true" />
             <element signature="method#onStart#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#onStop#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#onConnected#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#onConnectionFailed#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#onDestroy#0;class#MyPositionActivity#0" expanded="false" />
             <element signature="method#onLocationChanged#0;class#MyPositionActivity#0" expanded="false" />
+            <element signature="e#57847#57877#0" expanded="true" />
             <element signature="method#onResult#0;class#MyPositionActivity#0" expanded="false" />
             <marker date="1482445993672" expanded="false" signature="43720:43770" ph="&quot;Destination: {trip.getDestination()}&quot;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/satra/traveler/SpeedMeterService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="177" column="36" selection-start-line="177" selection-start-column="36" selection-end-line="177" selection-end-column="36" />
+          <folding>
+            <element signature="docComment;class#SpeedMeterService#0" expanded="false" />
+            <element signature="docComment;method#onStartCommand#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#onStartCommand#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="e#2864#3141#0" expanded="false" />
+            <element signature="method#onBind#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#onCreate#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#start#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#showAlertEnableGPS#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#showPersistentNotification#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#showNotification#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#hideNotification#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#updateSpeed#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#pushSpeedOnline#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="docComment;method#onDestroy#0;class#SpeedMeterService#0" expanded="false" />
+            <element signature="method#onDestroy#0;class#SpeedMeterService#0" expanded="false" />
+            <marker date="1481444253769" expanded="false" signature="23962:24779" ph="{...}" />
           </folding>
         </state>
       </provider>
