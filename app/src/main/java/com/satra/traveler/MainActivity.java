@@ -218,6 +218,7 @@ public class MainActivity extends Activity implements OnClickListener {
                                         //account creation succeeded
                                         Log.d(LOGTAG, "Account created!");
                                         sharedPreferences.edit().putString(TConstants.PREF_MATRICULE, tuser.getCurrent_matricule()).apply();
+                                        sharedPreferences.edit().putString(TConstants.PREF_EMERGENCY_CONTACT_1, tuser.getEmergency_primary()).apply();
                                         //save user profile to device
                                         tuser.save();
                                         //get user and update display name
@@ -281,7 +282,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
+                                           @NonNull String permissions[], @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if (requestCode==stringToInt(android.Manifest.permission.READ_PHONE_STATE)&&
@@ -387,7 +388,7 @@ public class MainActivity extends Activity implements OnClickListener {
         //Detects request codes
         if(requestCode==GET_FROM_GALLERY && resultCode == Activity.RESULT_OK) {
             Uri selectedImage = data.getData();
-            Bitmap bitmap = null;
+            Bitmap bitmap;
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
 
@@ -395,8 +396,6 @@ public class MainActivity extends Activity implements OnClickListener {
 
                 profilePicture.setImageBitmap(Bitmap.createScaledBitmap(bitmap, profilePicture.getWidth(), profilePicture.getHeight(), false));
 
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -420,6 +419,7 @@ public class MainActivity extends Activity implements OnClickListener {
                     String name = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
                     //set field with phone number retrieved
                     contact1EditText.setText(number);
+                    phones.close();
 
                 }
             }
@@ -443,7 +443,7 @@ public class MainActivity extends Activity implements OnClickListener {
                     String name = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
                     //set phone number retrieved in field
                     contact2EditText.setText(number);
-
+                    phones.close();
                 }
             }
         }
