@@ -19,7 +19,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings;
-import android.util.FloatMath;
 import android.util.Log;
 
 import com.google.firebase.database.DatabaseReference;
@@ -212,7 +211,26 @@ public class SpeedMeterService extends Service implements SensorEventListener {
 
             if(mAccelCurrent/SensorManager.GRAVITY_EARTH>MAX_NORMAL_ACCELERATION_COEFF){
                 Log.e("Accident detected: ", " -- mAccelCurrent: "+mAccelCurrent+" -- mAccelCurrent/9.8: "+(mAccelCurrent/SensorManager.GRAVITY_EARTH));
-            @// TODO: 22/12/2016 SEND ACCIDENT DETECTION DETAILS TO SERVERS 
+            // TODO: 22/12/2016 SEND ACCIDENT DETECTION DETAILS TO SERVERS
+                if(databaseReference == null){
+                    databaseReference = FirebaseDatabase.getInstance().getReference();
+                }
+                /**
+                 * Construire l'objet accident. L'objet a transmettre dans le setValue() method doit avoir ces proprietes
+                 * matricule - le matricule du vehicule du trajet en cours
+                 * speed - derniere vitesse enregistrer pour ce vehicule
+                 * agency - agence ou personel
+                 * acc - l'acceleration enregistrer
+                 * latitude - position
+                 * longitude - position
+                 * key - la cle est une propriete de l'objet Trip et celui ci correspond a la cle du trajet en cours
+                 * timestamp - l'emprunte du temps de l'enregistrement de cet notification
+                 */
+                databaseReference.child(TConstants.FIREBASE_NOTIFICATION)
+                        .child(TConstants.FIREBASE_NOTIF_ACCIDENT)
+                        .push()
+                        .setValue(new Object());
+
             }
 
         }
