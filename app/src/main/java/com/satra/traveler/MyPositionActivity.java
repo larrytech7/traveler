@@ -847,6 +847,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                                 public void onSuccess(Void aVoid) {
                                     //add passengers of the matricule for this trip
                                    FirebaseDatabase.getInstance().getReference("passengers")
+                                           .child(mTrip.getBus_immatriculation())
                                            .child(mTrip.getTripKey())
                                             .push()
                                             .setValue(travelerUser.getUserMap()); //+travelerUser.getUserphone()

@@ -19,7 +19,7 @@
         <item>"Bad/Inexperienced driver"</item>
         <item>"Overloaded vehicle"</item>
         <item>"Dammaged vehicle"</item>
-        <item>"Other..."</item>
+        <item>"Other…"</item>
     </string-array>
         <string name="matriculation_number">Immatriculation of your Vehicle (*)</string>
         <string name="description">Description</string>
