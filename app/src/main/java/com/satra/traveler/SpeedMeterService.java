@@ -23,6 +23,7 @@ import android.util.Log;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.satra.traveler.models.Incident;
 import com.satra.traveler.models.SpeedOverhead;
 import com.satra.traveler.models.TrackingData;
 import com.satra.traveler.models.Trip;
@@ -229,10 +230,12 @@ public class SpeedMeterService extends Service implements SensorEventListener {
                  * key - la cle est une propriete de l'objet Trip et celui ci correspond a la cle du trajet en cours
                  * timestamp - l'emprunte du temps de l'enregistrement de cet notification
                  */
+                Incident incident = new Incident(); //TODO: Cet objet est A remplir avec les donnees des parametres decrivant l'incident en details
+
                 databaseReference.child(TConstants.FIREBASE_NOTIFICATION)
                         .child(TConstants.FIREBASE_NOTIF_ACCIDENT)
                         .push()
-                        .setValue(new Object());
+                        .setValue(incident);
 
 >>>>>>> origin/master
             }
