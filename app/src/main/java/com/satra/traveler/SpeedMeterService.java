@@ -212,9 +212,7 @@ public class SpeedMeterService extends Service implements SensorEventListener {
 
             if(mAccelCurrent/SensorManager.GRAVITY_EARTH>MAX_NORMAL_ACCELERATION_COEFF){
                 Log.e("Accident detected: ", " -- mAccelCurrent: "+mAccelCurrent+" -- mAccelCurrent/9.8: "+(mAccelCurrent/SensorManager.GRAVITY_EARTH));
-<<<<<<< HEAD
-            //@TODO: 22/12/2016 SEND ACCIDENT DETECTION DETAILS TO SERVERS
-=======
+
             // TODO: 22/12/2016 SEND ACCIDENT DETECTION DETAILS TO SERVERS
                 if(databaseReference == null){
                     databaseReference = FirebaseDatabase.getInstance().getReference();
