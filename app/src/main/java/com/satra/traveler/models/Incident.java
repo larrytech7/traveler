@@ -17,6 +17,7 @@ public class Incident extends SugarRecord {
     private double latitude;
     private double longitude;
     private long timestamp;
+    private int type ; //type of incident if it can be specifically determined. 1-accident, 2-near-miss,  etc ...
 
     public Incident() {
     }
