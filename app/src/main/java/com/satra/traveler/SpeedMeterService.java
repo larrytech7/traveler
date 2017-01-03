@@ -77,6 +77,7 @@ public class SpeedMeterService extends Service implements SensorEventListener {
     private float mAccelLast;
 
 
+
     /**
      * A constructor is required, and must call the super IntentService(String)
      * constructor with a name for the worker thread.
@@ -210,7 +211,7 @@ public class SpeedMeterService extends Service implements SensorEventListener {
             mAccelLast = mAccelCurrent;
             mAccelCurrent = (float) Math.sqrt(x*x + y*y + z*z);
 
-            if(mAccelCurrent/SensorManager.GRAVITY_EARTH>MAX_NORMAL_ACCELERATION_COEFF){
+            if(MyPositionActivity.isCurrentTripExist()&&mAccelCurrent/SensorManager.GRAVITY_EARTH>MAX_NORMAL_ACCELERATION_COEFF){
                 Log.e("Accident detected: ", " -- mAccelCurrent: "+mAccelCurrent+" -- mAccelCurrent/9.8: "+(mAccelCurrent/SensorManager.GRAVITY_EARTH));
 
             // TODO: 22/12/2016 SEND ACCIDENT DETECTION DETAILS TO SERVERS
@@ -228,14 +229,29 @@ public class SpeedMeterService extends Service implements SensorEventListener {
                  * key - la cle est une propriete de l'objet Trip et celui ci correspond a la cle du trajet en cours
                  * timestamp - l'emprunte du temps de l'enregistrement de cet notification
                  */
+
+
+                User travelerUser = User.findAll(User.class).next();
+                Trip trip = MyPositionActivity.getCurrentTrip();
+
                 Incident incident = new Incident(); //TODO: Cet objet est A remplir avec les donnees des parametres decrivant l'incident en details
+
+                incident.setKey(trip.getTripKey());
+                incident.setMatricule(travelerUser.getCurrent_matricule());
+                incident.setAgency(trip.getAgency_name());
+                incident.setSpeed(getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE).getFloat(TConstants.SPEED_PREF, 0.0f));
+                incident.setAcc(mAccelCurrent);
+                incident.setLongitude(location.getLongitude());
+                incident.setLatitude(location.getLatitude());
+                incident.setTimestamp(System.nanoTime());
+                incident.setType(1);
+
 
                 databaseReference.child(TConstants.FIREBASE_NOTIFICATION)
                         .child(TConstants.FIREBASE_NOTIF_ACCIDENT)
                         .push()
                         .setValue(incident);
 
->>>>>>> origin/master
             }
 
         }
@@ -387,8 +403,10 @@ public class SpeedMeterService extends Service implements SensorEventListener {
     //save results as preference
 
     private static Long lastUpdate;
+    private Location location;
 
     private long updateSpeed(Location location, long duration){
+        this.location = location;
 
         if(location.hasSpeed()){
             vitesse = location.getSpeed();

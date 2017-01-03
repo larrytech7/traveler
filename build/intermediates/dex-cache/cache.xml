@@ -30,6 +30,33 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="bc7e99e8d0fc279a05aa91378530f467ad62d443">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-support-core-ui-25.0.1_3cadb870f5679f7fc75606e927651a987029741b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-basement-10.0.1_0852c5ce760ef16f92f24216f7e377f105368b81.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\10.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-database-connection-10.0.1_99d2617d1cc42863add91f172008f948266fb0fd.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\10.0.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -45,6 +72,33 @@
         revision="25.0.0"
         sha1="f5e853a20b60758922453d56f9ae1e64af5cb3da">
         <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\jackson-annotations-2.3.0_cb43ab0370e34968769826a64d4020171cdcbc99.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-places\10.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="f3e51e9c5233b8897f61e08a6a27bc36283c2724">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-places-10.0.1_70e7afaddc31c11485621bbd23bf550cc197aa0d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="f7ac4b327fdb9e2ee386f5adc46164927658de4b">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-appcompat-v7-25.0.1_c0a55f85bb326c5c324dbc035df80127782a3cfc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\10.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="1d193729baf37df3d902a423291423a0df7e3779">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-clearcut-10.0.1_92f03afa36874eef368741ecee60f848e0b860ef.jar" />
     </item>
     <item
         is-multidex="false"
@@ -75,6 +129,24 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-base-10.0.1_a02c5177409e1075635453040198e52f840a24cf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="772bed2d992b67b9d0327f766cc95cd63031dcd3">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-animated-vector-drawable-25.0.1_c0b37ecaeb1863cc2223aafaa39d36f29df619df.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.1\jars\libs\internal_impl-25.0.1.jar"
         jumboMode="false"
         optimize="true"
@@ -93,6 +165,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.cardiomood.android\android-widgets\0.1.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="c05b677d8aca4e437294460acbc6f4d4bd9cfa0c">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.cardiomood.android-android-widgets-0.1.1_c97b449718a9ee73fe4886c42510f62b49c20a03.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -102,12 +183,75 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.iceteck.silicompressorr\silicompressor\1.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="d036fbcfcb681ce7c2b5024fb7080ca5abf73ac1">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.iceteck.silicompressorr-silicompressor-1.1.0_9a0b78eafeb1d5030b25c24639ba4ecd9cadf4c4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="26c6eef571592c91f29e56fda0bac73321de0c92">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-support-fragment-25.0.1_ee5afec328523939550de2aea1b03358a6e8090b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="51eba4a4dd73044f90a9d58dd7ca34adbebfcf4e">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-support-compat-25.0.1_632f176034c298495b53cdc890d751195733d097.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.1\jars\libs\internal_impl-25.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="3af8cc51ef7088e56f132780da8c0bd858b6a6ad">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\internal_impl-25.0.1_624a419cbe49a7c2003f1b5a6b57dfcb368a5f72.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\10.0.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
         <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-iid-10.0.1_143567921d58dd431deef8a2be77e5aa52c75a84.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.firebase\firebase-appindexing\10.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="ae80d328a8548b4610ead6c624bab8c6a6984f5b">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-appindexing-10.0.1_49ce1bf53a06d5105ca5751d292b2b2115aa10b4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\.gradle\caches\modules-2\files-2.1\org.codehaus.jackson\jackson-core-asl\1.9.12\ecfc6f73a841c4c3c653b59651a3f9d5f1286469\jackson-core-asl-1.9.12.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="ecfc6f73a841c4c3c653b59651a3f9d5f1286469">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\jackson-core-asl-1.9.12_4b76e58bddd452cd0d1301fc8c5d369cae97863c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="6a1479afe9f1b3645e1cd9a87318976893472818">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-support-media-compat-25.0.1_289065f77083f18310dcc04b065ee4af0bd719cc.jar" />
     </item>
     <item
         is-multidex="false"
@@ -129,12 +273,48 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Steve Jeff\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-databind\2.3.2\c75edc740a6d8cb1cef6fa82fa594e0bce561916\jackson-databind-2.3.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="c75edc740a6d8cb1cef6fa82fa594e0bce561916">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\jackson-databind-2.3.2_76013ffa00c58296f4d3668c948fcf7efd2f60a2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.1\jars\libs\internal_impl-25.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="c5b7145fb34779b6639147b8f2f8dd77c0db771b">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\internal_impl-25.0.1_e06e502f7330c6f8a90737485eeca14c802f5696.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\10.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-auth-10.0.1_6c6c18b3c780c87679e7b021572013ee5d3c3b60.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.0.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="772bed2d992b67b9d0327f766cc95cd63031dcd3">
         <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-animated-vector-drawable-25.0.1_c0b37ecaeb1863cc2223aafaa39d36f29df619df.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\.gradle\caches\modules-2\files-2.1\org.jetbrains\annotations-java5\15.0\7011b4551a8451906759b05814c58b9eb829ea9b\annotations-java5-15.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="7011b4551a8451906759b05814c58b9eb829ea9b">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\annotations-java5-15.0_df4f5f62c451462a9d1a71a27d285df987b08181.jar" />
     </item>
     <item
         is-multidex="false"
@@ -147,12 +327,66 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\10.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="dd39827d2067497e60e21da48a7926000b6d4b0c">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-storage-10.0.1_f5db9b2524347f71d5b75167cfdcbe6c8fb80bc8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.1\jars\libs\internal_impl-25.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="f83b00041ecfba705603fec40363416c7de69719">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\internal_impl-25.0.1_4c95570e8f0ed35aeb2947afdbf7174d7c521fed.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.3.2\559b70ac8a0d5cad611da4223137a920147201ba\jackson-core-2.3.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="559b70ac8a0d5cad611da4223137a920147201ba">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\jackson-core-2.3.2_65c351c2e23f572f2f0c7f98857702ede9c66b06.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\10.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="27777b3cad3c20b1acab19f6e37fe3e03371bf6e">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-maps-10.0.1_e7db977e2bf1dbb254b83d9f92abd764f7fdd102.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\design\25.0.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="3b236883e0df6002cabb01ce57d00a5b1e5de610">
         <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-design-25.0.1_7b96fe065fc03c2edc202dd486ade2683f063763.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.1\jars\libs\internal_impl-25.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\internal_impl-25.0.1_b1c7583b50a991fb7f4a7dc4a2a226511662809e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\.gradle\caches\modules-2\files-2.1\org.codehaus.jackson\jackson-mapper-asl\1.9.12\8b290aae44213e2f6da00c07af59b0d442068f4d\jackson-mapper-asl-1.9.12.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="8b290aae44213e2f6da00c07af59b0d442068f4d">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\jackson-mapper-asl-1.9.12_0dcc8b60842deb5d4f0a6fa5a8d1a48ffc7523d9.jar" />
     </item>
     <item
         is-multidex="false"
@@ -237,6 +471,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.1\jars\libs\internal_impl-25.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="c0bd6ffb002a85b5e7cad29f8558d1cc59539679">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\internal_impl-25.0.1_525fa6d699e5d1c7482157629f0b4da051917797.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.iceteck.silicompressorr\silicompressor\1.1.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -264,6 +507,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\10.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-database-10.0.1_074d2a2b9a83a32b0455a34b9e5a8589befef7ba.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.firebase\firebase-appindexing\10.0.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -273,12 +525,57 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Google_Tools\cours_android\new_sdk\android-sdk\extras\android\m2repository\com\android\support\support-annotations\25.0.1\support-annotations-25.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="a09194311f8f89c3e6db09d79f50897a889d615e">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\support-annotations-25.0.1_55a539d7a2d9d0cb0cf6b0670355f864518cc484.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\10.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="4b17463c814bdc562fb0392fa3494063623a0904">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-messaging-10.0.1_c7f225ec28cd2ea2630dedfa64bcfa6558f83ee3.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\10.0.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
         <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-database-connection-10.0.1_99d2617d1cc42863add91f172008f948266fb0fd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\10.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="57c2eceb8548de84509d1ebc293fedec53231f6c">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-gass-10.0.1_4430a2ff4ee633f4902101e55294cfd7ebd3419a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-analytics-10.0.1_3582882034d4dcba901fa427a8b4b3e2f0f5213e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-annotations\2.3.0\f5e853a20b60758922453d56f9ae1e64af5cb3da\jackson-annotations-2.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="f5e853a20b60758922453d56f9ae1e64af5cb3da">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\jackson-annotations-2.3.0_cb43ab0370e34968769826a64d4020171cdcbc99.jar" />
     </item>
     <item
         is-multidex="false"
@@ -300,6 +597,33 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.firebaseui\firebase-ui-database\1.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="b0b0f4f99cf68e748dd123ad553738e4284d4749">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.firebaseui-firebase-ui-database-1.0.1_c3dc4d74b16f022ae637165b8be4aa1def6a39db.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.github.satyan\sugar\1.5\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="19a40a8afe0289f6520b25353096ac233e78f69d">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.github.satyan-sugar-1.5_b92ae48807cf623cd74b5676c086a4d705e86725.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\10.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="44a694d4095be84c2888764b1f7256b385c030ad">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-location-10.0.1_0b5ef0b1bba6f346d855979a06174797709eeb16.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\10.0.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -309,12 +633,66 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\design\25.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="3b236883e0df6002cabb01ce57d00a5b1e5de610">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-design-25.0.1_7b96fe065fc03c2edc202dd486ade2683f063763.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="297d4bcf6ed4e747a1bf7d0d094a2d911a8d3a8e">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-recyclerview-v7-25.0.1_080eea92346bb0dc9688feea2a7caec418b98548.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.0.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
         <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-analytics-impl-10.0.1_fd2e0acc9907cbff2c44028f696db77dbc0445fe.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\10.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="09cf6aa1390f95157e8295d02be7868f568825fc">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-storage-common-10.0.1_5e7ca19c8bd40594df16def37c9848ee03143fc1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="b24e1c688744078e1fa833ffadf696794761bbe5">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-support-vector-drawable-25.0.1_a25d40602384c553a5b65f72b9fc6e029de34f50.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\glide-3.7.0_b7abded1bf96d479a6d63388d1927b3c9a6ae212.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-tasks-10.0.1_9f1beb3253c9a7f1d64c3ef1f63f791870440c28.jar" />
     </item>
     <item
         is-multidex="false"
@@ -345,12 +723,39 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\10.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-iid-10.0.1_143567921d58dd431deef8a2be77e5aa52c75a84.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\10.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-common-10.0.1_6686c684a1bc76c1edd62669ccb9f9bd2124c5da.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="6a1479afe9f1b3645e1cd9a87318976893472818">
         <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-support-media-compat-25.0.1_289065f77083f18310dcc04b065ee4af0bd719cc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\25.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="1108575c7dc7b7f5b378b3290ac90de81a9b8830">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-cardview-v7-25.0.1_b53de90456b9937fab6e8c5d0f441fb4457cfbc6.jar" />
     </item>
     <item
         is-multidex="false"
@@ -381,6 +786,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="00d4c8eebf2b681073c72a26bd0849549e51c7cb">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-support-core-utils-25.0.1_b0247abbd336671706a89fa9a8cc248e866506e3.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\10.0.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -408,6 +822,33 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.github.clans\fab\1.6.4\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="1c3b9743fe8bb166a90a7e98b9b9f1f8021d80cd">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.github.clans-fab-1.6.4_61e815b02a62460bd59ec4d10e637fa596a5bd40.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\transition\25.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="c1b6ab157e8e12cb08b9ee82bb5e3c5d22632eb3">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-transition-25.0.1_004b2dcb01b5d09139d38e37194c21a01a3549c9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.github.medyo\fancybuttons\1.8.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="1d2264766f0334470f9917ead03eab24c55c26c9">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.github.medyo-fancybuttons-1.8.1_d12757244dc055a698525b014d2677022a67706e.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Steve Jeff\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
         jumboMode="false"
         optimize="true"
@@ -417,12 +858,39 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-analytics-impl-10.0.1_fd2e0acc9907cbff2c44028f696db77dbc0445fe.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-support-v4-25.0.1_b734e6b5556b106742b8bfbe813137de1b25b88d.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="bc7e99e8d0fc279a05aa91378530f467ad62d443">
         <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-support-core-ui-25.0.1_3cadb870f5679f7fc75606e927651a987029741b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\10.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="d0460bf07cc3657e0be518ca01c174493951c6b8">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-ads-10.0.1_947b6fd3f6e28fc4d478f83f8354bd332d0bf6c9.jar" />
     </item>
     <item
         is-multidex="false"
@@ -450,6 +918,15 @@
         revision="25.0.0"
         sha1="1108575c7dc7b7f5b378b3290ac90de81a9b8830">
         <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.android.support-cardview-v7-25.0.1_b53de90456b9937fab6e8c5d0f441fb4457cfbc6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\10.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="b955cb3a1ad6f1b6ff728ce1e0cd592c1717b440">
+        <dex dex="C:\Users\Steve Jeff\AndroidStudioProjects\traveler\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-ads-lite-10.0.1_a40a523b4c4daf549c789d69f7f78a2f37b288bf.jar" />
     </item>
     <item
         is-multidex="false"
