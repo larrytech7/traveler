@@ -221,7 +221,7 @@ public class SpeedMeterService extends Service implements SensorEventListener {
                  * matricule - le matricule du vehicule du trajet en cours
                  * speed - derniere vitesse enregistrer pour ce vehicule
                  * agency - agence ou personel
-                 * acc - l'acceleration enregistrer
+                 * acc - l'acceleration enregistrer en ms-2
                  * latitude - position
                  * longitude - position
                  * key - la cle est une propriete de l'objet Trip et celui ci correspond a la cle du trajet en cours
