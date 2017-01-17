@@ -10,6 +10,7 @@
     <color name="grey">#ddd</color>
     <color name="black">#222</color>
     <color name="bluePrimary">#3d97fe</color>
+    <color name="blueLight">#81c0ff</color>
     <color name="blueSecondary">#44e3ee</color>
     <color name="white">#fff</color>
 </resources>

@@ -7,6 +7,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.BitmapFactory;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -265,7 +266,8 @@ public class SpeedMeterService extends Service implements SensorEventListener {
         build.setTicker(getString(R.string.app_name));
         build.setContentTitle(getString(R.string.open_settings));
         build.setContentText(getString(R.string.gps_disabled_message));
-        build.setSmallIcon(R.drawable.ic_launcher_web);
+        build.setSmallIcon(R.drawable.ic_settings);
+        build.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher_web));
         build.setContentIntent(pendingIntent);
         build.setOngoing(false);
 
@@ -311,7 +313,7 @@ public class SpeedMeterService extends Service implements SensorEventListener {
 
     }
 
-    public static void showNotification(String vitesse, Context context){
+    public void showNotification(String vitesse, Context context){
         Intent intent1 = new Intent(context, MyPositionActivity.class);
         intent1.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -332,7 +334,8 @@ public class SpeedMeterService extends Service implements SensorEventListener {
         build.setTicker(context.getString(R.string.app_name));
         build.setContentTitle(vitesse);
         build.setContentText(message);
-        build.setSmallIcon(R.drawable.ic_launcher_web);
+        build.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher_web));
+        build.setSmallIcon(R.drawable.ic_menu_mylocation);
         build.setContentIntent(pendingIntent);
         build.setOngoing(true);
 //        build.setNumber(MAX_SPEED_ALLOWED_KMH);

@@ -32,13 +32,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.satra.traveler.adapter.MessagingAdapter;
 import com.satra.traveler.models.Messages;
 import com.satra.traveler.models.User;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
+import com.tooltip.Tooltip;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -217,6 +217,36 @@ public class MessagingActivity extends AppCompatActivity {
         });*/
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setupMessageList(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        showHint();
+    }
+
+    private void showHint() {
+        //TODO: Use preference to determine whether to show hint or not
+        Tooltip tooltip = new Tooltip.Builder(findViewById(R.id.message_include_holder))
+                .setText(R.string.message_hint)
+                .show();
+        /*View parent = getWindow().getDecorView();
+        SimpleHintContentHolder mHintBlock =  new SimpleHintContentHolder.Builder(this)
+                .setContentText(getString(R.string.message_hint))
+                .setContentTitle("Sending messages")
+                .build();
+        new HintCase(parent)
+                .setTarget(fab, new CircularShape(), HintCase.TARGET_IS_CLICKABLE)
+                .setShapeAnimators(new RevealCircleShapeAnimator())
+                .setBackgroundColorByResourceId(R.color.blueLight)
+                .setHintBlock(mHintBlock, new FadeInContentHolderAnimator(), new FadeOutContentHolderAnimator())
+                .setOnClosedListener(new HintCase.OnClosedListener() {
+                    @Override
+                    public void onClosed() {
+                        //TODO. Set preference for showing the hint later
+                    }
+                })
+                .show();*/
     }
 
     /**
