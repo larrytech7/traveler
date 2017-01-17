@@ -5,6 +5,7 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.os.Build;
 import android.util.Log;
@@ -77,7 +78,8 @@ public class GeofenceTransitionsIntentService extends IntentService {
         build.setTicker(getString(R.string.app_name));
         build.setContentTitle(title);
         build.setContentText(message);
-        build.setSmallIcon(R.mipmap.ic_launcher);
+        build.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher_web));
+        build.setSmallIcon(R.drawable.ic_myposition);
         build.setContentIntent(pendingIntent);
         build.setOngoing(true);
 //        build.setNumber(MAX_SPEED_ALLOWED_KMH);
