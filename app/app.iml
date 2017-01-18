@@ -95,11 +95,11 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/transition/25.1.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.cardiomood.android/android-widgets/0.1.1/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.ernestoyaquello.stepperform/vertical-stepper-form/0.9.9/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.firebaseui/firebase-ui-database/1.0.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.clans/fab/1.6.4/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.medyo/fancybuttons/1.8.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.satyan/sugar/1.5/jars" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.vihtarb/tooltip/0.1.9/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/10.0.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/jars" />
@@ -122,8 +122,6 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.0.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.firebase/firebase-storage-common/10.0.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.firebase/firebase-storage/10.0.1/jars" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.joanfuentes/HintCase/1.0.4/jars" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.joanfuentes/HintCaseAssets/1.0.4/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-safeguard" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
@@ -144,16 +142,14 @@
     <orderEntry type="library" exported="" name="firebase-core-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="jackson-mapper-asl-1.9.12" level="project" />
     <orderEntry type="library" exported="" name="sugar-1.5" level="project" />
-    <orderEntry type="library" exported="" name="HintCaseAssets-1.0.4" level="project" />
     <orderEntry type="library" exported="" name="play-services-gass-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="transition-25.1.0" level="project" />
-    <orderEntry type="library" exported="" name="tooltip-0.1.9" level="project" />
+    <orderEntry type="library" exported="" name="vertical-stepper-form-0.9.9" level="project" />
     <orderEntry type="library" exported="" name="play-services-places-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-maps-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-location-10.0.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="multidex-instrumentation-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-25.1.0" level="project" />
-    <orderEntry type="library" exported="" name="HintCase-1.0.4" level="project" />
     <orderEntry type="library" exported="" name="android-widgets-0.1.1" level="project" />
     <orderEntry type="library" exported="" name="jackson-core-2.3.2" level="project" />
     <orderEntry type="library" exported="" name="firebase-common-10.0.1" level="project" />
