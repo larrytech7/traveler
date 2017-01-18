@@ -38,8 +38,6 @@ import com.satra.traveler.models.Messages;
 import com.satra.traveler.models.User;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
-import com.tooltip.Tooltip;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -227,9 +225,9 @@ public class MessagingActivity extends AppCompatActivity {
 
     private void showHint() {
         //TODO: Use preference to determine whether to show hint or not
-        Tooltip tooltip = new Tooltip.Builder(findViewById(R.id.message_include_holder))
+        /*Tooltip tooltip = new Tooltip.Builder(findViewById(R.id.message_include_holder))
                 .setText(R.string.message_hint)
-                .show();
+                .show();*/
         /*View parent = getWindow().getDecorView();
         SimpleHintContentHolder mHintBlock =  new SimpleHintContentHolder.Builder(this)
                 .setContentText(getString(R.string.message_hint))
