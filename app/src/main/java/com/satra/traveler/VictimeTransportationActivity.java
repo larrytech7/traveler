@@ -1,13 +1,13 @@
 package com.satra.traveler;
 
-import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -82,7 +82,7 @@ public class VictimeTransportationActivity extends AppCompatActivity implements 
                 try {
                     ((ImageView) view.findViewById(R.id.imageViewStep2)).setImageResource(R.drawable.victim_m7);
                     ((ImageView) view.findViewById(R.id.imageViewStep3)).setImageResource(R.drawable.victim_m8);
-                } catch (OutOfMemoryError | Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 ((TextView)view.findViewById(R.id.step1TextView)).setText(getString(R.string.tip6));
@@ -99,29 +99,5 @@ public class VictimeTransportationActivity extends AppCompatActivity implements 
     @Override
     public void sendData() {
         verticalStepperForm.goToStep(0, false);
-    }
-
-    @Nullable
-    @Override
-    public Intent getSupportParentActivityIntent() {
-        return super.getSupportParentActivityIntent().addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-    }
-
-    @Override
-    public void onBackPressed() {
-        try {
-            super.onBackPressed();
-            if (verticalStepperForm != null)
-                verticalStepperForm = null;
-        }catch (OutOfMemoryError ofMemoryError){
-            ofMemoryError.printStackTrace();
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (verticalStepperForm != null)
-            verticalStepperForm = null;
     }
 }
