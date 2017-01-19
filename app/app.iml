@@ -74,10 +74,15 @@
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/assets" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/aidl" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/java" isTestSource="true" />
+<<<<<<< HEAD
+=======
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/jni" isTestSource="true" />
+>>>>>>> refs/remotes/origin/master
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/shaders" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/assets" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/bundles" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/jars" />
@@ -126,6 +131,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.joanfuentes/HintCaseAssets/1.0.4/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-safeguard" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/instant-run-support" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/multi-dex" />
