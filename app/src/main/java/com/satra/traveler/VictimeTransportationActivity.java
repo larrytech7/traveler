@@ -111,9 +111,17 @@ public class VictimeTransportationActivity extends AppCompatActivity implements 
     public void onBackPressed() {
         try {
             super.onBackPressed();
-
+            if (verticalStepperForm != null)
+                verticalStepperForm = null;
         }catch (OutOfMemoryError ofMemoryError){
             ofMemoryError.printStackTrace();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (verticalStepperForm != null)
+            verticalStepperForm = null;
     }
 }
