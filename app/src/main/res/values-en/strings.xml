@@ -224,5 +224,6 @@
     <string name="message_simple">simple message</string>
     <string name="no_message">type your message</string>
     <string name="signup">Signup and secure your trips</string>
+    <string name="vertical_form_stepper_form_confirm_button">Start Over</string>
 
 </resources>
