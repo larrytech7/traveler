@@ -239,7 +239,7 @@ public class SpeedMeterService extends Service implements SensorEventListener {
                 incident.setKey(trip.getTripKey());
                 incident.setMatricule(travelerUser.getCurrent_matricule());
                 incident.setAgency(trip.getAgency_name());
-                incident.setSpeed(getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE).getFloat(TConstants.SPEED_PREF, 0.0f));
+                incident.setSpeed(getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE).getFloat(TConstants.SPEED_PREF, 0.0f)* COEFF_CONVERSION_MS_KMH);
                 incident.setAcc(mAccelCurrent);
                 incident.setLongitude(location.getLongitude());
                 incident.setLatitude(location.getLatitude());
@@ -452,11 +452,11 @@ public class SpeedMeterService extends Service implements SensorEventListener {
            Trip mtrip = MyPositionActivity.getCurrentTrip();
            if(((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_ALLOWED_KMH)){
 
-               pushSpeedOnline(SpeedMeterService.this, vitesse * COEFF_CONVERSION_MS_KMH, location, mtrip);
+               pushSpeedOnline(SpeedMeterService.this, vitesse, location, mtrip);
 
            }
            else if((lastUpdate==null||System.currentTimeMillis()-lastUpdate>INTERVAL_BETWEEN_UPDATES)){
-               pushSpeedOnline(SpeedMeterService.this, vitesse * COEFF_CONVERSION_MS_KMH, location, mtrip);
+               pushSpeedOnline(SpeedMeterService.this, vitesse, location, mtrip);
                lastUpdate = System.currentTimeMillis();
            }
        }
@@ -479,7 +479,7 @@ public class SpeedMeterService extends Service implements SensorEventListener {
         data.setTimestamp(timestamp);
         data.setLatitude(location.getLatitude());
         data.setLongitude(location.getLongitude());
-        data.setSpeed(vitesse);
+        data.setSpeed(vitesse * COEFF_CONVERSION_MS_KMH);
         data.setTrackingMatricule(trip.getBus_immatriculation());
         data.setSender(travelerUser.getUserphone());
         data.setBearing(0f);
@@ -496,20 +496,21 @@ public class SpeedMeterService extends Service implements SensorEventListener {
                 .push()
                 .setValue(data);
         //TODO: Determine if has reached speed limit so as to notify
-        if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_TO_ALERT_KMH)
-        if(!hasReachLimit) {
+        if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_TO_ALERT_KMH) {
+            if (!hasReachLimit) {
 
 
-            so = new SpeedOverhead();
-            so.setDate_start(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.US).format(Calendar.getInstance().getTime()));
-            so.setLatitude_start(location.getLatitude());
-            so.setLongitude_start(location.getLongitude());
-            so.setSpeed_start(vitesse);
-            so.setTripid(""+MyPositionActivity.getCurrentTrip().getId());
-            //so.save();
+                so = new SpeedOverhead();
+                so.setDate_start(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.US).format(Calendar.getInstance().getTime()));
+                so.setLatitude_start(location.getLatitude());
+                so.setLongitude_start(location.getLongitude());
+                so.setSpeed_start(vitesse);
+                so.setTripid("" + MyPositionActivity.getCurrentTrip().getId());
+                //so.save();
 
-            hasReachLimit = true;
-        } else if(hasReachLimit) {
+                hasReachLimit = true;
+            }
+        }else if(hasReachLimit) {
 
             so.setLatitude_end(location.getLatitude());
             so.setLongitude_end(location.getLongitude());
