@@ -55,7 +55,7 @@ public class AidActivity extends AppCompatActivity implements VerticalStepperFor
     private View createStep(int stepNumber) {
         View view;
         LayoutInflater layoutInflater = LayoutInflater.from(getBaseContext());
-        view = layoutInflater.inflate(R.layout.first_aid_item_layout, null,false);
+        view = layoutInflater.inflate(R.layout.first_aid_item_layout, null);
         switch (stepNumber) {
             case 0:
                 ((ImageView) view.findViewById(R.id.imageViewStep1)).setImageResource(R.drawable.self);
@@ -88,19 +88,11 @@ public class AidActivity extends AppCompatActivity implements VerticalStepperFor
                 ((TextView)view.findViewById(R.id.step1TextView)).setText(getString(R.string.lifesaving));
                 break;
             case 6:
-                try {
-                    ((ImageView) view.findViewById(R.id.imageViewStep1)).setImageResource(R.drawable.vomitting);
-                } catch (OutOfMemoryError|Exception e) {
-                    e.printStackTrace();
-                }
+                ((ImageView) view.findViewById(R.id.imageViewStep1)).setImageResource(R.drawable.vomitting);
                 ((TextView)view.findViewById(R.id.step1TextView)).setText(getString(R.string.severecondition));
                 break;
             case 7:
-                try {
-                    ((ImageView) view.findViewById(R.id.imageViewStep1)).setImageResource(R.drawable.wounds);
-                } catch (OutOfMemoryError e) {
-                    e.printStackTrace();
-                }
+                ((ImageView) view.findViewById(R.id.imageViewStep1)).setImageResource(R.drawable.wounds);
                 ((TextView)view.findViewById(R.id.step1TextView)).setText(getString(R.string.openwounds));
                 break;
             case 8:
@@ -113,11 +105,7 @@ public class AidActivity extends AppCompatActivity implements VerticalStepperFor
                 ((TextView)view.findViewById(R.id.step1TextView)).setText(getString(R.string.spinalinjury));
                 break;
             case 9:
-                try {
-                    ((ImageView) view.findViewById(R.id.imageViewStep1)).setImageResource(R.drawable.warm);
-                } catch (OutOfMemoryError e) {
-                    e.printStackTrace();
-                }
+                ((ImageView) view.findViewById(R.id.imageViewStep1)).setImageResource(R.drawable.warm);
                 ((TextView)view.findViewById(R.id.step1TextView)).setText(getString(R.string.warmness));
                 break;
             case 10:
@@ -149,17 +137,11 @@ public class AidActivity extends AppCompatActivity implements VerticalStepperFor
     public void onBackPressed() {
         try {
             super.onBackPressed();
-            if (verticalStepperForm != null)
-                verticalStepperForm = null;
+
         }catch (OutOfMemoryError ofMemoryError){
             ofMemoryError.printStackTrace();
         }
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (verticalStepperForm != null)
-            verticalStepperForm = null;
-    }
+
 }
