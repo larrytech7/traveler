@@ -249,6 +249,18 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 .getString(TConstants.PREF_FROM_5, getString(R.string.town_5)));
         addToknownTown(prefs
                 .getString(TConstants.PREF_FROM_6, getString(R.string.town_6)));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_FROM_7, getString(R.string.town_7)));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_FROM_8, getString(R.string.town_8)));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_FROM_10, getString(R.string.town_10)));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_FROM_11, getString(R.string.town_11)));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_FROM_12, getString(R.string.town_12)));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_FROM_13, getString(R.string.town_13)));
 
         addToknownTown(prefs
                 .getString(TConstants.PREF_TO_1, getString(R.string.town_2)));
@@ -262,6 +274,18 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 .getString(TConstants.PREF_TO_5, getString(R.string.town_5)));
         addToknownTown(prefs
                 .getString(TConstants.PREF_TO_6, getString(R.string.town_6)));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_7, getString(R.string.town_7)));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_8, getString(R.string.town_8)));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_10, getString(R.string.town_10)));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_11, getString(R.string.town_11)));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_12, getString(R.string.town_12)));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_13, getString(R.string.town_13)));
 
         final TextView usernameTextview = ((TextView) navigationView.getHeaderView(0).findViewById(R.id.username));
         usernameTextview.setText(travelerUser == null ? "anonyme" : travelerUser.getUsername());
@@ -900,7 +924,19 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 .getString(TConstants.PREF_TO_5, getString(R.string.town_5)).split(Pattern.quote("|"))[0]);
         listTo.add(5, prefs
                 .getString(TConstants.PREF_TO_6, getString(R.string.town_6)).split(Pattern.quote("|"))[0]);
-        listTo.add(6, getString(R.string.place_list_option_choose));
+        listTo.add(6, prefs
+                .getString(TConstants.PREF_TO_7, getString(R.string.town_7)).split(Pattern.quote("|"))[0]);
+        listTo.add(7, prefs
+                .getString(TConstants.PREF_TO_8, getString(R.string.town_8)).split(Pattern.quote("|"))[0]);
+        listTo.add(8, prefs
+                .getString(TConstants.PREF_TO_10, getString(R.string.town_10)).split(Pattern.quote("|"))[0]);
+        listTo.add(9, prefs
+                .getString(TConstants.PREF_TO_11, getString(R.string.town_11)).split(Pattern.quote("|"))[0]);
+        listTo.add(10, prefs
+                .getString(TConstants.PREF_TO_12, getString(R.string.town_12)).split(Pattern.quote("|"))[0]);
+        listTo.add(11, prefs
+                .getString(TConstants.PREF_TO_13, getString(R.string.town_13)).split(Pattern.quote("|"))[0]);
+        listTo.add(12, getString(R.string.place_list_option_choose));
 
         ArrayAdapter<String> toAdapter = new ArrayAdapter<>(MyPositionActivity.this,
                 android.R.layout.simple_spinner_item, listTo);
@@ -930,7 +966,19 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 .getString(TConstants.PREF_FROM_5, getString(R.string.town_5)).split(Pattern.quote("|"))[0]);
         listFrom.add(5, prefs
                 .getString(TConstants.PREF_FROM_6, getString(R.string.town_6)).split(Pattern.quote("|"))[0]);
-        listFrom.add(6, getString(R.string.place_list_option_choose));
+        listFrom.add(6, prefs
+                .getString(TConstants.PREF_FROM_7, getString(R.string.town_7)).split(Pattern.quote("|"))[0]);
+        listFrom.add(7, prefs
+                .getString(TConstants.PREF_FROM_8, getString(R.string.town_8)).split(Pattern.quote("|"))[0]);
+        listFrom.add(8, prefs
+                .getString(TConstants.PREF_FROM_10, getString(R.string.town_10)).split(Pattern.quote("|"))[0]);
+        listFrom.add(9, prefs
+                .getString(TConstants.PREF_FROM_11, getString(R.string.town_11)).split(Pattern.quote("|"))[0]);
+        listFrom.add(10, prefs
+                .getString(TConstants.PREF_FROM_12, getString(R.string.town_12)).split(Pattern.quote("|"))[0]);
+        listFrom.add(11, prefs
+                .getString(TConstants.PREF_FROM_13, getString(R.string.town_13)).split(Pattern.quote("|"))[0]);
+        listFrom.add(12, getString(R.string.place_list_option_choose));
 
         ArrayAdapter<String> fromAdapter = new ArrayAdapter<>(MyPositionActivity.this,
                 android.R.layout.simple_spinner_item, listFrom);

@@ -21,7 +21,12 @@ public class TConstants {
     public static final String PREF_FROM_4 = "FROM_4";
     public static final String PREF_FROM_5 = "FROM_5";
     public static final String PREF_FROM_6 = "FROM_6";
-
+    public static final String PREF_FROM_7 = "FROM_7";
+    public static final String PREF_FROM_8 = "FROM_8";
+    public static final String PREF_FROM_10 = "FROM_10";
+    public static final String PREF_FROM_11 = "FROM_11";
+    public static final String PREF_FROM_12 = "FROM_12";
+    public static final String PREF_FROM_13 = "FROM_13";
 
     public static final String PREF_TO_1 = "TO_1";
     public static final String PREF_TO_2 = "TO_2";
@@ -29,31 +34,12 @@ public class TConstants {
     public static final String PREF_TO_4 = "TO_4";
     public static final String PREF_TO_5 = "TO_5";
     public static final String PREF_TO_6 = "TO_6";
-
-
-
-    public static final String REGISTRATION_URL="http://travelr.iceteck.com/index.php/home/matricule/add";
-    public static final String REGISTRATION_URL_PARAM_CODE="code";
-    public static final String REGISTRATION_URL_PARAM_MSISDN="msisdn";
-    public static final String REGISTRATION_URL_PARAM_USERNAME="username";
-    public static final String REGISTRATION_URL_PARAM_EMERGENCY_ONE="emergency_one";
-    public static final String REGISTRATION_URL_PARAM_EMERGENCY_TWO="emergency_two";
-    public static final String GET_MAT_ID_URL="http://travelr.iceteck.com/index.php/home/matricule/get/";
-    public static final String POST_SPEED_AND_POSITION_PARAM_MAT_ID="mat_id";
-    public static final String POST_SPEED_AND_POSITION_PARAM_LNG="lng";
-    public static final String POST_SPEED_AND_POSITION_PARAM_LAT="lat";
-    public static final String POST_SPEED_AND_POSITION_PARAM_SPEED="speed";
-    public static final String POST_SPEED_AND_POSITION_PARAM_MATRICULE="matricule";
-    public static final String POST_SPEED_AND_POSITION_URL="http://travelr.iceteck.com/index.php/home/matricule/data/add";
-    public static final String POST_MESSAGE_PARAM_MAT_ID="mat_id";
-    public static final String POST_MESSAGE_PARAM_MSISDN="msisdn";
-    public static final String POST_MESSAGE_PARAM_MATRICULE="matricule";
-    public static final String POST_MESSAGE_PARAM_USERNAME="username";
-    public static final String POST_MESSAGE_PARAM_MESSAGE="message";
-
-    public static final String POST_SPEED_POSTION_PARAM_TIMESTAMP = "timestamp";
-    public static final String POST_MESSAGE_PARAM_TIMESTAMP="timestamp";
-    public static final String POST_MESSAGE_URL="http://travelr.iceteck.com/index.php/home/matricule/message/add";
+    public static final String PREF_TO_7 = "TO_7";
+    public static final String PREF_TO_8 = "TO_8";
+    public static final String PREF_TO_10 = "TO_10";
+    public static final String PREF_TO_11 = "TO_11";
+    public static final String PREF_TO_12 = "TO_12";
+    public static final String PREF_TO_13 = "TO_13";
 
 
     public static final int GEOFENCE_RADIUS_IN_METERS = 1000;
@@ -72,4 +58,5 @@ public class TConstants {
     public static final String FIREBASE_MESSAGING_TOPIC = "messages_";
     public static final String FIREBASE_NOTIFICATION = "notifications";
     public static final String FIREBASE_NOTIF_ACCIDENT = "accident";
+
 }

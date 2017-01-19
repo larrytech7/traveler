@@ -58,7 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <com.github.clans.fab.FloatingActionMenu
+        <!--<com.github.clans.fab.FloatingActionMenu
             android:id="@+id/fab_menu"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
@@ -88,8 +88,8 @@
             fab:menu_openDirection="up"
             fab:fab_shadowColor="#66000000"
             fab:menu_labels_ellipsize="none"
-            fab:menu_labels_singleLine="false">
-
+            fab:menu_labels_singleLine="false">-->
+<!--
             <com.github.clans.fab.FloatingActionButton
                 android:id="@+id/fabSendIncident"
                 android:layout_width="wrap_content"
@@ -100,21 +100,21 @@
                 android:visibility="gone"
                 fab:fab_colorNormal="@color/bluePrimary"
                 fab:fab_colorPressed="#E75043"
-                fab:fab_colorRipple="@color/blueSecondary"/>
+                fab:fab_colorRipple="@color/blueSecondary"/>-->
 
-            <com.github.clans.fab.FloatingActionButton
-                android:id="@+id/fabSend"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_send"
-                android:visibility="gone"
-                app:fab_label="@string/message_simple"
-                fab:fab_size="mini"
-                fab:fab_colorNormal="@color/bluePrimary"
-                fab:fab_colorPressed="#E75043"
-                fab:fab_colorRipple="@color/blueSecondary"/>
-
-        </com.github.clans.fab.FloatingActionMenu>
+            <!--<com.github.clans.fab.FloatingActionButton-->
+                <!--android:id="@+id/fabSend"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@drawable/ic_send"-->
+                <!--android:visibility="visible"-->
+                <!--app:fab_label="@string/message_simple"-->
+                <!--fab:fab_size="mini"-->
+                <!--fab:fab_colorNormal="@color/bluePrimary"-->
+                <!--fab:fab_colorPressed="#E75043"-->
+                <!--fab:fab_colorRipple="@color/blueSecondary"/>-->
+<!--
+        </com.github.clans.fab.FloatingActionMenu>-->
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -193,6 +193,18 @@
             app:srcCompat="@drawable/ic_send"
             app:backgroundTint="@android:color/holo_blue_light"
             app:borderWidth="0dp"/>-->
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fabSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_send"
+            android:visibility="visible"
+            android:layout_gravity="end"
+            app:fab_label="@string/message_simple"
+            fab:fab_size="normal"
+            fab:fab_colorNormal="@color/colorPrimary"
+            fab:fab_colorPressed="#E75043"
+            fab:fab_colorRipple="@color/blueSecondary"/>
     </FrameLayout>
 
 </LinearLayout>

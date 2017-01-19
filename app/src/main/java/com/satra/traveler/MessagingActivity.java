@@ -32,13 +32,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.satra.traveler.adapter.MessagingAdapter;
 import com.satra.traveler.models.Messages;
 import com.satra.traveler.models.User;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
+import com.tooltip.Tooltip;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -52,7 +52,7 @@ public class MessagingActivity extends AppCompatActivity {
 
     private static final String LOGTAG = MessagingActivity.class.getSimpleName();
     private static final int CAPTURE_IMAGE_MESSAGE = 100;
-    EditText messageBox, extraMatriculeEditText;
+    EditText messageBox;///, extraMatriculeEditText;
     private ImageView previewMessageImage;
     private ProgressBar progressBar;
 
@@ -85,7 +85,7 @@ public class MessagingActivity extends AppCompatActivity {
         clientName = travelerUser == null? "": travelerUser.getUsername();//sharedPreferences.getString(TConstants.PREF_USERNAME,"");
         //prepare message reference base for sending and receiving messages
         reference = FirebaseDatabase.getInstance().getReference(Tutility.FIREBASE_MESSAGES)
-                .child(travelerUser.getCurrent_matricule());
+                .child(clientMatricule);
         storageReference = FirebaseStorage.getInstance().getReference(TConstants.FIREBASE_MEDIA_DATA);
         reference.keepSynced(true);
         //setup remaining view
@@ -110,10 +110,10 @@ public class MessagingActivity extends AppCompatActivity {
         messageRecyclerView.setLayoutManager(layoutManager);
         messageRecyclerView.setHasFixedSize(true);
         messageBox = (EditText)findViewById(R.id.messageText);
-        extraMatriculeEditText = (EditText) findViewById(R.id.matriculeEditText);
+        //extraMatriculeEditText = (EditText) findViewById(R.id.matriculeEditText);
 
-        fam = (FloatingActionMenu) findViewById(R.id.fab_menu);
-        fabIncident = (FloatingActionButton) findViewById(R.id.fabSendIncident);
+        /*fam = (FloatingActionMenu) findViewById(R.id.fab_menu);
+        fabIncident = (FloatingActionButton) findViewById(R.id.fabSendIncident);*/
         fab = (FloatingActionButton) findViewById(R.id.fabSend);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,16 +123,16 @@ public class MessagingActivity extends AppCompatActivity {
                     messageBox.setText("");
                     //prepare message
                     Messages textMessage = new Messages();
-                    textMessage.setAuthor(travelerUser.getUsername());
-                    textMessage.setSender(travelerUser.getCurrent_matricule());
+                    textMessage.setAuthor(clientName);
+                    textMessage.setSender(clientMatricule);
                     textMessage.setPhonenumber(travelerUser.getUserphone());
                     textMessage.setContent(message);
                     textMessage.setCategory("simple");
                     textMessage.setTimestamp(System.nanoTime());
                     textMessage.setDate(new SimpleDateFormat("MMMM dd, yyyy HH:mm:ss a", Locale.US).format(Calendar.getInstance().getTime()));
                     textMessage.setImageUrl(imageUrl); //If image available , send first before message
-
-                    //push to reference
+                    //TODO: Machine learning can be used to determine the type (incident or report) of message sent.
+                    //push message to reference
                     final String key = reference.push().getKey();
                     reference.child(key)
                             .setValue(textMessage)
@@ -155,7 +155,7 @@ public class MessagingActivity extends AppCompatActivity {
                 }
             }
         });
-        fabIncident.setOnClickListener(new View.OnClickListener(){
+        /*fabIncident.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
@@ -198,8 +198,8 @@ public class MessagingActivity extends AppCompatActivity {
                     imageFrame.setVisibility(View.GONE);
                 }
             }
-        });
-        fam.setOnMenuToggleListener(new FloatingActionMenu.OnMenuToggleListener() {
+        });*/
+       /* fam.setOnMenuToggleListener(new FloatingActionMenu.OnMenuToggleListener() {
             @Override
             public void onMenuToggle(boolean opened) {
                 if (opened) {
@@ -214,9 +214,39 @@ public class MessagingActivity extends AppCompatActivity {
                     fabIncident.setVisibility(View.GONE);
                 }
             }
-        });
+        });*/
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setupMessageList(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        showHint();
+    }
+
+    private void showHint() {
+        //TODO: Use preference to determine whether to show hint or not
+        Tooltip tooltip = new Tooltip.Builder(findViewById(R.id.message_include_holder))
+                .setText(R.string.message_hint)
+                .show();
+        /*View parent = getWindow().getDecorView();
+        SimpleHintContentHolder mHintBlock =  new SimpleHintContentHolder.Builder(this)
+                .setContentText(getString(R.string.message_hint))
+                .setContentTitle("Sending messages")
+                .build();
+        new HintCase(parent)
+                .setTarget(fab, new CircularShape(), HintCase.TARGET_IS_CLICKABLE)
+                .setShapeAnimators(new RevealCircleShapeAnimator())
+                .setBackgroundColorByResourceId(R.color.blueLight)
+                .setHintBlock(mHintBlock, new FadeInContentHolderAnimator(), new FadeOutContentHolderAnimator())
+                .setOnClosedListener(new HintCase.OnClosedListener() {
+                    @Override
+                    public void onClosed() {
+                        //TODO. Set preference for showing the hint later
+                    }
+                })
+                .show();*/
     }
 
     /**
