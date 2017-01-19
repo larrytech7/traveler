@@ -136,9 +136,34 @@
         <item>Step 5</item>
         <item>Step 6</item>
     </string-array>
+    <string-array name="numnsteps">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
     <string name="movevictim">Move a victim</string>
     <string name="manageincident">Manage Incident</string>
     <string name="title_activity_aid">Help a victim</string>
+    <string-array name="aid_tips">
+        <item>Check yourself first</item>
+        <item>Check the other person(s) for injury</item>
+        <item>Look for signs of breathing</item>
+        <item>Call for help</item>
+        <item>Check for obstruction in person\'s mouth and throat</item>
+        <item>Life saving techniques</item>
+        <item>Provide help in severe situations</item>
+        <item>Deal with open wounds</item>
+        <item>Suspect spinal injuries</item>
+        <item>Keep person warm</item>
+        <item>Avoid feeding victims</item>
+    </string-array>
     <string name="title1">1. Check yourself first</string>
     <string name="title2">2. Check the other person(s) for injury</string>
     <string name="title3">3. Look for signs of breathing</string>
