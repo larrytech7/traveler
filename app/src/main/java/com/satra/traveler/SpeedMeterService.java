@@ -219,7 +219,7 @@ public class SpeedMeterService extends Service implements SensorEventListener {
                 if(databaseReference == null){
                     databaseReference = FirebaseDatabase.getInstance().getReference();
                 }
-                /**
+                /*
                  * Construire l'objet accident. L'objet a transmettre dans le setValue() method doit avoir ces proprietes
                  * matricule - le matricule du vehicule du trajet en cours
                  * speed - derniere vitesse enregistrer pour ce vehicule
