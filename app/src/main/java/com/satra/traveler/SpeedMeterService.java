@@ -231,17 +231,18 @@ public class SpeedMeterService extends Service implements SensorEventListener {
                  * timestamp - l'emprunte du temps de l'enregistrement de cet notification
                  */
 
-
+                //TODO: Quantify change in acceleration to deduce magnitude of impact
                 User travelerUser = User.findAll(User.class).next();
                 Trip trip = MyPositionActivity.getCurrentTrip();
 
-                Incident incident = new Incident(); //TODO: Cet objet est A remplir avec les donnees des parametres decrivant l'incident en details
+                Incident incident = new Incident();
 
                 incident.setKey(trip.getTripKey());
                 incident.setMatricule(travelerUser.getCurrent_matricule());
                 incident.setAgency(trip.getAgency_name());
                 incident.setSpeed(getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE).getFloat(TConstants.SPEED_PREF, 0.0f)* COEFF_CONVERSION_MS_KMH);
                 incident.setAcc(mAccelCurrent);
+                incident.setAcc_last(mAccelLast);
                 incident.setLongitude(location.getLongitude());
                 incident.setLatitude(location.getLatitude());
                 incident.setTimestamp(System.nanoTime());
@@ -498,7 +499,7 @@ public class SpeedMeterService extends Service implements SensorEventListener {
                 .child(TConstants.FIREBASE_TEMP_DATA)
                 .push()
                 .setValue(data);
-        //TODO: Determine if has reached speed limit so as to notify
+        //Determine if has reached speed limit so as to notify
         if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_TO_ALERT_KMH) {
             if (!hasReachLimit) {
 
