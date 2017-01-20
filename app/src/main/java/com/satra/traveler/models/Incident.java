@@ -22,6 +22,14 @@ public class Incident extends SugarRecord {
     public Incident() {
     }
 
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
     public String getKey() {
         return key;
     }
