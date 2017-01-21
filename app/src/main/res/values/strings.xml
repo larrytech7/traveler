@@ -247,5 +247,7 @@
     <string name="matriculation_number_other">matricule du véhicule concerné (si différent du votre)</string>
     <string name="no_message">Entrez votre message</string>
     <string name="signup">Inscrivez vous et sécurisez vos trajets</string>
-    <string name="message_hint">Envoyer vos message avec ce boutton. Si vous avez une image qui l\'accompagne, laisser celle-ci charger completement avant d\'envoyer votre message.</string>
+    <string name="message_button_hint">Envoyer vos message avec ce boutton. Si vous avez une image qui l\'accompagne, laisser celle-ci charger completement avant d\'envoyer votre message.</string>
+    <string name="message_text_hint">Ecrivez votre message ici. Si il s\'agit d\'un incident implicant une voiture autre que la votre, veuillez saisir le matricule si possible du vehicule.</string>
+    <string name="message_picture_hint">Vous pouvez ajouter a vos messages, des captures d\'image de votre appareil photo</string>
 </resources>

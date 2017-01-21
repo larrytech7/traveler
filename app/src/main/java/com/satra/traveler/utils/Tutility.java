@@ -14,6 +14,7 @@ public class Tutility {
     public static final String FIREBASE_USER = "users";
     public static final String FIREBASE_MESSAGES = "messages";
     public static final String FIREBASE_TRIPS = "trips";
+    public static final String SHOW_HINTS = "app_hints";
 
     //show a dialog to the user about a certain message/information
     public static void showMessage(Context c, String message, String title){
