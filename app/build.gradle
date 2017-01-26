@@ -77,7 +77,7 @@ dependencies {
     compile 'com.joanfuentes:HintCaseAssets:1.0.4'
     compile 'com.github.vihtarb:tooltip:0.1.9'
     */
-    compile 'com.github.popalay:tutors:1.0.1'
+    compile 'com.github.popalay:tutors:1.0.2'
     //forms library for displaying the first aid section
     compile 'com.ernestoyaquello.stepperform:vertical-stepper-form:0.9.9'
 

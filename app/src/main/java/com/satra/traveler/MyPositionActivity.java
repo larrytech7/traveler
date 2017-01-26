@@ -403,8 +403,6 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         // create GoogleApiClient
         createGoogleApi();
 
-        //subscribe to FCM services to receive incoming notifs
-        FirebaseMessaging.getInstance().subscribeToTopic(TConstants.FIREBASE_MESSAGING_TOPIC);
     }
 
     // Create GoogleApiClient instance
