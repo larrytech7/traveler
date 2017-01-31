@@ -83,7 +83,7 @@
     <string name="about_title1">About</string>
     <string name="speed_dimen" formatted="false">%s | Speed: %s Kmph</string>
     <string name="login">Continue</string>
-    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 5.0.8</string>
+    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 5.1.0</string>
     <string name="cancel">Cancel</string>
     <string name="howserious">Severity level</string>
     <string name="save">Save</string>
@@ -228,5 +228,8 @@
     <string name="message_picture_hint">You can add send photos alongside your message using your camera.</string>
     <string name="message_text_hint">Type your message here. If reporting an incident and it doesn\'t involve your vehicle, please include the matricule of the vehicle invlovled if possible</string>
     <string name="message_button_hint">Send message with this button. If you have an image to add, let the image upload before sending your message.</string>
+
+    <string name="message_hint">Send your message with this button. If you have an image that accompanies it, let it load completely before sending your message.</string>
+
 
 </resources>

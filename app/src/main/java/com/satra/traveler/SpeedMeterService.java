@@ -58,6 +58,11 @@ public class SpeedMeterService extends Service implements SensorEventListener {
     private static final int MAX_SPEED_TO_ALERT_KMH = 80;
     private static final long INTERVAL_BETWEEN_UPDATES = 10000;
     private static final float MAX_NORMAL_ACCELERATION_COEFF = 5.0f;//5;
+
+    private static final int MAX_NORMAL_ACCELERATION_COEFF = 5;
+    private static final int TIME_TO_WAIT_FOR_SPEED_OVERHEAD_CONFIRMATION=5000;
+    private Long durationElapsed = null;
+
     LocationManager locationManager;
     float vitesse = 0;
     private static int id = 1;
@@ -485,7 +490,7 @@ public class SpeedMeterService extends Service implements SensorEventListener {
 
        if(MyPositionActivity.isCurrentTripExist()){
            Trip mtrip = MyPositionActivity.getCurrentTrip();
-           if(((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_ALLOWED_KMH)){
+           if(((vitesse * COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_ALLOWED_KMH)){
 
                pushSpeedOnline(SpeedMeterService.this, vitesse, location, mtrip);
 
@@ -530,30 +535,40 @@ public class SpeedMeterService extends Service implements SensorEventListener {
                 .child(TConstants.FIREBASE_TEMP_DATA)
                 .push()
                 .setValue(data);
-        //Determine if has reached speed limit so as to notify
+
         if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_TO_ALERT_KMH) {
             if (!hasReachLimit) {
 
+                if(durationElapsed==null){
+                    durationElapsed = System.currentTimeMillis();
 
-                so = new SpeedOverhead();
-                so.setDate_start(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.US).format(Calendar.getInstance().getTime()));
-                so.setLatitude_start(location.getLatitude());
-                so.setLongitude_start(location.getLongitude());
-                so.setSpeed_start(vitesse);
-                so.setTripid("" + MyPositionActivity.getCurrentTrip().getId());
-                //so.save();
+                    so = new SpeedOverhead();
+                    so.setDate_start(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.US).format(Calendar.getInstance().getTime()));
+                    so.setLatitude_start(location.getLatitude());
+                    so.setLongitude_start(location.getLongitude());
+                    so.setSpeed_start(vitesse);
+                    so.setTripid("" + MyPositionActivity.getCurrentTrip().getId());
+                }
+                else if(System.currentTimeMillis()>=durationElapsed+TIME_TO_WAIT_FOR_SPEED_OVERHEAD_CONFIRMATION){
 
-                hasReachLimit = true;
+                    hasReachLimit = true;
+                }
             }
-        }else if(hasReachLimit) {
 
-            so.setLatitude_end(location.getLatitude());
-            so.setLongitude_end(location.getLongitude());
-            so.setSpeed_end(vitesse);
-            so.setDate_end(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.US).format(Calendar.getInstance().getTime()));
-            so.save();
 
-            hasReachLimit = false;
+
+        }else {
+            if(hasReachLimit) {
+
+                so.setLatitude_end(location.getLatitude());
+                so.setLongitude_end(location.getLongitude());
+                so.setSpeed_end(vitesse);
+                so.setDate_end(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.US).format(Calendar.getInstance().getTime()));
+                so.save();
+
+                hasReachLimit = false;
+            }
+            durationElapsed = null;
         }
         /*
         new AsyncTask<Void, Void, ResponsStatusMsgMeta>(){
