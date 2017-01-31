@@ -403,6 +403,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         // create GoogleApiClient
         createGoogleApi();
 
+
     }
 
     // Create GoogleApiClient instance

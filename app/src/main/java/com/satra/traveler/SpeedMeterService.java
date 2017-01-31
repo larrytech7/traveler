@@ -124,11 +124,6 @@ public class SpeedMeterService extends Service implements SensorEventListener {
         FirebaseMessaging.getInstance().subscribeToTopic(TConstants.FIREBASE_MESSAGING_TOPIC);
         FirebaseMessaging.getInstance().subscribeToTopic(TConstants.FIREBASE_AD_TOPIC);
 
-        //      Bundle extra = intent.getExtras();
-  //      if(extra != null) {
-   //             utilisateur = (Utilisateur)extra.getSerializable("utilisateur");
-
-
     }
 
     public void start(){
