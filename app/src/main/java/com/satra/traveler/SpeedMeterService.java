@@ -24,6 +24,7 @@ import android.util.Log;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.satra.traveler.models.Incident;
 import com.satra.traveler.models.SpeedOverhead;
 import com.satra.traveler.models.TrackingData;
@@ -56,6 +57,8 @@ public class SpeedMeterService extends Service implements SensorEventListener {
     private static final int ERREUR_ACCEPTE_VITESSE_MAX=2;
     private static final int MAX_SPEED_TO_ALERT_KMH = 80;
     private static final long INTERVAL_BETWEEN_UPDATES = 10000;
+    private static final float MAX_NORMAL_ACCELERATION_COEFF = 5.0f;//5;
+
     private static final int MAX_NORMAL_ACCELERATION_COEFF = 5;
     private static final int TIME_TO_WAIT_FOR_SPEED_OVERHEAD_CONFIRMATION=5000;
     private Long durationElapsed = null;
@@ -70,7 +73,7 @@ public class SpeedMeterService extends Service implements SensorEventListener {
     private Vector<Float> vitesses = new Vector<>();
     private LocationListener locationListenerGPS, locationListenerNetwork;
     static final String LOGTAG = SpeedMeterService.class.getSimpleName();
-    DatabaseReference databaseReference;
+    DatabaseReference databaseReference, baseReference;
     private User travelerUser;
 
     private SensorManager sensorMan;
@@ -90,6 +93,7 @@ public class SpeedMeterService extends Service implements SensorEventListener {
     public int onStartCommand(Intent intent, int flags, int startid){
         Log.e("service starting...", "service SpeedMeterService is starting ");
         databaseReference = FirebaseDatabase.getInstance().getReference(Tutility.FIREBASE_TRIPS);
+        baseReference = FirebaseDatabase.getInstance().getReference(TConstants.FIREBASE_NOTIFICATION);
         Iterator<User> users = User.findAll(User.class);
         if (users.hasNext())
             travelerUser = users.next();
@@ -121,10 +125,9 @@ public class SpeedMeterService extends Service implements SensorEventListener {
     public void onCreate() {
         super.onCreate();
         start();
-  //      Bundle extra = intent.getExtras();
-  //      if(extra != null) {
-   //             utilisateur = (Utilisateur)extra.getSerializable("utilisateur");
-
+        //subscribe to FCM services to receive incoming notifs
+        FirebaseMessaging.getInstance().subscribeToTopic(TConstants.FIREBASE_MESSAGING_TOPIC);
+        FirebaseMessaging.getInstance().subscribeToTopic(TConstants.FIREBASE_AD_TOPIC);
 
     }
 
@@ -206,6 +209,7 @@ public class SpeedMeterService extends Service implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent event) {
+
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER){
             mGravity = event.values.clone();
             // Shake detection
@@ -215,14 +219,11 @@ public class SpeedMeterService extends Service implements SensorEventListener {
             mAccelLast = mAccelCurrent;
             mAccelCurrent = (float) Math.sqrt(x*x + y*y + z*z);
 
-            if(MyPositionActivity.isCurrentTripExist()&&mAccelCurrent/SensorManager.GRAVITY_EARTH>MAX_NORMAL_ACCELERATION_COEFF){
-                Log.e("Accident detected: ", " -- mAccelCurrent: "+mAccelCurrent+" -- mAccelCurrent/9.8: "+(mAccelCurrent/SensorManager.GRAVITY_EARTH));
+            if(MyPositionActivity.isCurrentTripExist()&&mAccelCurrent/SensorManager.GRAVITY_EARTH>=MAX_NORMAL_ACCELERATION_COEFF){
+                //Log.e("Accident detected: ", " -- mAccelCurrent: "+mAccelCurrent+" -- mAccelCurrent/9.8: "+(mAccelCurrent/SensorManager.GRAVITY_EARTH));
+                notifyAlert(mAccelCurrent/SensorManager.GRAVITY_EARTH);
 
-            // TODO: 22/12/2016 SEND ACCIDENT DETECTION DETAILS TO SERVERS
-                if(databaseReference == null){
-                    databaseReference = FirebaseDatabase.getInstance().getReference();
-                }
-                /**
+                /*
                  * Construire l'objet accident. L'objet a transmettre dans le setValue() method doit avoir ces proprietes
                  * matricule - le matricule du vehicule du trajet en cours
                  * speed - derniere vitesse enregistrer pour ce vehicule
@@ -234,32 +235,65 @@ public class SpeedMeterService extends Service implements SensorEventListener {
                  * timestamp - l'emprunte du temps de l'enregistrement de cet notification
                  */
 
+                //TODO: Quantify change in acceleration to deduce magnitude of impact
+                //User travelerUser = User.findAll(User.class).next();
 
-                User travelerUser = User.findAll(User.class).next();
                 Trip trip = MyPositionActivity.getCurrentTrip();
 
-                Incident incident = new Incident(); //TODO: Cet objet est A remplir avec les donnees des parametres decrivant l'incident en details
+                Incident incident = new Incident();
 
                 incident.setKey(trip.getTripKey());
                 incident.setMatricule(travelerUser.getCurrent_matricule());
                 incident.setAgency(trip.getAgency_name());
                 incident.setSpeed(getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE).getFloat(TConstants.SPEED_PREF, 0.0f)* COEFF_CONVERSION_MS_KMH);
                 incident.setAcc(mAccelCurrent);
-                incident.setLongitude(location.getLongitude());
-                incident.setLatitude(location.getLatitude());
+                incident.setAcc_last(mAccelLast);
+                incident.setLongitude(location == null? 0: location.getLongitude());
+                incident.setLatitude(location == null? 0: location.getLatitude());
                 incident.setTimestamp(System.nanoTime());
                 incident.setType(1);
 
-
-                databaseReference.child(TConstants.FIREBASE_NOTIFICATION)
-                        .child(TConstants.FIREBASE_NOTIF_ACCIDENT)
-                        .push()
-                        .setValue(incident);
-
+                    //FirebaseDatabase.getInstance().getReference().child(TConstants.FIREBASE_NOTIFICATION)
+                            baseReference.child(TConstants.FIREBASE_NOTIF_ACCIDENT)
+                            .push()
+                            .setValue(incident);
             }
 
         }
 
+    }
+
+    private void notifyAlert(float acc) {
+        Intent intent1 = new Intent(this, MyPositionActivity.class);
+        intent1.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        PendingIntent pendingIntent =
+                PendingIntent.getActivity(this, 0, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
+        NotificationManager nm = (NotificationManager)
+                getSystemService(NOTIFICATION_SERVICE);
+        Notification.Builder build = new Notification.Builder(this);
+
+        String message = String.format(Locale.ENGLISH, "GFORCE VAL: %.6f", acc);
+
+        build.setAutoCancel(false);
+        build.setWhen(0);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            build.setStyle(new Notification.BigTextStyle().bigText(message));
+        }
+        build.setTicker(getString(R.string.app_name));
+        build.setContentTitle("Incident/impact alert");
+        build.setContentText(message);
+        build.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher_web));
+        build.setSmallIcon(R.drawable.ic_menu_mylocation);
+        build.setContentIntent(pendingIntent);
+        build.setOngoing(true);
+        build.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
+        build.build();
+        Notification notif = build.getNotification();
+//        notif.vibrate = new long[] { 100, 250, 100, 500};
+//        notif.sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
+        nm.notify(0, notif);
     }
 
     @Override
@@ -502,7 +536,6 @@ public class SpeedMeterService extends Service implements SensorEventListener {
                 .push()
                 .setValue(data);
 
-        //TODO: Determine if has reached speed limit so as to notify
         if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_TO_ALERT_KMH) {
             if (!hasReachLimit) {
 

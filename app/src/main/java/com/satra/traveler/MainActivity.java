@@ -64,6 +64,7 @@ public class MainActivity extends Activity implements OnClickListener {
     //firebase fields
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private ProgressDialog progress;
 
     public static Integer stringToInt(String str){
         if(str.length()==0) return 0;
@@ -104,7 +105,7 @@ public class MainActivity extends Activity implements OnClickListener {
         Iterator<User> musers = User.findAll(User.class);
         if (musers.hasNext()){
             //Log.d(LOGTAG, "User available: "+musers.next().getUsername());
-            final ProgressDialog progress = new ProgressDialog(MainActivity.this);
+            progress = new ProgressDialog(MainActivity.this);
             progress.setIcon(R.mipmap.ic_launcher);
             progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
             progress.setIndeterminate(true);
@@ -254,6 +255,15 @@ public class MainActivity extends Activity implements OnClickListener {
             }
         });
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(progress != null){
+            progress.dismiss();
+            progress = null;
+        }
     }
 
     @Override

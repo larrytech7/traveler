@@ -16,7 +16,7 @@
                 android:title="@string/confirm_journey" />
             <item
                 android:id="@+id/nav_repport_complaint"
-                android:icon="@drawable/ic_message_green_700_24dp"
+                android:icon="@drawable/ic_messaging_24dp"
                 android:title="@string/new_repport_complaint" />
             <item
                 android:id="@+id/nav_end_journey"

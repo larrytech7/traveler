@@ -6,7 +6,7 @@ android {
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.satra.traveler"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 25
         multiDexEnabled true
     }
@@ -72,9 +72,15 @@ dependencies {
     compile 'com.google.firebase:firebase-storage:10.0.1'
     compile 'com.google.firebase:firebase-messaging:10.0.1'
     //hints library dependencies
+    /*
     compile 'com.joanfuentes:HintCase:1.0.4'
     compile 'com.joanfuentes:HintCaseAssets:1.0.4'
     compile 'com.github.vihtarb:tooltip:0.1.9'
+    */
+    compile 'com.github.popalay:tutors:1.0.2'
+    //forms library for displaying the first aid section
+    compile 'com.ernestoyaquello.stepperform:vertical-stepper-form:0.9.9'
+
     testCompile 'junit:junit:4.12'
 }
 
