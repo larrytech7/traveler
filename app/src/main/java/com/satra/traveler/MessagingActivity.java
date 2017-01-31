@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -33,22 +34,27 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.popalay.tutors.TutorialListener;
+import com.popalay.tutors.Tutors;
+import com.popalay.tutors.TutorsBuilder;
 import com.satra.traveler.adapter.MessagingAdapter;
 import com.satra.traveler.models.Messages;
 import com.satra.traveler.models.User;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
-import com.tooltip.Tooltip;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 
-public class MessagingActivity extends AppCompatActivity {
+import static android.R.attr.data;
+
+public class MessagingActivity extends AppCompatActivity implements TutorialListener{
 
     private static final String LOGTAG = MessagingActivity.class.getSimpleName();
     private static final int CAPTURE_IMAGE_MESSAGE = 100;
@@ -69,6 +75,8 @@ public class MessagingActivity extends AppCompatActivity {
     private FloatingActionButton fab, fabIncident;
     FloatingActionMenu fam; //
     private String imageUrl;
+    private Tutors tutors;
+    private Iterator<Map.Entry<String, View>> iterator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -222,31 +230,39 @@ public class MessagingActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        showHint();
+        tutors = new TutorsBuilder()
+                .textColorRes(android.R.color.white)
+                .shadowColorRes(R.color.shadow)
+                .textSizeRes(R.dimen.textNormal)
+                .completeIconRes(R.drawable.ic_cross_24_white)
+                .nextButtonTextRes(R.string.action_next)
+                .completeButtonTextRes(R.string.action_got_it)
+                .spacingRes(R.dimen.spacingNormal)
+                .lineWidthRes(R.dimen.lineWidth)
+                .cancelable(true)
+                .build();
+        tutors.setListener(this);
+        HashMap<String, View> tutorials = new HashMap<>();
+        tutorials.put(getString(R.string.message_text_hint), findViewById(R.id.messageText));
+        tutorials.put(getString(R.string.message_picture_hint), findViewById(R.id.buttonCaptureImage));
+        tutorials.put(getString(R.string.message_button_hint), fab);
+        iterator = tutorials.entrySet().iterator();
+        boolean showHints = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(Tutility.SHOW_HINTS, true);
+        //Check preference if first time so as to know if to show hints or not
+        if (showHints)
+            showHint(iterator);
     }
 
-    private void showHint() {
-        //TODO: Use preference to determine whether to show hint or not
-        Tooltip tooltip = new Tooltip.Builder(findViewById(R.id.message_include_holder))
-                .setText(R.string.message_hint)
-                .show();
-        /*View parent = getWindow().getDecorView();
-        SimpleHintContentHolder mHintBlock =  new SimpleHintContentHolder.Builder(this)
-                .setContentText(getString(R.string.message_hint))
-                .setContentTitle("Sending messages")
-                .build();
-        new HintCase(parent)
-                .setTarget(fab, new CircularShape(), HintCase.TARGET_IS_CLICKABLE)
-                .setShapeAnimators(new RevealCircleShapeAnimator())
-                .setBackgroundColorByResourceId(R.color.blueLight)
-                .setHintBlock(mHintBlock, new FadeInContentHolderAnimator(), new FadeOutContentHolderAnimator())
-                .setOnClosedListener(new HintCase.OnClosedListener() {
-                    @Override
-                    public void onClosed() {
-                        //TODO. Set preference for showing the hint later
-                    }
-                })
-                .show();*/
+    private void showHint(Iterator<Map.Entry<String, View>> iterator) {
+        if (iterator == null){
+            return;
+        }
+        if (iterator.hasNext()) {
+            Map.Entry<String, View> data = iterator.next();
+            tutors.show(getSupportFragmentManager(), data.getValue(),
+                    data.getKey(),
+                    !iterator.hasNext());
+        }
     }
 
     /**
@@ -281,6 +297,8 @@ public class MessagingActivity extends AppCompatActivity {
         super.onDestroy();
         try {
             ((MessagingAdapter)messageRecyclerView.getAdapter()).cleanup();
+            if (tutors != null)
+                tutors = null;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -365,4 +383,21 @@ public class MessagingActivity extends AppCompatActivity {
             fab.setEnabled(true);
     }
 
+    @Override
+    public void onNext() {
+        showHint(iterator);
+    }
+
+    @Override
+    public void onComplete() {
+        tutors.close();
+        PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean(Tutility.SHOW_HINTS, false).apply();
+    }
+
+    @Override
+    public void onCompleteAll() {
+        tutors.close();
+        //set preference not to show hints again next time activity launches
+        PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean(Tutility.SHOW_HINTS, false).apply();
+    }
 }

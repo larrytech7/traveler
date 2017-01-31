@@ -14,6 +14,7 @@ public class Incident extends SugarRecord {
     private String agency;
     private float speed;
     private double acc;
+    private double acc_last; //previous acceleration value
     private double latitude;
     private double longitude;
     private long timestamp;
@@ -92,5 +93,13 @@ public class Incident extends SugarRecord {
 
     public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public double getAcc_last() {
+        return acc_last;
+    }
+
+    public void setAcc_last(double acc_last) {
+        this.acc_last = acc_last;
     }
 }

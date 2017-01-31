@@ -154,7 +154,15 @@
     <string name="message_received">Message reçu. Notre equipe travail en ce moment pour vous répondre. Merci d\'utiliser travelr.</string>
     <string name="emergency_contact_1">Numéro d\'urgence 1 (*)</string>
     <string name="emergency_contact2">Numéro urgence 2</string>
-
+    <string name="vertical_form_stepper_form_confirm_button">Recommencer</string>
+    <string-array name="steps">
+        <item>Etape 1</item>
+        <item>Etape 2</item>
+        <item>Etape 3</item>
+        <item>Etape 4</item>
+        <item>Etape 5</item>
+        <item>Etape 6</item>
+    </string-array>
     <string name="title_activity_victime_transportation">Transporter une victime</string>
     <string name="title_activity_aid">Aider une victime</string>
     <string name="title9">9. Suspecter les domages médullaires</string>
@@ -239,5 +247,7 @@
     <string name="matriculation_number_other">matricule du véhicule concerné (si différent du votre)</string>
     <string name="no_message">Entrez votre message</string>
     <string name="signup">Inscrivez vous et sécurisez vos trajets</string>
-    <string name="message_hint">Envoyer vos message avec ce boutton. Si vous avez une image qui l\'accompagne, laisser celle-ci charger completement avant d\'envoyer votre message.</string>
+    <string name="message_button_hint">Envoyer vos message avec ce boutton. Si vous avez une image qui l\'accompagne, laisser celle-ci charger completement avant d\'envoyer votre message.</string>
+    <string name="message_text_hint">Ecrivez votre message ici. Si il s\'agit d\'un incident implicant une voiture autre que la votre, veuillez saisir le matricule si possible du vehicule.</string>
+    <string name="message_picture_hint">Vous pouvez ajouter a vos messages, des captures d\'image de votre appareil photo</string>
 </resources>

@@ -59,4 +59,5 @@ public class TConstants {
     public static final String FIREBASE_NOTIFICATION = "notifications";
     public static final String FIREBASE_NOTIF_ACCIDENT = "accident";
 
+    public static final String FIREBASE_AD_TOPIC = "ads_";
 }

@@ -128,9 +128,42 @@
     <string name="no_current_trip_defined">You have no current trip.</string>
     <string name="route_calculation">Route calculation…</string>
 
+    <string-array name="steps">
+        <item>Step 1</item>
+        <item>Step 2</item>
+        <item>Step 3</item>
+        <item>Step 4</item>
+        <item>Step 5</item>
+        <item>Step 6</item>
+    </string-array>
+    <string-array name="numnsteps">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
     <string name="movevictim">Move a victim</string>
     <string name="manageincident">Manage Incident</string>
     <string name="title_activity_aid">Help a victim</string>
+    <string-array name="aid_tips">
+        <item>Check yourself first</item>
+        <item>Check the other person(s) for injury</item>
+        <item>Look for signs of breathing</item>
+        <item>Call for help</item>
+        <item>Check for obstruction in person\'s mouth and throat</item>
+        <item>Life saving techniques</item>
+        <item>Provide help in severe situations</item>
+        <item>Deal with open wounds</item>
+        <item>Suspect spinal injuries</item>
+        <item>Keep person warm</item>
+        <item>Avoid feeding victims</item>
+    </string-array>
     <string name="title1">1. Check yourself first</string>
     <string name="title2">2. Check the other person(s) for injury</string>
     <string name="title3">3. Look for signs of breathing</string>
@@ -191,5 +224,9 @@
     <string name="message_simple">simple message</string>
     <string name="no_message">type your message</string>
     <string name="signup">Signup and secure your trips</string>
+    <string name="vertical_form_stepper_form_confirm_button">Start Over</string>
+    <string name="message_picture_hint">You can add send photos alongside your message using your camera.</string>
+    <string name="message_text_hint">Type your message here. If reporting an incident and it doesn\'t involve your vehicle, please include the matricule of the vehicle invlovled if possible</string>
+    <string name="message_button_hint">Send message with this button. If you have an image to add, let the image upload before sending your message.</string>
 
 </resources>
