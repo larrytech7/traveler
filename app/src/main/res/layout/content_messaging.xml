@@ -133,8 +133,8 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="@dimen/margin_element"
                 android:background="@android:color/transparent"
-                android:drawableLeft="@drawable/ic_message_white_24dp"
-                android:drawableStart="@drawable/ic_message_white_24dp"
+                android:drawableLeft="@drawable/ic_messaging_24dp"
+                android:drawableStart="@drawable/ic_messaging_24dp"
                 android:hint="@string/votre_message"/>
 
             <mehdi.sakout.fancybuttons.FancyButton

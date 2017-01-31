@@ -20,6 +20,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
@@ -49,6 +50,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cardiomood.android.controls.gauge.SpeedometerGauge;
+import com.github.clans.fab.FloatingActionButton;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
@@ -74,7 +76,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.messaging.FirebaseMessaging;
 import com.satra.traveler.models.SpeedOverhead;
 import com.satra.traveler.models.Trip;
 import com.satra.traveler.models.User;
@@ -140,6 +141,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private static int accessFineLocationSituation = 1;
     private int numberOfMapSettings = 0;
     private User travelerUser;
+    private FloatingActionButton fabMessaging;
     //firebase database fields
     DatabaseReference firebaseDatabase;
     //bottom sheet for insurance
@@ -197,6 +199,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
         travelerUser = User.findAll(User.class).next();
         setContentView(R.layout.view_my_position);
+        fabMessaging = (FloatingActionButton) findViewById(R.id.fabMessageBtn);
+        fabMessaging.setOnClickListener(this);
         //setup bottom sheet
         View bottomView = findViewById(R.id.bottom_sheet);
         bottomSheetBehavior = BottomSheetBehavior.from(bottomView);
@@ -1362,10 +1366,21 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
     @Override
     public void onClick(View v) {
-        //handle snackbar insurance interaction click
-        Toast.makeText(this, "Selecting plan", Toast.LENGTH_SHORT).show();
-        //TODO. Bring up bottom sheet with different insurance plans
-        bottomSheetBehavior.setPeekHeight(200);
-        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+        //handle view interaction click
+        switch (v.getId()){
+            case R.id.fabMessageBtn:
+                Intent msgIntent = new Intent(this, MessagingActivity.class);
+                //String matricule = PreferenceManager.getDefaultSharedPreferences(this).getString(TConstants.PREF_MATRICULE, "");
+                //msgIntent.putExtra(TConstants.PREF_MATRICULE, matricule);
+                startActivity(msgIntent);
+                break;
+            default:
+                //Toast.makeText(this, "Selecting plan", Toast.LENGTH_SHORT).show();
+                //TODO. Bring up bottom sheet with different insurance plans
+                bottomSheetBehavior.setPeekHeight(200);
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                break;
+        }
+
     }
 }
