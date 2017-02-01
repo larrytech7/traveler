@@ -21,7 +21,7 @@
         <item>"Dammaged vehicle"</item>
         <item>"Other…"</item>
     </string-array>
-        <string name="matriculation_number">Immatriculation of your Vehicle (*)</string>
+        <string name="matriculation_number">Immatriculation of your Vehicle </string>
         <string name="description">Description</string>
 		    <string name="load_image">Upload a picture</string>
     <string name="snap_image">Snap a picture</string>
@@ -83,7 +83,7 @@
     <string name="about_title1">About</string>
     <string name="speed_dimen" formatted="false">%s | Speed: %s Kmph</string>
     <string name="login">Continue</string>
-    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 5.1.0</string>
+    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 5.1.1</string>
     <string name="cancel">Cancel</string>
     <string name="howserious">Severity level</string>
     <string name="save">Save</string>
@@ -136,18 +136,7 @@
         <item>Step 5</item>
         <item>Step 6</item>
     </string-array>
-    <string-array name="numnsteps">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-    </string-array>
+
     <string name="movevictim">Move a victim</string>
     <string name="manageincident">Manage Incident</string>
     <string name="title_activity_aid">Help a victim</string>
