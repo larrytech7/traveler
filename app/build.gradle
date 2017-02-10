@@ -10,6 +10,10 @@ android {
         targetSdkVersion 25
         multiDexEnabled true
     }
+    dexOptions {
+        incremental true
+        javaMaxHeapSize "4g"
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -45,6 +49,18 @@ dependencies {
     //compile 'com.google.code.gson:gson:2.4'
     //compile 'org.springframework.android:spring-android-rest-template:1.0.1.RELEASE'
     //-- Firebase --
+    //compile 'com.iceteck.silicompressorr:silicompressor:1.1.0'
+    //hints library dependencies
+    /*
+    compile 'com.joanfuentes:HintCase:1.0.4'
+    compile 'com.joanfuentes:HintCaseAssets:1.0.4'
+    compile 'com.github.vihtarb:tooltip:0.1.9'
+    */
+    //Display tutorial on a given screen
+    //Intro pages
+    //forms library for displaying the first aid section
+
+
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.google.firebase:firebase-appindexing:10.0.1'
     compile 'com.google.android.gms:play-services-maps:10.0.1'
@@ -63,7 +79,6 @@ dependencies {
     compile 'org.codehaus.jackson:jackson-core-asl:1.9.12'
     compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.12'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    //compile 'com.iceteck.silicompressorr:silicompressor:1.1.0'
     compile 'com.github.clans:fab:1.6.4'
     compile 'org.jetbrains:annotations-java5:15.0'
     compile 'com.google.firebase:firebase-auth:10.0.1'
@@ -71,18 +86,14 @@ dependencies {
     compile 'com.firebaseui:firebase-ui-database:1.0.1'
     compile 'com.google.firebase:firebase-storage:10.0.1'
     compile 'com.google.firebase:firebase-messaging:10.0.1'
-    //hints library dependencies
-    /*
-    compile 'com.joanfuentes:HintCase:1.0.4'
-    compile 'com.joanfuentes:HintCaseAssets:1.0.4'
-    compile 'com.github.vihtarb:tooltip:0.1.9'
-    */
     compile 'com.github.popalay:tutors:1.0.2'
-    //forms library for displaying the first aid section
+    compile 'com.stephentuso:welcome:1.1.0'
     compile 'com.ernestoyaquello.stepperform:vertical-stepper-form:0.9.9'
-
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
     testCompile 'junit:junit:4.12'
 }
+
+
 
 
 
