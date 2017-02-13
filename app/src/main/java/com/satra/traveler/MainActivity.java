@@ -41,8 +41,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.satra.traveler.models.User;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
-import com.stephentuso.welcome.WelcomeActivity;
-import com.stephentuso.welcome.WelcomeHelper;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -67,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private ProgressDialog progress;
-    private WelcomeHelper welcomeHelper;
 
     public static Integer stringToInt(String str){
         if(str.length()==0) return 0;
@@ -78,9 +75,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        welcomeHelper = new WelcomeHelper(this, IntroActivity.class);
-        welcomeHelper.show(savedInstanceState);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -282,7 +276,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        welcomeHelper.onSaveInstanceState(outState);
     }
 
     @Override

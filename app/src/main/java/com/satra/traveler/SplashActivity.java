@@ -1,11 +1,16 @@
 package com.satra.traveler;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
+import com.satra.traveler.utils.TConstants;
+import com.satra.traveler.utils.Tutility;
 import com.stephentuso.welcome.WelcomeHelper;
+
+import static android.R.attr.data;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -16,8 +21,15 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         //TODO: Decide whether or not to create and show splash
-        welcomeHelper = new WelcomeHelper(this, IntroActivity.class);
-        welcomeHelper.show(savedInstanceState);
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean showSplash = sp.getBoolean(TConstants.PREFERENCE_SPLASH, true);
+        if (!showSplash) {
+            startNextActivity();
+        } else {
+            welcomeHelper = new WelcomeHelper(this, IntroActivity.class);
+            welcomeHelper.show(savedInstanceState);
+            sp.edit().putBoolean(TConstants.PREFERENCE_SPLASH, false).apply();
+        }
     }
 
     @Override
@@ -32,9 +44,13 @@ public class SplashActivity extends AppCompatActivity {
 
         if (requestCode == WelcomeHelper.DEFAULT_WELCOME_SCREEN_REQUEST) {
             //whatever the case launch Signup Activity
-            startActivity(new Intent(this, MainActivity.class));
-            finish();
+            startNextActivity();
         }
 
+    }
+
+    private void startNextActivity(){
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 }

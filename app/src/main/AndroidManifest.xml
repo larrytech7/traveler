@@ -145,7 +145,8 @@
         <activity
             android:name=".IntroActivity"
             android:theme="@style/WelcomeScreenTheme"/>
-        <activity android:name=".SplashActivity" android:theme="@style/WelcomeScreenTheme">
+        <activity android:name=".SplashActivity"
+            android:theme="@style/WelcomeScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
