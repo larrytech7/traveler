@@ -59,7 +59,6 @@ public class SpeedMeterService extends Service implements SensorEventListener {
     private static final long INTERVAL_BETWEEN_UPDATES = 10000;
     private static final float MAX_NORMAL_ACCELERATION_COEFF = 5.0f;//5;
 
-    private static final int MAX_NORMAL_ACCELERATION_COEFF = 5;
     private static final int TIME_TO_WAIT_FOR_SPEED_OVERHEAD_CONFIRMATION=5000;
     private Long durationElapsed = null;
 

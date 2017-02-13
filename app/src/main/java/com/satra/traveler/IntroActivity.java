@@ -10,7 +10,7 @@ public class IntroActivity extends WelcomeActivity {
     protected WelcomeConfiguration configuration() {
         return new WelcomeConfiguration.Builder(this)
                 .defaultBackgroundColor(R.color.colorPrimary)
-                .defaultHeaderTypefacePath("fonts/digital-7.ttf")
+                //.defaultHeaderTypefacePath("fonts/digital-7.ttf")
                 .page(new BasicPage(R.drawable.ic_detect,
                         getString(R.string.title_detect),
                         getString(R.string.intro_detect))
