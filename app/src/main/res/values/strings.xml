@@ -62,7 +62,8 @@
         <item>"5- très grave"</item>
     </string-array>
 
-    <string name="matriculation_number">Immatriculation du vehicule</string>
+
+    <string name="matriculation_number">Immatriculation du vehicule </string>
     <string name="description">Description</string>
     <string name="load_image">Charger une image</string>
     <string name="snap_image">Capturer une image</string>
@@ -113,7 +114,7 @@
     <string name="username_confirm_no_label">Non</string>
     <string name="username_confirm_yes_label">Oui</string>
     <string name="speed_limit_reached_ago">Vous avez depasse la limite de vitesse autorisee</string>
-    <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br />Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br /> Version 5.1.0</string>
+    <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br />Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br /> Version 5.1.1</string>
     <string name="about_title1">A propos</string>
     <string name="login">Continuer</string>
     <string name="speed_dimen" formatted="false">%s | Vitesse: %s Kmph</string>
@@ -163,6 +164,20 @@
         <item>Etape 5</item>
         <item>Etape 6</item>
     </string-array>
+
+    <string-array name="numnsteps" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
     <string name="title_activity_victime_transportation">Transporter une victime</string>
     <string name="title_activity_aid">Aider une victime</string>
     <string name="title9">9. Suspecter les domages médullaires</string>
@@ -250,10 +265,28 @@
     <string name="message_button_hint">Envoyer vos message avec ce boutton. Si vous avez une image qui l\'accompagne, laisser celle-ci charger completement avant d\'envoyer votre message.</string>
     <string name="message_text_hint">Ecrivez votre message ici. Si il s\'agit d\'un incident implicant une voiture autre que la votre, veuillez saisir le matricule si possible du vehicule.</string>
     <string name="message_picture_hint">Vous pouvez ajouter a vos messages, des captures d\'image de votre appareil photo</string>
+
     <string name="title_detect">Dectecter automatiquement l\'accident</string>
     <string name="title_predict">Prediction d\'accident</string>
     <string name="title_notify">Notification</string>
     <string name="intro_predict">Traveler peut predire les accidents de la route en analysant les données collectes durant un voyage.</string>
     <string name="intro_detect">Traveler detecte automatiquement les accidents de la route relie a la voiture dans le quel l\'application tourne</string>
     <string name="intro_notify">Traveler vas notifier automatiquement et gratuitement par SMS vos proches, amis et urgences en cas d\'incident</string>
+
+    <string name="message_hint">Envoyez votre message avec ce bouton. Si vous avez une image qui l\'accompagne, laissez-le charger complètement avant d\'envoyer votre message.</string>
+
+    <string-array name="aid_tips">
+        <item>Contrôlez-vous d\'abord</item>
+        <item>Contrôlez l\'état de santé des autres</item>
+        <item>Recherchez des signes de respiration</item>
+        <item>Appellez les secours</item>
+        <item>Vérifiez s\'il y\'a obstruction au niveau de la bouche ou de la gorge</item>
+        <item>Techniques de sauvetage</item>
+        <item>Apportez votre aide en cas d\'urgence</item>
+        <item>Traitez les plaies ouvertes</item>
+        <item>Suspectez une lésion de la colonne vertébrale</item>
+        <item>Gardez la personne au chaud</item>
+        <item>Évitez de nourrir les victimes</item>
+    </string-array>
+
 </resources>
