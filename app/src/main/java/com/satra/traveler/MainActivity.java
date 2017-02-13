@@ -140,6 +140,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                                 }
                             });
 
+        }else{
+            mAuth.addAuthStateListener(mAuthListener);
         }
 
         username = (EditText)findViewById(R.id.username);
@@ -265,12 +267,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             progress.dismiss();
             progress = null;
         }
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
     }
 
     @Override
