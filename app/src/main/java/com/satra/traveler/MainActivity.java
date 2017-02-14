@@ -16,6 +16,7 @@ import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -41,7 +42,6 @@ import com.satra.traveler.models.User;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -49,7 +49,7 @@ import java.util.Iterator;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 
-public class MainActivity extends Activity implements OnClickListener {
+public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     final private static int DIALOG_SIGNUP = 1;
     private static final int PICK_FIRST_CONTACT = 100;
@@ -103,6 +103,7 @@ public class MainActivity extends Activity implements OnClickListener {
         pickContactTwo.setOnClickListener(this);
         //check if user account was already created and saved
         Iterator<User> musers = User.findAll(User.class);
+
         if (musers.hasNext()){
             //Log.d(LOGTAG, "User available: "+musers.next().getUsername());
             progress = new ProgressDialog(MainActivity.this);
@@ -139,6 +140,8 @@ public class MainActivity extends Activity implements OnClickListener {
                                 }
                             });
 
+        }else{
+            mAuth.addAuthStateListener(mAuthListener);
         }
 
         username = (EditText)findViewById(R.id.username);
@@ -267,9 +270,8 @@ public class MainActivity extends Activity implements OnClickListener {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
     }
 
     @Override
@@ -457,6 +459,7 @@ public class MainActivity extends Activity implements OnClickListener {
                 }
             }
         }
+
     }
 
     @Override

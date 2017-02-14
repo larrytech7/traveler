@@ -21,7 +21,8 @@
         <item>"Dammaged vehicle"</item>
         <item>"Other…"</item>
     </string-array>
-        <string name="matriculation_number">Immatriculation of your Vehicle </string>
+        <string name="matriculation_number">Immatriculation of vehicle</string>
+
         <string name="description">Description</string>
 		    <string name="load_image">Upload a picture</string>
     <string name="snap_image">Snap a picture</string>
@@ -217,6 +218,12 @@
     <string name="message_picture_hint">You can add send photos alongside your message using your camera.</string>
     <string name="message_text_hint">Type your message here. If reporting an incident and it doesn\'t involve your vehicle, please include the matricule of the vehicle invlovled if possible</string>
     <string name="message_button_hint">Send message with this button. If you have an image to add, let the image upload before sending your message.</string>
+    <string name="intro_notify">Traveler will automatically notify friends, family and emergency services for free via SMS in case of any incident</string>
+    <string name="intro_detect">Traveler will automatically detect road accidents relative to the vehicle under monitoring while the app runs</string>
+    <string name="intro_predict">Traveler predicts accidents by analysing data recorded by the app during a journey</string>
+    <string name="title_detect">Automatically detect an accident</string>
+    <string name="title_notify">Notification</string>
+    <string name="title_predict">Predict Accidents</string>
 
     <string name="message_hint">Send your message with this button. If you have an image that accompanies it, let it load completely before sending your message.</string>
 

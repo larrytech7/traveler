@@ -62,6 +62,7 @@
         <item>"5- très grave"</item>
     </string-array>
 
+
     <string name="matriculation_number">Immatriculation du vehicule </string>
     <string name="description">Description</string>
     <string name="load_image">Charger une image</string>
@@ -264,6 +265,14 @@
     <string name="message_button_hint">Envoyer vos message avec ce boutton. Si vous avez une image qui l\'accompagne, laisser celle-ci charger completement avant d\'envoyer votre message.</string>
     <string name="message_text_hint">Ecrivez votre message ici. Si il s\'agit d\'un incident implicant une voiture autre que la votre, veuillez saisir le matricule si possible du vehicule.</string>
     <string name="message_picture_hint">Vous pouvez ajouter a vos messages, des captures d\'image de votre appareil photo</string>
+
+    <string name="title_detect">Dectecter automatiquement l\'accident</string>
+    <string name="title_predict">Prediction d\'accident</string>
+    <string name="title_notify">Notification</string>
+    <string name="intro_predict">Traveler peut predire les accidents de la route en analysant les données collectes durant un voyage.</string>
+    <string name="intro_detect">Traveler detecte automatiquement les accidents de la route relie a la voiture dans le quel l\'application tourne</string>
+    <string name="intro_notify">Traveler vas notifier automatiquement et gratuitement par SMS vos proches, amis et urgences en cas d\'incident</string>
+
     <string name="message_hint">Envoyez votre message avec ce bouton. Si vous avez une image qui l\'accompagne, laissez-le charger complètement avant d\'envoyer votre message.</string>
 
     <string-array name="aid_tips">

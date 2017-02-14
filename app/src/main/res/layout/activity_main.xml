@@ -59,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
                 android:layout_height="wrap_content"
                 app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
 
-                <EditText
+                <android.support.design.widget.TextInputEditText
                 android:id="@+id/no_telephone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
                 android:layout_height="wrap_content"
                 app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
 
-                <EditText
+                <android.support.design.widget.TextInputEditText
                 android:id="@+id/matricule1"
                 android:layout_width= "match_parent"
                 android:layout_height="wrap_content"
@@ -134,7 +134,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:id="@+id/emergencyContact1EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -164,7 +164,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
-                    <EditText
+                    <android.support.design.widget.TextInputEditText
                         android:id="@+id/emergencyContact2EditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

@@ -1,5 +1,8 @@
 package com.satra.traveler.tapp;
 
+import android.content.Context;
+import android.support.multidex.MultiDex;
+
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.FirebaseDatabase;
 import com.orm.SugarApp;
@@ -23,5 +26,12 @@ public class TApplication extends SugarApp {
         SugarContext.terminate();
         super.onTerminate();
     }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
+
 
 }
