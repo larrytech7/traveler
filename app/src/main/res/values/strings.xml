@@ -114,7 +114,7 @@
     <string name="username_confirm_no_label">Non</string>
     <string name="username_confirm_yes_label">Oui</string>
     <string name="speed_limit_reached_ago">Vous avez depasse la limite de vitesse autorisee</string>
-    <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br />Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br /> Version 5.1.1</string>
+    <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br />Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br /> Version 5.2.1</string>
     <string name="about_title1">A propos</string>
     <string name="login">Continuer</string>
     <string name="speed_dimen" formatted="false">%s | Vitesse: %s Kmph</string>
@@ -245,7 +245,7 @@
     <string name="speed_overheading">" dépassement de vitesse"</string>
     <string name="travelr_secure_your_trip">Traveler sécurise vos déplacements</string>
     <string name="assurance_voyage">Assurance voyage</string>
-    <string name="signinerror">Numéro de téléphone ou %s</string>
+    <string name="signinerror">Numéro de téléphone déjà utilisé</string>
     <string name="timeinterval" formatted="false" translatable="false">%d %s</string>
     <string name="insurance_plan">Assurez votre voyage avec une assurance</string>
     <string name="get_insurance">Obtenir</string>
@@ -266,14 +266,14 @@
     <string name="message_text_hint">Ecrivez votre message ici. Si il s\'agit d\'un incident implicant une voiture autre que la votre, veuillez saisir le matricule si possible du vehicule.</string>
     <string name="message_picture_hint">Vous pouvez ajouter a vos messages, des captures d\'image de votre appareil photo</string>
 
-    <string name="title_detect">Dectecter automatiquement l\'accident</string>
-    <string name="title_predict">Prediction d\'accident</string>
+    <string name="title_detect">Détecter automatiquement un accident</string>
+    <string name="title_predict">Prédire le risque d\'accident</string>
     <string name="title_notify">Notification</string>
-    <string name="intro_predict">Traveler peut predire les accidents de la route en analysant les données collectes durant un voyage.</string>
-    <string name="intro_detect">Traveler detecte automatiquement les accidents de la route relie a la voiture dans le quel l\'application tourne</string>
-    <string name="intro_notify">Traveler vas notifier automatiquement et gratuitement par SMS vos proches, amis et urgences en cas d\'incident</string>
+    <string name="intro_predict">Traveler peut prédire les risques d\'accident de la route en analysant les données collectées durant un voyage.</string>
+    <string name="intro_detect">Traveler détecte automatiquement les accidents de la route subits par tout véhicule dans lequel un équipement exécute l\'application</string>
+    <string name="intro_notify">Traveler notifie automatiquement et gratuitement par SMS vos proches, amis et services d\'urgence en cas d\'incident</string>
 
-    <string name="message_hint">Envoyez votre message avec ce bouton. Si vous avez une image qui l\'accompagne, laissez-le charger complètement avant d\'envoyer votre message.</string>
+    <string name="message_hint">Utilisez ce bouton pour envoyer votre message. Si vous avez une image qui l\'accompagne, merci de permettre à l\'application de la charger complètement avant de procéder à l\'envoi du message.</string>
 
     <string-array name="aid_tips">
         <item>Contrôlez-vous d\'abord</item>
