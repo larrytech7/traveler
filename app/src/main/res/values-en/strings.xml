@@ -84,7 +84,7 @@
     <string name="about_title1">About</string>
     <string name="speed_dimen" formatted="false">%s | Speed: %s Kmph</string>
     <string name="login">Continue</string>
-    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 5.1.1</string>
+    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 5.2.1</string>
     <string name="cancel">Cancel</string>
     <string name="howserious">Severity level</string>
     <string name="save">Save</string>
@@ -198,7 +198,7 @@
     <string name="start_marker_string">Departure</string>
     <string name="travelr_secure_your_trip">Traveler is securing your trip</string>
     <string name="assurance_voyage">Travel insurance</string>
-    <string name="signinerror">Phone number or %s</string>
+    <string name="signinerror">Phone number already used</string>
     <string name="select_insurance_plan">Pick an insurance plan below</string>
     <string name="pro_insurance">Pro (Week)</string>
     <string name="modest_insurance">Modest (Aller-retour)</string>
