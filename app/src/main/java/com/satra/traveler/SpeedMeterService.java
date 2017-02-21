@@ -264,7 +264,7 @@ public class SpeedMeterService extends Service implements SensorEventListener {
             }else{
                 //for stationary object, impact should increase acceleration
                 if (MyPositionActivity.isCurrentTripExist() &&
-                        mAccelCurrent / SensorManager.GRAVITY_EARTH >= MAX_NORMAL_ACCELERATION_COEFF) {
+                        mAccelCurrent / SensorManager.GRAVITY_EARTH >= 2.0f) {
                     //Log.e("Accident detected: ", " -- mAccelCurrent: "+mAccelCurrent+" -- mAccelCurrent/9.8: "+(mAccelCurrent/SensorManager.GRAVITY_EARTH));
                     notifyAlert(mAccelCurrent / SensorManager.GRAVITY_EARTH);
 

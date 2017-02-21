@@ -115,6 +115,7 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
         });
         messageRecyclerView = (RecyclerView) findViewById(R.id.messageRecyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        layoutManager.setStackFromEnd(true);
         messageRecyclerView.setLayoutManager(layoutManager);
         messageRecyclerView.setHasFixedSize(true);
         messageBox = (EditText)findViewById(R.id.messageText);

@@ -93,7 +93,7 @@ public class MessagingAdapter extends FirebaseRecyclerAdapter<Messages, Messagin
         if (model.getImageUrl() != null && !model.getImageUrl().isEmpty())
             Glide.with(context)
                     .load(Uri.parse(model.getImageUrl()))
-                    .placeholder(R.drawable.loading)
+                    .placeholder(R.drawable.loader)
                     .crossFade()
                     .into(holder.mediaImage);
     }
