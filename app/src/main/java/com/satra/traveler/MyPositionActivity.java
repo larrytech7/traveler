@@ -20,7 +20,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
@@ -76,6 +75,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.orm.util.SugarConfig;
+import com.orm.util.SugarCursor;
 import com.satra.traveler.models.SpeedOverhead;
 import com.satra.traveler.models.Trip;
 import com.satra.traveler.models.User;
@@ -997,16 +998,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
 
     private void setupCurrentTrip() {
-        Trip trip = null;
-
-        List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
-        //refresh layout by getting fresh view references and setting their values
-
-
-        if (trips != null && trips.size() > 0) {
-            trip = trips.get(trips.size() - 1);
-        }
-
+        Trip trip = getCurrentTrip();
 
         //refresh layout by getting fresh view references and setting their values
 
@@ -1146,14 +1138,13 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     }
 
     public static Trip  getCurrentTrip(){
-        Trip trip = null;
+        /*Trip trip = Trip.last(Trip.class);
         List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
 
         if (trips != null && trips.size() > 0) {
             trip = trips.get(trips.size() - 1);
-        }
-
-        return trip;
+        }*/
+        return Trip.last(Trip.class);
     }
 
     public static int getPixelsFromDp(Context context, float dp) {
