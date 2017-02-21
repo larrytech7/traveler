@@ -105,7 +105,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         Iterator<User> musers = User.findAll(User.class);
 
         if (musers.hasNext()){
-            //Log.d(LOGTAG, "User available: "+musers.next().getUsername());
+            launchHomeActivity();
+            /*//Log.d(LOGTAG, "User available: "+musers.next().getUsername());
             progress = new ProgressDialog(MainActivity.this);
             progress.setIcon(R.mipmap.ic_launcher);
             progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -138,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                                     progress.dismiss();
                                     launchHomeActivity();
                                 }
-                            });
+                            });*/
 
         }else{
             mAuth.addAuthStateListener(mAuthListener);

@@ -256,4 +256,5 @@
     <string name="intro_predict">Traveler peut predire les accidents de la route en analysant les données collectes durant un voyage.</string>
     <string name="intro_detect">Traveler detecte automatiquement les accidents de la route relie a la voiture dans le quel l\'application tourne</string>
     <string name="intro_notify">Traveler vas notifier automatiquement et gratuitement par SMS vos proches, amis et urgences en cas d\'incident</string>
+    <string name="message_hint">Envoyer vos messages avec ce boutton. Si vous voulez ajouter une photo, laisser la telecharger avant d\'envoyer</string>
 </resources>
