@@ -132,7 +132,7 @@
     <string name="arrivee">Destination: %s</string>
     <string name="datedepart">Date, Heure de depart: %s</string>
     <string name="complete_trip_title">Voyage Complété</string>
-    <string name="complete_trip">Vous avez indiqué que votre voyage a bien été complété. Merci d\'avoir utilisé Travelr.</string>
+    <string name="complete_trip">Vous avez indiqué que votre voyage a bien été complété. Merci d\'avoir utilisé Traveler. \n%s</string>
     <string name="complete_trip_error_title">Erreur</string>
     <string name="complete_trip_error">Une erreur s\'est produite. Veuillez reesayer.</string>
     <string name="cencel_trip">Vous avez choisi d\'annuler ce voyage. N\'hesitez pas creer un nouveau voyage.</string>
@@ -279,6 +279,9 @@
     <string name="share_app_text">Hey! Telecharger Traveler ICI https://play.google.com/store/apps/details?id=com.satra.traveler , et permettez a vos amis et famille de rester a l\'ecoute de votre voyage. Traveler vous tiens informer et vous alerte des incidents de la route.</string>
     <string name="register_rewards_title">Génial! Maintenant gagnez des points</string>
     <string name="register_rewards_content">Vous êtes à quelque pas de gagner des points de fidélité, TPoints. Accumlulez ces points pour tenter de gagner un voyage gratuit VIP au pres d\'un de nos partenaires de voyage</string>
+    <string name="travel_rewards_point">Bravo! Vous gagner 5 TPoints pour ce voyage.</string>
+    <string name="default_points">0 TPOINTS</string>
+    <string name="default_user">Stevy</string>
 
     <string-array name="aid_tips">
         <item>Contrôlez-vous d\'abord</item>

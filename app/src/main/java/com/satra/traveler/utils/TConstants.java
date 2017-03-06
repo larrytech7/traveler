@@ -61,4 +61,5 @@ public class TConstants {
 
     public static final String FIREBASE_AD_TOPIC = "ads_";
     public static final String PREFERENCE_SPLASH = "SHOW_SPLASH";
+    public static final int TRIP_TPOINTS = 5; //points gained by completing a trip
 }

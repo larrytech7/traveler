@@ -30,42 +30,29 @@
         android:id="@+id/speedtext"
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
         android:background="@android:color/transparent"
         android:gravity="center"
         android:text="@string/speed_dimen"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <RelativeLayout
+    <TextView
+        android:id="@+id/tpointsTextview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-       <!-- <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="-10dp"
-            android:paddingTop="@dimen/nav_header_vertical_spacing"
-            android:src="@drawable/anonyme" />-->
+        android:layout_height="25dp"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:text="@string/default_points"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
             android:id="@+id/username"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="5dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:text="Steve"
+            android:layout_marginTop="3dp"
+            android:gravity="center"
+            android:text="@string/default_user"
             android:textColor="#FFFFFF"
             android:fontFamily="sans-serif-condensed"
             android:textSize="25sp"
             android:typeface="serif" />
-    </RelativeLayout>
-
 
 </LinearLayout>

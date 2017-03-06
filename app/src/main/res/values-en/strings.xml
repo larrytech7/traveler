@@ -69,7 +69,7 @@
         <item>"Personal"</item>
         <item>"Bucca Voyage"</item>
         <item>"Touristic Express"</item>
-        <item>"Finex Voyage"</item>
+        <item>"Finexs Voyage"</item>
         <item>"Camrail Intercity"</item>
         <item >"Other"</item>
     </string-array>
@@ -100,9 +100,9 @@
     <string name="travel_info">Trip information</string>
     <string name="cencel_trip_title">Cancel this trip</string>
     <string name="cencel_trip">You have chosen to cancel this trip. You can always register a new one if you need to travel again</string>
-    <string name="complete_trip">You have indicated that your journey has been completed. Thanks for using Travelr</string>
+    <string name="complete_trip">You have indicated that your journey has been completed. Thanks for using Traveler. \n%s</string>
     <string name="complete_trip_error_title">Error</string>
-    <string name="complete_trip_error">An error occured. Please try again</string>
+    <string name="complete_trip_error">An error occurred. Please try again</string>
     <string name="complete_trip_title">Trip completed</string>
     <string name="myposition">My current location</string>
     <string name="votre_message">Your Message</string>

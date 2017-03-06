@@ -28,6 +28,7 @@ import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.util.TimeUtils;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -851,6 +852,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                         mTrip.setContact_number(guardianPhoneNumber.getText().toString());
                         mTrip.setDate_start(new SimpleDateFormat("MMMM-dd-yyyy", Locale.US).format(new Date()));
                         mTrip.setDate_end("");
+                        mTrip.setStart(System.nanoTime());
+                        mTrip.setEnd(0);
                         mTrip.setStatus(0);
                         mTrip.setTripKey(Tutility.getTripKeyAsString(mTrip.getDeparture(), mTrip.getDestination(), mTrip.getDate_start()));
                         //mTrip.user = travelerUser;
