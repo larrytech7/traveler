@@ -78,6 +78,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.orm.util.SugarConfig;
 import com.orm.util.SugarCursor;
+import com.satra.traveler.models.Rewards;
 import com.satra.traveler.models.SpeedOverhead;
 import com.satra.traveler.models.Trip;
 import com.satra.traveler.models.User;
@@ -119,7 +120,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     final Calendar myCalendar = Calendar.getInstance();
     private ImageButton problemPreview;
     private AlertDialog alertDialog;
-    private TextView timeOfTravel;
+    private TextView tPointsTextview;
     private EditText guardianPhoneNumber;
     private String guardianName = "";
     private SharedPreferences prefs;
@@ -181,7 +182,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     }
 
     private void updateDateVoyage() {
-        if (timeOfTravel != null) timeOfTravel.setText(sdf.format(myCalendar.getTime()));
+        //if (timeOfTravel != null) timeOfTravel.setText(sdf.format(myCalendar.getTime()));
     }
 
     private void addToknownTown(String townStr) {
@@ -305,7 +306,10 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         //build speedometer
         mspeedometer = (SpeedometerGauge) navigationView.getHeaderView(0).findViewById(R.id.speedometer);
         setupSpeedometer(mspeedometer);
-
+        //setup TPoints
+        Rewards rewards = Rewards.last(Rewards.class);
+        tPointsTextview = (TextView) navigationView.getHeaderView(0).findViewById(R.id.tpointsTextview);
+        tPointsTextview.setText(getString(R.string.default_points, rewards == null? 0: rewards.getPointsAccumulated()));
         //check for GPS availability and activation
         if (!((LocationManager) getSystemService(LOCATION_SERVICE)).isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);

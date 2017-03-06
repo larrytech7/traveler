@@ -280,7 +280,7 @@
     <string name="register_rewards_title">Génial! Maintenant gagnez des points</string>
     <string name="register_rewards_content">Vous êtes à quelque pas de gagner des points de fidélité, TPoints. Accumlulez ces points pour tenter de gagner un voyage gratuit VIP au pres d\'un de nos partenaires de voyage</string>
     <string name="travel_rewards_point">Bravo! Vous gagner 5 TPoints pour ce voyage.</string>
-    <string name="default_points">0 TPOINTS</string>
+    <string name="default_points">%d TPOINTS</string>
     <string name="default_user">Stevy</string>
 
     <string-array name="aid_tips">
