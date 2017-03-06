@@ -99,10 +99,16 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
                //start activity to show transportation for victim
                context.startActivity(new Intent(context, VictimeTransportationActivity.class));
            }break;
-           /*case R.id.nav_asssurance:
-               //TODO: launch screen with recent assurances list and ability to create new assurance
+           case R.id.nav_share:
+               //TODO: share
+               Intent shareIntent = new Intent(Intent.ACTION_SEND);
+               shareIntent.setType("text/plain");
+               shareIntent.putExtra(Intent.EXTRA_TEXT, context.getString(R.string.share_app_text));
+               context.startActivity(Intent.createChooser(shareIntent, context.getString(R.string.share_app)));
                break;
-           case R.id.nav_settings:
+
+          /*
+          case R.id.nav_settings:
                //TODO: launch screen with simple settings
                break;*/
            default:
