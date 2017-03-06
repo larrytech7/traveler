@@ -277,8 +277,8 @@
     <string name="message_hint">Utilisez ce bouton pour envoyer votre message. Si vous avez une image qui l\'accompagne, merci de permettre à l\'application de la charger complètement avant de procéder à l\'envoi du message.</string>
     <string name="share_app">Partager l\'application</string>
     <string name="share_app_text">Hey! Telecharger Traveler ICI https://play.google.com/store/apps/details?id=com.satra.traveler , et permettez a vos amis et famille de rester a l\'ecoute de votre voyage. Traveler vous tiens informer et vous alerte des incidents de la route.</string>
-    <string name="register_rewards_title">Genial! Maintenant gagnez des points</string>
-    <string name="register_rewards_content">Vous êtes a quelque pas de gagner des points de fidélité, TPoints. Accumlulez ces points pour tenter de gagner un voyage gratuit VIP au pres d\'un de nos partenaires de voyage</string>
+    <string name="register_rewards_title">Génial! Maintenant gagnez des points</string>
+    <string name="register_rewards_content">Vous êtes à quelque pas de gagner des points de fidélité, TPoints. Accumlulez ces points pour tenter de gagner un voyage gratuit VIP au pres d\'un de nos partenaires de voyage</string>
 
     <string-array name="aid_tips">
         <item>Contrôlez-vous d\'abord</item>
