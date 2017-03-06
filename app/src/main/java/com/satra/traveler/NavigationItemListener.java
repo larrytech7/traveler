@@ -100,7 +100,7 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
                context.startActivity(new Intent(context, VictimeTransportationActivity.class));
            }break;
            case R.id.nav_share:
-               //TODO: share
+               // share
                Intent shareIntent = new Intent(Intent.ACTION_SEND);
                shareIntent.setType("text/plain");
                shareIntent.putExtra(Intent.EXTRA_TEXT, context.getString(R.string.share_app_text));

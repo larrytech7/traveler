@@ -228,6 +228,8 @@
     <string name="message_hint">Send your message with this button. If you have an image that accompanies it, let it load completely before sending your message.</string>
     <string name="share_app">Share App</string>
     <string name="share_app_text">Hey! Download Traveler Here https://play.google.com/store/apps/details?id=com.satra.traveler , and let your family or friends alert about your journey. Traveler keeps you alert and safe from road incidents</string>
+    <string name="register_rewards_title">Great! Now get points</string>
+    <string name="register_rewards_content">You are just few steps away from claiming fidelity point, TPoints. Accumulate these points and get the chance to win a free VIP trip from one of our Travel partners. Complete your journeys to claim points.</string>
 
 
 </resources>

@@ -890,6 +890,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             Snackbar.make(findViewById(R.id.my_frame_host), getString(R.string.insurance_plan), Snackbar.LENGTH_LONG)
                                     .setAction(getString(R.string.get_insurance), MyPositionActivity.this)
                                     .show();
+                            Tutility.showDialog(MyPositionActivity.this, getString(R.string.register_rewards_title),
+                                    getString(R.string.register_rewards_content));
                         } else {
                             Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_failed), Toast.LENGTH_LONG).show();
                         }
@@ -1367,7 +1369,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 break;
             default:
                 //Toast.makeText(this, "Selecting plan", Toast.LENGTH_SHORT).show();
-                //TODO. Bring up bottom sheet with different insurance plans
+                //Bring up bottom sheet with different insurance plans
                 bottomSheetBehavior.setPeekHeight(200);
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                 break;

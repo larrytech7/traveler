@@ -5,6 +5,8 @@ import android.support.v7.app.AlertDialog;
 
 import com.satra.traveler.R;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 /**
  * Created by Larry Akah on 6/11/16.
  * Travelr Utility Class contains global utility functions used within the app
@@ -80,5 +82,13 @@ public class Tutility {
 
     public static String getTripKeyAsString(String departure, String destination, String date){
         return departure+"_"+destination+"_"+date;
+    }
+
+    public static void showDialog(Context ctx, String title, String content){
+        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(ctx, SweetAlertDialog.SUCCESS_TYPE)
+                .setTitleText(title)
+                .setContentText(content)
+                .setCustomImage(R.drawable.ic_thumb_up);
+        sweetAlertDialog.show();
     }
 }

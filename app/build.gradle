@@ -88,6 +88,7 @@ dependencies {
     compile 'com.google.firebase:firebase-messaging:10.0.1'
     compile 'com.github.popalay:tutors:1.0.2'
     compile 'com.stephentuso:welcome:1.1.0'
+    compile 'cn.pedant.sweetalert:library:1.3'
     compile 'com.ernestoyaquello.stepperform:vertical-stepper-form:0.9.9'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
     testCompile 'junit:junit:4.12'
