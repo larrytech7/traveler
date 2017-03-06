@@ -282,6 +282,8 @@
     <string name="travel_rewards_point">Bravo! Vous gagner 5 TPoints pour ce voyage.</string>
     <string name="default_points">%d TPOINTS</string>
     <string name="default_user">Stevy</string>
+    <string name="rewards_title">Accumuler et gagner des points.</string>
+    <string name="rewards_content">Desormais, vous pouvez gagner des points de fidélité en vous engageants avec Traveler. Enregistrer votre voyage pour commencer</string>
 
     <string-array name="aid_tips">
         <item>Contrôlez-vous d\'abord</item>

@@ -23,6 +23,10 @@ public class IntroActivity extends WelcomeActivity {
                 .page(new BasicPage(R.drawable.ic_notify,
                         getString(R.string.title_notify),
                         getString(R.string.intro_notify))
+                ).page(new BasicPage(R.drawable.ic_loyalty,
+                        getString(R.string.rewards_title),
+                        getString(R.string.rewards_content))
+                        .background(R.color.bluePrimary)
                 )
                 .animateButtons(true)
                 .swipeToDismiss(true)
