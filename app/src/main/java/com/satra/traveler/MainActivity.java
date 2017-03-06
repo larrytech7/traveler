@@ -49,7 +49,7 @@ import java.util.Iterator;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 
-public class MainActivity extends AppCompatActivity implements OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
     final private static int DIALOG_SIGNUP = 1;
     private static final int PICK_FIRST_CONTACT = 100;
@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private ProgressDialog progress;
+    private EditText useremail;
 
     public static Integer stringToInt(String str){
         if(str.length()==0) return 0;
@@ -94,13 +95,14 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
         final SharedPreferences sharedPreferences = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
 
-        contact1EditText = (EditText) findViewById(R.id.emergencyContact1EditText);
+        /*contact1EditText = (EditText) findViewById(R.id.emergencyContact1EditText);
         contact2EditText = (EditText) findViewById(R.id.emergencyContact2EditText);
         pickContactOne = (ImageButton) findViewById(R.id.buttonPickContactOne);
         pickContactTwo = (ImageButton) findViewById(R.id.buttonPickContactTwo);
 
         pickContactOne.setOnClickListener(this);
-        pickContactTwo.setOnClickListener(this);
+        pickContactTwo.setOnClickListener(this);*/
+
         //check if user account was already created and saved
         Iterator<User> musers = User.findAll(User.class);
 
@@ -146,7 +148,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         }
 
         username = (EditText)findViewById(R.id.username);
-        matricule = (EditText)findViewById(R.id.matricule1);
+        useremail = (EditText)findViewById(R.id.useremail);
+        //matricule = (EditText)findViewById(R.id.matricule1);
         noTelephone = (EditText)findViewById(R.id.no_telephone);
 
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.READ_PHONE_STATE)
@@ -164,15 +167,14 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             @Override
             public void onClick(View v) {
                 if(username.getText().toString().isEmpty() ||
-                        noTelephone.getText().toString().isEmpty() ||
-                        contact1EditText.getText().toString().isEmpty()){
+                        noTelephone.getText().toString().isEmpty()){
 
                     Toast.makeText(getApplicationContext(), getString(R.string.provide_all_fields)+"...", Toast.LENGTH_LONG).show();
                     return;
                 }
 
-                if(!matricule.getText().toString().isEmpty()&&!MyPositionActivity.IsMatch(matricule.getText().toString().toUpperCase(), getString(R.string.car_immatriculation_regex_patern))){
-                    Toast.makeText(getApplicationContext(), getString(R.string.incorrect_immatriculation_number)+"...", Toast.LENGTH_LONG).show();
+                if(!useremail.getText().toString().isEmpty()&&!MyPositionActivity.IsMatch(useremail.getText().toString(), getString(R.string.email_regex_patern))){
+                    Toast.makeText(getApplicationContext(), getString(R.string.incorrect_email)+"...", Toast.LENGTH_LONG).show();
                     return;
                 }
 
@@ -190,20 +192,22 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 ad.setPositiveButton(R.string.username_confirm_yes_label, new android.content.DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int arg1) {
 
-                                final String matriculeString = (matricule.getText().toString().isEmpty())?getString(R.string.information_not_available_label):matricule.getText().toString().toUpperCase();
+                                //final String matriculeString = (matricule.getText().toString().isEmpty())?getString(R.string.information_not_available_label):matricule.getText().toString().toUpperCase();
                                 final String telephoneString = noTelephone.getText().toString();
                                 final String usernameString = username.getText().toString();
-                                final String contact1 = contact1EditText.getText().toString();
-                                final String contact2 = (contact2EditText.getText().toString().isEmpty())?getString(R.string.information_not_available_label):contact2EditText.getText().toString();
+                                final String userEmailString = useremail.getText().toString();
+                                //final String contact1 = contact1EditText.getText().toString();
+                                //final String contact2 = (contact2EditText.getText().toString().isEmpty())?getString(R.string.information_not_available_label):contact2EditText.getText().toString();
                                 //new application/system user
                                 final User tuser = new User();
-                                tuser.setCurrent_matricule(matriculeString);
+                                tuser.setCurrent_matricule("indisponible");
                                 tuser.setPassword(Tutility.getAuthenticationEmail(telephoneString));
-                                tuser.setEmergency_primary(contact1);
-                                tuser.setEmergency_secondary(contact2);
+                                tuser.setUseremail(userEmailString);
+                                //tuser.setEmergency_primary(contact1);
+                                //tuser.setEmergency_secondary(contact2);
                                 tuser.setUserphone(telephoneString);
                                 tuser.setDate_registered(SimpleDateFormat.getDateInstance().format(new Date()));
-                                tuser.setUseremail(Tutility.getAuthenticationEmail(telephoneString));
+                                //tuser.setUseremail(Tutility.getAuthenticationEmail(telephoneString));
                                 tuser.setUsername(usernameString);
                                 tuser.setUpdated_at(System.currentTimeMillis());
                                 //progress dialog to show ongoing process
@@ -215,7 +219,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                                 progress.setMessage(getString(R.string.key_account_creation_loading_msg));
                                 progress.show();
                                 //signup user via firebase
-                                mAuth.createUserWithEmailAndPassword(Tutility.getAuthenticationEmail(telephoneString),
+                                mAuth.createUserWithEmailAndPassword(tuser.getUseremail(),
                                         Tutility.getAuthenticationEmail(telephoneString))
                                 .addOnSuccessListener(MainActivity.this,new OnSuccessListener<AuthResult>() {
                                     @Override
@@ -235,9 +239,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                                             .addOnCompleteListener(MainActivity.this, new OnCompleteListener<Void>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
-                                                    if (task.isSuccessful()){
-                                                        Log.d(LOGTAG, "Display name updated Successfully");
-                                                    }
+
                                                     progress.dismiss();
                                                     launchHomeActivity();
                                                 }
@@ -482,8 +484,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
+    /*@Override
     public void onClick(View v) {
+
         Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
 
         switch (v.getId()){
@@ -515,6 +518,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 }
                 break;
         }
-    }
 
+    }
+*/
 }

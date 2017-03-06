@@ -20,6 +20,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
@@ -28,7 +29,6 @@ import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.util.TimeUtils;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -73,11 +73,11 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.orm.util.SugarConfig;
-import com.orm.util.SugarCursor;
 import com.satra.traveler.models.Rewards;
 import com.satra.traveler.models.SpeedOverhead;
 import com.satra.traveler.models.Trip;
@@ -85,6 +85,7 @@ import com.satra.traveler.models.User;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.ByteArrayOutputStream;
@@ -114,6 +115,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private final static int SNAP_PICTURE = 6, MENU_SNAP_IMAGE = 11;
     private static final String TAG = MyPositionActivity.class.getSimpleName();
     private static final String LOG_TAG = MyPositionActivity.class.getSimpleName();
+    private static final int PICK_CONTACT_SEC = 8;
     private static String myFormat = "dd-MM-yyyy HH:mm";
     private static SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
     final int PICK_CONTACT = 7;
@@ -121,7 +123,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private ImageButton problemPreview;
     private AlertDialog alertDialog;
     private TextView tPointsTextview;
-    private EditText guardianPhoneNumber;
+    private EditText guardianPhoneNumber,guardianPhoneNumberSecondary;
     private String guardianName = "";
     private SharedPreferences prefs;
     private GoogleMap googleMap;
@@ -722,6 +724,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 alertDialog = (AlertDialog) dialog;
 
                 ImageButton chooseContact = (ImageButton) alertDialog.findViewById(R.id.choose_contact);
+                ImageButton chooseContactSec = (ImageButton) alertDialog.findViewById(R.id.choose_contact_secondary);
                 final Spinner companyName = (Spinner) alertDialog.findViewById(R.id.company_name);
                 fromSpinner = (Spinner) alertDialog.findViewById(R.id.departure);
                 destinationSpinner = (Spinner) alertDialog.findViewById(R.id.destination);
@@ -740,8 +743,10 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 //timeOfTravel = (EditText)alertDialog.findViewById(R.id.time_of_travel);
                 //final EditText travelDuration = (EditText)alertDialog.findViewById(R.id.journey_duration);
                 guardianPhoneNumber = (EditText) alertDialog.findViewById(R.id.guardian_phone_number);
+                guardianPhoneNumberSecondary = (EditText) alertDialog.findViewById(R.id.guardian_secondary_phone_number);
 
                 guardianPhoneNumber.setText(travelerUser.getEmergency_primary());
+                guardianPhoneNumberSecondary.setText(travelerUser.getEmergency_secondary());
 
                 busMatriculationNumber.setText(IsMatch(prefs.getString(TConstants.PREF_MATRICULE, "").toUpperCase(), getString(R.string.car_immatriculation_regex_patern))?
                         prefs.getString(TConstants.PREF_MATRICULE, "").toUpperCase():"");
@@ -758,6 +763,21 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                                 == PackageManager.PERMISSION_GRANTED) {
                             Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
                             startActivityForResult(intent, PICK_CONTACT);
+                        } else {
+                            requestPermission(android.Manifest.permission.READ_CONTACTS);
+                        }
+
+
+                    }
+                });
+                chooseContactSec.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        if (ActivityCompat.checkSelfPermission(MyPositionActivity.this, android.Manifest.permission.READ_CONTACTS)
+                                == PackageManager.PERMISSION_GRANTED) {
+                            Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+                            startActivityForResult(intent, PICK_CONTACT_SEC);
                         } else {
                             requestPermission(android.Manifest.permission.READ_CONTACTS);
                         }
@@ -888,7 +908,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                                             .setValue(travelerUser.getUserMap()); //+travelerUser.getUserphone()
                                 }
                             });
-
+                            //save/update user
+                            updateUserProfile(travelerUser);
                             //save current trip matricule to preference
                             prefs.edit().putString(TConstants.PREF_MATRICULE, mTrip.getBus_immatriculation()).apply();
                             //set new matricule on speedometer textview
@@ -1192,6 +1213,28 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                     //						num = Number;
                 }
             }
+        }else if((requestCode==PICK_CONTACT_SEC) && resultCode == Activity.RESULT_OK){
+            //set secondary contact
+            Uri contactData = data.getData();
+            Cursor c = managedQuery(contactData, null, null, null, null);
+            if (c.moveToFirst()) {
+                String id = c.getString(c.getColumnIndexOrThrow(ContactsContract.Contacts._ID));
+
+                String hasPhone =
+                        c.getString(c.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER));
+
+                if (hasPhone.equalsIgnoreCase("1")) {
+                    Cursor phones = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,
+                            ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + id, null, null);
+
+                    assert phones != null;
+                    phones.moveToFirst();
+                    String Number = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                    //String Name = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+
+                    guardianPhoneNumberSecondary.setText(Number);
+                }
+            }
         }
 
         //Detects request codes
@@ -1300,6 +1343,27 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         drawer.openDrawer(GravityCompat.START);
 
         googleApiClient.connect();
+        updateUserProfile(travelerUser);
+    }
+
+    private void updateUserProfile(@NotNull  User travelerUser) {
+        PreferenceManager.getDefaultSharedPreferences(this)
+                .edit()
+                .putString(TConstants.PREF_MATRICULE, travelerUser.getCurrent_matricule()).apply();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference(Tutility.FIREBASE_USER);
+        reference
+                .child(travelerUser.getUserphone())
+                .setValue(travelerUser)
+                .addOnCompleteListener(MyPositionActivity.this,
+                        new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful())
+                                    Log.d("PositionActivity", "User synchronisation succeeded");
+                                else
+                                    Log.d("PositionActivity", "User synchronisation failed");
+                            }
+                        });
     }
 
     @Override

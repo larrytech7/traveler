@@ -228,6 +228,7 @@
     <string name="town_13" translatable="false">Ngaoundére|7.3303988|13.5812464</string>
     <string name="town_8" translatable="false">Garoua|9.3068602|13.3989634</string>
     <string name="car_immatriculation_regex_patern" translatable="false">[A-Z]{2}[0-9]{3}[A-Z]{2}</string>
+    <string name="email_regex_patern" translatable="false">[A-Z][a-z][0-9][@][a-z]</string>
     <string name="current_trip_already_exist">Un voyage est déjà en cours. Vous devez le compléter ou l\'annuler avant d\'en créer un autre.</string>
     <string name="no_current_trip_defined">Vous n\'avez aucun voyage en cours.</string>
     <string name="route_calculation">Calcul du trajet…</string>
@@ -284,6 +285,8 @@
     <string name="default_user">Stevy</string>
     <string name="rewards_title">Accumuler et gagner des points.</string>
     <string name="rewards_content">Desormais, vous pouvez gagner des points de fidélité en vous engageants avec Traveler. Enregistrer votre voyage pour commencer</string>
+    <string name="user_email">Email</string>
+    <string name="incorrect_email">Email invalide. Essayer encore</string>
 
     <string-array name="aid_tips">
         <item>Contrôlez-vous d\'abord</item>
