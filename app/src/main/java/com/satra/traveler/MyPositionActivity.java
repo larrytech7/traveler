@@ -101,6 +101,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import mehdi.sakout.fancybuttons.FancyButton;
 
 public class MyPositionActivity extends AppCompatActivity implements OnMapReadyCallback, LocationSource.OnLocationChangedListener
@@ -116,6 +117,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private static final String TAG = MyPositionActivity.class.getSimpleName();
     private static final String LOG_TAG = MyPositionActivity.class.getSimpleName();
     private static final int PICK_CONTACT_SEC = 8;
+    public static final int SHARE_CODE = 100;
     private static String myFormat = "dd-MM-yyyy HH:mm";
     private static SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
     final int PICK_CONTACT = 7;
@@ -884,10 +886,12 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
                         long saveid = mTrip.save();
                         if (saveid > 0) {
-                            Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_successfull), Toast.LENGTH_LONG).show();
+                            //Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_successfull), Toast.LENGTH_LONG).show();
                             //update map with current trip
                             setupCurrentTrip();
-                            //update user's current matricule
+                            //update user's current profile
+                            travelerUser.setEmergency_primary(mTrip.getContact_number());
+                            travelerUser.setEmergency_secondary(guardianPhoneNumberSecondary.getText().toString());
                             travelerUser.setCurrent_matricule(mTrip.getBus_immatriculation());
                             travelerUser.save();
                             //save trip to firebase
@@ -919,7 +923,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                                     .setAction(getString(R.string.get_insurance), MyPositionActivity.this)
                                     .show();
                             Tutility.showDialog(MyPositionActivity.this, getString(R.string.register_rewards_title),
-                                    getString(R.string.register_rewards_content));
+                                    getString(R.string.register_rewards_content), SweetAlertDialog.SUCCESS_TYPE);
                         } else {
                             Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_failed), Toast.LENGTH_LONG).show();
                         }
@@ -1229,10 +1233,10 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
                     assert phones != null;
                     phones.moveToFirst();
-                    String Number = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                    String number = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
                     //String Name = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
 
-                    guardianPhoneNumberSecondary.setText(Number);
+                    guardianPhoneNumberSecondary.setText(number);
                 }
             }
         }
@@ -1333,6 +1337,18 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             }
 
 
+        }else if(requestCode == SHARE_CODE){
+            //User might have shared some stuff, award tpoint and make him feel good!
+            Rewards reward = Tutility.getAppRewards();
+            reward.setAppShares(1);
+            //requires user to share at least 3 times to earn a tpoint
+            if (reward.getAppShares() % 3 == 0){
+                //point earned
+                Tutility.showDialog(this, getString(R.string.share_app),
+                        getString(R.string.share_app_reward), SweetAlertDialog.CUSTOM_IMAGE_TYPE);
+            }
+            reward.save();
+            Log.d(LOG_TAG, "Shared app code");
         }
     }
 

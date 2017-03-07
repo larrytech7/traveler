@@ -235,6 +235,7 @@
     <string name="second_phone_number_guardian">Secondary emergency contact</string>
     <string name="rewards_title">Accumulate and win points</string>
     <string name="travel_rewards_point">Bravo! You have gained 5 TPoints for this trip</string>
+    <string name="share_app_reward">Hurray! You just got a few more TPoints. Keep sharing the app to accumulate more TPoints.</string>
 
 
 </resources>

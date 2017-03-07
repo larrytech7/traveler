@@ -20,6 +20,8 @@ import com.satra.traveler.utils.Tutility;
 
 import org.jetbrains.annotations.NotNull;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 /**
  * Created by Steve Jeff on 16/02/2016.
  */
@@ -107,7 +109,7 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
                Intent shareIntent = new Intent(Intent.ACTION_SEND);
                shareIntent.setType("text/plain");
                shareIntent.putExtra(Intent.EXTRA_TEXT, context.getString(R.string.share_app_text));
-               context.startActivity(Intent.createChooser(shareIntent, context.getString(R.string.share_app)));
+               context.startActivityForResult(Intent.createChooser(shareIntent, context.getString(R.string.share_app)), MyPositionActivity.SHARE_CODE);
                break;
 
           /*
@@ -128,8 +130,11 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
             long updateid = trip.save();
             if (updateid > 0){
                 trip.setEnd(System.nanoTime());
-                String content = isTpointsUpdated(trip)?context.getString(R.string.travel_rewards_point):"";
-                Tutility.showDialog(context, context.getString(R.string.complete_trip_title), context.getString(R.string.complete_trip, content));
+                boolean updated = isTpointsUpdated(trip);
+                String content = updated ? context.getString(R.string.travel_rewards_point):"";
+                Tutility.showDialog(context, context.getString(R.string.complete_trip_title),
+                        context.getString(R.string.complete_trip, content),
+                        updated? SweetAlertDialog.CUSTOM_IMAGE_TYPE: SweetAlertDialog.SUCCESS_TYPE);
                 activity.clearMap();
             }else{
                 Tutility.showMessage(context, R.string.complete_trip_error, R.string.complete_trip_error_title );
@@ -152,7 +157,7 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
     @Override
     public boolean isTpointsUpdated(Object t) {
         if (t instanceof Trip) {
-            Rewards rewards = Rewards.last(Rewards.class);
+            Rewards rewards = Tutility.getAppRewards();
             //determine trip duration
             long timeStart = ((Trip) t).getStart();
             long timeEnd = ((Trip) t).getEnd();
@@ -172,7 +177,7 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
             trip.status = 2;
             long updateid = trip.save();
             if (updateid > 0){
-                Tutility.showDialog(context, context.getString(R.string.cencel_trip_title), context.getString(R.string.cencel_trip));
+                Tutility.showDialog(context, context.getString(R.string.cencel_trip_title), context.getString(R.string.cencel_trip), SweetAlertDialog.SUCCESS_TYPE);
                 activity.clearMap();
             }else{
                 Tutility.showMessage(context, R.string.complete_trip_error, R.string.complete_trip_error_title );

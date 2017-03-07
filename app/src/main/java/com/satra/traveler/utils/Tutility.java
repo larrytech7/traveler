@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.app.AlertDialog;
 
 import com.satra.traveler.R;
+import com.satra.traveler.models.Rewards;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
@@ -84,11 +85,16 @@ public class Tutility {
         return departure+"_"+destination+"_"+date;
     }
 
-    public static void showDialog(Context ctx, String title, String content){
-        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(ctx, SweetAlertDialog.SUCCESS_TYPE)
+    public static void showDialog(Context ctx, String title, String content, int dialogType){
+        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(ctx, dialogType)
                 .setTitleText(title)
                 .setContentText(content)
-                .setCustomImage(R.drawable.ic_thumb_up);
+                .setCustomImage(R.mipmap.ic_trophy);
         sweetAlertDialog.show();
+    }
+
+    public static Rewards getAppRewards(){
+        Rewards reward = Rewards.last(Rewards.class);
+        return reward == null? new Rewards() : reward;
     }
 }

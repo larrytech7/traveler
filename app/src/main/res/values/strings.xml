@@ -288,6 +288,7 @@
     <string name="user_email" translatable="false">Email</string>
     <string name="incorrect_email">Email invalide. Essayer encore</string>
     <string name="second_phone_number_guardian">Autre numéro d\'urgence</string>
+    <string name="share_app_reward">Hurray! Vous avez gagner des TPoints. Continuer de partager pour accumulez d\'avantage de TPoints.</string>
 
     <string-array name="aid_tips">
         <item>Contrôlez-vous d\'abord</item>
