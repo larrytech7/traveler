@@ -251,7 +251,7 @@ public class MainActivity extends AppCompatActivity {
                                     public void onFailure(@NonNull Exception e) {
                                         //account creation failed
                                         progress.dismiss();
-                                        Tutility.showMessage(MainActivity.this, getString(R.string.signinerror),getString(R.string.app_name));
+                                        Tutility.showMessage(MainActivity.this, getString(R.string.signinerror, e.getMessage()),getString(R.string.app_name));
                                         Log.e("signinerror", "error: "+e.getMessage());
 
                                     }

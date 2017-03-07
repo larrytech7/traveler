@@ -246,7 +246,7 @@
     <string name="speed_overheading">" dépassement de vitesse"</string>
     <string name="travelr_secure_your_trip">Traveler sécurise vos déplacements</string>
     <string name="assurance_voyage">Assurance voyage</string>
-    <string name="signinerror">Numéro de téléphone déjà utilisé</string>
+    <string name="signinerror">%s</string>
     <string name="timeinterval" formatted="false" translatable="false">%d %s</string>
     <string name="insurance_plan">Assurez votre voyage avec une assurance</string>
     <string name="get_insurance">Obtenir</string>
