@@ -36,8 +36,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.satra.traveler.models.User;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
@@ -82,11 +80,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null){
+                if (user != null) {
                     //user is logged-in. synchronise user info and send user to home screen
                     Log.d(LOGTAG, "user is signed in");
                     launchHomeActivity();
-                }else{
+                } else {
                     //signed out. allow user to sign in
                     Log.d(LOGTAG, "user is signed out");
                 }
@@ -106,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         //check if user account was already created and saved
         Iterator<User> musers = User.findAll(User.class);
 
-        if (musers.hasNext()){
+        if (musers.hasNext()) {
             launchHomeActivity();
             /*//Log.d(LOGTAG, "User available: "+musers.next().getUsername());
             progress = new ProgressDialog(MainActivity.this);
@@ -143,45 +141,44 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             });*/
 
-        }else{
+        } else {
             mAuth.addAuthStateListener(mAuthListener);
         }
 
-        username = (EditText)findViewById(R.id.username);
-        useremail = (EditText)findViewById(R.id.useremail);
+        username = (EditText) findViewById(R.id.username);
+        useremail = (EditText) findViewById(R.id.useremail);
         //matricule = (EditText)findViewById(R.id.matricule1);
-        noTelephone = (EditText)findViewById(R.id.no_telephone);
+        noTelephone = (EditText) findViewById(R.id.no_telephone);
 
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.READ_PHONE_STATE)
                 == PackageManager.PERMISSION_GRANTED) {
             noTelephone.setText(((TelephonyManager) getSystemService(TELEPHONY_SERVICE)).getLine1Number());
-        }
-        else{
+        } else {
             requestPermission(android.Manifest.permission.READ_PHONE_STATE);
         }
 
-        buttonLogin = (FancyButton)findViewById(R.id.button_login);
+        buttonLogin = (FancyButton) findViewById(R.id.button_login);
 
         buttonLogin.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                if(username.getText().toString().isEmpty() ||
-                        noTelephone.getText().toString().isEmpty()){
+                if (username.getText().toString().isEmpty() ||
+                        noTelephone.getText().toString().isEmpty()) {
 
-                    Toast.makeText(getApplicationContext(), getString(R.string.provide_all_fields)+"...", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.provide_all_fields) + "...", Toast.LENGTH_LONG).show();
                     return;
                 }
 
-                if(!useremail.getText().toString().isEmpty()&&!MyPositionActivity.IsMatch(useremail.getText().toString(), getString(R.string.email_regex_patern))){
-                    Toast.makeText(getApplicationContext(), getString(R.string.incorrect_email)+"...", Toast.LENGTH_LONG).show();
+                if (!useremail.getText().toString().isEmpty() && !MyPositionActivity.IsMatch(useremail.getText().toString(), getString(R.string.email_regex_patern))) {
+                    Toast.makeText(getApplicationContext(), getString(R.string.incorrect_email) + "...", Toast.LENGTH_LONG).show();
                     return;
                 }
 
                 final AlertDialog.Builder ad = new AlertDialog.Builder(MainActivity.this);
 
                 ad.setTitle(R.string.username_confirm_title);
-                ad.setMessage(getString(R.string.username_confirm_msg) + username.getText().toString() + getString(R.string.telephone_number_confirm_msg)+noTelephone.getText().toString()+" ?");
+                ad.setMessage(getString(R.string.username_confirm_msg) + username.getText().toString() + getString(R.string.telephone_number_confirm_msg) + noTelephone.getText().toString() + " ?");
                 ad.setNegativeButton(R.string.username_confirm_no_label,
                         new android.content.DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int arg1) {
@@ -221,41 +218,41 @@ public class MainActivity extends AppCompatActivity {
                                 //signup user via firebase
                                 mAuth.createUserWithEmailAndPassword(tuser.getUseremail(),
                                         Tutility.getAuthenticationEmail(telephoneString))
-                                .addOnSuccessListener(MainActivity.this,new OnSuccessListener<AuthResult>() {
-                                    @Override
-                                    public void onSuccess(AuthResult authResult) {
-                                        //account creation succeeded
-                                        Log.d(LOGTAG, "Account created!");
-                                        sharedPreferences.edit().putString(TConstants.PREF_MATRICULE, tuser.getCurrent_matricule()).apply();
-                                        sharedPreferences.edit().putString(TConstants.PREF_EMERGENCY_CONTACT_1, tuser.getEmergency_primary()).apply();
-                                        //save user profile to device
-                                        tuser.save();
-                                        //get user and update display name
-                                        FirebaseUser user = authResult.getUser();
-                                        UserProfileChangeRequest updateRequest = new UserProfileChangeRequest.Builder()
-                                                .setDisplayName(usernameString)
-                                                .build();
-                                        user.updateProfile(updateRequest)
-                                            .addOnCompleteListener(MainActivity.this, new OnCompleteListener<Void>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<Void> task) {
+                                        .addOnSuccessListener(MainActivity.this, new OnSuccessListener<AuthResult>() {
+                                            @Override
+                                            public void onSuccess(AuthResult authResult) {
+                                                //account creation succeeded
+                                                Log.d(LOGTAG, "Account created!");
+                                                sharedPreferences.edit().putString(TConstants.PREF_MATRICULE, tuser.getCurrent_matricule()).apply();
+                                                sharedPreferences.edit().putString(TConstants.PREF_EMERGENCY_CONTACT_1, tuser.getEmergency_primary()).apply();
+                                                //save user profile to device
+                                                tuser.save();
+                                                //get user and update display name
+                                                FirebaseUser user = authResult.getUser();
+                                                UserProfileChangeRequest updateRequest = new UserProfileChangeRequest.Builder()
+                                                        .setDisplayName(usernameString)
+                                                        .build();
+                                                user.updateProfile(updateRequest)
+                                                        .addOnCompleteListener(MainActivity.this, new OnCompleteListener<Void>() {
+                                                            @Override
+                                                            public void onComplete(@NonNull Task<Void> task) {
 
-                                                    progress.dismiss();
-                                                    launchHomeActivity();
-                                                }
-                                            });
-                                    }
-                                })
-                                .addOnFailureListener(MainActivity.this, new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        //account creation failed
-                                        progress.dismiss();
-                                        Tutility.showMessage(MainActivity.this, getString(R.string.signinerror, e.getMessage()),getString(R.string.app_name));
-                                        Log.e("signinerror", "error: "+e.getMessage());
+                                                                progress.dismiss();
+                                                                launchHomeActivity();
+                                                            }
+                                                        });
+                                            }
+                                        })
+                                        .addOnFailureListener(MainActivity.this, new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                //account creation failed
+                                                progress.dismiss();
+                                                Tutility.showMessage(MainActivity.this, getString(R.string.signinerror, e.getMessage()), getString(R.string.app_name));
+                                                Log.e("signinerror", "error: " + e.getMessage());
 
-                                    }
-                                });
+                                            }
+                                        });
                             }
                         }
                 );
@@ -263,6 +260,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // ATTENTION: This was auto-generated to handle app links.
+        Intent appLinkIntent = getIntent();
+        String appLinkAction = appLinkIntent.getAction();
+        Uri appLinkData = appLinkIntent.getData();
     }
 
     @Override

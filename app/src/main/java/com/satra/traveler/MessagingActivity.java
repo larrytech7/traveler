@@ -93,8 +93,8 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
 
         travelerUser = User.findAll(User.class).next();
         //initialize sender variables
-        clientMatricule = travelerUser == null? "" : travelerUser.getCurrent_matricule();
-        clientName = travelerUser == null? "": travelerUser.getUsername();//sharedPreferences.getString(TConstants.PREF_USERNAME,"");
+        clientMatricule = travelerUser == null ? "" : travelerUser.getCurrent_matricule();
+        clientName = travelerUser == null ? "" : travelerUser.getUsername();//sharedPreferences.getString(TConstants.PREF_USERNAME,"");
         //prepare message reference base for sending and receiving messages
         reference = FirebaseDatabase.getInstance().getReference(Tutility.FIREBASE_MESSAGES)
                 .child(clientMatricule);
@@ -111,7 +111,7 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
                 if (ActivityCompat.checkSelfPermission(MessagingActivity.this, Manifest.permission.CAMERA)
                         != PackageManager.PERMISSION_GRANTED) {
                     requestPermission();
-                }else{
+                } else {
                     //lance la Camera
                     startCameraCapture();
                 }
@@ -122,7 +122,7 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
         layoutManager.setStackFromEnd(true);
         messageRecyclerView.setLayoutManager(layoutManager);
         messageRecyclerView.setHasFixedSize(true);
-        messageBox = (EditText)findViewById(R.id.messageText);
+        messageBox = (EditText) findViewById(R.id.messageText);
         //extraMatriculeEditText = (EditText) findViewById(R.id.matriculeEditText);
 
         /*fam = (FloatingActionMenu) findViewById(R.id.fab_menu);
@@ -131,7 +131,7 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!messageBox.getText().toString().equals("")){
+                if (!messageBox.getText().toString().equals("")) {
                     String message = messageBox.getText().toString();
                     messageBox.setText("");
                     //prepare message
@@ -153,13 +153,13 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     //if task completed, update sent status
-                                    if (task.isSuccessful()){
+                                    if (task.isSuccessful()) {
                                         Map<String, Object> statusUpdate = new HashMap<>();
                                         statusUpdate.put("sent", 1);
                                         reference.child(key).updateChildren(statusUpdate);
                                         //TODO: Find a reliable way to verify that the message was genuinely sent before evaluating tpoints
                                         boolean isTpoints = isTpointsUpdated(null);
-                                        if (isTpoints){
+                                        if (isTpoints) {
                                             Tutility.showDialog(MessagingActivity.this, getString(R.string.rewards_title),
                                                     getString(R.string.travel_rewards_point, TConstants.MAX_REWARDS),
                                                     SweetAlertDialog.CUSTOM_IMAGE_TYPE);
@@ -170,7 +170,7 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
                     imageFrame.setVisibility(View.GONE);
                     //pushMessageOnline(MessagingActivity.this, view, message, null);
 
-                }else{
+                } else {
                     Toast.makeText(MessagingActivity.this, getString(R.string.no_message), Toast.LENGTH_LONG).show();
                 }
             }
@@ -237,6 +237,10 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
         });*/
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setupMessageList(this);
+        // ATTENTION: This was auto-generated to handle app links.
+        Intent appLinkIntent = getIntent();
+        String appLinkAction = appLinkIntent.getAction();
+        Uri appLinkData = appLinkIntent.getData();
     }
 
     @Override
