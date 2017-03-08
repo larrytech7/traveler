@@ -420,6 +420,8 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
      */
     @Override
     public boolean isTpointsUpdated(Object c) {
+        if (!MyPositionActivity.isCurrentTripExist())
+            return false;
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         long msgfactor = sp.getLong(TConstants.MESSAGING_FACTOR, 0) + 1;
         sp.edit().putLong(TConstants.MESSAGING_FACTOR, msgfactor).apply();
