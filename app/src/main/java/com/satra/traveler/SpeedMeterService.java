@@ -125,7 +125,6 @@ public class SpeedMeterService extends Service implements SensorEventListener {
         super.onCreate();
         start();
         //subscribe to FCM services to receive incoming notifs
-        FirebaseMessaging.getInstance().subscribeToTopic(TConstants.FIREBASE_MESSAGING_TOPIC);
         FirebaseMessaging.getInstance().subscribeToTopic(TConstants.FIREBASE_AD_TOPIC);
 
     }

@@ -7,11 +7,11 @@ import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.gms.location.LocationServices;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.satra.traveler.models.Rewards;
 import com.satra.traveler.models.Trip;
 import com.satra.traveler.utils.TConstants;
@@ -139,7 +139,7 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
             }else{
                 Tutility.showMessage(context, R.string.complete_trip_error, R.string.complete_trip_error_title );
             }
-
+            unsubscribeFromMessaging(trip.getBus_immatriculation());
             LocationServices.GeofencingApi.removeGeofences(
                     activity.getGoogleApiClient(),
                     // This is the same pending intent that was used in addGeofences().
@@ -182,12 +182,20 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
             }else{
                 Tutility.showMessage(context, R.string.complete_trip_error, R.string.complete_trip_error_title );
             }
-
+            unsubscribeFromMessaging(trip.getBus_immatriculation());
             LocationServices.GeofencingApi.removeGeofences(
                     activity.getGoogleApiClient(),
                     // This is the same pending intent that was used in addGeofences().
                     activity.getGeofencePendingIntent()
             ).setResultCallback(activity); // Result processed in onResult().
 
+    }
+
+    /**
+     * Stop receiveing notification/messages about this topic
+     * @param topic topic to unsubscribe from
+     */
+    private void unsubscribeFromMessaging(String topic){
+        FirebaseMessaging.getInstance().unsubscribeFromTopic(topic);
     }
 }
