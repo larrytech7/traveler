@@ -280,7 +280,7 @@
     <string name="share_app_text">Hey! Telecharger Traveler ICI https://play.google.com/store/apps/details?id=com.satra.traveler , et permettez a vos amis et famille de rester a l\'ecoute de votre voyage. Traveler vous tiens informer et vous alerte des incidents de la route.</string>
     <string name="register_rewards_title">Génial! Maintenant gagnez des points</string>
     <string name="register_rewards_content">Vous êtes à quelque pas de gagner des points de fidélité, TPoints. Accumlulez ces points pour tenter de gagner un voyage gratuit VIP au pres d\'un de nos partenaires de voyage</string>
-    <string name="travel_rewards_point">Bravo! Vous gagner 5 TPoints pour ce voyage.</string>
+    <string name="travel_rewards_point">Bravo! Vous avez gagner 5 TPoints pour cette action.</string>
     <string name="default_points" translatable="false">%d TPOINTS</string>
     <string name="default_user" translatable="false">Stevy</string>
     <string name="rewards_title">Accumuler et gagner des points.</string>

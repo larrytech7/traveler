@@ -62,4 +62,6 @@ public class TConstants {
     public static final String FIREBASE_AD_TOPIC = "ads_";
     public static final String PREFERENCE_SPLASH = "SHOW_SPLASH";
     public static final int TRIP_TPOINTS = 5; //points gained by completing a trip
+    public static final String AID_ACTIVITY_NAVIGATION_START_TIME = "AID_NAV_START";
+    public static final String VICTIM_ACTIVITY_NAVIGATION_START_TIME = "VICTIM_NAV_START";
 }

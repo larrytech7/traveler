@@ -1,20 +1,28 @@
 package com.satra.traveler;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.satra.traveler.models.Rewards;
+import com.satra.traveler.utils.TConstants;
+import com.satra.traveler.utils.TpointsListener;
+import com.satra.traveler.utils.Tutility;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import ernestoyaquello.com.verticalstepperform.VerticalStepperFormLayout;
 import ernestoyaquello.com.verticalstepperform.interfaces.VerticalStepperForm;
 
-public class VictimeTransportationActivity extends AppCompatActivity implements VerticalStepperForm{
+public class VictimeTransportationActivity extends AppCompatActivity implements VerticalStepperForm, TpointsListener{
 
     private VerticalStepperFormLayout verticalStepperForm;
     private static final int steps = 6;
@@ -99,6 +107,13 @@ public class VictimeTransportationActivity extends AppCompatActivity implements 
     @Override
     public void sendData() {
         verticalStepperForm.goToStep(0, false);
+        //Attribute points at this stage if necessary
+        boolean tpointsGiven = isTpointsUpdated(null);
+
+        if (tpointsGiven) {
+            String content = getString(R.string.travel_rewards_point);
+            Tutility.showDialog(this, getString(R.string.rewards_title), content, SweetAlertDialog.CUSTOM_IMAGE_TYPE);
+        }
     }
 
     @Nullable
@@ -123,5 +138,21 @@ public class VictimeTransportationActivity extends AppCompatActivity implements 
         super.onDestroy();
         if (verticalStepperForm != null)
             verticalStepperForm = null;
+    }
+
+    @Override
+    public boolean isTpointsUpdated(Object c) {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        long now = System.nanoTime();
+        long startTime = sp.getLong(TConstants.VICTIM_ACTIVITY_NAVIGATION_START_TIME, 0);
+
+        if( (now - startTime) >= (24 * 60 * 60 * Math.pow(10,9))){
+            sp.edit().putLong(TConstants.VICTIM_ACTIVITY_NAVIGATION_START_TIME, now).apply();
+            Rewards rewards = Tutility.getAppRewards();
+            rewards.setAppOfflineGuides(5);
+            rewards.save();
+            return true;
+        }
+        return false;
     }
 }
