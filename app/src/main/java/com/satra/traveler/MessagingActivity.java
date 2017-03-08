@@ -39,8 +39,10 @@ import com.popalay.tutors.Tutors;
 import com.popalay.tutors.TutorsBuilder;
 import com.satra.traveler.adapter.MessagingAdapter;
 import com.satra.traveler.models.Messages;
+import com.satra.traveler.models.Rewards;
 import com.satra.traveler.models.User;
 import com.satra.traveler.utils.TConstants;
+import com.satra.traveler.utils.TpointsListener;
 import com.satra.traveler.utils.Tutility;
 
 import java.text.SimpleDateFormat;
@@ -50,11 +52,13 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import mehdi.sakout.fancybuttons.FancyButton;
 
 import static android.R.attr.data;
+import static android.R.attr.numberPickerStyle;
 
-public class MessagingActivity extends AppCompatActivity implements TutorialListener{
+public class MessagingActivity extends AppCompatActivity implements TutorialListener, TpointsListener{
 
     private static final String LOGTAG = MessagingActivity.class.getSimpleName();
     private static final int CAPTURE_IMAGE_MESSAGE = 100;
@@ -153,6 +157,13 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
                                         Map<String, Object> statusUpdate = new HashMap<>();
                                         statusUpdate.put("sent", 1);
                                         reference.child(key).updateChildren(statusUpdate);
+                                        //TODO: Find a reliable way to verify that the message was genuinely sent before evaluating tpoints
+                                        boolean isTpoints = isTpointsUpdated(null);
+                                        if (isTpoints){
+                                            Tutility.showDialog(MessagingActivity.this, getString(R.string.rewards_title),
+                                                    getString(R.string.travel_rewards_point, TConstants.MAX_REWARDS),
+                                                    SweetAlertDialog.CUSTOM_IMAGE_TYPE);
+                                        }
                                     }
                                 }
                             });
@@ -400,5 +411,24 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
         tutors.close();
         //set preference not to show hints again next time activity launches
         PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean(Tutility.SHOW_HINTS, false).apply();
+    }
+
+    /**
+     * Commenting at least 4 times on a given journey should earn users some tpoints
+     * @param c object to provide more criteria
+     * @return whether or not points have been gained from action
+     */
+    @Override
+    public boolean isTpointsUpdated(Object c) {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        long msgfactor = sp.getLong(TConstants.MESSAGING_FACTOR, 0) + 1;
+        sp.edit().putLong(TConstants.MESSAGING_FACTOR, msgfactor).apply();
+        if (msgfactor % 4 == 0){
+            Rewards rewards = Tutility.getAppRewards();
+            rewards.setAppComments(TConstants.MAX_REWARDS);
+            rewards.save();
+            return true;
+        }
+        return false;
     }
 }

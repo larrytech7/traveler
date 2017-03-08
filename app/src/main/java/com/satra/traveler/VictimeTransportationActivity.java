@@ -111,7 +111,7 @@ public class VictimeTransportationActivity extends AppCompatActivity implements 
         boolean tpointsGiven = isTpointsUpdated(null);
 
         if (tpointsGiven) {
-            String content = getString(R.string.travel_rewards_point);
+            String content = getString(R.string.travel_rewards_point, TConstants.MED_REWARDS);
             Tutility.showDialog(this, getString(R.string.rewards_title), content, SweetAlertDialog.CUSTOM_IMAGE_TYPE);
         }
     }

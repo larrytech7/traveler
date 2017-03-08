@@ -131,7 +131,7 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
             if (updateid > 0){
                 trip.setEnd(System.nanoTime());
                 boolean updated = isTpointsUpdated(trip);
-                String content = updated ? context.getString(R.string.travel_rewards_point):"";
+                String content = updated ? context.getString(R.string.travel_rewards_point, TConstants.MED_REWARDS):"";
                 Tutility.showDialog(context, context.getString(R.string.complete_trip_title),
                         context.getString(R.string.complete_trip, content),
                         updated? SweetAlertDialog.CUSTOM_IMAGE_TYPE: SweetAlertDialog.SUCCESS_TYPE);

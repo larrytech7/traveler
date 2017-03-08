@@ -64,4 +64,8 @@ public class TConstants {
     public static final int TRIP_TPOINTS = 5; //points gained by completing a trip
     public static final String AID_ACTIVITY_NAVIGATION_START_TIME = "AID_NAV_START";
     public static final String VICTIM_ACTIVITY_NAVIGATION_START_TIME = "VICTIM_NAV_START";
+    public static final String MESSAGING_FACTOR = "MESSAGING_FACTOR";
+    public static final int MAX_REWARDS = 10;
+    public static final int MED_REWARDS = 5;
+    public static final int MIN_REWARDS = 3;
 }
