@@ -55,8 +55,8 @@ public class NewsAdapter extends FirebaseRecyclerAdapter<News, NewsAdapter.ViewH
         //populate views
         viewHolder.newsSourceTextView.setText(model.getNewsSource());
         viewHolder.newsTitle.setText(model.getNewsTitle());
-        viewHolder.newsTimeTextView.setText(Tutility.getTimeDifference(c, model.getNewsTimeStamp(), System.nanoTime(),
-                new SimpleDateFormat("dd/MM/yyyy H:mm:s a", Locale.US).format(new Date(model.getNewsTimeStamp() / 1000))));
+        viewHolder.newsTimeTextView.setText(Tutility.getMicroTimeString(c, model.getNewsTimeStamp(), System.currentTimeMillis(),
+                new SimpleDateFormat("dd/MM/yyyy H:mm:s a", Locale.US).format(new Date(model.getNewsTimeStamp()))));
         if (model.getNewsMultimediaLink() != null)
             Glide.with(c)
                     .load(Uri.parse(model.getNewsMultimediaLink()))

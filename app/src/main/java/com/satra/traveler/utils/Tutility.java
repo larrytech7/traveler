@@ -69,9 +69,25 @@ public class Tutility {
      */
     public static String getTimeDifference(Context  c, long previousTimestamp, long currentTimeStamp, String date ){
         long diff = Math.abs(currentTimeStamp - previousTimestamp); //avoid negative values however
-
+        if (diff > 86 * Math.pow(10,11))
+            return date;
         //now do calculations and round up to nearest second, minute or hour
         double intervalInSeconds = diff / Math.pow(10, 9); //convert to seconds
+        if (intervalInSeconds < 60)
+            return c.getString(R.string.timeinterval, Math.round(intervalInSeconds), "s"); //time in seconds
+        if (intervalInSeconds < 3600)
+            return c.getString(R.string.timeinterval, Math.round((intervalInSeconds / 60 )), "m"); //time in minutes
+        if (intervalInSeconds > 3600)
+            return c.getString(R.string.timeinterval, Math.round((intervalInSeconds / 3600 )), "h"); //time in hours
+        return date;
+    }
+
+    public static String getMicroTimeString(Context  c, long previousTimestamp, long currentTimeStamp, String date ){
+        long diff = Math.abs(currentTimeStamp - previousTimestamp); //avoid negative values however
+        if (diff > 864 * Math.pow(10,5))
+            return date;
+        //now do calculations and round up to nearest second, minute or hour
+        double intervalInSeconds = diff / Math.pow(10, 3); //convert to seconds
         if (intervalInSeconds < 60)
             return c.getString(R.string.timeinterval, Math.round(intervalInSeconds), "s"); //time in seconds
         if (intervalInSeconds < 3600)
