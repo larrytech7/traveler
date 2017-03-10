@@ -111,6 +111,10 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
                shareIntent.putExtra(Intent.EXTRA_TEXT, context.getString(R.string.share_app_text));
                context.startActivityForResult(Intent.createChooser(shareIntent, context.getString(R.string.share_app)), MyPositionActivity.SHARE_CODE);
                break;
+           case R.id.nav_news:
+               //launch news/notifications Feed Activity
+               context.startActivity(new Intent(context, NewsActivity.class));
+               break;
 
           /*
           case R.id.nav_settings:

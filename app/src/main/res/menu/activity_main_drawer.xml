@@ -15,6 +15,10 @@
                 android:icon="@drawable/ic_trip_add"
                 android:title="@string/confirm_journey" />
             <item
+                android:id="@+id/nav_news"
+                android:icon="@drawable/ic_trending_up"
+                android:title="@string/nav_news_menu" />
+            <item
                 android:id="@+id/nav_repport_complaint"
                 android:icon="@drawable/ic_messaging_24dp"
                 android:title="@string/new_repport_complaint" />

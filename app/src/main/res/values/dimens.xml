@@ -22,4 +22,5 @@
     <dimen name="text_padding">8dp</dimen>
     <dimen name="insurance_button_dimen">200dp</dimen>
     <dimen name="aid_height">220dp</dimen>
+    <dimen name="image_prev">200dp</dimen>
 </resources>

@@ -306,5 +306,6 @@
     <string name="asset_statements" translatable="false">[{\n  \"relation\": [\"delegate_permission/common.handle_all_urls\"],\n  \"target\": {\n    \"namespace\": \"web\",\n    \"site\": \"http://traveler.cm\",\n  }\n}]</string>
     <string name="reply">Commenter</string>
     <string name="new_comments">%d nouveau commentaire(s)</string>
+    <string name="nav_news_menu">Actualités</string>
 
 </resources>

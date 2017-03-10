@@ -9,6 +9,7 @@ import com.orm.SugarRecord;
 public class News extends SugarRecord {
 
     private String newsId;
+    private String newsSource;
     private String newsTitle;
     private String newsContent;
     private String newsMultimediaLink;
@@ -24,6 +25,14 @@ public class News extends SugarRecord {
 
     public void setNewsId(String newsId) {
         this.newsId = newsId;
+    }
+
+    public String getNewsSource() {
+        return newsSource;
+    }
+
+    public void setNewsSource(String newsSource) {
+        this.newsSource = newsSource;
     }
 
     public String getNewsTitle() {
