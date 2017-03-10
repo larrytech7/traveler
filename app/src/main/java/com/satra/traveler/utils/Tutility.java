@@ -5,6 +5,7 @@ import android.support.v7.app.AlertDialog;
 
 import com.satra.traveler.R;
 import com.satra.traveler.models.Rewards;
+import com.satra.traveler.models.User;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
@@ -96,5 +97,9 @@ public class Tutility {
     public static Rewards getAppRewards(){
         Rewards reward = Rewards.last(Rewards.class);
         return reward == null? new Rewards() : reward;
+    }
+
+    public static User getAppUser() {
+        return User.last(User.class);
     }
 }

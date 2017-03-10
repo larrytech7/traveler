@@ -81,6 +81,7 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
     private String imageUrl;
     private Tutors tutors;
     private Iterator<Map.Entry<String, View>> iterator;
+    private Intent appLinkIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -238,7 +239,7 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setupMessageList(this);
         // ATTENTION: This was auto-generated to handle app links.
-        Intent appLinkIntent = getIntent();
+        appLinkIntent = getIntent();
         String appLinkAction = appLinkIntent.getAction();
         Uri appLinkData = appLinkIntent.getData();
     }
@@ -267,6 +268,8 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
         //Check preference if first time so as to know if to show hints or not
         if (showHints)
             showHint(iterator);
+
+        //TODO: Handle appIntent here for replies as instant messages
     }
 
     private void showHint(Iterator<Map.Entry<String, View>> iterator) {

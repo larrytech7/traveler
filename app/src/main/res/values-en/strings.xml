@@ -236,6 +236,8 @@
     <string name="rewards_title">Accumulate and win points</string>
     <string name="travel_rewards_point">Bravo! You have gained %d TPoints for this action</string>
     <string name="share_app_reward">Hurray! You just got a few more TPoints. Keep sharing the app to accumulate more TPoints.</string>
+    <string name="reply">Comment</string>
+    <string name="new_comments">%d new comment(s)</string>
 
 
 </resources>

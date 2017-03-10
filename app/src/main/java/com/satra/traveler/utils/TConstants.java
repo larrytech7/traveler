@@ -68,4 +68,5 @@ public class TConstants {
     public static final int MAX_REWARDS = 10;
     public static final int MED_REWARDS = 5;
     public static final int MIN_REWARDS = 3;
+    public static final String INSTANT_REPLY = "instant_reply_comment";
 }

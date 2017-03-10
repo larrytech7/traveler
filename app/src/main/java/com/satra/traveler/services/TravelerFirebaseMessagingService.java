@@ -7,21 +7,31 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
-import android.os.Build;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.RemoteInput;
 import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.satra.traveler.MessagingActivity;
 import com.satra.traveler.R;
+import com.satra.traveler.models.User;
+import com.satra.traveler.utils.TConstants;
+import com.satra.traveler.utils.Tutility;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TravelerFirebaseMessagingService extends FirebaseMessagingService {
     private final String TAG = "FCMMessagingService";
     private final int NOTIFICATION_MESSAGE = 1;
     private final int NOTIFICATION_AD = 2;
+    private int numMessages = 0;
+    private List<String> messageList = new ArrayList<>();
+    private User travelerUser = Tutility.getAppUser();
 
     public TravelerFirebaseMessagingService() {
     }
@@ -40,6 +50,10 @@ public class TravelerFirebaseMessagingService extends FirebaseMessagingService {
                 String title = payload.getString("user");
                 String body = payload.getString("body");
                 int type = payload.getInt("type");
+                if(travelerUser != null && travelerUser.getUsername().equals(title))
+                    return;
+                messageList.add(body);
+                ++numMessages;
                 //TODO: Use type maybe to differentiate different sources of a notification like this
                 showNotification(MessagingActivity.class, this, title,body, NOTIFICATION_MESSAGE);
 
@@ -70,26 +84,44 @@ public class TravelerFirebaseMessagingService extends FirebaseMessagingService {
                 PendingIntent.getActivity(context, 0, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationManager nm = (NotificationManager)
                 context.getSystemService(NOTIFICATION_SERVICE);
-        Notification.Builder build = new Notification.Builder(context);
 
-        build.setAutoCancel(true);
-        build.setWhen(0);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            build.setStyle(new Notification.BigTextStyle().bigText(content));
-        }
-        build.setTicker(context.getString(R.string.app_name));
-        build.setContentTitle(title);
-        build.setContentText(content);
-        build.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher_web));
-        build.setSmallIcon(R.drawable.ic_messaging_24dp);
-        build.setContentIntent(pendingIntent);
-        build.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
-        build.setOngoing(true);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            build.build();
-        }
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
+        builder.setTicker(context.getString(R.string.app_name));
+        builder.setContentTitle(title);
+        builder.setContentText(content);
+        builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher_web));
+        builder.setSmallIcon(R.drawable.ic_messaging_24dp);
+        builder.setContentIntent(pendingIntent);
+        builder.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
+        builder.setOngoing(true);
+        builder.setAutoCancel(true);
+        builder.setWhen(0);
+        builder.setNumber(numMessages);
+        /*NotificationCompat.BigTextStyle bigTextStyle = new NotificationCompat.BigTextStyle();
+        bigTextStyle.bigText(content);
+        bigTextStyle.setSummaryText(getString(R.string.new_comments, numMessages));
+        builder.setStyle(bigTextStyle);*/
 
-        Notification notif = build.getNotification();
+        NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
+        inboxStyle.setSummaryText(getString(R.string.new_comments, numMessages));
+        inboxStyle.setBigContentTitle(title);
+        for(String m : messageList){
+            inboxStyle.addLine(m);
+        }
+        builder.setStyle(inboxStyle);
+        //set action button
+        RemoteInput remoteInput = new RemoteInput.Builder(TConstants.INSTANT_REPLY)
+                .setLabel(getString(R.string.reply))
+                .build();
+        NotificationCompat.Action commentAction = new NotificationCompat.Action.Builder(R.drawable.ic_send,
+                getString(R.string.reply),
+                pendingIntent)
+                .setAllowGeneratedReplies(true)
+                .addRemoteInput(remoteInput)
+                .build();
+        builder.addAction(commentAction);
+
+        Notification notif = builder.build();
         notif.vibrate = new long[] { 100, 250, 100, 500};
         notif.sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
