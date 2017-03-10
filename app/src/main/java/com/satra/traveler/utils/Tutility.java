@@ -69,8 +69,7 @@ public class Tutility {
      */
     public static String getTimeDifference(Context  c, long previousTimestamp, long currentTimeStamp, String date ){
         long diff = Math.abs(currentTimeStamp - previousTimestamp); //avoid negative values however
-        if (diff > 86 * Math.pow(10,11))
-            return date;
+
         //now do calculations and round up to nearest second, minute or hour
         double intervalInSeconds = diff / Math.pow(10, 9); //convert to seconds
         if (intervalInSeconds < 60)

@@ -16,7 +16,7 @@
         android:layout_marginBottom="10dp"
         android:layout_gravity="bottom"
         app:cardBackgroundColor="@color/app_white"
-        app:cardCornerRadius="@dimen/btn_small_padding">
+        app:cardCornerRadius="0dp">
 
         <ImageView
             android:id="@+id/newsImagePreview"

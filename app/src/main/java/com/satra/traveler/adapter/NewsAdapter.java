@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -17,6 +18,10 @@ import com.google.firebase.database.Query;
 import com.satra.traveler.R;
 import com.satra.traveler.models.News;
 import com.satra.traveler.utils.Tutility;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by Larry Akah on 3/10/17.
@@ -50,7 +55,8 @@ public class NewsAdapter extends FirebaseRecyclerAdapter<News, NewsAdapter.ViewH
         //populate views
         viewHolder.newsSourceTextView.setText(model.getNewsSource());
         viewHolder.newsTitle.setText(model.getNewsTitle());
-        viewHolder.newsTimeTextView.setText(Tutility.getTimeDifference(c, model.getNewsTimeStamp(), System.nanoTime(), ""));
+        viewHolder.newsTimeTextView.setText(Tutility.getTimeDifference(c, model.getNewsTimeStamp(), System.nanoTime(),
+                new SimpleDateFormat("dd/MM/yyyy H:mm:s a", Locale.US).format(new Date(model.getNewsTimeStamp() / 1000))));
         if (model.getNewsMultimediaLink() != null)
             Glide.with(c)
                     .load(Uri.parse(model.getNewsMultimediaLink()))
@@ -78,7 +84,7 @@ public class NewsAdapter extends FirebaseRecyclerAdapter<News, NewsAdapter.ViewH
         }
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         final CardView newsCard;
         final ImageView newsImageView;
         final TextView newsTitle, newsTimeTextView, newsSourceTextView;
@@ -97,7 +103,7 @@ public class NewsAdapter extends FirebaseRecyclerAdapter<News, NewsAdapter.ViewH
         @Override
         public void onClick(View view) {
             //handle click
-            //News news = getItem(getAdapterPosition());
+            Log.d("NEWS_VIEWHOLDER", "Clicked a news item");
         }
     }
 }
