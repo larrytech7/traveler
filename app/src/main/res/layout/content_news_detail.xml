@@ -9,7 +9,8 @@
     tools:context="com.satra.traveler.NewsDetailActivity"
     tools:showIn="@layout/activity_news_detail">
 
-    <FrameLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -24,8 +25,9 @@
             android:id="@+id/newsContentTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:autoLink="web"
             android:layout_margin="@dimen/text_margin"
             android:text="@string/large_text" />
-    </FrameLayout>
+    </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

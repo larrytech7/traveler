@@ -71,4 +71,8 @@ public class TConstants {
     public static final String INSTANT_REPLY = "instant_reply_comment";
     public static final String FIREBASE_NEWS_FEED = "news";
     public static final String NEWS_DETAIL_KEY = "FIREBASE_NEWS_KEY";
+    public static final String NEWS_DETAIL_CONTENT = "NEWS_CONTENT";
+    public static final String NEWS_DETAIL_TIME = "NEWS_TIMESTAMP";
+    public static final String NEWS_AUTHOR = "AUTHOR_NEWS";
+    public static final String NEWS_TITLE = "NEWS_TITLE";
 }

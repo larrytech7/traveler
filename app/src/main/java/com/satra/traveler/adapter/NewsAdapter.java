@@ -70,15 +70,20 @@ public class NewsAdapter extends FirebaseRecyclerAdapter<News, NewsAdapter.ViewH
         setListener(viewHolder.newsCard, position);
     }
 
-    private void setListener(CardView newsCard, final int position) {
+    private void setListener(final CardView newsCard, final int position) {
         final String modelKey = this.getRef(position).getKey();
 
         newsCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //launch news details activity
+                News newsItem = getItem(position);
                 Intent detailIntent = new Intent(c, NewsDetailActivity.class);
                 detailIntent.putExtra(TConstants.NEWS_DETAIL_KEY, modelKey);
+                detailIntent.putExtra(TConstants.NEWS_AUTHOR, newsItem.getNewsSource());
+                detailIntent.putExtra(TConstants.NEWS_DETAIL_CONTENT, newsItem.getNewsContent());
+                detailIntent.putExtra(TConstants.NEWS_TITLE, newsItem.getNewsTitle());
+                detailIntent.putExtra(TConstants.NEWS_DETAIL_TIME, newsItem.getNewsTimeStamp());
                 c.startActivity(detailIntent);
                 //Log.d("NewsAdapter", "model key: "+modelKey);
             }
