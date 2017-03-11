@@ -228,13 +228,23 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".NewsActivity"
+        <activity
+            android:name=".NewsActivity"
             android:label="@string/nav_news_menu"
             android:parentActivityName=".MyPositionActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.satra.traveler.MyPositionActivity" />
+        </activity>
+        <activity
+            android:name=".NewsDetailActivity"
+            android:label="@string/title_activity_news_detail"
+            android:parentActivityName=".NewsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.satra.traveler.NewsActivity" />
         </activity>
     </application>
 

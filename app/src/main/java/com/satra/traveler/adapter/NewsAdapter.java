@@ -1,6 +1,7 @@
 package com.satra.traveler.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -15,8 +16,10 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.Query;
+import com.satra.traveler.NewsDetailActivity;
 import com.satra.traveler.R;
 import com.satra.traveler.models.News;
+import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
 
 import java.text.SimpleDateFormat;
@@ -64,6 +67,22 @@ public class NewsAdapter extends FirebaseRecyclerAdapter<News, NewsAdapter.ViewH
                     .crossFade()
                     .into(viewHolder.newsImageView);
         setAnimation(viewHolder.newsCard, position);
+        setListener(viewHolder.newsCard, position);
+    }
+
+    private void setListener(CardView newsCard, final int position) {
+        final String modelKey = this.getRef(position).getKey();
+
+        newsCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //launch news details activity
+                Intent detailIntent = new Intent(c, NewsDetailActivity.class);
+                detailIntent.putExtra(TConstants.NEWS_DETAIL_KEY, modelKey);
+                c.startActivity(detailIntent);
+                //Log.d("NewsAdapter", "model key: "+modelKey);
+            }
+        });
     }
 
     @Override
@@ -84,7 +103,7 @@ public class NewsAdapter extends FirebaseRecyclerAdapter<News, NewsAdapter.ViewH
         }
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         final CardView newsCard;
         final ImageView newsImageView;
         final TextView newsTitle, newsTimeTextView, newsSourceTextView;
@@ -96,14 +115,7 @@ public class NewsAdapter extends FirebaseRecyclerAdapter<News, NewsAdapter.ViewH
             newsTimeTextView = (TextView) itemView.findViewById(R.id.newsTimestampTextView);
             newsTitle = (TextView) itemView.findViewById(R.id.newsTitleTextView);
             newsSourceTextView = (TextView) itemView.findViewById(R.id.newsSourceTextView);
-            //Add onclick listener to cardview layout widget
-            newsCard.setOnClickListener(this);
         }
 
-        @Override
-        public void onClick(View view) {
-            //handle click
-            Log.d("NEWS_VIEWHOLDER", "Clicked a news item");
-        }
     }
 }

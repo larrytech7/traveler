@@ -84,7 +84,7 @@
     <string name="about_title1">About</string>
     <string name="speed_dimen" formatted="false">%s | Speed: %s Kmph</string>
     <string name="login">Continue</string>
-    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 5.2.1</string>
+    <string name="about_message1">With Traveler, no more deaths on our roads. Let Travelr accompany you all along. Version 5.2.1</string>
     <string name="cancel">Cancel</string>
     <string name="howserious">Severity level</string>
     <string name="save">Save</string>
@@ -239,6 +239,10 @@
     <string name="reply">Comment</string>
     <string name="new_comments">%d new comment(s)</string>
     <string name="nav_news_menu">Trending</string>
+    <string name="action_settings">About</string>
+    <string name="title_activity_news_detail">News Detail</string>
+    <string name="comment">comment</string>
+    <string name="share">share</string>
 
 
 </resources>

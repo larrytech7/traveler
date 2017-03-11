@@ -33,7 +33,7 @@ public class NewsActivity extends AppCompatActivity {
         layoutManager.setSmoothScrollbarEnabled(true);
         newsRecyclerView.setLayoutManager(layoutManager);
         newsAdapter = new NewsAdapter(NewsActivity.this, News.class, R.layout.news_item_layout, NewsAdapter.ViewHolder.class,
-                FirebaseDatabase.getInstance().getReference(TConstants.FIREBASE_NEWS_FEED).orderByChild("timestamp"));
+                FirebaseDatabase.getInstance().getReference(TConstants.FIREBASE_NEWS_FEED).orderByChild("newsTimeStamp"));
         newsRecyclerView.setAdapter(newsAdapter);
         newsRecyclerView.setItemAnimator(new DefaultItemAnimator());
     }

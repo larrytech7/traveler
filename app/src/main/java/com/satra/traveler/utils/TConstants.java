@@ -70,4 +70,5 @@ public class TConstants {
     public static final int MIN_REWARDS = 3;
     public static final String INSTANT_REPLY = "instant_reply_comment";
     public static final String FIREBASE_NEWS_FEED = "news";
+    public static final String NEWS_DETAIL_KEY = "FIREBASE_NEWS_KEY";
 }
