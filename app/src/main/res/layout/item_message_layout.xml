@@ -52,6 +52,8 @@
             android:textAlignment="textEnd"
             android:layout_marginTop="5dp"
             android:hint="date sent"
+            android:drawableRight="@drawable/ic_done_one"
+            android:drawableEnd="@drawable/ic_done_one"
             android:textStyle="italic"
             android:textColor="@color/colorPrimaryDark" />
         <View
@@ -62,18 +64,5 @@
             android:layout_marginRight="@dimen/text_padding"
             android:layout_marginEnd="@dimen/text_padding"
             android:background="@color/colorPrimaryDark"/>
-        <TextView
-            android:id="@+id/messageStatusText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableRight="@drawable/ic_done"
-            android:drawableEnd="@drawable/ic_done"
-            android:paddingLeft="@dimen/text_padding"
-            android:paddingStart="@dimen/text_padding"
-            android:paddingRight="@dimen/text_padding"
-            android:paddingEnd="@dimen/text_padding"
-            android:textStyle="italic"
-            android:textColor="@color/black"
-            android:text="@string/message_not_received"/>
 
 </LinearLayout>
