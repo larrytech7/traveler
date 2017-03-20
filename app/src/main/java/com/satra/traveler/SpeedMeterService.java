@@ -1,5 +1,6 @@
 package com.satra.traveler;
 
+import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -20,8 +21,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -47,7 +50,7 @@ import static com.satra.traveler.MyPositionActivity.getCurrentTrip;
 /**
  * Created by Steve Jeff on 17/04/2016.
  */
-public class SpeedMeterService extends Service implements SensorEventListener {
+public class SpeedMeterService extends Service implements SensorEventListener, OnFailureListener{
 
     private static final int NBRE_MAX_ITERATION_POUR_MOYENNE_VITESSES = 3;
     private static final int MAX_VITESSE_METRE_SECONDE = 0;
@@ -257,7 +260,8 @@ public class SpeedMeterService extends Service implements SensorEventListener {
                     //FirebaseDatabase.getInstance().getReference().child(TConstants.FIREBASE_NOTIFICATION)
                     baseReference.child(TConstants.FIREBASE_NOTIF_ACCIDENT)
                             .push()
-                            .setValue(incident);
+                            .setValue(incident)
+                            .addOnFailureListener((Activity) getApplicationContext(), this);
                 }
             }else{
                 //for stationary object, impact should increase acceleration
@@ -284,7 +288,8 @@ public class SpeedMeterService extends Service implements SensorEventListener {
 
                     baseReference.child(TConstants.FIREBASE_NOTIF_ACCIDENT)
                             .push()
-                            .setValue(incident);
+                            .setValue(incident)
+                            .addOnFailureListener((Activity) getApplicationContext(), this);
                 }
             }
 
@@ -777,6 +782,12 @@ public class SpeedMeterService extends Service implements SensorEventListener {
                 e.printStackTrace();
             }
         }
+
+    }
+
+    @Override
+    public void onFailure(@NonNull Exception e) {
+        //TODO: Send impact notifications via SMS when offline and sending alerts fail
 
     }
 }

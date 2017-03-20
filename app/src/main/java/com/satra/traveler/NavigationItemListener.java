@@ -143,7 +143,7 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
             }else{
                 Tutility.showMessage(context, R.string.complete_trip_error, R.string.complete_trip_error_title );
             }
-            unsubscribeFromMessaging(trip.getBus_immatriculation());
+            unsubscribeFromMessaging(TConstants.FIREBASE_MESSAGING_TOPIC+trip.getBus_immatriculation());
             LocationServices.GeofencingApi.removeGeofences(
                     activity.getGoogleApiClient(),
                     // This is the same pending intent that was used in addGeofences().
@@ -186,7 +186,7 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
             }else{
                 Tutility.showMessage(context, R.string.complete_trip_error, R.string.complete_trip_error_title );
             }
-            unsubscribeFromMessaging(trip.getBus_immatriculation());
+            unsubscribeFromMessaging(TConstants.FIREBASE_MESSAGING_TOPIC+trip.getBus_immatriculation());
             LocationServices.GeofencingApi.removeGeofences(
                     activity.getGoogleApiClient(),
                     // This is the same pending intent that was used in addGeofences().
