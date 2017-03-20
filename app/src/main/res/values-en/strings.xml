@@ -243,6 +243,7 @@
     <string name="title_activity_news_detail">News Detail</string>
     <string name="comment">comment</string>
     <string name="share">share</string>
+    <string name="votre_commentaire">say something</string>
 
 
 </resources>

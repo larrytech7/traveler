@@ -14,16 +14,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.satra.traveler.adapter.CommentsAdapter;
 import com.satra.traveler.models.Comments;
 import com.satra.traveler.models.User;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 
@@ -140,7 +141,8 @@ public class NewsDetailActivity extends AppCompatActivity {
      * Setup the views with the appropriate content
      */
     private void setupUI() {
-        dateTextView.setText(Tutility.getMicroTimeString(this, timestamp, System.currentTimeMillis(), ""));
+        dateTextView.setText(Tutility.getMicroTimeString(this, timestamp, System.currentTimeMillis(),
+                new SimpleDateFormat("dd/MM/yyyy H:mm:s a", Locale.US).format(new Date(timestamp))));
         contentTextView.setText(detailContent);
     }
 
@@ -163,20 +165,7 @@ public class NewsDetailActivity extends AppCompatActivity {
         super.onStart();
         travelerUser = User.findAll(User.class).next();
         loadComments(newsDetailKey);
-        databaseReference.child(TConstants.FIREBASE_NEWS_FEED+"/comments")
-                .orderByKey()
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        commentsTitleTextView.setText(getString(R.string.new_comments,
-                                dataSnapshot.getChildrenCount()));
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
+        commentsTitleTextView.setText(getString(R.string.new_comments, commentsRecyclerView.getAdapter().getItemCount()));
     }
 
     @Override

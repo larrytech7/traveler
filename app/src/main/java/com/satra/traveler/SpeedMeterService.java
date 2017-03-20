@@ -57,7 +57,7 @@ public class SpeedMeterService extends Service implements SensorEventListener {
     private static final int ERREUR_ACCEPTE_VITESSE_MAX=2;
     private static final int MAX_SPEED_TO_ALERT_KMH = 80;
     private static final long INTERVAL_BETWEEN_UPDATES = 10000;
-    private static final float MAX_NORMAL_ACCELERATION_COEFF = 3.0f;//5;
+    private static final float MAX_NORMAL_ACCELERATION_COEFF = 5.0f;
 
     private static final int TIME_TO_WAIT_FOR_SPEED_OVERHEAD_CONFIRMATION=5000;
     private Long durationElapsed = null;
@@ -238,7 +238,6 @@ public class SpeedMeterService extends Service implements SensorEventListener {
                  */
 
                     //TODO: Quantify change in acceleration to deduce magnitude of impact
-                    //User travelerUser = User.findAll(User.class).next();
 
                     Trip trip = MyPositionActivity.getCurrentTrip();
 
@@ -248,11 +247,11 @@ public class SpeedMeterService extends Service implements SensorEventListener {
                     incident.setMatricule(travelerUser.getCurrent_matricule());
                     incident.setAgency(trip.getAgency_name());
                     incident.setSpeed(mspeed);
-                    incident.setAcc(mAccelCurrent);
+                    incident.setAcc(mAccelCurrent / SensorManager.GRAVITY_EARTH);
                     incident.setAcc_last(mAccelLast);
                     incident.setLongitude(location == null ? 0 : location.getLongitude());
                     incident.setLatitude(location == null ? 0 : location.getLatitude());
-                    incident.setTimestamp(System.nanoTime());
+                    incident.setTimestamp(System.currentTimeMillis());
                     incident.setType(1);
 
                     //FirebaseDatabase.getInstance().getReference().child(TConstants.FIREBASE_NOTIFICATION)
@@ -276,11 +275,11 @@ public class SpeedMeterService extends Service implements SensorEventListener {
                     incident.setMatricule(travelerUser.getCurrent_matricule());
                     incident.setAgency(trip.getAgency_name());
                     incident.setSpeed(mspeed);
-                    incident.setAcc(mAccelCurrent);
+                    incident.setAcc(mAccelCurrent / SensorManager.GRAVITY_EARTH);
                     incident.setAcc_last(mAccelLast);
                     incident.setLongitude(location == null ? 0 : location.getLongitude());
                     incident.setLatitude(location == null ? 0 : location.getLatitude());
-                    incident.setTimestamp(System.nanoTime());
+                    incident.setTimestamp(System.currentTimeMillis());
                     incident.setType(1);
 
                     baseReference.child(TConstants.FIREBASE_NOTIF_ACCIDENT)

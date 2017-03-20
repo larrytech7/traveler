@@ -13,6 +13,10 @@ import com.satra.traveler.R;
 import com.satra.traveler.models.Comments;
 import com.satra.traveler.utils.Tutility;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 /**
  * Created by Larry Akah on 3/11/17.
  */
@@ -45,7 +49,9 @@ public class CommentsAdapter extends FirebaseRecyclerAdapter<Comments, CommentsA
         //populate comments
         viewHolder.authorTextView.setText(model.getAuthor());
         viewHolder.messageTextView.setText(model.getComment());
-        viewHolder.dateTextView.setText(Tutility.getMicroTimeString(c, model.getDateTime(), System.currentTimeMillis(), ""));
+        viewHolder.dateTextView.setText(Tutility.getMicroTimeString(c, model.getDateTime(),
+                System.currentTimeMillis(),
+                new SimpleDateFormat("dd/MM/yyyy H:mm:s a", Locale.US).format(new Date(model.getDateTime()))));
         setAnimation((View) viewHolder.authorTextView.getParent(), position);
     }
 

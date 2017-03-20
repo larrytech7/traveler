@@ -218,7 +218,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
                 if (newState == BottomSheetBehavior.STATE_COLLAPSED)
-                    bottomSheetBehavior.setPeekHeight(0);
+                    bottomSheetBehavior.setPeekHeight(100);
             }
 
             @Override
