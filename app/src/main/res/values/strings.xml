@@ -4,7 +4,7 @@
     <string name="app_name" translatable="false">Traveler</string>
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
-    <string name="action_settings" translatable="false">Apropos</string>
+    <string name="action_settings">Apropos</string>
     <string name="create_profile">Creation du compte</string>
     <string name="welcome">Zéro morts sur nos routes. Restez en alerte et en sécurité avec Traveler</string>
     <string name="username">pseudonyme (*)</string>
@@ -63,7 +63,7 @@
     </string-array>
 
 
-    <string name="matriculation_number">Immatriculation du vehicule </string>
+    <string name="matriculation_number">Immatriculation du vehicule (*)</string>
     <string name="description">Description</string>
     <string name="load_image">Charger une image</string>
     <string name="snap_image">Capturer une image</string>
@@ -83,7 +83,7 @@
     <string name="phone_number">Votre numéro de téléphone</string>
     <string name="relative_guardian">nom de votre proche</string>
     <string name="date_heure_voyage">date et heure du voyage</string>
-    <string name="phone_number_guardian">Numéro du proche</string>
+    <string name="phone_number_guardian">Numéro du proche (*)</string>
     <string name="confirmer_voyage">Confirmer le Voyage</string>
     <string name="end_journey">Achever le Voyage</string>
     <string name="annuler_voyage">Annuler le Voyage</string>
@@ -114,7 +114,7 @@
     <string name="username_confirm_no_label">Non</string>
     <string name="username_confirm_yes_label">Oui</string>
     <string name="speed_limit_reached_ago">Vous avez depasse la limite de vitesse autorisee</string>
-    <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br />Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br /> Version 5.2.1</string>
+    <string name="about_message1">Avec Traveler, c\'est Zero mort sur nos routes. <br />Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br /> Version 5.2.1</string>
     <string name="about_title1">A propos</string>
     <string name="login">Continuer</string>
     <string name="speed_dimen" formatted="false">%s | Vitesse: %s Kmph</string>
@@ -132,7 +132,7 @@
     <string name="arrivee">Destination: %s</string>
     <string name="datedepart">Date, Heure de depart: %s</string>
     <string name="complete_trip_title">Voyage Complété</string>
-    <string name="complete_trip">Vous avez indiqué que votre voyage a bien été complété. Merci d\'avoir utilisé Travelr.</string>
+    <string name="complete_trip">Vous avez indiqué que votre voyage a bien été complété. Merci d\'avoir utilisé Traveler. \n%s</string>
     <string name="complete_trip_error_title">Erreur</string>
     <string name="complete_trip_error">Une erreur s\'est produite. Veuillez reesayer.</string>
     <string name="cencel_trip">Vous avez choisi d\'annuler ce voyage. N\'hesitez pas creer un nouveau voyage.</string>
@@ -228,6 +228,7 @@
     <string name="town_13" translatable="false">Ngaoundére|7.3303988|13.5812464</string>
     <string name="town_8" translatable="false">Garoua|9.3068602|13.3989634</string>
     <string name="car_immatriculation_regex_patern" translatable="false">[A-Z]{2}[0-9]{3}[A-Z]{2}</string>
+    <string name="email_regex_patern" translatable="false">^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z0-9]{2,10}$</string>
     <string name="current_trip_already_exist">Un voyage est déjà en cours. Vous devez le compléter ou l\'annuler avant d\'en créer un autre.</string>
     <string name="no_current_trip_defined">Vous n\'avez aucun voyage en cours.</string>
     <string name="route_calculation">Calcul du trajet…</string>
@@ -245,7 +246,7 @@
     <string name="speed_overheading">" dépassement de vitesse"</string>
     <string name="travelr_secure_your_trip">Traveler sécurise vos déplacements</string>
     <string name="assurance_voyage">Assurance voyage</string>
-    <string name="signinerror">Numéro de téléphone déjà utilisé</string>
+    <string name="signinerror">%s</string>
     <string name="timeinterval" formatted="false" translatable="false">%d %s</string>
     <string name="insurance_plan">Assurez votre voyage avec une assurance</string>
     <string name="get_insurance">Obtenir</string>
@@ -269,11 +270,25 @@
     <string name="title_detect">Détecter automatiquement un accident</string>
     <string name="title_predict">Prédire le risque d\'accident</string>
     <string name="title_notify">Notification</string>
+
     <string name="intro_predict">Traveler peut prédire les risques d\'accident de la route en analysant les données collectées durant un voyage.</string>
     <string name="intro_detect">Traveler détecte automatiquement les accidents de la route subits par tout véhicule dans lequel un équipement exécute l\'application</string>
     <string name="intro_notify">Traveler notifie automatiquement et gratuitement par SMS vos proches, amis et services d\'urgence en cas d\'incident</string>
 
     <string name="message_hint">Utilisez ce bouton pour envoyer votre message. Si vous avez une image qui l\'accompagne, merci de permettre à l\'application de la charger complètement avant de procéder à l\'envoi du message.</string>
+    <string name="share_app">Partager l\'application</string>
+    <string name="share_app_text">Hey! Telecharger Traveler ICI https://play.google.com/store/apps/details?id=com.satra.traveler , et permettez a vos amis et famille de rester a l\'ecoute de votre voyage. Traveler vous tiens informer et vous alerte des incidents de la route.</string>
+    <string name="register_rewards_title">Génial! Maintenant gagnez des points</string>
+    <string name="register_rewards_content">Vous êtes à quelque pas de gagner des points de fidélité, TPoints. Accumlulez ces points pour tenter de gagner un voyage gratuit VIP au pres d\'un de nos partenaires de voyage</string>
+    <string name="travel_rewards_point">Bravo! Vous avez gagner %d TPoints pour cette action.</string>
+    <string name="default_points" translatable="false">%d TPOINTS</string>
+    <string name="default_user" translatable="false">Stevy</string>
+    <string name="rewards_title">Accumuler et gagner des points.</string>
+    <string name="rewards_content">Desormais, vous pouvez gagner des points de fidélité en vous engageants avec Traveler. Enregistrer votre voyage pour commencer</string>
+    <string name="user_email" translatable="false">Email</string>
+    <string name="incorrect_email">Email invalide. Essayer encore</string>
+    <string name="second_phone_number_guardian">Autre numéro d\'urgence</string>
+    <string name="share_app_reward">Hurray! Vous avez gagner des TPoints. Continuer de partager pour accumulez d\'avantage de TPoints.</string>
 
     <string-array name="aid_tips">
         <item>Contrôlez-vous d\'abord</item>
@@ -288,5 +303,102 @@
         <item>Gardez la personne au chaud</item>
         <item>Évitez de nourrir les victimes</item>
     </string-array>
+    <string name="asset_statements" translatable="false">[{\n  \"relation\": [\"delegate_permission/common.handle_all_urls\"],\n  \"target\": {\n    \"namespace\": \"web\",\n    \"site\": \"http://traveler.cm\",\n  }\n}]</string>
+    <string name="reply">Commenter</string>
+    <string name="new_comments">%d nouveau commentaire(s)</string>
+    <string name="nav_news_menu">Actualités</string>
+    <string name="title_activity_news_detail">Actualité</string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts. more at http://www.googlematerial.com \n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+        "The foundational elements of print based design typography, grids, space, scale, color, "
+        "and use of imagery guide visual treatments. These elements do far more than please the "
+        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+        "imagery, large scale typography, and intentional white space create a bold and graphic "
+        "interface that immerse the user in the experience.\n"
+        "An emphasis on user actions makes core functionality immediately apparent and provides "
+        "waypoints for the user.\n\n"
+
+        "Motion provides meaning.\n\n"
+
+        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+        "inflection points that initiate motion, transforming the whole design.\n"
+        "All action takes place in a single environment. Objects are presented to the user without "
+        "breaking the continuity of experience even as they transform and reorganize.\n"
+        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+        "3D world.\n\n"
+
+        "The material environment is a 3D space, which means all objects have x, y, and z "
+        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+        "position along the z-axis and has a standard 1dp thickness.\n"
+        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+        "emulated by manipulating the y-axis.\n\n"
+
+        "Light and shadow.\n\n"
+
+        "Within the material environment, virtual lights illuminate the scene. Key lights create "
+        "directional shadows, while ambient light creates soft shadows from all angles.\n"
+        "Shadows in the material environment are cast by these two light sources. In Android "
+        "development, shadows occur when light sources are blocked by sheets of material at "
+        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+        "Resting elevation.\n\n"
+
+        "All material objects, regardless of size, have a resting elevation, or default elevation "
+        "that does not change. If an object changes elevation, it should return to its resting "
+        "elevation as soon as possible.\n\n"
+
+        "Component elevations.\n\n"
+
+        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+        "does not vary from 6dp in one app to 16dp in another app).\n"
+        "Components may have different resting elevations across platforms, depending on the depth "
+        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+        "Responsive elevation and dynamic elevation offsets.\n\n"
+
+        "Some component types have responsive elevation, meaning they change elevation in response "
+        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+        "changes are consistently implemented using dynamic elevation offsets.\n"
+        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+        "to the component’s resting state. They ensure that elevation changes are consistent "
+        "across actions and component types. For example, all components that lift on press have "
+        "the same elevation change relative to their resting elevation.\n"
+        "Once the input event is completed or cancelled, the component will return to its resting "
+        "elevation.\n\n"
+
+        "Avoiding elevation interference.\n\n"
+
+        "Components with responsive elevations may encounter other components as they move between "
+        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+        "through other material, components avoid interfering with one another any number of ways, "
+        "whether on a per component basis or using the entire app layout.\n"
+        "On a component level, components can move or be removed before they cause interference. "
+        "For example, a floating action button (FAB) can disappear or move off screen before a "
+        "user picks up a card, or it can move if a snackbar appears.\n"
+        "On the layout level, design your app layout to minimize opportunities for interference. "
+        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
+    <string name="comment">Commenter</string>
+    <string name="share">Partager</string>
+    <string name="votre_commentaire">dites quelque chose</string>
 
 </resources>

@@ -1,15 +1,20 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:fancy="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto">-->
 
 <LinearLayout
     android:id="@+id/root_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_gradient"
     android:orientation="vertical"
     android:paddingBottom="@dimen/margin_layout"
@@ -43,6 +48,7 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="bottom"
         card_view:cardBackgroundColor="@color/themeBG"
         card_view:cardCornerRadius="@dimen/card_corner_radius"
         card_view:cardElevation="@dimen/card_corner_radius"
@@ -98,6 +104,7 @@
 
             </android.support.design.widget.TextInputLayout>
 
+
             <android.support.design.widget.TextInputLayout
                 android:textColorHint="#ccc"
                 android:textColor="#000"
@@ -107,21 +114,21 @@
                 app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
 
                 <android.support.design.widget.TextInputEditText
-                android:id="@+id/matricule1"
+                android:id="@+id/useremail"
                 android:layout_width= "match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="@dimen/margin_layout"
                 android:ems="5"
-                android:hint="@string/matriculation_number"
-                android:inputType="textCapSentences|textPostalAddress"
+                android:hint="@string/user_email"
+                android:inputType="textEmailAddress"
                 android:maxLines="1"
-                android:drawableLeft="@drawable/ic_car"
-                android:drawableStart="@drawable/ic_car"
+                android:drawableLeft="@drawable/ic_email"
+                android:drawableStart="@drawable/ic_email"
                 android:textColor="@color/app_white" />
 
             </android.support.design.widget.TextInputLayout>
-
+            <!--
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -182,6 +189,7 @@
                         android:background="@android:color/transparent"
                         android:src="@drawable/ic_contact_add"/>
             </LinearLayout>
+            -->
             <mehdi.sakout.fancybuttons.FancyButton
                 android:id="@+id/button_login"
                 android:layout_width="wrap_content"
@@ -205,4 +213,5 @@
     </android.support.v7.widget.CardView>
 
 </LinearLayout>
-</ScrollView>
+<!--
+</ScrollView>-->

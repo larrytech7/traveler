@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.satra.traveler"
     android:versionCode="63"
     android:versionName="5.2.1">
@@ -48,8 +49,12 @@
     <application
         android:name=".tapp.TApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name">
+        android:icon="@drawable/ic_launcher_web"
+        android:label="@string/app_name"
+        tools:replace="android:icon">
+        <meta-data
+            android:name="asset_statements"
+            android:resource="@string/asset_statements" />
         <meta-data
             android:name="DATABASE"
             android:value="satra.com.db.travelr" />
@@ -58,17 +63,41 @@
             android:value="com.satra.traveler" />
         <meta-data
             android:name="QUERY_LOG"
-            android:value="true" />
+            android:value="false" />
         <meta-data
             android:name="VERSION"
-            android:value="21" />
-
+            android:value="22" />
+        <!--
+             Set custom default icon. This is used when no icon is set for incoming notification messages.
+             See README(https://goo.gl/l4GJaQ) for more.
+        -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@mipmap/ic_launcher" />
+        <!--
+             Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/themeBG" />
+        AndroidManifest.xml
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|screenSize|screenLayout|uiMode|smallestScreenSize"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="traveler.cm"
+                    android:path="/firstaid"
+                    android:scheme="http" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".MyPositionActivity"
@@ -123,6 +152,18 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.satra.traveler.MyPositionActivity" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="traveler.cm"
+                    android:path="/message"
+                    android:scheme="http" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".AidActivity"
@@ -144,14 +185,77 @@
         </activity>
         <activity
             android:name=".IntroActivity"
-            android:theme="@style/WelcomeScreenTheme"/>
-        <activity android:name=".SplashActivity"
+            android:theme="@style/WelcomeScreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="traveler.cm"
+                    android:path="/join"
+                    android:scheme="http" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="traveler.cm"
+                    android:path="/start"
+                    android:scheme="http" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SplashActivity"
             android:theme="@style/WelcomeScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <service
+            android:name=".services.TravelerFirebaseMessagingService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".NewsActivity"
+            android:label="@string/nav_news_menu"
+            android:parentActivityName=".MyPositionActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.satra.traveler.MyPositionActivity" />
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="http"
+                    android:host="traveler.cm"
+                    android:path="/news" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".NewsDetailActivity"
+            android:label="@string/title_activity_news_detail"
+            android:parentActivityName=".NewsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.satra.traveler.NewsActivity" />
         </activity>
     </application>
 

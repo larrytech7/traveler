@@ -39,8 +39,10 @@ import com.popalay.tutors.Tutors;
 import com.popalay.tutors.TutorsBuilder;
 import com.satra.traveler.adapter.MessagingAdapter;
 import com.satra.traveler.models.Messages;
+import com.satra.traveler.models.Rewards;
 import com.satra.traveler.models.User;
 import com.satra.traveler.utils.TConstants;
+import com.satra.traveler.utils.TpointsListener;
 import com.satra.traveler.utils.Tutility;
 
 import java.text.SimpleDateFormat;
@@ -50,11 +52,13 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import mehdi.sakout.fancybuttons.FancyButton;
 
 import static android.R.attr.data;
+import static android.R.attr.numberPickerStyle;
 
-public class MessagingActivity extends AppCompatActivity implements TutorialListener{
+public class MessagingActivity extends AppCompatActivity implements TutorialListener, TpointsListener{
 
     private static final String LOGTAG = MessagingActivity.class.getSimpleName();
     private static final int CAPTURE_IMAGE_MESSAGE = 100;
@@ -77,6 +81,7 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
     private String imageUrl;
     private Tutors tutors;
     private Iterator<Map.Entry<String, View>> iterator;
+    private Intent appLinkIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,8 +94,8 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
 
         travelerUser = User.findAll(User.class).next();
         //initialize sender variables
-        clientMatricule = travelerUser == null? "" : travelerUser.getCurrent_matricule();
-        clientName = travelerUser == null? "": travelerUser.getUsername();//sharedPreferences.getString(TConstants.PREF_USERNAME,"");
+        clientMatricule = travelerUser == null ? "" : travelerUser.getCurrent_matricule();
+        clientName = travelerUser == null ? "" : travelerUser.getUsername();//sharedPreferences.getString(TConstants.PREF_USERNAME,"");
         //prepare message reference base for sending and receiving messages
         reference = FirebaseDatabase.getInstance().getReference(Tutility.FIREBASE_MESSAGES)
                 .child(clientMatricule);
@@ -107,7 +112,7 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
                 if (ActivityCompat.checkSelfPermission(MessagingActivity.this, Manifest.permission.CAMERA)
                         != PackageManager.PERMISSION_GRANTED) {
                     requestPermission();
-                }else{
+                } else {
                     //lance la Camera
                     startCameraCapture();
                 }
@@ -115,9 +120,10 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
         });
         messageRecyclerView = (RecyclerView) findViewById(R.id.messageRecyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        layoutManager.setStackFromEnd(true);
         messageRecyclerView.setLayoutManager(layoutManager);
         messageRecyclerView.setHasFixedSize(true);
-        messageBox = (EditText)findViewById(R.id.messageText);
+        messageBox = (EditText) findViewById(R.id.messageText);
         //extraMatriculeEditText = (EditText) findViewById(R.id.matriculeEditText);
 
         /*fam = (FloatingActionMenu) findViewById(R.id.fab_menu);
@@ -126,7 +132,7 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!messageBox.getText().toString().equals("")){
+                if (!messageBox.getText().toString().equals("")) {
                     String message = messageBox.getText().toString();
                     messageBox.setText("");
                     //prepare message
@@ -148,17 +154,24 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     //if task completed, update sent status
-                                    if (task.isSuccessful()){
+                                    if (task.isSuccessful()) {
                                         Map<String, Object> statusUpdate = new HashMap<>();
                                         statusUpdate.put("sent", 1);
                                         reference.child(key).updateChildren(statusUpdate);
+                                        //TODO: Find a reliable way to verify that the message was genuinely sent before evaluating tpoints
+                                        boolean isTpoints = isTpointsUpdated(null);
+                                        if (isTpoints) {
+                                            Tutility.showDialog(MessagingActivity.this, getString(R.string.rewards_title),
+                                                    getString(R.string.travel_rewards_point, TConstants.MAX_REWARDS),
+                                                    SweetAlertDialog.CUSTOM_IMAGE_TYPE);
+                                        }
                                     }
                                 }
                             });
                     imageFrame.setVisibility(View.GONE);
                     //pushMessageOnline(MessagingActivity.this, view, message, null);
 
-                }else{
+                } else {
                     Toast.makeText(MessagingActivity.this, getString(R.string.no_message), Toast.LENGTH_LONG).show();
                 }
             }
@@ -225,6 +238,10 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
         });*/
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setupMessageList(this);
+        // ATTENTION: This was auto-generated to handle app links.
+        appLinkIntent = getIntent();
+        String appLinkAction = appLinkIntent.getAction();
+        Uri appLinkData = appLinkIntent.getData();
     }
 
     @Override
@@ -251,6 +268,8 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
         //Check preference if first time so as to know if to show hints or not
         if (showHints)
             showHint(iterator);
+
+        //TODO: Handle appIntent here for replies as instant messages
     }
 
     private void showHint(Iterator<Map.Entry<String, View>> iterator) {
@@ -399,5 +418,26 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
         tutors.close();
         //set preference not to show hints again next time activity launches
         PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean(Tutility.SHOW_HINTS, false).apply();
+    }
+
+    /**
+     * Commenting at least 4 times on a given journey should earn users some tpoints
+     * @param c object to provide more criteria
+     * @return whether or not points have been gained from action
+     */
+    @Override
+    public boolean isTpointsUpdated(Object c) {
+        if (!MyPositionActivity.isCurrentTripExist())
+            return false;
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        long msgfactor = sp.getLong(TConstants.MESSAGING_FACTOR, 0) + 1;
+        sp.edit().putLong(TConstants.MESSAGING_FACTOR, msgfactor).apply();
+        if (msgfactor % 4 == 0){
+            Rewards rewards = Tutility.getAppRewards();
+            rewards.setAppComments(TConstants.MAX_REWARDS);
+            rewards.save();
+            return true;
+        }
+        return false;
     }
 }

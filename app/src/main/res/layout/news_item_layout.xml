@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/newsItemCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="bottom"
+        app:cardBackgroundColor="@color/app_white"
+        app:cardCornerRadius="0dp">
+
+        <ImageView
+            android:id="@+id/newsImagePreview"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/image_prev"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:adjustViewBounds="true"
+            app:srcCompat="@drawable/victim_m5" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/bg_news_gradient">
+            <TextView
+                android:id="@+id/newsSourceTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:textStyle="bold"
+                android:text="TITLE"
+                android:textSize="@dimen/titlesize"/>
+            <TextView
+                android:id="@+id/newsTitleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:autoLink="web"
+                android:text="Learning to Build a strong Ecosystem for drivers to driver safer and respect roads"
+                android:textSize="@dimen/titlesize"/>
+            <TextView
+                android:id="@+id/newsTimestampTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableLeft="@drawable/ic_time"
+                android:drawableStart="@drawable/ic_time"/>
+        </LinearLayout>
+        </android.support.v7.widget.CardView>
+</LinearLayout>

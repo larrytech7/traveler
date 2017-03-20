@@ -36,8 +36,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.satra.traveler.models.User;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
@@ -49,7 +47,7 @@ import java.util.Iterator;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 
-public class MainActivity extends AppCompatActivity implements OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
     final private static int DIALOG_SIGNUP = 1;
     private static final int PICK_FIRST_CONTACT = 100;
@@ -65,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private ProgressDialog progress;
+    private EditText useremail;
 
     public static Integer stringToInt(String str){
         if(str.length()==0) return 0;
@@ -81,11 +80,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null){
+                if (user != null) {
                     //user is logged-in. synchronise user info and send user to home screen
                     Log.d(LOGTAG, "user is signed in");
                     launchHomeActivity();
-                }else{
+                } else {
                     //signed out. allow user to sign in
                     Log.d(LOGTAG, "user is signed out");
                 }
@@ -94,18 +93,20 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
         final SharedPreferences sharedPreferences = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE);
 
-        contact1EditText = (EditText) findViewById(R.id.emergencyContact1EditText);
+        /*contact1EditText = (EditText) findViewById(R.id.emergencyContact1EditText);
         contact2EditText = (EditText) findViewById(R.id.emergencyContact2EditText);
         pickContactOne = (ImageButton) findViewById(R.id.buttonPickContactOne);
         pickContactTwo = (ImageButton) findViewById(R.id.buttonPickContactTwo);
 
         pickContactOne.setOnClickListener(this);
-        pickContactTwo.setOnClickListener(this);
+        pickContactTwo.setOnClickListener(this);*/
+
         //check if user account was already created and saved
         Iterator<User> musers = User.findAll(User.class);
 
-        if (musers.hasNext()){
-            //Log.d(LOGTAG, "User available: "+musers.next().getUsername());
+        if (musers.hasNext()) {
+            launchHomeActivity();
+            /*//Log.d(LOGTAG, "User available: "+musers.next().getUsername());
             progress = new ProgressDialog(MainActivity.this);
             progress.setIcon(R.mipmap.ic_launcher);
             progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -138,47 +139,46 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                                     progress.dismiss();
                                     launchHomeActivity();
                                 }
-                            });
+                            });*/
 
-        }else{
+        } else {
             mAuth.addAuthStateListener(mAuthListener);
         }
 
-        username = (EditText)findViewById(R.id.username);
-        matricule = (EditText)findViewById(R.id.matricule1);
-        noTelephone = (EditText)findViewById(R.id.no_telephone);
+        username = (EditText) findViewById(R.id.username);
+        useremail = (EditText) findViewById(R.id.useremail);
+        //matricule = (EditText)findViewById(R.id.matricule1);
+        noTelephone = (EditText) findViewById(R.id.no_telephone);
 
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.READ_PHONE_STATE)
                 == PackageManager.PERMISSION_GRANTED) {
             noTelephone.setText(((TelephonyManager) getSystemService(TELEPHONY_SERVICE)).getLine1Number());
-        }
-        else{
+        } else {
             requestPermission(android.Manifest.permission.READ_PHONE_STATE);
         }
 
-        buttonLogin = (FancyButton)findViewById(R.id.button_login);
+        buttonLogin = (FancyButton) findViewById(R.id.button_login);
 
         buttonLogin.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                if(username.getText().toString().isEmpty() ||
-                        noTelephone.getText().toString().isEmpty() ||
-                        contact1EditText.getText().toString().isEmpty()){
+                if (username.getText().toString().isEmpty() ||
+                        noTelephone.getText().toString().isEmpty()) {
 
-                    Toast.makeText(getApplicationContext(), getString(R.string.provide_all_fields)+"...", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.provide_all_fields) + "...", Toast.LENGTH_LONG).show();
                     return;
                 }
 
-                if(!matricule.getText().toString().isEmpty()&&!MyPositionActivity.IsMatch(matricule.getText().toString().toUpperCase(), getString(R.string.car_immatriculation_regex_patern))){
-                    Toast.makeText(getApplicationContext(), getString(R.string.incorrect_immatriculation_number)+"...", Toast.LENGTH_LONG).show();
+                if (!useremail.getText().toString().isEmpty() && !MyPositionActivity.IsMatch(useremail.getText().toString(), getString(R.string.email_regex_patern))) {
+                    Toast.makeText(getApplicationContext(), getString(R.string.incorrect_email) + "...", Toast.LENGTH_LONG).show();
                     return;
                 }
 
                 final AlertDialog.Builder ad = new AlertDialog.Builder(MainActivity.this);
 
                 ad.setTitle(R.string.username_confirm_title);
-                ad.setMessage(getString(R.string.username_confirm_msg) + username.getText().toString() + getString(R.string.telephone_number_confirm_msg)+noTelephone.getText().toString()+" ?");
+                ad.setMessage(getString(R.string.username_confirm_msg) + username.getText().toString() + getString(R.string.telephone_number_confirm_msg) + noTelephone.getText().toString() + " ?");
                 ad.setNegativeButton(R.string.username_confirm_no_label,
                         new android.content.DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int arg1) {
@@ -189,20 +189,22 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 ad.setPositiveButton(R.string.username_confirm_yes_label, new android.content.DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int arg1) {
 
-                                final String matriculeString = (matricule.getText().toString().isEmpty())?getString(R.string.information_not_available_label):matricule.getText().toString().toUpperCase();
+                                //final String matriculeString = (matricule.getText().toString().isEmpty())?getString(R.string.information_not_available_label):matricule.getText().toString().toUpperCase();
                                 final String telephoneString = noTelephone.getText().toString();
                                 final String usernameString = username.getText().toString();
-                                final String contact1 = contact1EditText.getText().toString();
-                                final String contact2 = (contact2EditText.getText().toString().isEmpty())?getString(R.string.information_not_available_label):contact2EditText.getText().toString();
+                                final String userEmailString = useremail.getText().toString();
+                                //final String contact1 = contact1EditText.getText().toString();
+                                //final String contact2 = (contact2EditText.getText().toString().isEmpty())?getString(R.string.information_not_available_label):contact2EditText.getText().toString();
                                 //new application/system user
                                 final User tuser = new User();
-                                tuser.setCurrent_matricule(matriculeString);
+                                tuser.setCurrent_matricule("indisponible");
                                 tuser.setPassword(Tutility.getAuthenticationEmail(telephoneString));
-                                tuser.setEmergency_primary(contact1);
-                                tuser.setEmergency_secondary(contact2);
+                                tuser.setUseremail(userEmailString);
+                                //tuser.setEmergency_primary(contact1);
+                                //tuser.setEmergency_secondary(contact2);
                                 tuser.setUserphone(telephoneString);
                                 tuser.setDate_registered(SimpleDateFormat.getDateInstance().format(new Date()));
-                                tuser.setUseremail(Tutility.getAuthenticationEmail(telephoneString));
+                                //tuser.setUseremail(Tutility.getAuthenticationEmail(telephoneString));
                                 tuser.setUsername(usernameString);
                                 tuser.setUpdated_at(System.currentTimeMillis());
                                 //progress dialog to show ongoing process
@@ -214,45 +216,43 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                                 progress.setMessage(getString(R.string.key_account_creation_loading_msg));
                                 progress.show();
                                 //signup user via firebase
-                                mAuth.createUserWithEmailAndPassword(Tutility.getAuthenticationEmail(telephoneString),
+                                mAuth.createUserWithEmailAndPassword(tuser.getUseremail(),
                                         Tutility.getAuthenticationEmail(telephoneString))
-                                .addOnSuccessListener(MainActivity.this,new OnSuccessListener<AuthResult>() {
-                                    @Override
-                                    public void onSuccess(AuthResult authResult) {
-                                        //account creation succeeded
-                                        Log.d(LOGTAG, "Account created!");
-                                        sharedPreferences.edit().putString(TConstants.PREF_MATRICULE, tuser.getCurrent_matricule()).apply();
-                                        sharedPreferences.edit().putString(TConstants.PREF_EMERGENCY_CONTACT_1, tuser.getEmergency_primary()).apply();
-                                        //save user profile to device
-                                        tuser.save();
-                                        //get user and update display name
-                                        FirebaseUser user = authResult.getUser();
-                                        UserProfileChangeRequest updateRequest = new UserProfileChangeRequest.Builder()
-                                                .setDisplayName(usernameString)
-                                                .build();
-                                        user.updateProfile(updateRequest)
-                                            .addOnCompleteListener(MainActivity.this, new OnCompleteListener<Void>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<Void> task) {
-                                                    if (task.isSuccessful()){
-                                                        Log.d(LOGTAG, "Display name updated Successfully");
-                                                    }
-                                                    progress.dismiss();
-                                                    launchHomeActivity();
-                                                }
-                                            });
-                                    }
-                                })
-                                .addOnFailureListener(MainActivity.this, new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        //account creation failed
-                                        progress.dismiss();
-                                        Tutility.showMessage(MainActivity.this, getString(R.string.signinerror),getString(R.string.app_name));
-                                        Log.e("signinerror", "error: "+e.getMessage());
+                                        .addOnSuccessListener(MainActivity.this, new OnSuccessListener<AuthResult>() {
+                                            @Override
+                                            public void onSuccess(AuthResult authResult) {
+                                                //account creation succeeded
+                                                Log.d(LOGTAG, "Account created!");
+                                                sharedPreferences.edit().putString(TConstants.PREF_MATRICULE, tuser.getCurrent_matricule()).apply();
+                                                sharedPreferences.edit().putString(TConstants.PREF_EMERGENCY_CONTACT_1, tuser.getEmergency_primary()).apply();
+                                                //save user profile to device
+                                                tuser.save();
+                                                //get user and update display name
+                                                FirebaseUser user = authResult.getUser();
+                                                UserProfileChangeRequest updateRequest = new UserProfileChangeRequest.Builder()
+                                                        .setDisplayName(usernameString)
+                                                        .build();
+                                                user.updateProfile(updateRequest)
+                                                        .addOnCompleteListener(MainActivity.this, new OnCompleteListener<Void>() {
+                                                            @Override
+                                                            public void onComplete(@NonNull Task<Void> task) {
 
-                                    }
-                                });
+                                                                progress.dismiss();
+                                                                launchHomeActivity();
+                                                            }
+                                                        });
+                                            }
+                                        })
+                                        .addOnFailureListener(MainActivity.this, new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                //account creation failed
+                                                progress.dismiss();
+                                                Tutility.showMessage(MainActivity.this, getString(R.string.signinerror, e.getMessage()), getString(R.string.app_name));
+                                                Log.e("signinerror", "error: " + e.getMessage());
+
+                                            }
+                                        });
                             }
                         }
                 );
@@ -260,6 +260,10 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             }
         });
 
+        // ATTENTION: This was auto-generated to handle app links.
+        Intent appLinkIntent = getIntent();
+        String appLinkAction = appLinkIntent.getAction();
+        Uri appLinkData = appLinkIntent.getData();
     }
 
     @Override
@@ -481,8 +485,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
+    /*@Override
     public void onClick(View v) {
+
         Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
 
         switch (v.getId()){
@@ -514,6 +519,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 }
                 break;
         }
-    }
 
+    }
+*/
 }

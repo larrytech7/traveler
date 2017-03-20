@@ -21,7 +21,7 @@
         <item>"Dammaged vehicle"</item>
         <item>"Other…"</item>
     </string-array>
-        <string name="matriculation_number">Immatriculation of vehicle</string>
+        <string name="matriculation_number">Immatriculation of vehicle (*)</string>
 
         <string name="description">Description</string>
 		    <string name="load_image">Upload a picture</string>
@@ -43,7 +43,7 @@
     <string name="phone_number">your phone number</string>
     <string name="relative_guardian">your relative name</string>
     <string name="date_heure_voyage">date and time of travel</string>
-    <string name="phone_number_guardian">relative\'s phone number</string>
+    <string name="phone_number_guardian">Relative\'s phone number (*)</string>
     <string name="confirmer_voyage">Confirm journey</string>
     <string name="end_journey">Finish journey</string>
     <string name="annuler_voyage">Cancel journey</string>
@@ -62,14 +62,14 @@
     <string name="username_confirm_title">Confirm</string>
     <string name="username_confirm_msg">"Sure to proceed with username "</string>
     <string name="username_confirm_no_label">no</string>
-    <string name="username_confirm_yes_label">yes</string>
+    <string name="username_confirm_yes_label">Yes</string>
     <string name="speed_limit_reached_ago">You have exceeded speed limit</string>
 
     <string-array name="compagnies_names">
         <item>"Personal"</item>
         <item>"Bucca Voyage"</item>
         <item>"Touristic Express"</item>
-        <item>"Finex Voyage"</item>
+        <item>"Finexs Voyage"</item>
         <item>"Camrail Intercity"</item>
         <item >"Other"</item>
     </string-array>
@@ -84,7 +84,7 @@
     <string name="about_title1">About</string>
     <string name="speed_dimen" formatted="false">%s | Speed: %s Kmph</string>
     <string name="login">Continue</string>
-    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 5.2.1</string>
+    <string name="about_message1">With Traveler, no more deaths on our roads. Let Travelr accompany you all along. Version 5.2.1</string>
     <string name="cancel">Cancel</string>
     <string name="howserious">Severity level</string>
     <string name="save">Save</string>
@@ -100,9 +100,9 @@
     <string name="travel_info">Trip information</string>
     <string name="cencel_trip_title">Cancel this trip</string>
     <string name="cencel_trip">You have chosen to cancel this trip. You can always register a new one if you need to travel again</string>
-    <string name="complete_trip">You have indicated that your journey has been completed. Thanks for using Travelr</string>
+    <string name="complete_trip">You have indicated that your journey has been completed. Thanks for using Traveler. \n%s</string>
     <string name="complete_trip_error_title">Error</string>
-    <string name="complete_trip_error">An error occured. Please try again</string>
+    <string name="complete_trip_error">An error occurred. Please try again</string>
     <string name="complete_trip_title">Trip completed</string>
     <string name="myposition">My current location</string>
     <string name="votre_message">Your Message</string>
@@ -198,7 +198,7 @@
     <string name="start_marker_string">Departure</string>
     <string name="travelr_secure_your_trip">Traveler is securing your trip</string>
     <string name="assurance_voyage">Travel insurance</string>
-    <string name="signinerror">Phone number already used</string>
+    <string name="signinerror">%s</string>
     <string name="select_insurance_plan">Pick an insurance plan below</string>
     <string name="pro_insurance">Pro (Week)</string>
     <string name="modest_insurance">Modest (Aller-retour)</string>
@@ -226,6 +226,24 @@
     <string name="title_predict">Predict Accidents</string>
 
     <string name="message_hint">Send your message with this button. If you have an image that accompanies it, let it load completely before sending your message.</string>
+    <string name="share_app">Share App</string>
+    <string name="share_app_text">Hey! Download Traveler Here https://play.google.com/store/apps/details?id=com.satra.traveler , and let your family or friends alert about your journey. Traveler keeps you alert and safe from road incidents</string>
+    <string name="register_rewards_title">Great! Now get points</string>
+    <string name="register_rewards_content">You are just few steps away from claiming fidelity point, TPoints. Accumulate these points and get the chance to win a free VIP trip from one of our Travel partners. Complete your journeys to claim points.</string>
+    <string name="incorrect_email">Invalid Email. Try again</string>
+    <string name="rewards_content">You can now win fidelity points by engaging with the traveler application whenever you are travelling. Register your journey to get started.</string>
+    <string name="second_phone_number_guardian">Secondary emergency contact</string>
+    <string name="rewards_title">Accumulate and win points</string>
+    <string name="travel_rewards_point">Bravo! You have gained %d TPoints for this action</string>
+    <string name="share_app_reward">Hurray! You just got a few more TPoints. Keep sharing the app to accumulate more TPoints.</string>
+    <string name="reply">Comment</string>
+    <string name="new_comments">%d new comment(s)</string>
+    <string name="nav_news_menu">Trending</string>
+    <string name="action_settings">About</string>
+    <string name="title_activity_news_detail">News Detail</string>
+    <string name="comment">comment</string>
+    <string name="share">share</string>
+    <string name="votre_commentaire">say something</string>
 
 
 </resources>

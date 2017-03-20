@@ -1,5 +1,6 @@
 package com.satra.traveler;
 
+import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -20,8 +21,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -47,7 +50,7 @@ import static com.satra.traveler.MyPositionActivity.getCurrentTrip;
 /**
  * Created by Steve Jeff on 17/04/2016.
  */
-public class SpeedMeterService extends Service implements SensorEventListener {
+public class SpeedMeterService extends Service implements SensorEventListener, OnFailureListener{
 
     private static final int NBRE_MAX_ITERATION_POUR_MOYENNE_VITESSES = 3;
     private static final int MAX_VITESSE_METRE_SECONDE = 0;
@@ -57,7 +60,7 @@ public class SpeedMeterService extends Service implements SensorEventListener {
     private static final int ERREUR_ACCEPTE_VITESSE_MAX=2;
     private static final int MAX_SPEED_TO_ALERT_KMH = 80;
     private static final long INTERVAL_BETWEEN_UPDATES = 10000;
-    private static final float MAX_NORMAL_ACCELERATION_COEFF = 5.0f;//5;
+    private static final float MAX_NORMAL_ACCELERATION_COEFF = 5.0f;
 
     private static final int TIME_TO_WAIT_FOR_SPEED_OVERHEAD_CONFIRMATION=5000;
     private Long durationElapsed = null;
@@ -125,7 +128,6 @@ public class SpeedMeterService extends Service implements SensorEventListener {
         super.onCreate();
         start();
         //subscribe to FCM services to receive incoming notifs
-        FirebaseMessaging.getInstance().subscribeToTopic(TConstants.FIREBASE_MESSAGING_TOPIC);
         FirebaseMessaging.getInstance().subscribeToTopic(TConstants.FIREBASE_AD_TOPIC);
 
     }
@@ -217,10 +219,14 @@ public class SpeedMeterService extends Service implements SensorEventListener {
             float z = mGravity[2];
             mAccelLast = mAccelCurrent;
             mAccelCurrent = (float) Math.sqrt(x*x + y*y + z*z);
+            float mspeed = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE).getFloat(TConstants.SPEED_PREF, 0.0f)* COEFF_CONVERSION_MS_KMH;
 
-            if(MyPositionActivity.isCurrentTripExist()&&mAccelCurrent/SensorManager.GRAVITY_EARTH>=MAX_NORMAL_ACCELERATION_COEFF){
-                //Log.e("Accident detected: ", " -- mAccelCurrent: "+mAccelCurrent+" -- mAccelCurrent/9.8: "+(mAccelCurrent/SensorManager.GRAVITY_EARTH));
-                notifyAlert(mAccelCurrent/SensorManager.GRAVITY_EARTH);
+            if(mspeed >= 25f) { //speed to get that this is a moving vehicle
+                if (MyPositionActivity.isCurrentTripExist() &&
+                        mAccelCurrent / SensorManager.GRAVITY_EARTH >= MAX_NORMAL_ACCELERATION_COEFF &&
+                        mAccelCurrent < (100f * SensorManager.GRAVITY_EARTH) ) {
+                    //Log.e("Accident detected: ", " -- mAccelCurrent: "+mAccelCurrent+" -- mAccelCurrent/9.8: "+(mAccelCurrent/SensorManager.GRAVITY_EARTH));
+                    notifyAlert(mAccelCurrent / SensorManager.GRAVITY_EARTH);
 
                 /*
                  * Construire l'objet accident. L'objet a transmettre dans le setValue() method doit avoir ces proprietes
@@ -234,28 +240,57 @@ public class SpeedMeterService extends Service implements SensorEventListener {
                  * timestamp - l'emprunte du temps de l'enregistrement de cet notification
                  */
 
-                //TODO: Quantify change in acceleration to deduce magnitude of impact
-                //User travelerUser = User.findAll(User.class).next();
+                    //TODO: Quantify change in acceleration to deduce magnitude of impact
 
-                Trip trip = MyPositionActivity.getCurrentTrip();
+                    Trip trip = MyPositionActivity.getCurrentTrip();
 
-                Incident incident = new Incident();
+                    Incident incident = new Incident();
 
-                incident.setKey(trip.getTripKey());
-                incident.setMatricule(travelerUser.getCurrent_matricule());
-                incident.setAgency(trip.getAgency_name());
-                incident.setSpeed(getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE).getFloat(TConstants.SPEED_PREF, 0.0f)* COEFF_CONVERSION_MS_KMH);
-                incident.setAcc(mAccelCurrent);
-                incident.setAcc_last(mAccelLast);
-                incident.setLongitude(location == null? 0: location.getLongitude());
-                incident.setLatitude(location == null? 0: location.getLatitude());
-                incident.setTimestamp(System.nanoTime());
-                incident.setType(1);
+                    incident.setKey(trip.getTripKey());
+                    incident.setMatricule(travelerUser.getCurrent_matricule());
+                    incident.setAgency(trip.getAgency_name());
+                    incident.setSpeed(mspeed);
+                    incident.setAcc(mAccelCurrent / SensorManager.GRAVITY_EARTH);
+                    incident.setAcc_last(mAccelLast);
+                    incident.setLongitude(location == null ? 0 : location.getLongitude());
+                    incident.setLatitude(location == null ? 0 : location.getLatitude());
+                    incident.setTimestamp(System.currentTimeMillis());
+                    incident.setType(1);
 
                     //FirebaseDatabase.getInstance().getReference().child(TConstants.FIREBASE_NOTIFICATION)
-                            baseReference.child(TConstants.FIREBASE_NOTIF_ACCIDENT)
+                    baseReference.child(TConstants.FIREBASE_NOTIF_ACCIDENT)
                             .push()
-                            .setValue(incident);
+                            .setValue(incident)
+                            .addOnFailureListener((Activity) getApplicationContext(), this);
+                }
+            }else{
+                //for stationary object, impact should increase acceleration
+                if (MyPositionActivity.isCurrentTripExist() &&
+                        mAccelCurrent / SensorManager.GRAVITY_EARTH >= 3.0f &&
+                        mAccelCurrent < (100f * SensorManager.GRAVITY_EARTH)) {
+                    //Log.e("Accident detected: ", " -- mAccelCurrent: "+mAccelCurrent+" -- mAccelCurrent/9.8: "+(mAccelCurrent/SensorManager.GRAVITY_EARTH));
+                    notifyAlert(mAccelCurrent / SensorManager.GRAVITY_EARTH);
+
+                    Trip trip = MyPositionActivity.getCurrentTrip();
+
+                    Incident incident = new Incident();
+
+                    incident.setKey(trip.getTripKey());
+                    incident.setMatricule(travelerUser.getCurrent_matricule());
+                    incident.setAgency(trip.getAgency_name());
+                    incident.setSpeed(mspeed);
+                    incident.setAcc(mAccelCurrent / SensorManager.GRAVITY_EARTH);
+                    incident.setAcc_last(mAccelLast);
+                    incident.setLongitude(location == null ? 0 : location.getLongitude());
+                    incident.setLatitude(location == null ? 0 : location.getLatitude());
+                    incident.setTimestamp(System.currentTimeMillis());
+                    incident.setType(1);
+
+                    baseReference.child(TConstants.FIREBASE_NOTIF_ACCIDENT)
+                            .push()
+                            .setValue(incident)
+                            .addOnFailureListener((Activity) getApplicationContext(), this);
+                }
             }
 
         }
@@ -518,7 +553,7 @@ public class SpeedMeterService extends Service implements SensorEventListener {
         data.setTimestamp(timestamp);
         data.setLatitude(location.getLatitude());
         data.setLongitude(location.getLongitude());
-        data.setSpeed(vitesse * COEFF_CONVERSION_MS_KMH);
+        data.setSpeed(Math.round(vitesse * 100f) / 100f);
         data.setTrackingMatricule(trip.getBus_immatriculation());
         data.setSender(travelerUser.getUserphone());
         data.setBearing(0f);
@@ -529,11 +564,11 @@ public class SpeedMeterService extends Service implements SensorEventListener {
                 .child(TConstants.FIREBASE_DATA)
                 .push()
                 .setValue(data);
-        databaseReference.child(trip.getBus_immatriculation())
+        /*databaseReference.child(trip.getBus_immatriculation())
                 .child(trip.getTripKey())
                 .child(TConstants.FIREBASE_TEMP_DATA)
                 .push()
-                .setValue(data);
+                .setValue(data);*/
 
         if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_TO_ALERT_KMH) {
             if (!hasReachLimit) {
@@ -747,6 +782,12 @@ public class SpeedMeterService extends Service implements SensorEventListener {
                 e.printStackTrace();
             }
         }
+
+    }
+
+    @Override
+    public void onFailure(@NonNull Exception e) {
+        //TODO: Send impact notifications via SMS when offline and sending alerts fail
 
     }
 }

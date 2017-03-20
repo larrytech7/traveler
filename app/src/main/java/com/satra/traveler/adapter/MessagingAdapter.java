@@ -84,31 +84,29 @@ public class MessagingAdapter extends FirebaseRecyclerAdapter<Messages, Messagin
         holder.messageDate.setText(Tutility.getTimeDifference(context, model.getTimestamp(), System.nanoTime(), model.getDate()));
         int status = model.getSent();
         if (status == 1){
-            holder.messageStatusText.setText(context.getString(R.string.message_received));
-            holder.messageStatusText.setCompoundDrawablesWithIntrinsicBounds(null, null, context.getResources().getDrawable(R.drawable.ic_done), null);
+            holder.messageDate.setCompoundDrawablesWithIntrinsicBounds(null, null, context.getResources().getDrawable(R.drawable.ic_done), null);
         }else{
-            holder.messageStatusText.setText(context.getString(R.string.message_not_received));
-            holder.messageStatusText.setCompoundDrawablesWithIntrinsicBounds(null, null, context.getResources().getDrawable(R.drawable.ic_done_one), null);
+            holder.messageDate.setCompoundDrawablesWithIntrinsicBounds(null, null, context.getResources().getDrawable(R.drawable.ic_done_one), null);
         }
         if (model.getImageUrl() != null && !model.getImageUrl().isEmpty())
             Glide.with(context)
                     .load(Uri.parse(model.getImageUrl()))
-                    .placeholder(R.drawable.loading)
+                    .placeholder(R.drawable.loader)
                     .crossFade()
                     .into(holder.mediaImage);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView messageText, messageMatricule, messageDate, messageStatusText;
-        ImageView mediaImage;
+        final TextView messageText, messageMatricule, messageDate;//, messageStatusText;
+        final ImageView mediaImage;
 
         ViewHolder(View itemView) {
             super(itemView);
             messageText = (TextView) itemView.findViewById(R.id.messageContent);
             messageMatricule = (TextView) itemView.findViewById(R.id.messageMatricule);
             messageDate = (TextView) itemView.findViewById(R.id.messageDate);
-            messageStatusText = (TextView) itemView.findViewById(R.id.messageStatusText);
+            //messageStatusText = (TextView) itemView.findViewById(R.id.messageStatusText);
             mediaImage = (ImageView) itemView.findViewById(R.id.mediaImageView);
         }
     }

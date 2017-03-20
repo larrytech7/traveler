@@ -42,6 +42,8 @@ public class Trip extends SugarRecord implements Serializable{
 
     private double departureLongitude;
 
+    private long start,end;
+
     User user;
 
     public double getDestinationLatitude() {
@@ -176,4 +178,19 @@ public class Trip extends SugarRecord implements Serializable{
                 +"\nStatus -> "+status;
     }
 
+    public long getStart() {
+        return start;
+    }
+
+    public void setStart(long start) {
+        this.start = start;
+    }
+
+    public long getEnd() {
+        return end;
+    }
+
+    public void setEnd(long end) {
+        this.end = end;
+    }
 }

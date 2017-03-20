@@ -20,7 +20,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        //TODO: Decide whether or not to create and show splash
+        // Decide whether or not to create and show splash
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         boolean showSplash = sp.getBoolean(TConstants.PREFERENCE_SPLASH, true);
         if (!showSplash) {

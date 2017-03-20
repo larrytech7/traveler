@@ -61,4 +61,18 @@ public class TConstants {
 
     public static final String FIREBASE_AD_TOPIC = "ads_";
     public static final String PREFERENCE_SPLASH = "SHOW_SPLASH";
+    public static final int TRIP_TPOINTS = 5; //points gained by completing a trip
+    public static final String AID_ACTIVITY_NAVIGATION_START_TIME = "AID_NAV_START";
+    public static final String VICTIM_ACTIVITY_NAVIGATION_START_TIME = "VICTIM_NAV_START";
+    public static final String MESSAGING_FACTOR = "MESSAGING_FACTOR";
+    public static final int MAX_REWARDS = 10;
+    public static final int MED_REWARDS = 5;
+    public static final int MIN_REWARDS = 3;
+    public static final String INSTANT_REPLY = "instant_reply_comment";
+    public static final String FIREBASE_NEWS_FEED = "news";
+    public static final String NEWS_DETAIL_KEY = "FIREBASE_NEWS_KEY";
+    public static final String NEWS_DETAIL_CONTENT = "NEWS_CONTENT";
+    public static final String NEWS_DETAIL_TIME = "NEWS_TIMESTAMP";
+    public static final String NEWS_AUTHOR = "AUTHOR_NEWS";
+    public static final String NEWS_TITLE = "NEWS_TITLE";
 }

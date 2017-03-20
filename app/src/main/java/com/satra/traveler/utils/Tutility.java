@@ -4,6 +4,10 @@ import android.content.Context;
 import android.support.v7.app.AlertDialog;
 
 import com.satra.traveler.R;
+import com.satra.traveler.models.Rewards;
+import com.satra.traveler.models.User;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 /**
  * Created by Larry Akah on 6/11/16.
@@ -78,7 +82,39 @@ public class Tutility {
         return date;
     }
 
+    public static String getMicroTimeString(Context  c, long previousTimestamp, long currentTimeStamp, String date ){
+        long diff = Math.abs(currentTimeStamp - previousTimestamp); //avoid negative values however
+        if (diff > 864 * Math.pow(10,5))
+            return date;
+        //now do calculations and round up to nearest second, minute or hour
+        double intervalInSeconds = diff / Math.pow(10, 3); //convert to seconds
+        if (intervalInSeconds < 60)
+            return c.getString(R.string.timeinterval, Math.round(intervalInSeconds), "s"); //time in seconds
+        if (intervalInSeconds < 3600)
+            return c.getString(R.string.timeinterval, Math.round((intervalInSeconds / 60 )), "m"); //time in minutes
+        if (intervalInSeconds > 3600)
+            return c.getString(R.string.timeinterval, Math.round((intervalInSeconds / 3600 )), "h"); //time in hours
+        return date;
+    }
+
     public static String getTripKeyAsString(String departure, String destination, String date){
         return departure+"_"+destination+"_"+date;
+    }
+
+    public static void showDialog(Context ctx, String title, String content, int dialogType){
+        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(ctx, dialogType)
+                .setTitleText(title)
+                .setContentText(content)
+                .setCustomImage(R.mipmap.ic_trophy);
+        sweetAlertDialog.show();
+    }
+
+    public static Rewards getAppRewards(){
+        Rewards reward = Rewards.last(Rewards.class);
+        return reward == null? new Rewards() : reward;
+    }
+
+    public static User getAppUser() {
+        return User.last(User.class);
     }
 }
