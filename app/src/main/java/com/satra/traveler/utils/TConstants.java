@@ -75,4 +75,5 @@ public class TConstants {
     public static final String NEWS_DETAIL_TIME = "NEWS_TIMESTAMP";
     public static final String NEWS_AUTHOR = "AUTHOR_NEWS";
     public static final String NEWS_TITLE = "NEWS_TITLE";
+    public static final String NEWS_MEDIA_LINK = "MEDIA_LINK";
 }

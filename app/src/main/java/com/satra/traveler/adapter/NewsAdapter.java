@@ -65,6 +65,7 @@ public class NewsAdapter extends FirebaseRecyclerAdapter<News, NewsAdapter.ViewH
                     .load(Uri.parse(model.getNewsMultimediaLink()))
                     .placeholder(R.drawable.loading_drawable)
                     .crossFade()
+                    .error(R.drawable.ic_launcher)
                     .into(viewHolder.newsImageView);
         setAnimation(viewHolder.newsCard, position);
         setListener(viewHolder.newsCard, position);
@@ -84,6 +85,7 @@ public class NewsAdapter extends FirebaseRecyclerAdapter<News, NewsAdapter.ViewH
                 detailIntent.putExtra(TConstants.NEWS_DETAIL_CONTENT, newsItem.getNewsContent());
                 detailIntent.putExtra(TConstants.NEWS_TITLE, newsItem.getNewsTitle());
                 detailIntent.putExtra(TConstants.NEWS_DETAIL_TIME, newsItem.getNewsTimeStamp());
+                detailIntent.putExtra(TConstants.NEWS_MEDIA_LINK, newsItem.getNewsMultimediaLink());
                 c.startActivity(detailIntent);
                 //Log.d("NewsAdapter", "model key: "+modelKey);
             }

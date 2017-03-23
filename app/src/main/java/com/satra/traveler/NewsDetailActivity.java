@@ -1,6 +1,7 @@
 package com.satra.traveler;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
@@ -11,8 +12,10 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -38,8 +41,10 @@ public class NewsDetailActivity extends AppCompatActivity {
     private BottomSheetBehavior<View> bottomSheetBehavior;
     private RecyclerView commentsRecyclerView;
     private TextView commentsTitleTextView;
+    private ImageView detailImageView;
     private DatabaseReference databaseReference;
     private User travelerUser;
+    private String newsImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +54,7 @@ public class NewsDetailActivity extends AppCompatActivity {
 
         contentTextView = (TextView) findViewById(R.id.newsContentTextView);
         dateTextView = (TextView) findViewById(R.id.newsDetailTimestampTextView);
+        detailImageView = (ImageView) findViewById(R.id.detailImageViewPreview);
         //comments view
         commentsRecyclerView = (RecyclerView) findViewById(R.id.commentsRecyclerView);
         commentsRecyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -63,6 +69,7 @@ public class NewsDetailActivity extends AppCompatActivity {
             timestamp = itemIntent.getLongExtra(TConstants.NEWS_DETAIL_TIME, 0);
             newsAuthor = itemIntent.getStringExtra(TConstants.NEWS_AUTHOR);
             newsTitle = itemIntent.getStringExtra(TConstants.NEWS_TITLE);
+            newsImage = itemIntent.getStringExtra(TConstants.NEWS_MEDIA_LINK);
             Log.d(LOGTAG, "Key: "+newsDetailKey);
             toolbar.setTitle(newsTitle);
             toolbar.setSubtitle(newsAuthor);
@@ -166,6 +173,12 @@ public class NewsDetailActivity extends AppCompatActivity {
         travelerUser = User.findAll(User.class).next();
         loadComments(newsDetailKey);
         commentsTitleTextView.setText(getString(R.string.new_comments, commentsRecyclerView.getAdapter().getItemCount()));
+            Glide.with(this)
+                    .load(Uri.parse(newsImage))
+                    .placeholder(R.drawable.loading_drawable)
+                    .crossFade()
+                    .error(R.drawable.ic_launcher_web)
+                    .into(detailImageView);
     }
 
     @Override
