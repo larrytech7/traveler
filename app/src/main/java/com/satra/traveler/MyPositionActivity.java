@@ -25,6 +25,7 @@ import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.support.annotation.StringRes;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -249,55 +250,57 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         navigationView.setNavigationItemSelectedListener(navigationItemListener);
 
 
+        
+        
         addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_1, getString(R.string.town_1)));
+                .getString(TConstants.PREF_FROM_1, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_1", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_2, getString(R.string.town_2)));
+                .getString(TConstants.PREF_FROM_2, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_2", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_3, getString(R.string.town_3)));
+                .getString(TConstants.PREF_FROM_3, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_3", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_4, getString(R.string.town_4)));
+                .getString(TConstants.PREF_FROM_4, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_4", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_5, getString(R.string.town_5)));
+                .getString(TConstants.PREF_FROM_5, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_5", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_6, getString(R.string.town_6)));
+                .getString(TConstants.PREF_FROM_6, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_6", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_7, getString(R.string.town_7)));
+                .getString(TConstants.PREF_FROM_7, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_7", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_8, getString(R.string.town_8)));
+                .getString(TConstants.PREF_FROM_8, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_8", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_10, getString(R.string.town_10)));
+                .getString(TConstants.PREF_FROM_10, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_10", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_11, getString(R.string.town_11)));
+                .getString(TConstants.PREF_FROM_11, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_11", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_12, getString(R.string.town_12)));
+                .getString(TConstants.PREF_FROM_12, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_12", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_13, getString(R.string.town_13)));
+                .getString(TConstants.PREF_FROM_13, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_13", R.string.class))));
 
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_1, getString(R.string.town_2)));
+                .getString(TConstants.PREF_TO_1, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_2", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_2, getString(R.string.town_1)));
+                .getString(TConstants.PREF_TO_2, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_1", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_3, getString(R.string.town_3)));
+                .getString(TConstants.PREF_TO_3, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_3", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_4, getString(R.string.town_4)));
+                .getString(TConstants.PREF_TO_4, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_4", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_5, getString(R.string.town_5)));
+                .getString(TConstants.PREF_TO_5, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_5", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_6, getString(R.string.town_6)));
+                .getString(TConstants.PREF_TO_6, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_6", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_7, getString(R.string.town_7)));
+                .getString(TConstants.PREF_TO_7, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_7", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_8, getString(R.string.town_8)));
+                .getString(TConstants.PREF_TO_8, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_8", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_10, getString(R.string.town_10)));
+                .getString(TConstants.PREF_TO_10, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_10", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_11, getString(R.string.town_11)));
+                .getString(TConstants.PREF_TO_11, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_11", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_12, getString(R.string.town_12)));
+                .getString(TConstants.PREF_TO_12, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_12", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_13, getString(R.string.town_13)));
+                .getString(TConstants.PREF_TO_13, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_13", R.string.class))));
 
         final TextView usernameTextview = ((TextView) navigationView.getHeaderView(0).findViewById(R.id.username));
         usernameTextview.setText(travelerUser == null ? "anonyme" : travelerUser.getUsername());
@@ -600,6 +603,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 dialogbuilder.setView(dialogview);
                 dialogDetails = dialogbuilder.create();
 
+
                 break;
         }
 
@@ -678,7 +682,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             problemLevelLabel.setVisibility(View.VISIBLE);
                         } else if (position == 2) {
                             busImmatriculation.setEnabled(false);
-                            busImmatriculation.setText(R.string.immatriculation_example);
+                            busImmatriculation.setText(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"immatriculation_example", R.string.class));
                         }
                     }
 
@@ -703,8 +707,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             return;
                         }
 
-                        if (!IsMatch(busImmatriculation.getText().toString().toUpperCase(), getString(R.string.car_immatriculation_regex_patern))) {
-                            Toast.makeText(getApplicationContext(), getString(R.string.incorrect_immatriculation_number) + "...", Toast.LENGTH_LONG).show();
+                        if (!IsMatch(busImmatriculation.getText().toString().toUpperCase(), getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"car_immatriculation_regex_patern", R.string.class)))) {
+                            Toast.makeText(getApplicationContext(), getString(R.string.incorrect_immatriculation_number)+" "+ getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"immatriculation_example", R.string.class)), Toast.LENGTH_LONG).show();
                             return;
                         }
                         Toast.makeText(getApplicationContext(), getString(R.string.problem_saved_successfull) + "... ", Toast.LENGTH_LONG).show();
@@ -739,7 +743,21 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
                 setToSpinner();
 
-                mTrip.setAgency_name(getResources().getStringArray(R.array.compagnies_names)[0]);
+
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                        this, android.R.layout.simple_spinner_item,
+                        getApplicationContext().getResources().getStringArray(
+                                MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"compagnies_names", R.array.class)
+                        ));
+
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                companyName.setAdapter(adapter);
+
+               
+
+                mTrip.setAgency_name(getResources().getStringArray(MainActivity.getResId(
+                        prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+
+                                "compagnies_names", R.array.class))[0]);
 
 
                 final EditText busMatriculationNumber = (EditText) alertDialog.findViewById(R.id.matriculation_number_of_bus);
@@ -751,7 +769,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 guardianPhoneNumber.setText(travelerUser.getEmergency_primary());
                 guardianPhoneNumberSecondary.setText(travelerUser.getEmergency_secondary());
 
-                busMatriculationNumber.setText(IsMatch(prefs.getString(TConstants.PREF_MATRICULE, "").toUpperCase(), getString(R.string.car_immatriculation_regex_patern))?
+                busMatriculationNumber.setText(IsMatch(prefs.getString(TConstants.PREF_MATRICULE, "").toUpperCase(), getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"car_immatriculation_regex_patern", R.string.class)))?
                         prefs.getString(TConstants.PREF_MATRICULE, "").toUpperCase():"");
 
                 buttonSave = (FancyButton) alertDialog.findViewById(R.id.button_save);
@@ -868,9 +886,9 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             return;
                         }
 
-                        if (!IsMatch(busMatriculationNumber.getText().toString().toUpperCase(), getString(R.string.car_immatriculation_regex_patern))) {
-                            Log.e("regex: ", "pattern: " + getString(R.string.incorrect_immatriculation_number));
-                            Toast.makeText(getApplicationContext(), getString(R.string.incorrect_immatriculation_number), Toast.LENGTH_LONG).show();
+                        if (!IsMatch(busMatriculationNumber.getText().toString().toUpperCase(), getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"car_immatriculation_regex_patern", R.string.class)))) {
+                            Log.e("regex: ", "pattern: " + getString(R.string.incorrect_immatriculation_number)+" "+ getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"immatriculation_example", R.string.class)));
+                            Toast.makeText(getApplicationContext(), getString(R.string.incorrect_immatriculation_number)+" "+ getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"immatriculation_example", R.string.class)), Toast.LENGTH_LONG).show();
                             dialog.findViewById(R.id.tripProgressbar).setVisibility(View.GONE);
                             return;
                         }
@@ -954,29 +972,29 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private void setToSpinner() {
         List<String> listTo = new ArrayList<>();
         listTo.add(0, prefs
-                .getString(TConstants.PREF_TO_1, getString(R.string.town_2)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_1, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_2", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(1, prefs
-                .getString(TConstants.PREF_TO_2, getString(R.string.town_1)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_2, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_1", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(2, prefs
-                .getString(TConstants.PREF_TO_3, getString(R.string.town_3)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_3, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_3", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(3, prefs
-                .getString(TConstants.PREF_TO_4, getString(R.string.town_4)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_4, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_4", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(4, prefs
-                .getString(TConstants.PREF_TO_5, getString(R.string.town_5)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_5, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_5", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(5, prefs
-                .getString(TConstants.PREF_TO_6, getString(R.string.town_6)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_6, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_6", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(6, prefs
-                .getString(TConstants.PREF_TO_7, getString(R.string.town_7)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_7, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_7", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(7, prefs
-                .getString(TConstants.PREF_TO_8, getString(R.string.town_8)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_8, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_8", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(8, prefs
-                .getString(TConstants.PREF_TO_10, getString(R.string.town_10)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_10, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_10", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(9, prefs
-                .getString(TConstants.PREF_TO_11, getString(R.string.town_11)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_11, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_11", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(10, prefs
-                .getString(TConstants.PREF_TO_12, getString(R.string.town_12)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_12, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_12", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(11, prefs
-                .getString(TConstants.PREF_TO_13, getString(R.string.town_13)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_13, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_13", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(12, getString(R.string.place_list_option_choose));
 
         ArrayAdapter<String> toAdapter = new ArrayAdapter<>(MyPositionActivity.this,
@@ -996,29 +1014,29 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private void setFromSpinner() {
         List<String> listFrom = new ArrayList<>();
         listFrom.add(0, prefs
-                .getString(TConstants.PREF_FROM_1, getString(R.string.town_1)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_1, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_1", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(1, prefs
-                .getString(TConstants.PREF_FROM_2, getString(R.string.town_2)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_2, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_2", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(2, prefs
-                .getString(TConstants.PREF_FROM_3, getString(R.string.town_3)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_3, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_3", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(3, prefs
-                .getString(TConstants.PREF_FROM_4, getString(R.string.town_4)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_4, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_4", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(4, prefs
-                .getString(TConstants.PREF_FROM_5, getString(R.string.town_5)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_5, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_5", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(5, prefs
-                .getString(TConstants.PREF_FROM_6, getString(R.string.town_6)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_6, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_6", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(6, prefs
-                .getString(TConstants.PREF_FROM_7, getString(R.string.town_7)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_7, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_7", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(7, prefs
-                .getString(TConstants.PREF_FROM_8, getString(R.string.town_8)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_8, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_8", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(8, prefs
-                .getString(TConstants.PREF_FROM_10, getString(R.string.town_10)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_10, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_10", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(9, prefs
-                .getString(TConstants.PREF_FROM_11, getString(R.string.town_11)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_11, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_11", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(10, prefs
-                .getString(TConstants.PREF_FROM_12, getString(R.string.town_12)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_12, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_12", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(11, prefs
-                .getString(TConstants.PREF_FROM_13, getString(R.string.town_13)).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_13, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_13", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(12, getString(R.string.place_list_option_choose));
 
         ArrayAdapter<String> fromAdapter = new ArrayAdapter<>(MyPositionActivity.this,
@@ -1278,15 +1296,15 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putString(TConstants.PREF_FROM_6, prefs
-                            .getString(TConstants.PREF_FROM_5, getString(R.string.town_5)));
+                            .getString(TConstants.PREF_FROM_5, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_5", R.string.class))));
                     editor.putString(TConstants.PREF_FROM_5, prefs
-                            .getString(TConstants.PREF_FROM_4, getString(R.string.town_4)));
+                            .getString(TConstants.PREF_FROM_4, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_4", R.string.class))));
                     editor.putString(TConstants.PREF_FROM_4, prefs
-                            .getString(TConstants.PREF_FROM_3, getString(R.string.town_3)));
+                            .getString(TConstants.PREF_FROM_3, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_3", R.string.class))));
                     editor.putString(TConstants.PREF_FROM_3, prefs
-                            .getString(TConstants.PREF_FROM_2, getString(R.string.town_2)));
+                            .getString(TConstants.PREF_FROM_2, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_2", R.string.class))));
                     editor.putString(TConstants.PREF_FROM_2, prefs
-                            .getString(TConstants.PREF_FROM_1, getString(R.string.town_1)));
+                            .getString(TConstants.PREF_FROM_1, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_1", R.string.class))));
                     editor.putString(TConstants.PREF_FROM_1, name+"|"+place.getLatLng().latitude+"|"+place.getLatLng().longitude);
 
                     editor.commit();
@@ -1316,15 +1334,15 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                     SharedPreferences.Editor editor = prefs.edit();
 
                     editor.putString(TConstants.PREF_TO_6, prefs
-                            .getString(TConstants.PREF_TO_5, getString(R.string.town_5)));
+                            .getString(TConstants.PREF_TO_5, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_5", R.string.class))));
                     editor.putString(TConstants.PREF_TO_5, prefs
-                            .getString(TConstants.PREF_TO_4, getString(R.string.town_4)));
+                            .getString(TConstants.PREF_TO_4, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_4", R.string.class))));
                     editor.putString(TConstants.PREF_TO_4, prefs
-                            .getString(TConstants.PREF_TO_3, getString(R.string.town_3)));
+                            .getString(TConstants.PREF_TO_3, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_3", R.string.class))));
                     editor.putString(TConstants.PREF_TO_3, prefs
-                            .getString(TConstants.PREF_TO_2, getString(R.string.town_1)));
+                            .getString(TConstants.PREF_TO_2, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_1", R.string.class))));
                     editor.putString(TConstants.PREF_TO_2, prefs
-                            .getString(TConstants.PREF_TO_1, getString(R.string.town_2)));
+                            .getString(TConstants.PREF_TO_1, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_2", R.string.class))));
                     editor.putString(TConstants.PREF_TO_1, name+"|"+place.getLatLng().latitude+"|"+place.getLatLng().longitude);
 
                     editor.commit();

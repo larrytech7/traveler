@@ -31,7 +31,7 @@
     <string name="connexion_with_username">Connected with the username </string>
     <string name="provide_car_immatriculation_number">Please fill out at least the immatriculation\'s number</string>
     <string name="provide_problem_description">Please describe your complaint </string>
-    <string name="incorrect_immatriculation_number">Incorrect Immatriculation number (eg: CE111AA)</string>
+    <string name="incorrect_immatriculation_number">Incorrect Immatriculation number</string>
     <string name="problem_saved_successfull">problem/complaint saved successfully </string>
     <string name="error_occur_please_retry">An error occurred; Please try again</string>
     <string name="provide_all_fields">Please complete all fields with *</string>
@@ -65,7 +65,19 @@
     <string name="username_confirm_yes_label">Yes</string>
     <string name="speed_limit_reached_ago">You have exceeded speed limit</string>
 
-    <string-array name="compagnies_names">
+
+
+    <string-array name="countries">
+        <item>"Cameroon"</item>
+        <item>"France"</item>
+    </string-array>
+
+
+
+
+    <!-- CAMEROON LOCALIZE STRING -->
+
+    <string-array name="cmr_compagnies_names">
         <item>"Personal"</item>
         <item>"Bucca Voyage"</item>
         <item>"Touristic Express"</item>
@@ -73,6 +85,28 @@
         <item>"Camrail Intercity"</item>
         <item >"Other"</item>
     </string-array>
+
+    <!-- END CAMEROON LOCALIZE STRING -->
+
+
+
+
+    <!-- FRANCE LOCALIZE STRING -->
+
+    <string-array name="fr_compagnies_names">
+        <item>"SNCF"</item>
+        <item>"TRANSDEV"</item>
+        <item>"RATP"</item>
+        <item>"OPTILE"</item>
+        <item>"PROCARS"</item>
+        <item>"Other"</item>
+    </string-array>
+
+    <!-- END FRANCE LOCALIZE STRING -->
+
+
+
+
     
     <string-array name="problem_level">
         <item>"1- not so serious"</item>
@@ -84,7 +118,7 @@
     <string name="about_title1">About</string>
     <string name="speed_dimen" formatted="false">%s | Speed: %s Kmph</string>
     <string name="login">Continue</string>
-    <string name="about_message1">With Traveler, no more deaths on our roads. Let Travelr accompany you all along. Version 5.2.11</string>
+    <string name="about_message1">With Traveler, no more deaths on our roads. Let Travelr accompany you all along. Version 5.2.2</string>
     <string name="cancel">Cancel</string>
     <string name="howserious">Severity level</string>
     <string name="save">Save</string>

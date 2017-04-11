@@ -24,8 +24,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -41,6 +44,7 @@ import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
@@ -56,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     private static int contactToPick=0;
     private static int GET_FROM_GALLERY=2;
     EditText username, matricule, noTelephone, contact1EditText, contact2EditText;
+    Spinner userCountry;
     FancyButton buttonLogin;
     ImageButton profilePicture, pickContactOne, pickContactTwo;
 
@@ -150,6 +155,36 @@ public class MainActivity extends AppCompatActivity {
         //matricule = (EditText)findViewById(R.id.matricule1);
         noTelephone = (EditText) findViewById(R.id.no_telephone);
 
+         userCountry = (Spinner) findViewById(R.id.user_country);
+
+        userCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ArrayAdapter<String> arrayAdapter = (ArrayAdapter<String>) parent.getAdapter();
+
+                String country_code = getApplicationContext().getResources().getStringArray(R.array.countries_codes)[position];
+
+                Log.e("country choosed", "country: "+arrayAdapter.getItem(position)+"\t code: "+
+                        country_code);
+
+                sharedPreferences.edit().putString(TConstants.PREF_COUNTRY,
+                        country_code
+                        ).apply();
+
+       /*
+                MainActivity.getResId(
+                     prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+
+                    "compagnies_names", R.array.class)
+                */
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.READ_PHONE_STATE)
                 == PackageManager.PERMISSION_GRANTED) {
             noTelephone.setText(((TelephonyManager) getSystemService(TELEPHONY_SERVICE)).getLine1Number());
@@ -164,7 +199,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (username.getText().toString().isEmpty() ||
-                        noTelephone.getText().toString().isEmpty()) {
+                        noTelephone.getText().toString().isEmpty()||
+                        useremail.getText().toString().isEmpty() ) {
 
                     Toast.makeText(getApplicationContext(), getString(R.string.provide_all_fields) + "...", Toast.LENGTH_LONG).show();
                     return;
@@ -466,6 +502,17 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+    }
+
+    public static int getResId(String resName, Class<?> c) {
+
+        try {
+            Field idField = c.getDeclaredField(resName);
+            return idField.getInt(idField);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
     }
 
     @Override
