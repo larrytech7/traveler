@@ -449,5 +449,6 @@
     <string name="comment">Commentez</string>
     <string name="share">Partagez</string>
     <string name="votre_commentaire">dites quelque chose</string>
+    <string name="user_country">Pays de residence</string>
 
 </resources>

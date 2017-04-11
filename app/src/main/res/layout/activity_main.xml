@@ -216,10 +216,14 @@
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="@dimen/margin_layout"
                     android:ems="5"
+                    android:hint="@string/user_country"
                     android:drawableLeft="@drawable/ic_choose_country"
                     android:drawableStart="@drawable/ic_choose_country"
                     android:textColor="@color/app_white"
-                    android:entries="@array/countries"/>
+                    android:background="@drawable/gradient_spinner"
+                    android:entries="@array/countries"
+                    android:gravity="center"
+                    android:paddingLeft="30dp" />
 
             </android.support.design.widget.TextInputLayout>
 

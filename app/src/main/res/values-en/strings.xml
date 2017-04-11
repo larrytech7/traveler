@@ -278,6 +278,7 @@
     <string name="comment">comment</string>
     <string name="share">share</string>
     <string name="votre_commentaire">say something</string>
+    <string name="user_country">Country of residence</string>
 
 
 </resources>
