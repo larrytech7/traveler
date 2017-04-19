@@ -55,6 +55,12 @@ public class Tutility {
     public static String getAuthenticationEmail(String phone){
         return phone + TConstants.TRAVELR_EMAIL_EXT;
     }
+
+    /**
+     * Return two decimal places of this double, c
+     * @param c double to round
+     * @return double rounded to two decimal places
+     */
     public static double round(double c){
         return Math.round(c*100)/100.0;
     }

@@ -526,11 +526,11 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
            Trip mtrip = MyPositionActivity.getCurrentTrip();
            if(((vitesse * COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_ALLOWED_KMH)){
 
-               pushSpeedOnline(SpeedMeterService.this, vitesse, location, mtrip);
+               pushSpeedOnline(SpeedMeterService.this, Tutility.round(vitesse * COEFF_CONVERSION_MS_KMH), location, mtrip);
 
            }
            else if((lastUpdate==null||System.currentTimeMillis()-lastUpdate>INTERVAL_BETWEEN_UPDATES)){
-               pushSpeedOnline(SpeedMeterService.this, vitesse, location, mtrip);
+               pushSpeedOnline(SpeedMeterService.this, Tutility.round(vitesse * COEFF_CONVERSION_MS_KMH), location, mtrip);
                lastUpdate = System.currentTimeMillis();
            }
        }
@@ -546,14 +546,14 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     private static RestTemplate restTemplate;*/
     private static  SpeedOverhead so = null;
 
-    private void pushSpeedOnline(final Context context, final float vitesse, @NotNull final Location location,@NotNull final Trip trip) {
+    private void pushSpeedOnline(final Context context, final double vitesse, @NotNull final Location location, @NotNull final Trip trip) {
         //push speed to firebase
         long timestamp = System.currentTimeMillis();
         TrackingData data = new TrackingData();
         data.setTimestamp(timestamp);
         data.setLatitude(location.getLatitude());
         data.setLongitude(location.getLongitude());
-        data.setSpeed(Math.round(vitesse * 100f) / 100f);
+        data.setSpeed(vitesse );
         data.setTrackingMatricule(trip.getBus_immatriculation());
         data.setSender(travelerUser.getUserphone());
         data.setBearing(0f);
@@ -564,11 +564,6 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                 .child(TConstants.FIREBASE_DATA)
                 .push()
                 .setValue(data);
-        /*databaseReference.child(trip.getBus_immatriculation())
-                .child(trip.getTripKey())
-                .child(TConstants.FIREBASE_TEMP_DATA)
-                .push()
-                .setValue(data);*/
 
         if((vitesse *COEFF_CONVERSION_MS_KMH) -ERREUR_ACCEPTE_VITESSE_MAX> MAX_SPEED_TO_ALERT_KMH) {
             if (!hasReachLimit) {
