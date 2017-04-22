@@ -83,6 +83,7 @@ import com.satra.traveler.models.Rewards;
 import com.satra.traveler.models.SpeedOverhead;
 import com.satra.traveler.models.Trip;
 import com.satra.traveler.models.User;
+import com.satra.traveler.services.SpeedMeterService;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
 

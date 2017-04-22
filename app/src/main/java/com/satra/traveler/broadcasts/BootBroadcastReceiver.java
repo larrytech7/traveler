@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.PowerManager;
 
-import com.satra.traveler.SpeedMeterService;
+import com.satra.traveler.services.SpeedMeterService;
 
 public class BootBroadcastReceiver extends BroadcastReceiver {
 

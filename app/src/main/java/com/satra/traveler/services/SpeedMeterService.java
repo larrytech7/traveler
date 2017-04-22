@@ -1,4 +1,4 @@
-package com.satra.traveler;
+package com.satra.traveler.services;
 
 import android.app.Activity;
 import android.app.Notification;
@@ -28,6 +28,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.satra.traveler.MyPositionActivity;
+import com.satra.traveler.R;
 import com.satra.traveler.models.Incident;
 import com.satra.traveler.models.SpeedOverhead;
 import com.satra.traveler.models.TrackingData;
