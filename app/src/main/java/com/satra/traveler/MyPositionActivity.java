@@ -416,6 +416,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             }
         };
 
+        //Request for speech recognition / audio permission
+        requestPermission(Manifest.permission.RECORD_AUDIO);
         // create GoogleApiClient
         createGoogleApi();
 
@@ -465,7 +467,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     }
 
     private void requestPermission(String permission) {
-        //ask user to grant permission to read fine location. Required for android 6.0+ API level 23+
+        //ask user to grant permission for @permission. Required for android 6.0+ API level 23+
         ActivityCompat.requestPermissions(MyPositionActivity.this,
                 new String[]{permission},
                 MainActivity.stringToInt(permission));

@@ -21,8 +21,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings;
+import android.speech.RecognitionListener;
+import android.speech.SpeechRecognizer;
 import android.support.annotation.NonNull;
 import android.util.Log;
+
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.database.DatabaseReference;
@@ -41,6 +44,7 @@ import com.satra.traveler.utils.Tutility;
 import org.jetbrains.annotations.NotNull;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.Locale;
@@ -52,7 +56,7 @@ import static com.satra.traveler.MyPositionActivity.getCurrentTrip;
 /**
  * Created by Steve Jeff on 17/04/2016.
  */
-public class SpeedMeterService extends Service implements SensorEventListener, OnFailureListener{
+public class SpeedMeterService extends Service implements SensorEventListener, OnFailureListener, RecognitionListener {
 
     private static final int NBRE_MAX_ITERATION_POUR_MOYENNE_VITESSES = 3;
     private static final int MAX_VITESSE_METRE_SECONDE = 0;
@@ -86,7 +90,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     private float[] mGravity;
     private float mAccelCurrent;
     private float mAccelLast;
-
+    private SpeechRecognizer speechRecognizer;
 
 
     /**
@@ -207,7 +211,18 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
 
         sensorMan.registerListener(this, accelerometer,
                 SensorManager.SENSOR_DELAY_UI);
+        //init Speech to text operation
+        startSpeechRecognition();
+    }
 
+    private void startSpeechRecognition() {
+        //check if device can provides speech recognition
+        if(SpeechRecognizer.isRecognitionAvailable(this)) {
+            Log.d(LOGTAG, "Speech recognition available");
+            speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
+            speechRecognizer.setRecognitionListener(this);
+            speechRecognizer.startListening(new Intent(Intent.ACTION_VOICE_COMMAND));
+        }
     }
 
     @Override
@@ -785,6 +800,84 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     @Override
     public void onFailure(@NonNull Exception e) {
         //TODO: Send impact notifications via SMS when offline and sending alerts fail
+        e.printStackTrace();
+
+    }
+
+    @Override
+    public void onReadyForSpeech(Bundle bundle) {
+
+    }
+
+    @Override
+    public void onBeginningOfSpeech() {
+        Log.d(LOGTAG, "Beginning speech recognition");
+    }
+
+    @Override
+    public void onRmsChanged(float v) {
+
+    }
+
+    @Override
+    public void onBufferReceived(byte[] bytes) {
+
+    }
+
+    @Override
+    public void onEndOfSpeech() {
+        speechRecognizer.stopListening();
+    }
+
+    @Override
+    public void onError(int i) {
+        String error = "";
+        switch (i){
+            case SpeechRecognizer.ERROR_AUDIO:
+                error = "Audio recording error";
+                break;
+            case SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS:
+                error = "insufficient permission error";
+                break;
+            case SpeechRecognizer.ERROR_CLIENT:
+                error = "Client error!";
+                break;
+            case SpeechRecognizer.ERROR_NETWORK:
+                error = "network error";
+                break;
+            case SpeechRecognizer.ERROR_NETWORK_TIMEOUT:
+                error = "Network Timeout Error";
+                break;
+            case SpeechRecognizer.ERROR_NO_MATCH:
+                error = "No Match Error";
+                break;
+            case SpeechRecognizer.ERROR_RECOGNIZER_BUSY:
+                error = "Recognizer busy error!";
+                break;
+            case SpeechRecognizer.ERROR_SERVER:
+                error = "Server Error!";
+                break;
+            case SpeechRecognizer.ERROR_SPEECH_TIMEOUT:
+                error = "Speech timeout error!";
+                break;
+        }
+        Log.d(LOGTAG, error);
+    }
+
+    @Override
+    public void onResults(Bundle bundle) {
+        ArrayList<String> recognizedList = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+        Log.d(LOGTAG, "Result: "+recognizedList == null ? recognizedList.get(0) : "not available");
+    }
+
+    @Override
+    public void onPartialResults(Bundle bundle) {
+        ArrayList<String> recognizedList = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+        Log.d(LOGTAG, "Partial Result: "+recognizedList == null ? recognizedList.get(0) : "not available");
+    }
+
+    @Override
+    public void onEvent(int i, Bundle bundle) {
 
     }
 }
