@@ -14,6 +14,7 @@ import android.util.Log;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.satra.traveler.MessagingActivity;
+import com.satra.traveler.NewsActivity;
 import com.satra.traveler.R;
 import com.satra.traveler.models.User;
 import com.satra.traveler.utils.TConstants;
@@ -55,7 +56,8 @@ public class TravelerFirebaseMessagingService extends FirebaseMessagingService {
                 messageList.add(body);
                 ++numMessages;
                 //TODO: Use type maybe to differentiate different sources of a notification like this
-                showNotification(MessagingActivity.class, this, title,body, NOTIFICATION_MESSAGE);
+                showNotification(type == 1 ? MessagingActivity.class : NewsActivity.class,
+                        this, title,body, type == 1 ? NOTIFICATION_MESSAGE : NOTIFICATION_MESSAGE);
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -65,7 +67,7 @@ public class TravelerFirebaseMessagingService extends FirebaseMessagingService {
             //extract Data and send Notification
             String title = remoteMessage.getNotification().getTitle();
             String body =remoteMessage.getNotification().getBody();
-            showNotification(MessagingActivity.class, this, title,body, NOTIFICATION_AD);
+            showNotification(NewsActivity.class, this, title,body, NOTIFICATION_AD);
         }
 
     }

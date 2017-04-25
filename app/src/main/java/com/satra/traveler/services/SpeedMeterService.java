@@ -867,13 +867,13 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     @Override
     public void onResults(Bundle bundle) {
         ArrayList<String> recognizedList = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
-        Log.d(LOGTAG, "Result: "+recognizedList == null ? recognizedList.get(0) : "not available");
+        Log.d(LOGTAG, "Result: "+recognizedList.get(0));
     }
 
     @Override
     public void onPartialResults(Bundle bundle) {
         ArrayList<String> recognizedList = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
-        Log.d(LOGTAG, "Partial Result: "+recognizedList == null ? recognizedList.get(0) : "not available");
+        Log.d(LOGTAG, "Partial Result: "+recognizedList.get(0));
     }
 
     @Override
