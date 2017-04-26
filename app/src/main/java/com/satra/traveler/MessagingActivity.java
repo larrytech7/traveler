@@ -182,7 +182,7 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
             public void onClick(View view) {
                 //get matricule from editText if incident is not on actual vehicle
                 if (!extraMatriculeEditText.getText().toString().isEmpty()
-                        && !MyPositionActivity.IsMatch(extraMatriculeEditText.getText().toString(), getString(R.string.car_immatriculation_regex_patern))){
+                        && !MyPositionActivity.IsMatch(extraMatriculeEditText.getText().toString(), getString(R.string.cmr_car_immatriculation_regex_patern))){
                     Tutility.showMessage(MessagingActivity.this, R.string.incorrect_immatriculation_number,R.string.app_name);
                     return;
                 }
