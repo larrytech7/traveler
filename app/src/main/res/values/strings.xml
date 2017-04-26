@@ -430,6 +430,7 @@
     <string name="pref_sms_description">Allow system to send SMS notifications when offline. NOTE: May incure carrier charges</string>
 
     <string name="pref_title_impact_sound">Play sound for impact notifications</string>
+    <string name="highspeed">Alerte! Vitesse autorisé depassé est de %f kilomettre heure</string>
 
 
 </resources>
