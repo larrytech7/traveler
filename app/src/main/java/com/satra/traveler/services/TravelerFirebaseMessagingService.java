@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
+import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.RemoteInput;
 import android.util.Log;
@@ -14,6 +15,7 @@ import android.util.Log;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.satra.traveler.MessagingActivity;
+import com.satra.traveler.NewsActivity;
 import com.satra.traveler.R;
 import com.satra.traveler.models.User;
 import com.satra.traveler.utils.TConstants;
@@ -54,8 +56,9 @@ public class TravelerFirebaseMessagingService extends FirebaseMessagingService {
                     return;
                 messageList.add(body);
                 ++numMessages;
-                //TODO: Use type maybe to differentiate different sources of a notification like this
-                showNotification(MessagingActivity.class, this, title,body, NOTIFICATION_MESSAGE);
+                //Use type maybe to differentiate different sources of a notification like this
+                showNotification(type == 1 ? MessagingActivity.class : NewsActivity.class,
+                        this, title,body, type == 1 ? NOTIFICATION_MESSAGE : NOTIFICATION_MESSAGE);
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -65,7 +68,7 @@ public class TravelerFirebaseMessagingService extends FirebaseMessagingService {
             //extract Data and send Notification
             String title = remoteMessage.getNotification().getTitle();
             String body =remoteMessage.getNotification().getBody();
-            showNotification(MessagingActivity.class, this, title,body, NOTIFICATION_AD);
+            showNotification(NewsActivity.class, this, title,body, NOTIFICATION_AD);
         }
 
     }
@@ -92,7 +95,7 @@ public class TravelerFirebaseMessagingService extends FirebaseMessagingService {
         builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher_web));
         builder.setSmallIcon(R.drawable.ic_messaging_24dp);
         builder.setContentIntent(pendingIntent);
-        builder.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
+        builder.setSound(Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.notification));
         builder.setOngoing(true);
         builder.setAutoCancel(true);
         builder.setWhen(0);

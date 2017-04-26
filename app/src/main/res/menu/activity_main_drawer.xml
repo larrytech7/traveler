@@ -34,11 +34,10 @@
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_share"
                 android:title="@string/share_app" />
-            <!--
             <item
                 android:id="@+id/nav_settings"
                 android:icon="@drawable/ic_settings"
-                android:title="@string/open_settings" />-->
+                android:title="@string/open_settings" />
         </menu>
     </item>
 

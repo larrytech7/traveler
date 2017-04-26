@@ -104,7 +104,8 @@ public class Tutility {
     }
 
     public static String getTripKeyAsString(String departure, String destination, String date){
-        return departure+"_"+destination+"_"+date;
+        String key = departure+"_"+destination+"_"+date;
+        return key.replaceAll(" ", "_");
     }
 
     public static void showDialog(Context ctx, String title, String content, int dialogType){

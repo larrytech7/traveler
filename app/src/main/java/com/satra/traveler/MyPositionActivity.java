@@ -84,6 +84,7 @@ import com.satra.traveler.models.Rewards;
 import com.satra.traveler.models.SpeedOverhead;
 import com.satra.traveler.models.Trip;
 import com.satra.traveler.models.User;
+import com.satra.traveler.services.SpeedMeterService;
 import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
 
@@ -418,6 +419,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             }
         };
 
+        //Request for speech recognition / audio permission
+        requestPermission(Manifest.permission.RECORD_AUDIO);
         // create GoogleApiClient
         createGoogleApi();
 
@@ -467,7 +470,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     }
 
     private void requestPermission(String permission) {
-        //ask user to grant permission to read fine location. Required for android 6.0+ API level 23+
+        //ask user to grant permission for @permission. Required for android 6.0+ API level 23+
         ActivityCompat.requestPermissions(MyPositionActivity.this,
                 new String[]{permission},
                 MainActivity.stringToInt(permission));
@@ -937,7 +940,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             prefs.edit().putString(TConstants.PREF_MATRICULE, mTrip.getBus_immatriculation()).apply();
                             //set new matricule on speedometer textview
                             getString(R.string.speed_dimen, mTrip.getBus_immatriculation(), Float.parseFloat("0")+"");
-                            //TODO: Register to receive FCM  notifications for new messages on this trip
+                            //Register to receive FCM  notifications for new messages on this trip
                             FirebaseMessaging.getInstance().subscribeToTopic(TConstants.FIREBASE_MESSAGING_TOPIC+mTrip.getBus_immatriculation());
                             //Show snackbar asking user to setup insurance plan
                             Snackbar.make(findViewById(R.id.my_frame_host), getString(R.string.insurance_plan), Snackbar.LENGTH_LONG)

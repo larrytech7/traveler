@@ -1,4 +1,4 @@
-package com.satra.traveler;
+package com.satra.traveler.services;
 
 import android.app.Activity;
 import android.app.Notification;
@@ -17,17 +17,27 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
+import android.speech.RecognitionListener;
+import android.speech.SpeechRecognizer;
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.TextToSpeechService;
+import android.speech.tts.UtteranceProgressListener;
 import android.support.annotation.NonNull;
 import android.util.Log;
+
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.satra.traveler.MyPositionActivity;
+import com.satra.traveler.R;
 import com.satra.traveler.models.Incident;
 import com.satra.traveler.models.SpeedOverhead;
 import com.satra.traveler.models.TrackingData;
@@ -39,6 +49,7 @@ import com.satra.traveler.utils.Tutility;
 import org.jetbrains.annotations.NotNull;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.Locale;
@@ -50,7 +61,7 @@ import static com.satra.traveler.MyPositionActivity.getCurrentTrip;
 /**
  * Created by Steve Jeff on 17/04/2016.
  */
-public class SpeedMeterService extends Service implements SensorEventListener, OnFailureListener{
+public class SpeedMeterService extends Service implements SensorEventListener, OnFailureListener, RecognitionListener, TextToSpeech.OnInitListener {
 
     private static final int NBRE_MAX_ITERATION_POUR_MOYENNE_VITESSES = 3;
     private static final int MAX_VITESSE_METRE_SECONDE = 0;
@@ -84,7 +95,8 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     private float[] mGravity;
     private float mAccelCurrent;
     private float mAccelLast;
-
+    private SpeechRecognizer speechRecognizer;
+    private TextToSpeech tts;
 
 
     /**
@@ -205,7 +217,23 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
 
         sensorMan.registerListener(this, accelerometer,
                 SensorManager.SENSOR_DELAY_UI);
+        //init Speech to text operation
+        startSpeechRecognition();
+        //prepare TextToSpeech engine
+        tts = new TextToSpeech(this, this);
+        String language = PreferenceManager.getDefaultSharedPreferences(this).getString("language_pref", "");
+        tts.setLanguage( language.equalsIgnoreCase("English") ? Locale.ENGLISH :
+            language.equalsIgnoreCase("French") ? Locale.FRENCH : Locale.getDefault());
+    }
 
+    private void startSpeechRecognition() {
+        //check if device can provides speech recognition
+        if(SpeechRecognizer.isRecognitionAvailable(this)) {
+            Log.d(LOGTAG, "Speech recognition available");
+            speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
+            speechRecognizer.setRecognitionListener(this);
+            speechRecognizer.startListening(new Intent(Intent.ACTION_VOICE_COMMAND));
+        }
     }
 
     @Override
@@ -298,6 +326,8 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     }
 
     private void notifyAlert(float acc) {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+
         Intent intent1 = new Intent(this, MyPositionActivity.class);
         intent1.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -321,13 +351,14 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
         build.setSmallIcon(R.drawable.ic_menu_mylocation);
         build.setContentIntent(pendingIntent);
         build.setOngoing(true);
-        build.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
+        if (sp.getBoolean("play_impact_sound_pref", false)) //whether to play sound in notification (parameter is configured in settings)
+            build.setSound(Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.alert));
         build.build();
         Notification notif = build.getNotification();
 //        notif.vibrate = new long[] { 100, 250, 100, 500};
 //        notif.sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-
-        nm.notify(0, notif);
+        if (sp.getBoolean("show_impact_pref", false)) //whether to even launch notification or not (configured via application settings)
+            nm.notify(0, notif);
     }
 
     @Override
@@ -403,6 +434,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     }
 
     public void showNotification(String vitesse, Context context){
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         Intent intent1 = new Intent(context, MyPositionActivity.class);
         intent1.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -415,7 +447,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
         int nbre = MyPositionActivity.isCurrentTripExist()?SpeedOverhead.find(SpeedOverhead.class, "tripid = ?", ""+ getCurrentTrip().getId()).size():0;
         String message = nbre>0?nbre+context.getString(R.string.speed_overheading):context.getString(R.string.travelr_secure_your_trip);
 
-        build.setAutoCancel(false);
+        build.setAutoCancel(sp.getBoolean("persist_speed_pref", false));
         build.setWhen(0);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             build.setStyle(new Notification.BigTextStyle().bigText(message));
@@ -427,14 +459,11 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
         build.setSmallIcon(R.drawable.ic_menu_mylocation);
         build.setContentIntent(pendingIntent);
         build.setOngoing(true);
-//        build.setNumber(MAX_SPEED_ALLOWED_KMH);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             build.build();
         }
 
         Notification notif = build.getNotification();
-//        notif.vibrate = new long[] { 100, 250, 100, 500};
-//        notif.sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         nm.notify(id, notif);
 
@@ -532,6 +561,12 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
            else if((lastUpdate==null||System.currentTimeMillis()-lastUpdate>INTERVAL_BETWEEN_UPDATES)){
                pushSpeedOnline(SpeedMeterService.this, Tutility.round(vitesse * COEFF_CONVERSION_MS_KMH), location, mtrip);
                lastUpdate = System.currentTimeMillis();
+           }
+           //speak out loud high speed values if set in the settings
+           boolean speakOut = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("high_speed_pref", false);
+           if (speakOut){
+               tts.speak(getString(R.string.highspeed, Tutility.round(vitesse * COEFF_CONVERSION_MS_KMH) ),
+                       TextToSpeech.QUEUE_ADD, null);
            }
        }
 
@@ -777,12 +812,124 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                 e.printStackTrace();
             }
         }
+        if (tts != null){
+            tts.shutdown();
+        }
 
     }
 
     @Override
     public void onFailure(@NonNull Exception e) {
         //TODO: Send impact notifications via SMS when offline and sending alerts fail
+        e.printStackTrace();
 
+    }
+
+    @Override
+    public void onReadyForSpeech(Bundle bundle) {
+
+    }
+
+    @Override
+    public void onBeginningOfSpeech() {
+        Log.d(LOGTAG, "Beginning speech recognition");
+    }
+
+    @Override
+    public void onRmsChanged(float v) {
+
+    }
+
+    @Override
+    public void onBufferReceived(byte[] bytes) {
+
+    }
+
+    @Override
+    public void onEndOfSpeech() {
+        speechRecognizer.stopListening();
+    }
+
+    @Override
+    public void onError(int i) {
+        String error = "";
+        switch (i){
+            case SpeechRecognizer.ERROR_AUDIO:
+                error = "Audio recording error";
+                break;
+            case SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS:
+                error = "insufficient permission error";
+                break;
+            case SpeechRecognizer.ERROR_CLIENT:
+                error = "Client error!";
+                break;
+            case SpeechRecognizer.ERROR_NETWORK:
+                error = "network error";
+                break;
+            case SpeechRecognizer.ERROR_NETWORK_TIMEOUT:
+                error = "Network Timeout Error";
+                break;
+            case SpeechRecognizer.ERROR_NO_MATCH:
+                error = "No Match Error";
+                break;
+            case SpeechRecognizer.ERROR_RECOGNIZER_BUSY:
+                error = "Recognizer busy error!";
+                break;
+            case SpeechRecognizer.ERROR_SERVER:
+                error = "Server Error!";
+                break;
+            case SpeechRecognizer.ERROR_SPEECH_TIMEOUT:
+                error = "Speech timeout error!";
+                break;
+        }
+        Log.d(LOGTAG, error);
+    }
+
+    @Override
+    public void onResults(Bundle bundle) {
+        ArrayList<String> recognizedList = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+        Log.d(LOGTAG, "Result: "+recognizedList.get(0));
+    }
+
+    @Override
+    public void onPartialResults(Bundle bundle) {
+        ArrayList<String> recognizedList = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+        Log.d(LOGTAG, "Partial Result: "+recognizedList.get(0));
+    }
+
+    @Override
+    public void onEvent(int i, Bundle bundle) {
+
+    }
+
+    @Override
+    public void onInit(int i) {
+        //text to speech initialization listener
+        switch (i){
+            case TextToSpeech.ERROR:
+                Log.d(LOGTAG, "Error initializing speech engine");
+                break;
+            case TextToSpeech.SUCCESS:
+                tts.setPitch(2);
+                break;
+        }
+        tts.setOnUtteranceProgressListener(new UtteranceProgressListener() {
+            @Override
+            public void onStart(String s) {
+
+            }
+
+            @Override
+            public void onDone(String s) {
+                Log.d(LOGTAG, s);
+                tts.speak(s, TextToSpeech.QUEUE_ADD, null);
+                tts.stop();
+            }
+
+            @Override
+            public void onError(String s) {
+                Log.d(LOGTAG, s);
+            }
+        });
     }
 }
