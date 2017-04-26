@@ -244,6 +244,16 @@
     <string name="comment">comment</string>
     <string name="share">share</string>
     <string name="votre_commentaire">say something</string>
+    <string name="highspeed">Alert! High speed of %f kilometers per hour detected.</string>
+    <string name="pref_description_speed">Set speed notification in panel as persistent. Speed is not dismissible until journey is completed or cancelled.</string>
+    <string name="select_language">Select language</string>
+    <string name="pref_impact_title">Show impact Notifications</string>
+    <string name="pref_impact_description">Show values for detected impacts in the notification panel</string>
+    <string name="pref_sms_description">Allow system to send SMS notifications when offline. NOTE: May incure carrier charges</string>
+    <string name="pref_sms_title">Send SMS notifications offline</string>
+    <string name="pref_title_highspeed">Allow high speed voice alerts</string>
+    <string name="pref_title_impact_sound">Play sound for impact notifications</string>
+    <string name="pref_title_speed">Persist speed Notifications</string>
 
 
 </resources>

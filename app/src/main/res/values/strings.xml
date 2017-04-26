@@ -405,18 +405,17 @@
     <!-- Strings related to Settings -->
 
     <!-- Example General settings -->
-    <string name="pref_header_general">General</string>
+    <string name="pref_header_general" translatable="false">General</string>
 
-    <string name="pref_title_speed">Persist speed Notifications</string>
-    <string name="pref_description_speed">Set speed notification in panel as persistent. Speed is not dismissible until
-        journey is completed
+    <string name="pref_title_speed">Persister les notifications de vitesse</string>
+    <string name="pref_description_speed">La notification de vitesse persiste dans le panneau de notification et est effacable seulement en cas
+        d\'annulation du voyage ou a l\'arriver.
     </string>
 
-    <string name="pref_title_highspeed">Speak out loud high speed</string>
-    <string name="pref_description_highspeed">Allow device to speak out loud high speed notifications. Keeps you more alert and safe</string>
+    <string name="pref_title_highspeed">Autorisé les alertes vocales</string>
 
-    <string name="pref_impact_title">Show impact Notifications</string>
-    <string name="pref_impact_description">Show values for detected impacts in the notification panel</string>
+    <string name="pref_impact_title">Affichez notification d\'impact</string>
+    <string name="pref_impact_description">Montrer les valeurs des impactes detecter dans un incident</string>
 
     <string-array name="languages">
         <item>English</item>
@@ -424,13 +423,13 @@
         <item>Espagnol</item>
     </string-array>
 
-    <string name="select_language">Select language</string>
+    <string name="select_language">Choisissez une langue</string>
 
-    <string name="pref_sms_title">Send SMS notifications offline</string>
-    <string name="pref_sms_description">Allow system to send SMS notifications when offline. NOTE: May incure carrier charges</string>
+    <string name="pref_sms_title">Envoyer les notification via SMS</string>
+    <string name="pref_sms_description">Autorisé l\'envoie des notifications via SMS quand vous etes hors ligne. NB: les charges d\'operateur pourrons etres appliquer</string>
 
-    <string name="pref_title_impact_sound">Play sound for impact notifications</string>
-    <string name="highspeed">Alerte! Vitesse autorisé depassé est de %f kilomettre heure</string>
+    <string name="pref_title_impact_sound">Jouer un son pour les notifications d\'incidents</string>
+    <string name="highspeed">Alerte! Vitesse autorisé depassé est de %f kilometre heure</string>
 
 
 </resources>
