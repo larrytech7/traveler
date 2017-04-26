@@ -237,6 +237,7 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.satra.traveler.MyPositionActivity" />
+
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -244,9 +245,9 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:scheme="http"
                     android:host="traveler.cm"
-                    android:path="/news" />
+                    android:path="/news"
+                    android:scheme="http" />
             </intent-filter>
         </activity>
         <activity
@@ -257,6 +258,15 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.satra.traveler.NewsActivity" />
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".MyPositionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.satra.traveler.MyPositionActivity" />
         </activity>
     </application>
 

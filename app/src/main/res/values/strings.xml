@@ -400,5 +400,36 @@
     <string name="comment">Commenter</string>
     <string name="share">Partager</string>
     <string name="votre_commentaire">dites quelque chose</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_speed">Persist speed Notifications</string>
+    <string name="pref_description_speed">Set speed notification in panel as persistent. Speed is not dismissible until
+        journey is completed
+    </string>
+
+    <string name="pref_title_highspeed">Speak out loud high speed</string>
+    <string name="pref_description_highspeed">Allow device to speak out loud high speed notifications. Keeps you more alert and safe</string>
+
+    <string name="pref_impact_title">Show impact Notifications</string>
+    <string name="pref_impact_description">Show values for detected impacts in the notification panel</string>
+
+    <string-array name="languages">
+        <item>English</item>
+        <item>French</item>
+        <item>Espagnol</item>
+    </string-array>
+
+    <string name="select_language">Select language</string>
+
+    <string name="pref_sms_title">Send SMS notifications offline</string>
+    <string name="pref_sms_description">Allow system to send SMS notifications when offline. NOTE: May incure carrier charges</string>
+
+    <string name="pref_title_impact_sound">Play sound for impact notifications</string>
+
 
 </resources>

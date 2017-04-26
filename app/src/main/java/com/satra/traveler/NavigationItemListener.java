@@ -115,11 +115,10 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
                //launch news/notifications Feed Activity
                context.startActivity(new Intent(context, NewsActivity.class));
                break;
-
-          /*
           case R.id.nav_settings:
-               //TODO: launch screen with simple settings
-               break;*/
+               //launch screen for settings
+              context.startActivity(new Intent(context, SettingsActivity.class));
+              break;
            default:
                break;
        }
