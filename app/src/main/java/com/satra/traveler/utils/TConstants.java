@@ -12,6 +12,7 @@ public class TConstants {
     public static final String SPEED_PREF = "vitesse";
     public static final String PREF_MATRICULE = "MATRICULE";
     public static final String PREF_MAT_ID = "MAT_ID";
+    public static final String PREF_COUNTRY = "COUNTRY";
     public static final String PREF_EMERGENCY_CONTACT_1 = "EMERGENCY_CONTACT_1";
     public static final String PREF_EMERGENCY_CONTACT_2 = "EMERGENCY_CONTACT_2";
 
