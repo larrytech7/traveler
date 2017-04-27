@@ -71,7 +71,9 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     private static final int ERREUR_ACCEPTE_VITESSE_MAX=2;
     private static final int MAX_SPEED_TO_ALERT_KMH = 80;
     private static final long INTERVAL_BETWEEN_UPDATES = 10000;
-    private static final float MAX_NORMAL_ACCELERATION_COEFF = 5.0f;
+    private static final float MAX_NORMAL_ACCELERATION_COEFF_MOVING = 4.5f;
+    private static final float MAX_NORMAL_ACCELERATION_COEFF_NOT_MOVING = 5.0f;
+    private static final float MAX_ALLOWED_ACCELERATION = 100.0f;
 
     private static final int TIME_TO_WAIT_FOR_SPEED_OVERHEAD_CONFIRMATION=5000;
     private Long durationElapsed = null;
@@ -251,8 +253,8 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
 
             if(mspeed >= 25f) { //speed to get that this is a moving vehicle
                 if (MyPositionActivity.isCurrentTripExist() &&
-                        mAccelCurrent / SensorManager.GRAVITY_EARTH >= MAX_NORMAL_ACCELERATION_COEFF &&
-                        mAccelCurrent < (100f * SensorManager.GRAVITY_EARTH) ) {
+                        mAccelCurrent >= MAX_NORMAL_ACCELERATION_COEFF_MOVING*SensorManager.GRAVITY_EARTH &&
+                        mAccelCurrent < (MAX_ALLOWED_ACCELERATION * SensorManager.GRAVITY_EARTH) ) {
                     //Log.e("Accident detected: ", " -- mAccelCurrent: "+mAccelCurrent+" -- mAccelCurrent/9.8: "+(mAccelCurrent/SensorManager.GRAVITY_EARTH));
                     notifyAlert(mAccelCurrent / SensorManager.GRAVITY_EARTH);
 
@@ -279,7 +281,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                     incident.setAgency(trip.getAgency_name());
                     incident.setSpeed(mspeed);
                     incident.setAcc(mAccelCurrent / SensorManager.GRAVITY_EARTH);
-                    incident.setAcc_last(mAccelLast);
+                    incident.setAcc_last(mAccelLast / SensorManager.GRAVITY_EARTH);
                     incident.setLongitude(location == null ? 0 : location.getLongitude());
                     incident.setLatitude(location == null ? 0 : location.getLatitude());
                     incident.setTimestamp(System.currentTimeMillis());
@@ -291,11 +293,12 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                             .setValue(incident)
                             .addOnFailureListener((Activity) getApplicationContext(), this);
                 }
-            }else{
+            }
+            else if(mspeed > 0){
                 //for stationary object, impact should increase acceleration
                 if (MyPositionActivity.isCurrentTripExist() &&
-                        mAccelCurrent / SensorManager.GRAVITY_EARTH >= 3.0f &&
-                        mAccelCurrent < (100f * SensorManager.GRAVITY_EARTH)) {
+                        mAccelCurrent  >= MAX_NORMAL_ACCELERATION_COEFF_NOT_MOVING * SensorManager.GRAVITY_EARTH &&
+                        mAccelCurrent < (MAX_ALLOWED_ACCELERATION * SensorManager.GRAVITY_EARTH)) {
                     //Log.e("Accident detected: ", " -- mAccelCurrent: "+mAccelCurrent+" -- mAccelCurrent/9.8: "+(mAccelCurrent/SensorManager.GRAVITY_EARTH));
                     notifyAlert(mAccelCurrent / SensorManager.GRAVITY_EARTH);
 
@@ -308,11 +311,11 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                     incident.setAgency(trip.getAgency_name());
                     incident.setSpeed(mspeed);
                     incident.setAcc(mAccelCurrent / SensorManager.GRAVITY_EARTH);
-                    incident.setAcc_last(mAccelLast);
+                    incident.setAcc_last(mAccelLast / SensorManager.GRAVITY_EARTH);
                     incident.setLongitude(location == null ? 0 : location.getLongitude());
                     incident.setLatitude(location == null ? 0 : location.getLatitude());
                     incident.setTimestamp(System.currentTimeMillis());
-                    incident.setType(1);
+                    incident.setType(2);
 
                     baseReference.child(TConstants.FIREBASE_NOTIF_ACCIDENT)
                             .push()

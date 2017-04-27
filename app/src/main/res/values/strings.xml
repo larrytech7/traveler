@@ -457,15 +457,15 @@
     <!-- Example General settings -->
     <string name="pref_header_general" translatable="false">General</string>
 
-    <string name="pref_title_speed">Persister les notifications de vitesse</string>
-    <string name="pref_description_speed">La notification de vitesse persiste dans le panneau de notification et est effacable seulement en cas
-        d\'annulation du voyage ou a l\'arriver.
+    <string name="pref_title_speed">Persister l\'affichage de la vitesse </string>
+    <string name="pref_description_speed"> Il ne sera possible d\effacer la notification présentant votre vitesse en temps réel
+        qu\'en annulant ou en terminant le voyage en cours
     </string>
 
-    <string name="pref_title_highspeed">Autorisé les alertes vocales</string>
+    <string name="pref_title_highspeed">Autoriser les alertes vocales</string>
 
-    <string name="pref_impact_title">Affichez notification d\'impact</string>
-    <string name="pref_impact_description">Montrer les valeurs des impactes detecter dans un incident</string>
+    <string name="pref_impact_title">Notifier en cas de détection de chocs</string>
+    <string name="pref_impact_description">Afficher des notifications présentant l\'intensité d\'un choc en cas de détection</string>
 
     <string-array name="languages">
         <item>English</item>
@@ -473,15 +473,16 @@
         <item>Espagnol</item>
     </string-array>
 
-    <string name="select_language">Choisissez une langue</string>
+    <string name="select_language">Changer de langue</string>
 
-    <string name="pref_sms_title">Envoyer les notification via SMS</string>
-    <string name="pref_sms_description">Autorisé l\'envoie des notifications via SMS quand vous etes hors ligne. NB: les charges d\'operateur pourrons etres appliquer</string>
+    <string name="pref_sms_title">Autoriser la notification par SMS</string>
+    <string name="pref_sms_description">Autoriser l\'envoie de notifications d\'incidents lorsqu\'une détection survient
+        en l\'absence de connexion internet. NB: des charges supplémentaires liées à votre opérateur peuvent  s\'appliquer</string>
 
-    <string name="pref_title_impact_sound">Jouer un son pour les notifications d\'incidents</string>
-    <string name="highspeed">Alerte! Vitesse autorisé depassé est de %f kilometre heure</string>
+    <string name="pref_title_impact_sound">Accompagner les notifications d\'incidents d\'une alerte sonore</string>
+    <string name="highspeed">Alerte! Vitesse autorisée dépassée  (%f KM/H)</string>
 
 
-    <string name="user_country">Pays de residence</string>
+    <string name="user_country">Pays de résidence</string>
 
 </resources>
