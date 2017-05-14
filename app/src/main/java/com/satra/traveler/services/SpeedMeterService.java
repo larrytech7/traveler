@@ -565,12 +565,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                pushSpeedOnline(SpeedMeterService.this, Tutility.round(vitesse * COEFF_CONVERSION_MS_KMH), location, mtrip);
                lastUpdate = System.currentTimeMillis();
            }
-           //speak out loud high speed values if set in the settings
-           boolean speakOut = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("high_speed_pref", false);
-           if (speakOut){
-               tts.speak(getString(R.string.highspeed, Tutility.round(vitesse * COEFF_CONVERSION_MS_KMH) ),
-                       TextToSpeech.QUEUE_ADD, null);
-           }
+
        }
 
         //tryToSentDataOnline(getApplicationContext());
@@ -634,6 +629,12 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                 so.save();
 
                 hasReachLimit = false;
+                //speak out loud high speed values if set in the settings
+                boolean speakOut = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("high_speed_pref", false);
+                if (speakOut ){
+                    tts.speak(getString(R.string.highspeed, Tutility.round(vitesse * COEFF_CONVERSION_MS_KMH) ),
+                            TextToSpeech.QUEUE_ADD, null);
+                }
             }
             durationElapsed = null;
         }
