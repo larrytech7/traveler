@@ -118,7 +118,7 @@
     <string name="about_title1">About</string>
     <string name="speed_dimen" formatted="false">%s | Speed: %s Kmph</string>
     <string name="login">Continue</string>
-    <string name="about_message1">With Traveler, no more deaths on our roads. Let Travelr accompany you all along. Version 5.3.0</string>
+    <string name="about_message1">With Traveler, no more deaths on our roads. Let Travelr accompany you all along. Version 5.3.5</string>
     <string name="cancel">Cancel</string>
     <string name="howserious">Severity level</string>
     <string name="save">Save</string>
