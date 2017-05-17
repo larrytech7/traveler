@@ -1,5 +1,6 @@
 package com.satra.traveler.services;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -8,6 +9,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -29,6 +31,9 @@ import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeechService;
 import android.speech.tts.UtteranceProgressListener;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.telephony.SmsManager;
 import android.util.Log;
 
 
@@ -38,6 +43,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.satra.traveler.MyPositionActivity;
 import com.satra.traveler.R;
+import com.satra.traveler.broadcasts.SmsOfflineBroadcastReceiver;
 import com.satra.traveler.models.Incident;
 import com.satra.traveler.models.SpeedOverhead;
 import com.satra.traveler.models.TrackingData;
@@ -55,6 +61,7 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.Vector;
 
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 import static com.satra.traveler.MyPositionActivity.getCurrentTrip;
 
 
@@ -824,8 +831,33 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
 
     @Override
     public void onFailure(@NonNull Exception e) {
-        //TODO: Send impact notifications via SMS when offline and sending alerts fail
+        //Send impact notifications via SMS when offline and sending alerts fail
         e.printStackTrace();
+        Trip currentTrip = getCurrentTrip();
+        String emergencyMessage = getResources().getString(R.string.emergency_sms,
+                mAccelCurrent, previousLocation == null ? 0 : previousLocation.getLongitude() ,
+                previousLocation == null ? 0 : previousLocation.getLatitude(),
+                getCurrentTrip() == null ? "Unknown" : currentTrip.getAgency_name(),
+                currentTrip == null ? "Unknown" : currentTrip.getBus_immatriculation(),
+                currentTrip == null ? "Unknown" : currentTrip.getDeparture()+" - "+currentTrip.getDestination());
+
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
+            //send SMS peacefully
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(travelerUser.getEmergency_primary(),travelerUser.getUserphone(),
+                    emergencyMessage,null, null);
+            smsManager.sendTextMessage(travelerUser.getEmergency_secondary(),travelerUser.getUserphone(),
+                    emergencyMessage,null, null);
+            smsManager.sendTextMessage(Tutility.APP_EMERGENCY_CONTACT, travelerUser.getUserphone(),
+                    emergencyMessage, null ,null);
+        }/*else{
+            //send broadcast to issue permission request for user to grant permission
+            Intent dataIntent = new Intent(Tutility.BROADCAST_SMS_EMERGENCY);
+            dataIntent.putExtra("message", emergencyMessage);
+            dataIntent.putExtra("src", travelerUser.getUserphone());
+
+            sendBroadcast(dataIntent, Manifest.permission.SEND_SMS);
+        }*/
 
     }
 

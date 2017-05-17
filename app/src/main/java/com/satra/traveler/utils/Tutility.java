@@ -1,6 +1,7 @@
 package com.satra.traveler.utils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 
 import com.satra.traveler.R;
@@ -19,6 +20,8 @@ public class Tutility {
     public static final String FIREBASE_MESSAGES = "messages";
     public static final String FIREBASE_TRIPS = "trips";
     public static final String SHOW_HINTS = "app_hints";
+    public static final String BROADCAST_SMS_EMERGENCY = "com.satra.traveler.SEND_EMERGENCY_SMS";
+    public static final String APP_EMERGENCY_CONTACT = "";
 
     //show a dialog to the user about a certain message/information
     public static void showMessage(Context c, String message, String title){

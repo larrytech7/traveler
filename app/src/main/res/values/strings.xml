@@ -396,5 +396,6 @@
 
 
     <string name="user_country">Pays de résidence</string>
+    <string name="emergency_sms" formatted="false">Alerte! Impacte d\'accident detecté. Position: Longitude %.6f , Latitude %.6f. Relever dans un vehicule, %s, %s. Route de %s</string>
 
 </resources>
