@@ -388,7 +388,7 @@
     <string name="select_language">Changer de langue</string>
 
     <string name="pref_sms_title">Autoriser la notification par SMS</string>
-    <string name="pref_sms_description">Autoriser l\'envoie de notifications d\'incidents lorsqu\'une détection survient
+    <string name="pref_sms_description">Autoriser l\'envoie de notifications SMS d\'un incident
         en l\'absence de connexion internet. NB: des charges supplémentaires liées à votre opérateur peuvent  s\'appliquer</string>
 
     <string name="pref_title_impact_sound">Accompagner les notifications d\'incidents d\'une alerte sonore</string>
