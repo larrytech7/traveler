@@ -230,9 +230,6 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
         startSpeechRecognition();
         //prepare TextToSpeech engine
         tts = new TextToSpeech(this, this);
-        String language = PreferenceManager.getDefaultSharedPreferences(this).getString("language_pref", "");
-        tts.setLanguage( language.equalsIgnoreCase("English") ? Locale.ENGLISH :
-            language.equalsIgnoreCase("French") ? Locale.FRENCH : Locale.getDefault());
     }
 
     private void startSpeechRecognition() {
@@ -946,6 +943,9 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                 Log.d(LOGTAG, "Error initializing speech engine");
                 break;
             case TextToSpeech.SUCCESS:
+                String language = PreferenceManager.getDefaultSharedPreferences(this).getString("language_pref", "");
+                tts.setLanguage( language.equalsIgnoreCase("English") ? Locale.ENGLISH :
+                        language.equalsIgnoreCase("French") ? Locale.FRENCH : Locale.getDefault());
                 tts.setPitch(2);
                 break;
         }
