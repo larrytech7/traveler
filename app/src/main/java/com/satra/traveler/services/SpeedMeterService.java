@@ -841,10 +841,10 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
             //send SMS peacefully
             SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(travelerUser.getEmergency_primary(),travelerUser.getUserphone(),
+            /*smsManager.sendTextMessage(travelerUser.getEmergency_primary(),travelerUser.getUserphone(),
                     emergencyMessage,null, null);
             smsManager.sendTextMessage(travelerUser.getEmergency_secondary(),travelerUser.getUserphone(),
-                    emergencyMessage,null, null);
+                    emergencyMessage,null, null);*/
             smsManager.sendTextMessage(Tutility.APP_EMERGENCY_CONTACT, travelerUser.getUserphone(),
                     emergencyMessage, null ,null);
         }/*else{
