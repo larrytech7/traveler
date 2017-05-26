@@ -21,7 +21,7 @@ public class Tutility {
     public static final String FIREBASE_TRIPS = "trips";
     public static final String SHOW_HINTS = "app_hints";
     public static final String BROADCAST_SMS_EMERGENCY = "com.satra.traveler.SEND_EMERGENCY_SMS";
-    public static final String APP_EMERGENCY_CONTACT = "";
+    public static final String APP_EMERGENCY_CONTACT = "+237698592004";
 
     //show a dialog to the user about a certain message/information
     public static void showMessage(Context c, String message, String title){
