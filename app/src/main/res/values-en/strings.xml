@@ -291,5 +291,15 @@
     <string name="pref_description_highspeed">allow voice notifications for high speed values</string>
     <string name="user_country">Country of residence</string>
 
+    <string name="accident">Flag Accident| Emergency</string>
+    <string name="traffic">Flag Traffic</string>
+    <string name="roadflag">Flag Inadequate road</string>
+    <string name="carFlag">Flag Car Issue</string>
+    <string name="flag_hint">Describe the situation</string>
+    <string name="error">Error</string>
+    <string name="error_input">Error! The field cannot be empty</string>
+    <string name="success">Operation success</string>
+    <string name="sent">Sent</string>
+
 
 </resources>

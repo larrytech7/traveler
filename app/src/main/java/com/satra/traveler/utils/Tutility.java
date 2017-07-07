@@ -22,6 +22,11 @@ public class Tutility {
     public static final String SHOW_HINTS = "app_hints";
     public static final String BROADCAST_SMS_EMERGENCY = "com.satra.traveler.SEND_EMERGENCY_SMS";
     public static final String APP_EMERGENCY_CONTACT = "";
+    public static final String FIREBASE_FLAGS = "flags";
+    public static final String FLAG_EVENT = "FLAG_NEW_INCIDENT_EVENT";
+    public static final String ANALYTICS_EVENT_ID = "EVENT_ID";
+    public static final String ANALYTICS_EVENT_NAME = "EVENT_NAME";
+    public static final String ANALYTICS_EVENT_CATEGORY = "EVENT_CATEGORY";
 
     //show a dialog to the user about a certain message/information
     public static void showMessage(Context c, String message, String title){
@@ -112,11 +117,11 @@ public class Tutility {
     }
 
     public static void showDialog(Context ctx, String title, String content, int dialogType){
-        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(ctx, dialogType)
+        new SweetAlertDialog(ctx, dialogType)
                 .setTitleText(title)
                 .setContentText(content)
-                .setCustomImage(R.mipmap.ic_trophy);
-        sweetAlertDialog.show();
+                .setCustomImage(R.mipmap.ic_trophy)
+                .show();
     }
 
     public static Rewards getAppRewards(){
