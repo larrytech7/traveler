@@ -942,6 +942,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             //Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_successfull), Toast.LENGTH_LONG).show();
                             //update map with current trip
                             setupCurrentTrip();
+                            showHint();
                             //update user's current profile
                             travelerUser.setEmergency_primary(mTrip.getContact_number());
                             travelerUser.setEmergency_secondary(guardianPhoneNumberSecondary.getText().toString());
@@ -1415,6 +1416,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
         googleApiClient.connect();
         updateUserProfile(travelerUser);
+        //showHint();
     }
 
     private void updateUserProfile(@NotNull  User travelerUser) {
@@ -1527,7 +1529,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                         .show();
                 break;
             case R.id.fabFlagBadRoad:
-                final FlagEvent roadEvent = new FlagEvent(1);
+                final FlagEvent roadEvent = new FlagEvent(2);
                 new AlertDialog.Builder(this)
                         .setIcon(R.drawable.ic_directions)
                         .setTitle(R.string.roadflag)
@@ -1541,7 +1543,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                         .show();
                 break;
             case R.id.fabFlagCarIssue:
-                final FlagEvent carEvent = new FlagEvent(1);
+                final FlagEvent carEvent = new FlagEvent(3);
                 new AlertDialog.Builder(this)
                         .setIcon(R.drawable.ic_local_car)
                         .setTitle(R.string.carFlag)
@@ -1555,7 +1557,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                         .show();
                 break;
             case R.id.fabFlagTraffic:
-                final FlagEvent trafficEvent = new FlagEvent(1);
+                final FlagEvent trafficEvent = new FlagEvent(4);
                 new AlertDialog.Builder(this)
                         .setIcon(R.drawable.ic_traffic)
                         .setTitle(R.string.traffic)
