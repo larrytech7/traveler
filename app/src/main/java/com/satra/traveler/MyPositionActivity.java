@@ -405,7 +405,6 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
         mapWrapperLayout = (MapWrapperLayout) findViewById(R.id.map_relative_layout);
 
-
         infoWindowAdapter = new GoogleMap.InfoWindowAdapter() {
             @Override
             public View getInfoWindow(Marker marker) {
@@ -436,7 +435,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         requestPermission(Manifest.permission.RECORD_AUDIO);
         // create GoogleApiClient
         createGoogleApi();
-
+        //prepare hintcase
+        showHint();
 
     }
 
@@ -1416,7 +1416,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
         googleApiClient.connect();
         updateUserProfile(travelerUser);
-        //showHint();
+        //onNext();
     }
 
     private void updateUserProfile(@NotNull  User travelerUser) {
