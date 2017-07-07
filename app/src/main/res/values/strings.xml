@@ -406,5 +406,6 @@
     <string name="error_input">Erreur! Le champ ne peut etre vide</string>
     <string name="success">Opération réussi</string>
     <string name="sent">Envoyé</string>
+    <string name="flag_menu">Envoyez les alertes autour de vous avec ce boutton</string>
 
 </resources>

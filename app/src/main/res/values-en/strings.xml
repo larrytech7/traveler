@@ -118,7 +118,7 @@
     <string name="about_title1">About</string>
     <string name="speed_dimen" formatted="false">%s | Speed: %s Kmph</string>
     <string name="login">Continue</string>
-    <string name="about_message1">With Traveler, no more deaths on our roads. Let Travelr accompany you all along. Version 5.3.0</string>
+    <string name="about_message1">With Traveler, no more deaths on our roads. Let Traveler accompany you all along. Version 5.3.0</string>
     <string name="cancel">Cancel</string>
     <string name="howserious">Severity level</string>
     <string name="save">Save</string>
@@ -143,12 +143,12 @@
     <string name="title_activity_messaging">Messages </string>
     <string name="echec_creation_compte_contact_serveur">Fail to contact server. Please retry later.</string>
     <string name="key_chargement">Loading…</string>
-    <string name="success_account_creation">account successfully saved on server</string>
+    <string name="success_account_creation">account successfully saved</string>
     <string name="key_account_creation_loading_msg">Contacting servers…</string>
     <string name="telephone_number_confirm_msg">" and with telephone number "</string>
     <string name="mat_id_synchronization_success">successful sync operation …</string>
     <string name="mat_id_synchronization_operation_failed">Failure of the synchronization process…</string>
-    <string name="mat_id_synchronization_failed_no_mat_id_saved">Failed to retrieve your account from the server. Please try again later or try to create a new account.</string>
+    <string name="mat_id_synchronization_failed_no_mat_id_saved">Failed to retrieve your account from the system. Please try again later or try to create a new account.</string>
     <string name="emergency_contact2">Second emergency contact </string>
     <string name="error_message_send">Message saved offline</string>
     <string name="emergency_contact_1">First emergency contact (*) </string>
@@ -156,7 +156,7 @@
     <string name="message_sent">Message sent</string>
     <string name="sending">Sending</string>
     <string name="tryagain">Try again</string>
-    <string name="success_account_edition">Account identified. User\'s informations updated…</string>
+    <string name="success_account_edition">Account identified. User\'s information updated…</string>
     <string name="place_list_option_choose">choose…</string>
     <string name="operation_failed_try_again_later">Operation failed. Please check your internet access and try again later.</string>
     <string name="current_trip_already_exist">A trip is already underway. You must complete or cancel it before creating another.</string>
@@ -278,7 +278,7 @@
     <string name="comment">comment</string>
     <string name="share">share</string>
     <string name="votre_commentaire">say something</string>
-    <string name="highspeed">Alert! High speed of %f kilometers per hour detected.</string>
+    <string name="highspeed">Alert! High speed of %.2f kilometers per hour detected.</string>
     <string name="pref_description_speed">Set speed notification in panel as persistent. Speed is not dismissible until journey is completed or cancelled.</string>
     <string name="select_language">Select language</string>
     <string name="pref_impact_title">Show impact Notifications</string>
@@ -288,7 +288,7 @@
     <string name="pref_title_highspeed">Allow high speed voice alerts</string>
     <string name="pref_title_impact_sound">Play sound for impact notifications</string>
     <string name="pref_title_speed">Persist speed Notifications</string>
-    <string name="pref_description_highspeed">allow voice notifications for high speed values</string>
+    <string name="pref_description_highspeed">Allow voice notifications for high speed values</string>
     <string name="user_country">Country of residence</string>
 
     <string name="accident">Flag Accident| Emergency</string>
@@ -300,6 +300,8 @@
     <string name="error_input">Error! The field cannot be empty</string>
     <string name="success">Operation success</string>
     <string name="sent">Sent</string>
+    <string name="emergency_sms" formatted="false">Alert! Impact detected. Position: Longitude %.6f , Latitude %.6f. Recorded by car, %s, %s. Road on %s</string>
+    <string name="flag_menu">Flag incidents around you during your trip</string>
 
 
 </resources>

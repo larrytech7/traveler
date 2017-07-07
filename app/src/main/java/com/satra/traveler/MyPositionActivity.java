@@ -20,18 +20,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.text.TextUtilsCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -84,6 +81,9 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.popalay.tutors.TutorialListener;
+import com.popalay.tutors.Tutors;
+import com.popalay.tutors.TutorsBuilder;
 import com.satra.traveler.models.FlagEvent;
 import com.satra.traveler.models.Rewards;
 import com.satra.traveler.models.SpeedOverhead;
@@ -103,6 +103,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -111,14 +112,11 @@ import java.util.regex.Pattern;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import mehdi.sakout.fancybuttons.FancyButton;
-import mehdi.sakout.fancybuttons.Utils;
-
-import static android.R.attr.id;
 
 public class MyPositionActivity extends AppCompatActivity implements OnMapReadyCallback, LocationSource.OnLocationChangedListener
         , GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener, View.OnClickListener,
-        ResultCallback {
+        ResultCallback, TutorialListener {
 
     private static final int RAYON_TERRE = 6366000;
     private static final int MAX_VITESSE_METRE_SECONDE = 0;
@@ -167,6 +165,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
     private static HashMap<String, double[]> knownTown;
     private FirebaseAnalytics mfirebaseanalytics;
+    private Tutors tutorBuilder;
+    private Iterator<Map.Entry<String, View>> iterator;
 
 
     static boolean IsMatch(String s, String pattern) {
@@ -452,6 +452,24 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         }
     }
 
+    //show hint about flag button
+    private void showHint(){
+        tutorBuilder = new TutorsBuilder()
+                .textColorRes(android.R.color.white)
+                .shadowColorRes(R.color.shadow)
+                .textSizeRes(R.dimen.textNormal)
+                .completeIconRes(R.drawable.ic_cross_24_white)
+                .nextButtonTextRes(R.string.action_next)
+                .completeButtonTextRes(R.string.action_got_it)
+                .spacingRes(R.dimen.spacingNormal)
+                .lineWidthRes(R.dimen.lineWidth)
+                .cancelable(true)
+                .build();
+        tutorBuilder.setListener(this);
+        HashMap<String, View> tutorials = new HashMap<>();
+        tutorials.put(getString(R.string.flag_menu), findViewById(R.id.menuButtonFlag));
+        iterator = tutorials.entrySet().iterator();
+    }
     @Override
     public void onMapReady(final GoogleMap map) {
         Log.d(LOG_TAG, "Map is ready");
@@ -1597,5 +1615,28 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         bundle.putString(FirebaseAnalytics.Param.ITEM_CATEGORY, Tutility.ANALYTICS_EVENT_CATEGORY);
         bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "text");
         mfirebaseanalytics.logEvent(Tutility.FLAG_EVENT, bundle);
+    }
+
+    @Override
+    public void onNext() {
+        if (iterator == null){
+            return;
+        }
+        if (iterator.hasNext()) {
+            Map.Entry<String, View> data = iterator.next();
+            tutorBuilder.show(getSupportFragmentManager(), data.getValue(),
+                    data.getKey(),
+                    !iterator.hasNext());
+        }
+    }
+
+    @Override
+    public void onComplete() {
+        tutorBuilder.close();
+    }
+
+    @Override
+    public void onCompleteAll() {
+        tutorBuilder.close();
     }
 }
