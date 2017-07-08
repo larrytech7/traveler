@@ -25,7 +25,6 @@ import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -35,6 +34,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -77,9 +77,14 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.popalay.tutors.TutorialListener;
+import com.popalay.tutors.Tutors;
+import com.popalay.tutors.TutorsBuilder;
+import com.satra.traveler.models.FlagEvent;
 import com.satra.traveler.models.Rewards;
 import com.satra.traveler.models.SpeedOverhead;
 import com.satra.traveler.models.Trip;
@@ -98,6 +103,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -110,7 +116,7 @@ import mehdi.sakout.fancybuttons.FancyButton;
 public class MyPositionActivity extends AppCompatActivity implements OnMapReadyCallback, LocationSource.OnLocationChangedListener
         , GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener, View.OnClickListener,
-        ResultCallback {
+        ResultCallback, TutorialListener {
 
     private static final int RAYON_TERRE = 6366000;
     private static final int MAX_VITESSE_METRE_SECONDE = 0;
@@ -158,6 +164,9 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     BottomSheetBehavior bottomSheetBehavior;
 
     private static HashMap<String, double[]> knownTown;
+    private FirebaseAnalytics mfirebaseanalytics;
+    private Tutors tutorBuilder;
+    private Iterator<Map.Entry<String, View>> iterator;
 
 
     static boolean IsMatch(String s, String pattern) {
@@ -209,6 +218,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
         travelerUser = User.findAll(User.class).next();
         setContentView(R.layout.view_my_position);
+        mfirebaseanalytics = FirebaseAnalytics.getInstance(this);
         fabMessaging = (FloatingActionButton) findViewById(R.id.fabMessageBtn);
         fabMessaging.setOnClickListener(this);
         //setup bottom sheet
@@ -250,8 +260,11 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
         navigationView.setNavigationItemSelectedListener(navigationItemListener);
 
-
-        
+        //configure Flag buttons
+        findViewById(R.id.fabFlagAccident).setOnClickListener(this);
+        findViewById(R.id.fabFlagBadRoad).setOnClickListener(this);
+        findViewById(R.id.fabFlagCarIssue).setOnClickListener(this);
+        findViewById(R.id.fabFlagTraffic).setOnClickListener(this);
         
         addToknownTown(prefs
                 .getString(TConstants.PREF_FROM_1, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_1", R.string.class))));
@@ -392,7 +405,6 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
         mapWrapperLayout = (MapWrapperLayout) findViewById(R.id.map_relative_layout);
 
-
         infoWindowAdapter = new GoogleMap.InfoWindowAdapter() {
             @Override
             public View getInfoWindow(Marker marker) {
@@ -423,7 +435,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         requestPermission(Manifest.permission.RECORD_AUDIO);
         // create GoogleApiClient
         createGoogleApi();
-
+        //prepare hintcase
+        showHint();
 
     }
 
@@ -439,6 +452,24 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         }
     }
 
+    //show hint about flag button
+    private void showHint(){
+        tutorBuilder = new TutorsBuilder()
+                .textColorRes(android.R.color.white)
+                .shadowColorRes(R.color.shadow)
+                .textSizeRes(R.dimen.textNormal)
+                .completeIconRes(R.drawable.ic_cross_24_white)
+                .nextButtonTextRes(R.string.action_next)
+                .completeButtonTextRes(R.string.action_got_it)
+                .spacingRes(R.dimen.spacingNormal)
+                .lineWidthRes(R.dimen.lineWidth)
+                .cancelable(true)
+                .build();
+        tutorBuilder.setListener(this);
+        HashMap<String, View> tutorials = new HashMap<>();
+        tutorials.put(getString(R.string.flag_menu), findViewById(R.id.menuButtonFlag));
+        iterator = tutorials.entrySet().iterator();
+    }
     @Override
     public void onMapReady(final GoogleMap map) {
         Log.d(LOG_TAG, "Map is ready");
@@ -911,6 +942,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             //Toast.makeText(getApplicationContext(), getString(R.string.journey_saved_successfull), Toast.LENGTH_LONG).show();
                             //update map with current trip
                             setupCurrentTrip();
+                            showHint();
                             //update user's current profile
                             travelerUser.setEmergency_primary(mTrip.getContact_number());
                             travelerUser.setEmergency_secondary(guardianPhoneNumberSecondary.getText().toString());
@@ -1384,6 +1416,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
         googleApiClient.connect();
         updateUserProfile(travelerUser);
+        //onNext();
     }
 
     private void updateUserProfile(@NotNull  User travelerUser) {
@@ -1470,6 +1503,9 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
     @Override
     public void onClick(View v) {
+        final EditText descEditText = new EditText(this);
+        descEditText.setMinLines(3);
+        descEditText.setHint(R.string.flag_hint);
         //handle view interaction click
         switch (v.getId()){
             case R.id.fabMessageBtn:
@@ -1477,6 +1513,62 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 //String matricule = PreferenceManager.getDefaultSharedPreferences(this).getString(TConstants.PREF_MATRICULE, "");
                 //msgIntent.putExtra(TConstants.PREF_MATRICULE, matricule);
                 startActivity(msgIntent);
+                break;
+            case R.id.fabFlagAccident:
+                final FlagEvent accidentEvent = new FlagEvent(1);
+                new AlertDialog.Builder(this)
+                        .setIcon(R.drawable.ic_hospital)
+                        .setTitle(R.string.accident)
+                        .setView(descEditText)
+                        .setPositiveButton(R.string.send, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                sendFlag(accidentEvent, descEditText.getText().toString());
+                            }
+                        })
+                        .show();
+                break;
+            case R.id.fabFlagBadRoad:
+                final FlagEvent roadEvent = new FlagEvent(2);
+                new AlertDialog.Builder(this)
+                        .setIcon(R.drawable.ic_directions)
+                        .setTitle(R.string.roadflag)
+                        .setView(descEditText)
+                        .setPositiveButton(R.string.send, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                sendFlag(roadEvent, descEditText.getText().toString());
+                            }
+                        })
+                        .show();
+                break;
+            case R.id.fabFlagCarIssue:
+                final FlagEvent carEvent = new FlagEvent(3);
+                new AlertDialog.Builder(this)
+                        .setIcon(R.drawable.ic_local_car)
+                        .setTitle(R.string.carFlag)
+                        .setView(descEditText)
+                        .setPositiveButton(R.string.send, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                sendFlag(carEvent, descEditText.getText().toString());
+                            }
+                        })
+                        .show();
+                break;
+            case R.id.fabFlagTraffic:
+                final FlagEvent trafficEvent = new FlagEvent(4);
+                new AlertDialog.Builder(this)
+                        .setIcon(R.drawable.ic_traffic)
+                        .setTitle(R.string.traffic)
+                        .setView(descEditText)
+                        .setPositiveButton(R.string.send, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                sendFlag(trafficEvent, descEditText.getText().toString());
+                            }
+                        })
+                        .show();
                 break;
             default:
                 //Toast.makeText(this, "Selecting plan", Toast.LENGTH_SHORT).show();
@@ -1486,5 +1578,67 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 break;
         }
 
+    }
+
+    private void sendFlag(@NotNull FlagEvent event, String s) {
+        if (TextUtils.isEmpty(s)){
+            Tutility.showMessage(this, R.string.error_input, R.string.error);
+            return;
+        }
+        if (!isCurrentTripExist()){
+            Tutility.showMessage(this, R.string.no_current_trip_defined, R.string.error);
+            return;
+        }
+
+        event.setAuthorId(String.valueOf(travelerUser.getId()));
+        event.setDescription(s);
+        event.setLocation("");
+        event.setTimeStamp(System.currentTimeMillis());
+        event.setTripId(getCurrentTrip().getTripKey());
+
+        FirebaseDatabase.getInstance().getReference(Tutility.FIREBASE_FLAGS)
+                .child(getCurrentTrip().getTripKey())
+                .push()
+                .setValue(event)
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        //show success message regardless of the task status since message will still be sent if connection is re-established
+                        new SweetAlertDialog(MyPositionActivity.this, SweetAlertDialog.SUCCESS_TYPE)
+                                .setTitleText(getString(R.string.sent))
+                                .setContentText(getString(R.string.success))
+                                .setCustomImage(R.drawable.ic_ok)
+                                .show();
+                    }
+                });
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, Tutility.ANALYTICS_EVENT_ID);
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, Tutility.ANALYTICS_EVENT_NAME);
+        bundle.putString(FirebaseAnalytics.Param.ITEM_CATEGORY, Tutility.ANALYTICS_EVENT_CATEGORY);
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "text");
+        mfirebaseanalytics.logEvent(Tutility.FLAG_EVENT, bundle);
+    }
+
+    @Override
+    public void onNext() {
+        if (iterator == null){
+            return;
+        }
+        if (iterator.hasNext()) {
+            Map.Entry<String, View> data = iterator.next();
+            tutorBuilder.show(getSupportFragmentManager(), data.getValue(),
+                    data.getKey(),
+                    !iterator.hasNext());
+        }
+    }
+
+    @Override
+    public void onComplete() {
+        tutorBuilder.close();
+    }
+
+    @Override
+    public void onCompleteAll() {
+        tutorBuilder.close();
     }
 }

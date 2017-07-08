@@ -212,7 +212,7 @@
     <string name="error_message_send">Echec de la sauvegarde du message. Nous retenterons l\'envoi plus tard.</string>
     <string name="message_sent">Message envoyé</string>
     <string name="sending">Envoie en cours</string>
-    <string name="message_received">Message reçu. Notre equipe travail en ce moment pour vous répondre. Merci d\'utiliser travelr.</string>
+    <string name="message_received">Message reçu. Notre equipe travail en ce moment pour vous répondre. Merci d\'utiliser traveler.</string>
     <string name="emergency_contact_1">Numéro d\'urgence 1 (*)</string>
     <string name="emergency_contact2">Numéro urgence 2</string>
     <string name="vertical_form_stepper_form_confirm_button">Recommencer</string>
@@ -396,6 +396,17 @@
 
 
     <string name="user_country">Pays de résidence</string>
-    <string name="emergency_sms" formatted="false" translatable="false">Alerte! Impact détecté. Position: Longitude %.6f , Latitude %.6f. Relevé au sein du véhicule, %s, %s. Route  %s</string>
+
+    <string name="emergency_sms" formatted="false">Alerte! Impacte d\'accident detecté. Position: Longitude %.6f , Latitude %.6f. Relever dans un vehicule, %s, %s. Route de %s</string>
+    <string name="accident">Alerte Accident| Urgence</string>
+    <string name="traffic">Alerte Embouteillages</string>
+    <string name="roadflag">Alerte Mauvaise route</string>
+    <string name="carFlag">Alerte Panne automobile</string>
+    <string name="flag_hint">Décrivez la situation</string>
+    <string name="error">Erreur</string>
+    <string name="error_input">Erreur! Le champ ne peut etre vide</string>
+    <string name="success">Opération réussi</string>
+    <string name="sent">Envoyé</string>
+    <string name="flag_menu">Envoyez les alertes autour de vous avec ce boutton</string>
 
 </resources>
