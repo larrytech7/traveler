@@ -22,7 +22,6 @@ public class Tutility {
     public static final String SHOW_HINTS = "app_hints";
     public static final String BROADCAST_SMS_EMERGENCY = "com.satra.traveler.SEND_EMERGENCY_SMS";
 
-    public static final String APP_EMERGENCY_CONTACT = "";
     public static final String FIREBASE_FLAGS = "flags";
     public static final String FLAG_EVENT = "FLAG_NEW_INCIDENT_EVENT";
     public static final String ANALYTICS_EVENT_ID = "EVENT_ID";
