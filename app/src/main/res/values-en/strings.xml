@@ -304,6 +304,7 @@
     <string name="sent">Sent</string>
     <string name="emergency_sms" formatted="false">Alert! Impact detected. Position: Longitude %.6f , Latitude %.6f. Recorded by car, %s, %s. Road on %s</string>
     <string name="flag_menu">Flag incidents around you during your trip</string>
+    <string name="reauthenticate">Welcome, reconnecting</string>
 
 
 </resources>

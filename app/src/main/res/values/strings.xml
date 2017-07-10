@@ -407,6 +407,11 @@
     <string name="error_input">Erreur! Le champ ne peut être vide</string>
     <string name="success">Opération réussie</string>
     <string name="sent">Envoyé</string>
+
+    <string name="flag_menu">Envoyez les alertes autour de vous avec ce boutton</string>
+    <string name="reauthenticate">Bienvenu, re-connexion</string>
+    <string name="confirm_email">Veuillez verifier votre adresse email</string>
+
     <string name="flag_menu">Utilisez ce bouton pour envoyer des alertes autour de vous</string>
 
 </resources>
