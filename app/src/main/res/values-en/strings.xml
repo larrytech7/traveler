@@ -119,7 +119,7 @@
     <string name="speed_dimen" formatted="false">%s | Speed: %s Kmph</string>
     <string name="login">Continue</string>
 
-    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 5.4.0</string>
+    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 5.4.1</string>
 
     <string name="cancel">Cancel</string>
     <string name="howserious">Severity level</string>
@@ -305,6 +305,7 @@
     <string name="emergency_sms" formatted="false">Alert! Impact detected. Position: Longitude %.6f , Latitude %.6f. Recorded by car, %s, %s. Road on %s</string>
     <string name="flag_menu">Flag incidents around you during your trip</string>
     <string name="reauthenticate">Welcome, reconnecting</string>
+    <string name="confirm_email">Please, check your email address !</string>
 
 
 </resources>
