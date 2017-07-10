@@ -174,7 +174,7 @@
     <string name="username_confirm_no_label">Non</string>
     <string name="username_confirm_yes_label">Oui</string>
     <string name="speed_limit_reached_ago">Vous avez depasse la limite de vitesse autorisee</string>
-    <string name="about_message1">Avec Traveler, c\'est Zero mort sur nos routes. <br />Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br /> Version 5.3.0</string>
+    <string name="about_message1">Avec Traveler, c\'est Zero mort sur nos routes. <br />Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br /> Version 5.3.8</string>
     <string name="about_title1">A propos</string>
     <string name="login">Continuer</string>
     <string name="speed_dimen" formatted="false">%s | Vitesse: %s Kmph</string>
@@ -396,6 +396,7 @@
 
 
     <string name="user_country">Pays de résidence</string>
+
     <string name="emergency_sms" formatted="false">Alerte! Impacte d\'accident detecté. Position: Longitude %.6f , Latitude %.6f. Relever dans un vehicule, %s, %s. Route de %s</string>
     <string name="accident">Alerte Accident| Urgence</string>
     <string name="traffic">Alerte Embouteillages</string>
