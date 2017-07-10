@@ -2,7 +2,7 @@
 <resources>
 
     <string name="create_profile">Account Creation </string>
-    <string name="welcome">Zero deaths on our roads. Remain Alert and safe with Traveler</string>
+    <string name="welcome">Zero deaths on our roads. Remain Alert and safe with Travelr</string>
     <string name="username">username (*)</string>
     <string name="password">password</string>
     <string name="password_again">password (again)</string>
@@ -119,7 +119,7 @@
     <string name="speed_dimen" formatted="false">%s | Speed: %s Kmph</string>
     <string name="login">Continue</string>
 
-    <string name="about_message1">With Traveler, no more deaths on our roads. Let Traveler accompany you all along. Version 5.3.0</string>
+    <string name="about_message1">With Travelr, no more deaths on our roads. Let Travelr accompany you all along. Version 5.4.0</string>
 
     <string name="cancel">Cancel</string>
     <string name="howserious">Severity level</string>
@@ -136,7 +136,7 @@
     <string name="travel_info">Trip information</string>
     <string name="cencel_trip_title">Cancel this trip</string>
     <string name="cencel_trip">You have chosen to cancel this trip. You can always register a new one if you need to travel again</string>
-    <string name="complete_trip">You have indicated that your journey has been completed. Thanks for using Traveler. \n%s</string>
+    <string name="complete_trip">You have indicated that your journey has been completed. Thanks for using Travelr. \n%s</string>
     <string name="complete_trip_error_title">Error</string>
     <string name="complete_trip_error">An error occurred. Please try again</string>
     <string name="complete_trip_title">Trip completed</string>
@@ -232,7 +232,7 @@
     <string name="speed_overheading">Overspeeding</string>
     <string name="speed_overheading_marker_end_string">End overspeeding</string>
     <string name="start_marker_string">Departure</string>
-    <string name="travelr_secure_your_trip">Traveler is securing your trip</string>
+    <string name="travelr_secure_your_trip">Travelr is securing your trip</string>
     <string name="assurance_voyage">Travel insurance</string>
     <string name="signinerror">%s</string>
     <string name="select_insurance_plan">Pick an insurance plan below</string>
@@ -254,20 +254,20 @@
     <string name="message_picture_hint">You can add send photos alongside your message using your camera.</string>
     <string name="message_text_hint">Type your message here. If reporting an incident and it doesn\'t involve your vehicle, please include the matricule of the vehicle invlovled if possible</string>
     <string name="message_button_hint">Send message with this button. If you have an image to add, let the image upload before sending your message.</string>
-    <string name="intro_notify">Traveler will automatically notify friends, family and emergency services for free via SMS in case of any incident</string>
-    <string name="intro_detect">Traveler will automatically detect road accidents relative to the vehicle under monitoring while the app runs</string>
-    <string name="intro_predict">Traveler predicts accidents by analysing data recorded by the app during a journey</string>
+    <string name="intro_notify">Travelr will automatically notify friends, family and emergency services for free via SMS in case of any incident</string>
+    <string name="intro_detect">Travelr will automatically detect road accidents relative to the vehicle under monitoring while the app runs</string>
+    <string name="intro_predict">Travelr predicts accidents by analysing data recorded by the app during a journey</string>
     <string name="title_detect">Automatically detect an accident</string>
     <string name="title_notify">Notification</string>
     <string name="title_predict">Predict Accidents</string>
 
     <string name="message_hint">Send your message with this button. If you have an image that accompanies it, let it load completely before sending your message.</string>
     <string name="share_app">Share App</string>
-    <string name="share_app_text">Hey! Download Traveler Here https://play.google.com/store/apps/details?id=com.satra.traveler , and let your family or friends get alerts about your journey. Traveler keeps you alert and safe from road incidents</string>
+    <string name="share_app_text">Hey! Download Travelr Here https://play.google.com/store/apps/details?id=com.satra.traveler , and let your family or friends get alerts about your journey. Travelr keeps you alert and safe from road incidents</string>
     <string name="register_rewards_title">Great! Now get points</string>
     <string name="register_rewards_content">You are just few steps away from claiming fidelity point, TPoints. Accumulate these points and get the chance to win a free VIP trip from one of our Travel partners. Complete your journeys to claim points.</string>
     <string name="incorrect_email">Invalid Email. Try again</string>
-    <string name="rewards_content">You can now win fidelity points by engaging with the traveler application whenever you are travelling. Register your journey to get started.</string>
+    <string name="rewards_content">You can now win fidelity points by engaging with the travelr application whenever you are travelling. Register your journey to get started.</string>
     <string name="second_phone_number_guardian">Secondary emergency contact</string>
     <string name="rewards_title">Accumulate and win points</string>
     <string name="travel_rewards_point">Bravo! You have gained %d TPoints for this action</string>
