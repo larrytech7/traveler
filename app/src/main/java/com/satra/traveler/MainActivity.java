@@ -35,7 +35,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
@@ -87,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     //user is logged-in. synchronise user info and send user to home screen
-                    Log.d(LOGTAG, "user is signed in");
                     launchHomeActivity();
                 } else {
                     //signed out. allow user to sign in
@@ -111,40 +112,6 @@ public class MainActivity extends AppCompatActivity {
 
         if (musers.hasNext()) {
             launchHomeActivity();
-            /*//Log.d(LOGTAG, "User available: "+musers.next().getUsername());
-            progress = new ProgressDialog(MainActivity.this);
-            progress.setIcon(R.mipmap.ic_launcher);
-            progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            progress.setIndeterminate(true);
-            progress.setCanceledOnTouchOutside(false);
-            progress.setTitle(getString(R.string.key_chargement));
-            progress.setMessage(getString(R.string.key_account_creation_loading_msg));
-            try {
-                progress.show();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            //synchronize with firebase and login
-            User user = musers.next();
-            mAuth.signInWithEmailAndPassword(Tutility.getAuthenticationEmail(user.getUserphone()),
-                    Tutility.getAuthenticationEmail(user.getUserphone()));
-            //update user info in firebase. Works even if offline
-            DatabaseReference reference = FirebaseDatabase.getInstance().getReference(Tutility.FIREBASE_USER);
-            reference
-                    .child(user.getUserphone())
-                    .setValue(user)
-                    .addOnCompleteListener(MainActivity.this,
-                            new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful())
-                                        Log.d(LOGTAG, "User synchronisation succeeded");
-                                    else
-                                        Log.d(LOGTAG, "User synchronisation failed");
-                                    progress.dismiss();
-                                    launchHomeActivity();
-                                }
-                            });*/
 
         } else {
             mAuth.addAuthStateListener(mAuthListener);
@@ -226,9 +193,9 @@ public class MainActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int arg1) {
 
                                 //final String matriculeString = (matricule.getText().toString().isEmpty())?getString(R.string.information_not_available_label):matricule.getText().toString().toUpperCase();
-                                final String telephoneString = noTelephone.getText().toString();
-                                final String usernameString = username.getText().toString();
-                                final String userEmailString = useremail.getText().toString();
+                                String telephoneString = noTelephone.getText().toString();
+                                String usernameString = username.getText().toString();
+                                String userEmailString = useremail.getText().toString();
                                 //final String contact1 = contact1EditText.getText().toString();
                                 //final String contact2 = (contact2EditText.getText().toString().isEmpty())?getString(R.string.information_not_available_label):contact2EditText.getText().toString();
                                 //new application/system user
@@ -240,7 +207,6 @@ public class MainActivity extends AppCompatActivity {
                                 //tuser.setEmergency_secondary(contact2);
                                 tuser.setUserphone(telephoneString);
                                 tuser.setDate_registered(SimpleDateFormat.getDateInstance().format(new Date()));
-                                //tuser.setUseremail(Tutility.getAuthenticationEmail(telephoneString));
                                 tuser.setUsername(usernameString);
                                 tuser.setUpdated_at(System.currentTimeMillis());
                                 //progress dialog to show ongoing process
@@ -258,7 +224,6 @@ public class MainActivity extends AppCompatActivity {
                                             @Override
                                             public void onSuccess(AuthResult authResult) {
                                                 //account creation succeeded
-                                                Log.d(LOGTAG, "Account created!");
                                                 sharedPreferences.edit().putString(TConstants.PREF_MATRICULE, tuser.getCurrent_matricule()).apply();
                                                 sharedPreferences.edit().putString(TConstants.PREF_EMERGENCY_CONTACT_1, tuser.getEmergency_primary()).apply();
                                                 //save user profile to device
@@ -266,26 +231,35 @@ public class MainActivity extends AppCompatActivity {
                                                 //get user and update display name
                                                 FirebaseUser user = authResult.getUser();
                                                 UserProfileChangeRequest updateRequest = new UserProfileChangeRequest.Builder()
-                                                        .setDisplayName(usernameString)
+                                                        .setDisplayName(tuser.getUsername())
                                                         .build();
-                                                user.updateProfile(updateRequest)
-                                                        .addOnCompleteListener(MainActivity.this, new OnCompleteListener<Void>() {
-                                                            @Override
-                                                            public void onComplete(@NonNull Task<Void> task) {
-
-                                                                progress.dismiss();
-                                                                launchHomeActivity();
-                                                            }
-                                                        });
+                                                user.updateProfile(updateRequest);
+                                                user.sendEmailVerification().addOnCompleteListener(MainActivity.this, new OnCompleteListener<Void>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                        if (task.isComplete())
+                                                            Tutility.showMessage(MainActivity.this, getString(R.string.confirm_email), getString(R.string.app_name));
+                                                        progress.dismiss();
+                                                    }
+                                                });
                                             }
                                         })
                                         .addOnFailureListener(MainActivity.this, new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
-                                                //account creation failed
-                                                progress.dismiss();
-                                                Tutility.showMessage(MainActivity.this, getString(R.string.signinerror, e.getMessage()), getString(R.string.app_name));
-                                                Log.e("signinerror", "error: " + e.getMessage());
+                                                //account creation failed, user may already exist
+                                                progress.setMessage(getString(R.string.reauthenticate));
+                                                Log.e("signintrial", "re-authenticating: " + e.getMessage());
+
+                                                AuthCredential credential = EmailAuthProvider.getCredential(tuser.getUseremail(),tuser.getPassword());
+                                                mAuth.signInWithCredential(credential).addOnSuccessListener(MainActivity.this, new OnSuccessListener<AuthResult>() {
+                                                    @Override
+                                                    public void onSuccess(AuthResult authResult) {
+                                                        progress.dismiss();
+                                                        tuser.save();
+                                                        launchHomeActivity();
+                                                    }
+                                                });
 
                                             }
                                         });
@@ -524,11 +498,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_about) {
-            Tutility.showMessage(getApplicationContext(), R.string.about_message1, R.string.about_title1);
-            return true;
-        }
+
         return super.onOptionsItemSelected(item);
     }
 
