@@ -408,7 +408,6 @@
     <string name="success">Opération réussie</string>
     <string name="sent">Envoyé</string>
 
-    <string name="flag_menu">Envoyez les alertes autour de vous avec ce boutton</string>
     <string name="reauthenticate">Bienvenu, re-connexion</string>
     <string name="confirm_email">Veuillez verifier votre adresse email</string>
 
