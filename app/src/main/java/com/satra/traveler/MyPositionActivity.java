@@ -177,6 +177,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private Tutors tutorBuilder;
     private Iterator<Map.Entry<String, View>> iterator;
     private LatLng lastKnownUserLocation;
+    private LocationRequest locationRequest;
 
 
     static boolean IsMatch(String s, String pattern) {
@@ -593,7 +594,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 return;
             }
             //setup request location
-            LocationRequest locationRequest = LocationRequest.create();
+            locationRequest = LocationRequest.create();
             locationRequest.setNumUpdates(1);
             locationRequest.setPriority(LocationRequest.PRIORITY_LOW_POWER);
             locationRequest.setExpirationTime(1200000);
@@ -1658,8 +1659,11 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             requestPermission(Manifest.permission.ACCESS_FINE_LOCATION);
             return;
         }
+        Location lc = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
+        lastKnownUserLocation = lc == null ? null : new LatLng(lc.getLatitude(), lc.getLongitude());
         //request for user current location if not yet available
         if (lastKnownUserLocation == null){
+            Log.e(LOG_TAG, "Sending flag ...");
             checkPositionEnabled();
             return;
         }
@@ -1687,7 +1691,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                                 .show();
                     }
                 });
-        Log.e(LOG_TAG, "Sending flag ...");
+
         ((FloatingActionMenu)findViewById(R.id.menuButtonFlag)).close(true);
         Bundle bundle = new Bundle();
         bundle.putString(FirebaseAnalytics.Param.ITEM_ID, Tutility.ANALYTICS_EVENT_ID);
