@@ -559,7 +559,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         LatLng coord = new LatLng(flagEvent.getLocLatitude(), flagEvent.getLocLongitude());
         CircleOptions circleOptions = new CircleOptions()
                 .center(coord)
-                .radius(2)
+                .radius(4)
                 .fillColor(Color.argb(200, 240,128,128)) //semi transparent red for incidents i guess.
                 .strokeWidth(20)
                 .strokeColor(Color.argb(64,255,0,0));
