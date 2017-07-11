@@ -19,6 +19,7 @@ public class User extends SugarRecord{
     private long uid; //unique user id.
     private String username; //pseudo
     private String useremail;
+    private String userCountry;
     private String userphone; //phone number
     private String password;
     private String date_registered;
@@ -125,5 +126,13 @@ public class User extends SugarRecord{
         usermap.put("userphone", userphone);
 
         return usermap;
+    }
+
+    public String getUserCountry() {
+        return userCountry == null ? "cmr" : userCountry;
+    }
+
+    public void setUserCountry(String userCountry) {
+        this.userCountry = userCountry;
     }
 }

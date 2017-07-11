@@ -2,6 +2,7 @@ package com.satra.traveler.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AlertDialog;
 
 import com.satra.traveler.R;
@@ -9,6 +10,9 @@ import com.satra.traveler.models.Rewards;
 import com.satra.traveler.models.User;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
+
+import static android.R.attr.switchMinWidth;
+import static android.R.attr.type;
 
 /**
  * Created by Larry Akah on 6/11/16.
@@ -133,5 +137,40 @@ public class Tutility {
 
     public static User getAppUser() {
         return User.last(User.class);
+    }
+
+    public static Integer stringToInt(String str){
+        if(str.length()==0) return 0;
+        else return (str.charAt(0)+stringToInt(str.substring(1)))%256;
+    }
+
+    public static String getFlagEventTitle(Context c, int type) {
+        switch(type){
+            case 1:
+                return c.getString(R.string.accident);
+            case 2:
+                return c.getString(R.string.roadflag);
+            case 3:
+                return c.getString(R.string.carFlag);
+            case 4:
+                return c.getString(R.string.traffic);
+        }
+        return "";
+    }
+
+    public static int getFlagEventDrawable(Context c, int type){
+        ResourcesCompat.getDrawable(c.getResources(), R.drawable.ic_hospital, null);
+
+        switch(type){
+            case 1:
+                return R.drawable.ic_hospital;
+            case 2:
+                return R.drawable.ic_directions;
+            case 3:
+                return R.drawable.ic_local_car;
+            case 4:
+                return R.drawable.ic_traffic;
+        }
+        return R.drawable.ic_incident;
     }
 }

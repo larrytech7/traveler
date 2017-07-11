@@ -53,6 +53,8 @@ import java.util.Iterator;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 
+import static com.satra.traveler.utils.Tutility.stringToInt;
+
 public class MainActivity extends AppCompatActivity {
 
     final private static int DIALOG_SIGNUP = 1;
@@ -71,11 +73,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private ProgressDialog progress;
     private EditText useremail;
-
-    public static Integer stringToInt(String str){
-        if(str.length()==0) return 0;
-        else return (str.charAt(0)+stringToInt(str.substring(1)))%256;
-    }
+    private String country = "cmr";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Log.e("country choosed", "country: "+arrayAdapter.getItem(position)+"\t code: "+
                         country_code);
+                country = country_code;
 
                 sharedPreferences.edit().putString(TConstants.PREF_COUNTRY,
                         country_code
@@ -203,6 +202,7 @@ public class MainActivity extends AppCompatActivity {
                                 tuser.setCurrent_matricule("indisponible");
                                 tuser.setPassword(Tutility.getAuthenticationEmail(telephoneString));
                                 tuser.setUseremail(userEmailString);
+                                tuser.setUserCountry(country);
                                 //tuser.setEmergency_primary(contact1);
                                 //tuser.setEmergency_secondary(contact2);
                                 tuser.setUserphone(telephoneString);
@@ -300,7 +300,7 @@ public class MainActivity extends AppCompatActivity {
         //ask user to grant permission to read fine location. Required for android 6.0+ API level 23+
         ActivityCompat.requestPermissions(MainActivity.this,
                 new String[]{permission},
-                stringToInt(permission));
+                Tutility.stringToInt(permission));
     }
 
     private void launchHomeActivity(){
@@ -313,7 +313,7 @@ public class MainActivity extends AppCompatActivity {
                                            @NonNull String permissions[], @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        if (requestCode==stringToInt(android.Manifest.permission.READ_PHONE_STATE)&&
+        if (requestCode== Tutility.stringToInt(android.Manifest.permission.READ_PHONE_STATE)&&
                 grantResults.length > 0
                 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
 
@@ -321,7 +321,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        else if (requestCode==stringToInt(android.Manifest.permission.READ_CONTACTS)&&
+        else if (requestCode== Tutility.stringToInt(android.Manifest.permission.READ_CONTACTS)&&
                 grantResults.length > 0
                 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
 

@@ -7,7 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    tools:openDrawer="start"
+    tools:context=".MyPositionActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -76,7 +77,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_messaging_24dp"
-                    android:layout_gravity="bottom|end"
+                    android:layout_gravity="bottom|start"
+                    android:layout_marginBottom="10dp"
                     app:fab_label="@string/message_simple"
                     fab:fab_size="normal"
                     fab:fab_colorNormal="@color/colorPrimary"
@@ -86,7 +88,7 @@
                     android:id="@+id/menuButtonFlag"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|start"
+                    android:layout_gravity="bottom|end"
                     android:layout_marginTop="10dp"
                     fab:menu_fab_size="normal"
                     fab:menu_showShadow="true"
@@ -118,7 +120,7 @@
                     fab:menu_labels_singleLine="false"
                     fab:menu_labels_ellipsize="none"
                     fab:menu_labels_maxLines="-1"
-                    fab:menu_labels_position="right"
+                    fab:menu_labels_position="left"
                     fab:menu_openDirection="up"
                     fab:menu_backgroundColor="@android:color/transparent"
                     fab:menu_fab_label="X"
@@ -162,6 +164,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
                 android:clipToPadding="true"
+                android:visibility="gone"
                 android:layout_gravity="bottom"
                 android:background="@color/bluePrimary"
                 app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
