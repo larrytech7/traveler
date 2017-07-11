@@ -44,9 +44,9 @@
     <!-- CAMEROON LOCALIZE STRING -->
     <string-array name="cmr_compagnies_names">
         <item>"Personnel"</item>
-        <item>"Bucca Voyage"</item>
-        <item>"Touristic Express"</item>
-        <item>"Finex Voyage"</item>
+        <item>"Buca Voyage"</item>
+        <item>"Touristique Express"</item>
+        <item>"Finexs Voyage"</item>
         <item>"Camrail Intercity"</item>
         <item>"Autre"</item>
     </string-array>

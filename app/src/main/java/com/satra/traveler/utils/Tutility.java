@@ -10,6 +10,8 @@ import com.satra.traveler.models.User;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
+import static android.R.attr.type;
+
 /**
  * Created by Larry Akah on 6/11/16.
  * Travelr Utility Class contains global utility functions used within the app
@@ -133,5 +135,15 @@ public class Tutility {
 
     public static User getAppUser() {
         return User.last(User.class);
+    }
+
+    public static Integer stringToInt(String str){
+        if(str.length()==0) return 0;
+        else return (str.charAt(0)+stringToInt(str.substring(1)))%256;
+    }
+
+    public static String getFlagEventTitle(Context c, int type) {
+
+        return "";
     }
 }

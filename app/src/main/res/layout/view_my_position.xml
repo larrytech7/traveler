@@ -7,7 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    tools:openDrawer="start"
+    tools:context=".MyPositionActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -77,6 +78,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_messaging_24dp"
                     android:layout_gravity="bottom|end"
+                    android:layout_marginBottom="10dp"
                     app:fab_label="@string/message_simple"
                     fab:fab_size="normal"
                     fab:fab_colorNormal="@color/colorPrimary"

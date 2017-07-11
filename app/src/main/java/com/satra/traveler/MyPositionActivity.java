@@ -60,6 +60,8 @@ import com.google.android.gms.common.api.Result;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofencingRequest;
+import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
@@ -70,16 +72,22 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.TileOverlayOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.popalay.tutors.TutorialListener;
 import com.popalay.tutors.Tutors;
@@ -116,7 +124,7 @@ import mehdi.sakout.fancybuttons.FancyButton;
 public class MyPositionActivity extends AppCompatActivity implements OnMapReadyCallback, LocationSource.OnLocationChangedListener
         , GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener, View.OnClickListener,
-        ResultCallback, TutorialListener {
+        ResultCallback, TutorialListener, LocationListener {
 
     private static final int RAYON_TERRE = 6366000;
     private static final int MAX_VITESSE_METRE_SECONDE = 0;
@@ -134,7 +142,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private ImageButton problemPreview;
     private AlertDialog alertDialog;
     private TextView tPointsTextview;
-    private EditText guardianPhoneNumber,guardianPhoneNumberSecondary;
+    private EditText guardianPhoneNumber, guardianPhoneNumberSecondary;
     private String guardianName = "";
     private SharedPreferences prefs;
     private GoogleMap googleMap;
@@ -145,9 +153,9 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private static Trip mTrip;
     static int PLACE_PICKER_REQUEST_FROM = 2;
     static int PLACE_PICKER_REQUEST_TO = 3;
-    private  Spinner destinationSpinner;
+    private Spinner destinationSpinner;
     private Spinner fromSpinner;
-     MapWrapperLayout mapWrapperLayout;
+    MapWrapperLayout mapWrapperLayout;
     private ViewGroup infoWindow;
     private TextView infoSnippet;
     private GoogleMap.InfoWindowAdapter infoWindowAdapter;
@@ -167,6 +175,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private FirebaseAnalytics mfirebaseanalytics;
     private Tutors tutorBuilder;
     private Iterator<Map.Entry<String, View>> iterator;
+    private LatLng lastKnownUserLocation;
 
 
     static boolean IsMatch(String s, String pattern) {
@@ -245,7 +254,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-    //    getSupportActionBar().setLogo(R.drawable.ic_action_name);
+        //    getSupportActionBar().setLogo(R.drawable.ic_action_name);
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -265,56 +274,56 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         findViewById(R.id.fabFlagBadRoad).setOnClickListener(this);
         findViewById(R.id.fabFlagCarIssue).setOnClickListener(this);
         findViewById(R.id.fabFlagTraffic).setOnClickListener(this);
-        
-        addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_1, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_1", R.string.class))));
-        addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_2, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_2", R.string.class))));
-        addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_3, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_3", R.string.class))));
-        addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_4, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_4", R.string.class))));
-        addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_5, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_5", R.string.class))));
-        addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_6, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_6", R.string.class))));
-        addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_7, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_7", R.string.class))));
-        addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_8, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_8", R.string.class))));
-        addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_10, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_10", R.string.class))));
-        addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_11, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_11", R.string.class))));
-        addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_12, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_12", R.string.class))));
-        addToknownTown(prefs
-                .getString(TConstants.PREF_FROM_13, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_13", R.string.class))));
 
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_1, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_2", R.string.class))));
+                .getString(TConstants.PREF_FROM_1, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_1", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_2, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_1", R.string.class))));
+                .getString(TConstants.PREF_FROM_2, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_2", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_3, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_3", R.string.class))));
+                .getString(TConstants.PREF_FROM_3, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_3", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_4, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_4", R.string.class))));
+                .getString(TConstants.PREF_FROM_4, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_4", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_5, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_5", R.string.class))));
+                .getString(TConstants.PREF_FROM_5, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_5", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_6, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_6", R.string.class))));
+                .getString(TConstants.PREF_FROM_6, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_6", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_7, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_7", R.string.class))));
+                .getString(TConstants.PREF_FROM_7, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_7", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_8, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_8", R.string.class))));
+                .getString(TConstants.PREF_FROM_8, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_8", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_10, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_10", R.string.class))));
+                .getString(TConstants.PREF_FROM_10, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_10", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_11, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_11", R.string.class))));
+                .getString(TConstants.PREF_FROM_11, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_11", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_12, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_12", R.string.class))));
+                .getString(TConstants.PREF_FROM_12, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_12", R.string.class))));
         addToknownTown(prefs
-                .getString(TConstants.PREF_TO_13, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_13", R.string.class))));
+                .getString(TConstants.PREF_FROM_13, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_13", R.string.class))));
+
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_1, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_2", R.string.class))));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_2, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_1", R.string.class))));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_3, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_3", R.string.class))));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_4, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_4", R.string.class))));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_5, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_5", R.string.class))));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_6, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_6", R.string.class))));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_7, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_7", R.string.class))));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_8, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_8", R.string.class))));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_10, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_10", R.string.class))));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_11, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_11", R.string.class))));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_12, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_12", R.string.class))));
+        addToknownTown(prefs
+                .getString(TConstants.PREF_TO_13, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_13", R.string.class))));
 
         final TextView usernameTextview = ((TextView) navigationView.getHeaderView(0).findViewById(R.id.username));
         usernameTextview.setText(travelerUser == null ? "anonyme" : travelerUser.getUsername());
@@ -324,29 +333,16 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
         //speed textview
         speedTextview = (TextView) navigationView.getHeaderView(0).findViewById(R.id.speedtext);
-        speedTextview.setText(getString(R.string.speed_dimen, travelerUser ==null?"OO000OO":travelerUser.getCurrent_matricule(), Float.parseFloat("0")+""));
+        speedTextview.setText(getString(R.string.speed_dimen, travelerUser == null ? "OO000OO" : travelerUser.getCurrent_matricule(), Float.parseFloat("0") + ""));
         //build speedometer
         mspeedometer = (SpeedometerGauge) navigationView.getHeaderView(0).findViewById(R.id.speedometer);
         setupSpeedometer(mspeedometer);
         //setup TPoints
         Rewards rewards = Rewards.last(Rewards.class);
         tPointsTextview = (TextView) navigationView.getHeaderView(0).findViewById(R.id.tpointsTextview);
-        tPointsTextview.setText(getString(R.string.default_points, rewards == null? 0: rewards.getPointsAccumulated()));
+        tPointsTextview.setText(getString(R.string.default_points, rewards == null ? 0 : rewards.getPointsAccumulated()));
         //check for GPS availability and activation
-        if (!((LocationManager) getSystemService(LOCATION_SERVICE)).isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage(R.string.gps_disabled_message)
-                    .setPositiveButton(R.string.open_settings, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                            startActivity(intent);
-                        }
-                    });
-
-            AlertDialog alert = builder.create();
-            alert.show();
-        }
-
+        checkPositionEnabled();
 
         final Handler handler = new Handler() {
             @Override
@@ -366,7 +362,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             Tutility.round(speed / COEFF_CONVERSION_MS_KMH);
                     mspeedometer.setSpeed(mspeed);
                     //update the value on the speed label
-                    speedTextview.setText(getString(R.string.speed_dimen, prefs.getString(TConstants.PREF_MATRICULE, "OO000OO"), mspeed+""));
+                    speedTextview.setText(getString(R.string.speed_dimen, prefs.getString(TConstants.PREF_MATRICULE, "OO000OO"), mspeed + ""));
                 }
             }
         };
@@ -440,6 +436,23 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
     }
 
+    //check if we can get current position and availability via GPS
+    private void checkPositionEnabled() {
+        if (!((LocationManager) getSystemService(LOCATION_SERVICE)).isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage(R.string.gps_disabled_message)
+                    .setPositiveButton(R.string.open_settings, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                            startActivity(intent);
+                        }
+                    });
+
+            AlertDialog alert = builder.create();
+            alert.show();
+        }
+    }
+
     // Create GoogleApiClient instance
     private void createGoogleApi() {
         Log.d(TAG, "createGoogleApi()");
@@ -453,7 +466,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     }
 
     //show hint about flag button
-    private void showHint(){
+    private void showHint() {
         tutorBuilder = new TutorsBuilder()
                 .textColorRes(android.R.color.white)
                 .shadowColorRes(R.color.shadow)
@@ -470,6 +483,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         tutorials.put(getString(R.string.flag_menu), findViewById(R.id.menuButtonFlag));
         iterator = tutorials.entrySet().iterator();
     }
+
     @Override
     public void onMapReady(final GoogleMap map) {
         Log.d(LOG_TAG, "Map is ready");
@@ -493,26 +507,79 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
         googleMap.setMyLocationEnabled(true);
         googleMap.setBuildingsEnabled(true);
+        googleMap.setTrafficEnabled(true);
 
-        if(numberOfMapSettings==0&&googleApiClient.isConnected()){
+        if (numberOfMapSettings == 0 && googleApiClient.isConnected()) {
             setupCurrentTrip();
-            numberOfMapSettings=1;
+            numberOfMapSettings = 1;
         }
+
+        //render any flags raised within 24 hours
+        FirebaseDatabase.getInstance().getReference(Tutility.FIREBASE_FLAGS)
+                .addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                        FlagEvent event = dataSnapshot.getValue(FlagEvent.class);
+                        addFlagEventToMap(event);
+                    }
+
+                    @Override
+                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                        FlagEvent event = dataSnapshot.getValue(FlagEvent.class);
+                        addFlagEventToMap(event);
+                    }
+
+                    @Override
+                    public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+    }
+
+    /**
+     * Add a flagEvent to the map.
+     * @param flagEvent event to add to the map
+     */
+    private void addFlagEventToMap(@NotNull FlagEvent flagEvent){
+
+        LatLng coord = new LatLng(flagEvent.getLocLatitude(), flagEvent.getLocLongitude());
+        CircleOptions circleOptions = new CircleOptions()
+                .center(coord)
+                .radius(2)
+                .fillColor(Color.argb(200, 240,128,128)) //semi transparent red for incidents i guess.
+                .strokeWidth(20)
+                .strokeColor(Color.argb(64,255,0,0));
+        googleMap.addMarker(new MarkerOptions()
+                .position(coord)
+                .title(Tutility.getFlagEventTitle(this, flagEvent.getType()))
+                .snippet(flagEvent.getDescription()));
+        googleMap.addCircle(circleOptions);
     }
 
     private void requestPermission(String permission) {
         //ask user to grant permission for @permission. Required for android 6.0+ API level 23+
         ActivityCompat.requestPermissions(MyPositionActivity.this,
                 new String[]{permission},
-                MainActivity.stringToInt(permission));
+                Tutility.stringToInt(permission));
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
+                                           @NonNull String permissions[], @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        if (requestCode == MainActivity.stringToInt(android.Manifest.permission.ACCESS_FINE_LOCATION) &&
+        if (requestCode == Tutility.stringToInt(android.Manifest.permission.ACCESS_FINE_LOCATION) &&
                 grantResults.length > 0
                 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
@@ -522,15 +589,21 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
                 return;
             }
-            if(accessFineLocationSituation==1) {
+            //setup request location
+            LocationRequest locationRequest = LocationRequest.create();
+            locationRequest.setNumUpdates(1);
+            locationRequest.setPriority(LocationRequest.PRIORITY_LOW_POWER);
+            locationRequest.setExpirationTime(1200000);
+            LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, this);
+
+            if (accessFineLocationSituation == 1) {
                 Intent intent = new Intent(this, SpeedMeterService.class);
 
                 startService(intent);
 
                 googleMap.setMyLocationEnabled(true);
                 googleMap.setBuildingsEnabled(true);
-            }
-            else if(accessFineLocationSituation==2){
+            } else if (accessFineLocationSituation == 2) {
                 LocationServices.GeofencingApi.addGeofences(
                         googleApiClient,
                         getGeofencingRequest(),
@@ -538,16 +611,14 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 ).setResultCallback(this);
             }
 
-        } else if (requestCode == MainActivity.stringToInt(Manifest.permission.READ_CONTACTS) &&
+        } else if (requestCode == Tutility.stringToInt(Manifest.permission.READ_CONTACTS) &&
                 grantResults.length > 0
                 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
 
             Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
             startActivityForResult(intent, PICK_CONTACT);
 
         }
-
 
     }
 
@@ -716,7 +787,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             problemLevelLabel.setVisibility(View.VISIBLE);
                         } else if (position == 2) {
                             busImmatriculation.setEnabled(false);
-                            busImmatriculation.setText(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"immatriculation_example", R.string.class));
+                            busImmatriculation.setText(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "immatriculation_example", R.string.class));
                         }
                     }
 
@@ -741,8 +812,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             return;
                         }
 
-                        if (!IsMatch(busImmatriculation.getText().toString().toUpperCase(), getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"car_immatriculation_regex_patern", R.string.class)))) {
-                            Toast.makeText(getApplicationContext(), getString(R.string.incorrect_immatriculation_number)+" "+ getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"immatriculation_example", R.string.class)), Toast.LENGTH_LONG).show();
+                        if (!IsMatch(busImmatriculation.getText().toString().toUpperCase(), getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "car_immatriculation_regex_patern", R.string.class)))) {
+                            Toast.makeText(getApplicationContext(), getString(R.string.incorrect_immatriculation_number) + " " + getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "immatriculation_example", R.string.class)), Toast.LENGTH_LONG).show();
                             return;
                         }
                         Toast.makeText(getApplicationContext(), getString(R.string.problem_saved_successfull) + "... ", Toast.LENGTH_LONG).show();
@@ -781,16 +852,15 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                         this, android.R.layout.simple_spinner_item,
                         getApplicationContext().getResources().getStringArray(
-                                MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"compagnies_names", R.array.class)
+                                MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "compagnies_names", R.array.class)
                         ));
 
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 companyName.setAdapter(adapter);
 
-               
 
                 mTrip.setAgency_name(getResources().getStringArray(MainActivity.getResId(
-                        prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+
+                        prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" +
                                 "compagnies_names", R.array.class))[0]);
 
 
@@ -803,8 +873,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 guardianPhoneNumber.setText(travelerUser.getEmergency_primary());
                 guardianPhoneNumberSecondary.setText(travelerUser.getEmergency_secondary());
 
-                busMatriculationNumber.setText(IsMatch(prefs.getString(TConstants.PREF_MATRICULE, "").toUpperCase(), getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"car_immatriculation_regex_patern", R.string.class)))?
-                        prefs.getString(TConstants.PREF_MATRICULE, "").toUpperCase():"");
+                busMatriculationNumber.setText(IsMatch(prefs.getString(TConstants.PREF_MATRICULE, "").toUpperCase(), getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "car_immatriculation_regex_patern", R.string.class))) ?
+                        prefs.getString(TConstants.PREF_MATRICULE, "").toUpperCase() : "");
 
                 buttonSave = (FancyButton) alertDialog.findViewById(R.id.button_save);
 
@@ -920,9 +990,9 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             return;
                         }
 
-                        if (!IsMatch(busMatriculationNumber.getText().toString().toUpperCase(), getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"car_immatriculation_regex_patern", R.string.class)))) {
-                            Log.e("regex: ", "pattern: " + getString(R.string.incorrect_immatriculation_number)+" "+ getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"immatriculation_example", R.string.class)));
-                            Toast.makeText(getApplicationContext(), getString(R.string.incorrect_immatriculation_number)+" "+ getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"immatriculation_example", R.string.class)), Toast.LENGTH_LONG).show();
+                        if (!IsMatch(busMatriculationNumber.getText().toString().toUpperCase(), getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "car_immatriculation_regex_patern", R.string.class)))) {
+                            Log.e("regex: ", "pattern: " + getString(R.string.incorrect_immatriculation_number) + " " + getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "immatriculation_example", R.string.class)));
+                            Toast.makeText(getApplicationContext(), getString(R.string.incorrect_immatriculation_number) + " " + getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "immatriculation_example", R.string.class)), Toast.LENGTH_LONG).show();
                             dialog.findViewById(R.id.tripProgressbar).setVisibility(View.GONE);
                             return;
                         }
@@ -955,25 +1025,25 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             firebaseDatabase
                                     .child(mTrip.getBus_immatriculation())
                                     .updateChildren(tripMap)
-                            .addOnSuccessListener(MyPositionActivity.this, new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    //add passengers of the matricule for this trip
-                                   FirebaseDatabase.getInstance().getReference("passengers")
-                                           .child(mTrip.getBus_immatriculation())
-                                           .child(mTrip.getTripKey())
-                                            .push()
-                                            .setValue(travelerUser.getUserMap()); //+travelerUser.getUserphone()
-                                }
-                            });
+                                    .addOnSuccessListener(MyPositionActivity.this, new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            //add passengers of the matricule for this trip
+                                            FirebaseDatabase.getInstance().getReference("passengers")
+                                                    .child(mTrip.getBus_immatriculation())
+                                                    .child(mTrip.getTripKey())
+                                                    .push()
+                                                    .setValue(travelerUser.getUserMap()); //+travelerUser.getUserphone()
+                                        }
+                                    });
                             //save/update user
                             updateUserProfile(travelerUser);
                             //save current trip matricule to preference
                             prefs.edit().putString(TConstants.PREF_MATRICULE, mTrip.getBus_immatriculation()).apply();
                             //set new matricule on speedometer textview
-                            getString(R.string.speed_dimen, mTrip.getBus_immatriculation(), Float.parseFloat("0")+"");
+                            getString(R.string.speed_dimen, mTrip.getBus_immatriculation(), Float.parseFloat("0") + "");
                             //Register to receive FCM  notifications for new messages on this trip
-                            FirebaseMessaging.getInstance().subscribeToTopic(TConstants.FIREBASE_MESSAGING_TOPIC+mTrip.getBus_immatriculation());
+                            FirebaseMessaging.getInstance().subscribeToTopic(TConstants.FIREBASE_MESSAGING_TOPIC + mTrip.getBus_immatriculation());
                             //Show snackbar asking user to setup insurance plan
                             Snackbar.make(findViewById(R.id.my_frame_host), getString(R.string.insurance_plan), Snackbar.LENGTH_LONG)
                                     .setAction(getString(R.string.get_insurance), MyPositionActivity.this)
@@ -1007,29 +1077,29 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private void setToSpinner() {
         List<String> listTo = new ArrayList<>();
         listTo.add(0, prefs
-                .getString(TConstants.PREF_TO_1, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_2", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_1, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_2", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(1, prefs
-                .getString(TConstants.PREF_TO_2, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_1", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_2, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_1", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(2, prefs
-                .getString(TConstants.PREF_TO_3, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_3", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_3, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_3", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(3, prefs
-                .getString(TConstants.PREF_TO_4, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_4", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_4, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_4", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(4, prefs
-                .getString(TConstants.PREF_TO_5, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_5", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_5, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_5", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(5, prefs
-                .getString(TConstants.PREF_TO_6, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_6", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_6, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_6", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(6, prefs
-                .getString(TConstants.PREF_TO_7, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_7", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_7, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_7", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(7, prefs
-                .getString(TConstants.PREF_TO_8, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_8", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_8, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_8", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(8, prefs
-                .getString(TConstants.PREF_TO_10, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_10", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_10, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_10", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(9, prefs
-                .getString(TConstants.PREF_TO_11, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_11", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_11, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_11", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(10, prefs
-                .getString(TConstants.PREF_TO_12, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_12", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_12, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_12", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(11, prefs
-                .getString(TConstants.PREF_TO_13, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_13", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_TO_13, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_13", R.string.class))).split(Pattern.quote("|"))[0]);
         listTo.add(12, getString(R.string.place_list_option_choose));
 
         ArrayAdapter<String> toAdapter = new ArrayAdapter<>(MyPositionActivity.this,
@@ -1049,29 +1119,29 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     private void setFromSpinner() {
         List<String> listFrom = new ArrayList<>();
         listFrom.add(0, prefs
-                .getString(TConstants.PREF_FROM_1, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_1", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_1, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_1", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(1, prefs
-                .getString(TConstants.PREF_FROM_2, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_2", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_2, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_2", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(2, prefs
-                .getString(TConstants.PREF_FROM_3, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_3", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_3, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_3", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(3, prefs
-                .getString(TConstants.PREF_FROM_4, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_4", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_4, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_4", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(4, prefs
-                .getString(TConstants.PREF_FROM_5, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_5", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_5, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_5", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(5, prefs
-                .getString(TConstants.PREF_FROM_6, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_6", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_6, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_6", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(6, prefs
-                .getString(TConstants.PREF_FROM_7, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_7", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_7, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_7", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(7, prefs
-                .getString(TConstants.PREF_FROM_8, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_8", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_8, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_8", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(8, prefs
-                .getString(TConstants.PREF_FROM_10, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_10", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_10, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_10", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(9, prefs
-                .getString(TConstants.PREF_FROM_11, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_11", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_11, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_11", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(10, prefs
-                .getString(TConstants.PREF_FROM_12, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_12", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_12, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_12", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(11, prefs
-                .getString(TConstants.PREF_FROM_13, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_13", R.string.class))).split(Pattern.quote("|"))[0]);
+                .getString(TConstants.PREF_FROM_13, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_13", R.string.class))).split(Pattern.quote("|"))[0]);
         listFrom.add(12, getString(R.string.place_list_option_choose));
 
         ArrayAdapter<String> fromAdapter = new ArrayAdapter<>(MyPositionActivity.this,
@@ -1110,7 +1180,6 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             googleMap.clear();
 
             //positionnement des marqueurs et trace du trajet
-
 
 
             LatLng from, to;
@@ -1181,8 +1250,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                     )
                     .setExpirationDuration(TConstants.GEOFENCE_EXPIRATION_IN_MILLISECONDS)
                     .setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER |
-                            Geofence.GEOFENCE_TRANSITION_EXIT|Geofence.GEOFENCE_TRANSITION_DWELL)
-                    .setLoiteringDelay (TConstants.GEOFENCE_DWELL_DELAY_IN_MILLISECONDS)
+                            Geofence.GEOFENCE_TRANSITION_EXIT | Geofence.GEOFENCE_TRANSITION_DWELL)
+                    .setLoiteringDelay(TConstants.GEOFENCE_DWELL_DELAY_IN_MILLISECONDS)
                     .build();
 
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -1216,18 +1285,18 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         Intent intent = new Intent(this, GeofenceTransitionsIntentService.class);
         // We use FLAG_UPDATE_CURRENT so that we get the same pending intent back when
         // calling addGeofences() and removeGeofences().
-         mGeofencePendingIntent =  PendingIntent.getService(this, 0, intent, PendingIntent.
+        mGeofencePendingIntent = PendingIntent.getService(this, 0, intent, PendingIntent.
                 FLAG_UPDATE_CURRENT);
 
         return mGeofencePendingIntent;
     }
 
-    public static boolean  isCurrentTripExist(){
+    public static boolean isCurrentTripExist() {
         Trip trip = getCurrentTrip();
         return trip != null && trip.getStatus() == 0;
     }
 
-    public static Trip  getCurrentTrip(){
+    public static Trip getCurrentTrip() {
         /*Trip trip = Trip.last(Trip.class);
         List<Trip> trips = Trip.listAll(Trip.class, "tid");//Trip.last(Trip.class);
 
@@ -1239,7 +1308,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
     public static int getPixelsFromDp(Context context, float dp) {
         final float scale = context.getResources().getDisplayMetrics().density;
-        return (int)(dp * scale + 0.5f);
+        return (int) (dp * scale + 0.5f);
     }
 
     @Override
@@ -1248,7 +1317,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
 
         Bitmap attachedImage = null;
-        if((requestCode==PICK_CONTACT) && resultCode == Activity.RESULT_OK) {
+        if ((requestCode == PICK_CONTACT) && resultCode == Activity.RESULT_OK) {
             Uri contactData = data.getData();
             Cursor c = managedQuery(contactData, null, null, null, null);
             if (c.moveToFirst()) {
@@ -1273,7 +1342,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                     //						num = Number;
                 }
             }
-        }else if((requestCode==PICK_CONTACT_SEC) && resultCode == Activity.RESULT_OK){
+        } else if ((requestCode == PICK_CONTACT_SEC) && resultCode == Activity.RESULT_OK) {
             //set secondary contact
             Uri contactData = data.getData();
             Cursor c = managedQuery(contactData, null, null, null, null);
@@ -1298,7 +1367,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         }
 
         //Detects request codes
-        else if((requestCode==GET_FROM_GALLERY) && resultCode == Activity.RESULT_OK) {
+        else if ((requestCode == GET_FROM_GALLERY) && resultCode == Activity.RESULT_OK) {
             Uri selectedImage = data.getData();
 
             try {
@@ -1308,97 +1377,88 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-
-        else if(requestCode==SNAP_PICTURE && resultCode == Activity.RESULT_OK) {
+        } else if (requestCode == SNAP_PICTURE && resultCode == Activity.RESULT_OK) {
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            try{
+            try {
                 attachedImage = (Bitmap) data.getExtras().get("data");
                 problemPreview.setImageBitmap(Bitmap.createScaledBitmap(attachedImage, problemPreview.getWidth(), problemPreview.getHeight(), false));
 
-            }catch(Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
-                Toast.makeText(getApplicationContext(), getString(R.string.error_occur_please_retry)+"...", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.error_occur_please_retry) + "...", Toast.LENGTH_LONG).show();
             }
-        }
+        } else if (requestCode == PLACE_PICKER_REQUEST_FROM) {
 
-        else if (requestCode == PLACE_PICKER_REQUEST_FROM) {
-
-            if(resultCode == RESULT_OK){
+            if (resultCode == RESULT_OK) {
                 Place place = PlacePicker.getPlace(data, this);
-                if(place!=null){
-                    String name = (place.getName()==null || place.getName().toString().isEmpty())?"("+place.getLatLng().latitude+", "+place.getLatLng().longitude+")":place.getName().toString();
+                if (place != null) {
+                    String name = (place.getName() == null || place.getName().toString().isEmpty()) ? "(" + place.getLatLng().latitude + ", " + place.getLatLng().longitude + ")" : place.getName().toString();
 
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putString(TConstants.PREF_FROM_6, prefs
-                            .getString(TConstants.PREF_FROM_5, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_5", R.string.class))));
+                            .getString(TConstants.PREF_FROM_5, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_5", R.string.class))));
                     editor.putString(TConstants.PREF_FROM_5, prefs
-                            .getString(TConstants.PREF_FROM_4, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_4", R.string.class))));
+                            .getString(TConstants.PREF_FROM_4, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_4", R.string.class))));
                     editor.putString(TConstants.PREF_FROM_4, prefs
-                            .getString(TConstants.PREF_FROM_3, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_3", R.string.class))));
+                            .getString(TConstants.PREF_FROM_3, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_3", R.string.class))));
                     editor.putString(TConstants.PREF_FROM_3, prefs
-                            .getString(TConstants.PREF_FROM_2, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_2", R.string.class))));
+                            .getString(TConstants.PREF_FROM_2, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_2", R.string.class))));
                     editor.putString(TConstants.PREF_FROM_2, prefs
-                            .getString(TConstants.PREF_FROM_1, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_1", R.string.class))));
-                    editor.putString(TConstants.PREF_FROM_1, name+"|"+place.getLatLng().latitude+"|"+place.getLatLng().longitude);
+                            .getString(TConstants.PREF_FROM_1, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_1", R.string.class))));
+                    editor.putString(TConstants.PREF_FROM_1, name + "|" + place.getLatLng().latitude + "|" + place.getLatLng().longitude);
 
                     editor.commit();
 
-                    addToknownTown(name+"|"+place.getLatLng().latitude+"|"+place.getLatLng().longitude);
+                    addToknownTown(name + "|" + place.getLatLng().latitude + "|" + place.getLatLng().longitude);
 
                     setFromSpinner();
 
                 }
-            }
-            else{
+            } else {
                 fromSpinner.setSelection(0, true);
             }
 
 
+        } else if (requestCode == PLACE_PICKER_REQUEST_TO) {
 
-        }
-
-        else if (requestCode == PLACE_PICKER_REQUEST_TO) {
-
-            if(resultCode == RESULT_OK){
+            if (resultCode == RESULT_OK) {
 
                 Place place = PlacePicker.getPlace(data, this);
-                if(place!=null){
-                    String name = (place.getName()==null || place.getName().toString().isEmpty())?"("+place.getLatLng().latitude+", "+place.getLatLng().longitude+")":place.getName().toString();
+                if (place != null) {
+                    String name = (place.getName() == null || place.getName().toString().isEmpty()) ? "(" + place.getLatLng().latitude + ", " + place.getLatLng().longitude + ")" : place.getName().toString();
 
                     SharedPreferences.Editor editor = prefs.edit();
 
                     editor.putString(TConstants.PREF_TO_6, prefs
-                            .getString(TConstants.PREF_TO_5, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_5", R.string.class))));
+                            .getString(TConstants.PREF_TO_5, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_5", R.string.class))));
                     editor.putString(TConstants.PREF_TO_5, prefs
-                            .getString(TConstants.PREF_TO_4, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_4", R.string.class))));
+                            .getString(TConstants.PREF_TO_4, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_4", R.string.class))));
                     editor.putString(TConstants.PREF_TO_4, prefs
-                            .getString(TConstants.PREF_TO_3, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_3", R.string.class))));
+                            .getString(TConstants.PREF_TO_3, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_3", R.string.class))));
                     editor.putString(TConstants.PREF_TO_3, prefs
-                            .getString(TConstants.PREF_TO_2, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_1", R.string.class))));
+                            .getString(TConstants.PREF_TO_2, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_1", R.string.class))));
                     editor.putString(TConstants.PREF_TO_2, prefs
-                            .getString(TConstants.PREF_TO_1, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr")+"_"+"town_2", R.string.class))));
-                    editor.putString(TConstants.PREF_TO_1, name+"|"+place.getLatLng().latitude+"|"+place.getLatLng().longitude);
+                            .getString(TConstants.PREF_TO_1, getString(MainActivity.getResId(prefs.getString(TConstants.PREF_COUNTRY, "cmr") + "_" + "town_2", R.string.class))));
+                    editor.putString(TConstants.PREF_TO_1, name + "|" + place.getLatLng().latitude + "|" + place.getLatLng().longitude);
 
                     editor.commit();
 
-                    addToknownTown(name+"|"+place.getLatLng().latitude+"|"+place.getLatLng().longitude);
+                    addToknownTown(name + "|" + place.getLatLng().latitude + "|" + place.getLatLng().longitude);
 
                     setToSpinner();
 
                 }
-            }
-            else{
+            } else {
                 destinationSpinner.setSelection(0, true);
             }
 
 
-        }else if(requestCode == SHARE_CODE){
+        } else if (requestCode == SHARE_CODE) {
             //User might have shared some stuff, award tpoint and make him feel good!
             Rewards reward = Tutility.getAppRewards();
             reward.setAppShares(1);
             //requires user to share at least 3 times to earn a tpoint
-            if (reward.getAppShares() % 3 == 0){
+            if (reward.getAppShares() % 3 == 0) {
                 //point earned
                 Tutility.showDialog(this, getString(R.string.share_app),
                         getString(R.string.share_app_reward), SweetAlertDialog.CUSTOM_IMAGE_TYPE);
@@ -1419,7 +1479,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         //onNext();
     }
 
-    private void updateUserProfile(@NotNull  User travelerUser) {
+    private void updateUserProfile(@NotNull User travelerUser) {
         PreferenceManager.getDefaultSharedPreferences(this)
                 .edit()
                 .putString(TConstants.PREF_MATRICULE, travelerUser.getCurrent_matricule()).apply();
@@ -1452,9 +1512,9 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
     public void onConnected(@Nullable Bundle bundle) {
         Log.i(TAG, "onConnected()");
 
-        if(numberOfMapSettings==0){
+        if (numberOfMapSettings == 0) {
             setupCurrentTrip();
-            numberOfMapSettings=1;
+            numberOfMapSettings = 1;
         }
     }
 
@@ -1478,17 +1538,17 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
     @Override
     public void onLocationChanged(Location location) {
-        LatLng userAddress = new LatLng(location.getLatitude(), location.getLongitude());
+        lastKnownUserLocation = new LatLng(location.getLatitude(), location.getLongitude());
         CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(userAddress)
+                .target(lastKnownUserLocation)
                 .tilt(45)
                 .zoom(17)
                 .build();
         googleMap.addMarker(new MarkerOptions()
-                .position(userAddress)
+                .position(lastKnownUserLocation)
                 .title(getString(R.string.myposition))
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_myposition)));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(userAddress));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(lastKnownUserLocation));
         googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
 
@@ -1585,19 +1645,32 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             Tutility.showMessage(this, R.string.error_input, R.string.error);
             return;
         }
-        if (!isCurrentTripExist()){
+        /*if (!isCurrentTripExist()){
             Tutility.showMessage(this, R.string.no_current_trip_defined, R.string.error);
             return;
+        }*/
+        //request user location before submitting flag
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            requestPermission(Manifest.permission.ACCESS_FINE_LOCATION);
+            return;
         }
-
+        //request for user current location if not yet available
+        if (lastKnownUserLocation == null){
+            checkPositionEnabled();
+            return;
+        }
         event.setAuthorId(String.valueOf(travelerUser.getId()));
         event.setDescription(s);
-        event.setLocation("");
+        event.setLocation(lastKnownUserLocation.toString()); //Materialize the named location somehow
+        event.setLocLatitude(lastKnownUserLocation.latitude);
+        event.setLocLongitude(lastKnownUserLocation.longitude);
+        event.setCountry(travelerUser.getUserCountry());
         event.setTimeStamp(System.currentTimeMillis());
-        event.setTripId(getCurrentTrip().getTripKey());
+        //event.setTripId(getCurrentTrip().getTripKey());
 
         FirebaseDatabase.getInstance().getReference(Tutility.FIREBASE_FLAGS)
-                .child(getCurrentTrip().getTripKey())
+                .child(travelerUser.getUserCountry())
                 .push()
                 .setValue(event)
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
