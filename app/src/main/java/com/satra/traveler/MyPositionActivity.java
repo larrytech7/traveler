@@ -562,6 +562,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 .strokeColor(Color.argb(64,255,0,0));
         googleMap.addMarker(new MarkerOptions()
                 .position(coord)
+                .icon(BitmapDescriptorFactory.fromResource(Tutility.getFlagEventDrawable(this, flagEvent.getType())))
                 .title(Tutility.getFlagEventTitle(this, flagEvent.getType()))
                 .snippet(flagEvent.getDescription()));
         googleMap.addCircle(circleOptions);

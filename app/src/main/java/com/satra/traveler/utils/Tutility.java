@@ -10,6 +10,7 @@ import com.satra.traveler.models.User;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
+import static android.R.attr.switchMinWidth;
 import static android.R.attr.type;
 
 /**
@@ -143,7 +144,30 @@ public class Tutility {
     }
 
     public static String getFlagEventTitle(Context c, int type) {
-
+        switch(type){
+            case 1:
+                return c.getString(R.string.accident);
+            case 2:
+                return c.getString(R.string.roadflag);
+            case 3:
+                return c.getString(R.string.carFlag);
+            case 4:
+                return c.getString(R.string.traffic);
+        }
         return "";
+    }
+
+    public static int getFlagEventDrawable(Context c, int type){
+        switch(type){
+            case 1:
+                return R.drawable.ic_hospital;
+            case 2:
+                return R.drawable.ic_directions;
+            case 3:
+                return R.drawable.ic_local_car;
+            case 4:
+                return R.drawable.ic_traffic;
+        }
+        return 0;
     }
 }
