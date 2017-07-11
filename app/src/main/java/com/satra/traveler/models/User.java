@@ -129,7 +129,7 @@ public class User extends SugarRecord{
     }
 
     public String getUserCountry() {
-        return userCountry;
+        return userCountry == null ? "cmr" : userCountry;
     }
 
     public void setUserCountry(String userCountry) {

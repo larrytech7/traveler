@@ -2,6 +2,7 @@ package com.satra.traveler.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AlertDialog;
 
 import com.satra.traveler.R;
@@ -158,6 +159,8 @@ public class Tutility {
     }
 
     public static int getFlagEventDrawable(Context c, int type){
+        ResourcesCompat.getDrawable(c.getResources(), R.drawable.ic_hospital, null);
+
         switch(type){
             case 1:
                 return R.drawable.ic_hospital;
@@ -168,6 +171,6 @@ public class Tutility {
             case 4:
                 return R.drawable.ic_traffic;
         }
-        return 0;
+        return R.drawable.ic_incident;
     }
 }

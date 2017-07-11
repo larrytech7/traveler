@@ -52,6 +52,7 @@ import android.widget.Toast;
 
 import com.cardiomood.android.controls.gauge.SpeedometerGauge;
 import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
@@ -516,6 +517,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
 
         //render any flags raised within 24 hours
         FirebaseDatabase.getInstance().getReference(Tutility.FIREBASE_FLAGS)
+                .child(travelerUser.getUserCountry())
                 .addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -1685,6 +1687,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                                 .show();
                     }
                 });
+        Log.e(LOG_TAG, "Sending flag ...");
+        ((FloatingActionMenu)findViewById(R.id.menuButtonFlag)).close(true);
         Bundle bundle = new Bundle();
         bundle.putString(FirebaseAnalytics.Param.ITEM_ID, Tutility.ANALYTICS_EVENT_ID);
         bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, Tutility.ANALYTICS_EVENT_NAME);
