@@ -407,8 +407,8 @@
     <string name="error_input">Erreur! Le champ ne peut être vide</string>
     <string name="success">Opération réussie</string>
     <string name="sent">Envoyé</string>
-
-
     <string name="flag_menu">Utilisez ce bouton pour envoyer des alertes autour de vous</string>
+    <string name="reauthenticate">Welcome, reconnecting</string>
+    <string name="confirm_email">Please, check your email address !</string>
 
 </resources>
