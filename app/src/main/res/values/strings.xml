@@ -174,7 +174,7 @@
     <string name="username_confirm_no_label">Non</string>
     <string name="username_confirm_yes_label">Oui</string>
     <string name="speed_limit_reached_ago">Vous avez depasse la limite de vitesse autorisee</string>
-    <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br />Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br /> Version 5.4.0</string>
+    <string name="about_message1">Avec Travelr, c\'est Zero mort sur nos routes. <br />Laissez Travelr vous accompagner dans tout vos trajets en toute securite. <br /> Version 5.4.1</string>
     <string name="about_title1">A propos</string>
     <string name="login">Continuer</string>
     <string name="speed_dimen" formatted="false">%s | Vitesse: %s Kmph</string>
@@ -408,8 +408,12 @@
     <string name="success">Opération réussie</string>
     <string name="sent">Envoyé</string>
 
+
     <string name="reauthenticate">Bienvenu, re-connexion</string>
     <string name="confirm_email">Veuillez verifier votre adresse email</string>
+    <string name="reauthenticate">Bienvenue, re-connexion…</string>
+    <string name="confirm_email">Veuillez vérifier votre adresse email !</string>
+
 
     <string name="flag_menu">Utilisez ce bouton pour envoyer des alertes autour de vous</string>
 
