@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name" translatable="false">Travelr</string>
+    <string name="app_name" translatable="false">Traveler</string>
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
     <string name="action_settings">Apropos</string>
@@ -320,9 +320,9 @@
     <string name="title_predict">Prédire le risque d\'accident</string>
     <string name="title_notify">Notification</string>
 
-    <string name="intro_predict">Travelr peut prédire les risques d\'accident de la route en analysant les données collectées durant un voyage.</string>
-    <string name="intro_detect">Travelr détecte automatiquement les accidents de la route subits par tout véhicule dans lequel un équipement exécute l\'application</string>
-    <string name="intro_notify">Travelr notifie automatiquement et gratuitement par SMS vos proches, amis et services d\'urgence en cas d\'incident</string>
+    <string name="intro_predict">Traveler peut prédire les risques d\'accident de la route en analysant les données collectées durant un voyage.</string>
+    <string name="intro_detect">Traveler détecte automatiquement les accidents de la route subits par tout véhicule dans lequel un équipement exécute l\'application</string>
+    <string name="intro_notify">Traveler notifie automatiquement et gratuitement par SMS vos proches, amis et services d\'urgence en cas d\'incident</string>
 
     <string name="message_hint">Utilisez ce bouton pour envoyer votre message. Si vous avez une image qui l\'accompagne, merci de permettre à l\'application de la charger complètement avant de procéder à l\'envoi du message.</string>
     <string name="share_app">Partagez l\'application</string>
@@ -408,10 +408,8 @@
     <string name="success">Opération réussie</string>
     <string name="sent">Envoyé</string>
 
-
     <string name="reauthenticate">Bienvenue, re-connexion…</string>
     <string name="confirm_email">Veuillez vérifier votre adresse email !</string>
-
 
     <string name="flag_menu">Utilisez ce bouton pour envoyer des alertes autour de vous</string>
 
