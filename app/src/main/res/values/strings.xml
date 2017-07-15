@@ -201,7 +201,7 @@
     <string name="title_activity_messaging">Messages</string>
     <string name="votre_message">Votre message</string>
     <string name="echec_creation_compte_contact_serveur">Echec de l\'enregistrement sur le serveur. Merci de reessayer ulterieurement.</string>
-    <string name="key_chargement">Chargement .…</string>
+    <string name="key_chargement">Connexion .…</string>
     <string name="success_account_creation">Compte crée avec succes.</string>
     <string name="key_account_creation_loading_msg">Tentative de synchronisation…</string>
     <string name="telephone_number_confirm_msg">" et le numéro de téléphone "</string>
