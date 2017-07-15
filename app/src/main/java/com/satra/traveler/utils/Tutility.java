@@ -63,11 +63,11 @@ public class Tutility {
 
     /**
      * Format and returns a traveler email for this user to be used for authentication and acount creation
-     * @param phone user's phone number to serve as unique feature
-     * @return new traveler authenticating email
+     * @param key user's phone number to serve as unique feature
+     * @return new traveler authenticating password
      */
-    public static String getAuthenticationEmail(String phone){
-        return phone + TConstants.TRAVELR_EMAIL_EXT;
+    public static String getAuthenticationPassword(String key){
+        return key + TConstants.TRAVELR_EMAIL_EXT;
     }
 
     /**
