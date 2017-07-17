@@ -144,9 +144,9 @@
     <string name="votre_message">Your Message</string>
     <string name="title_activity_messaging">Messages </string>
     <string name="echec_creation_compte_contact_serveur">Fail to contact server. Please retry later.</string>
-    <string name="key_chargement">Loading…</string>
+    <string name="key_chargement">Connecting …</string>
     <string name="success_account_creation">account successfully saved</string>
-    <string name="key_account_creation_loading_msg">Contacting servers…</string>
+    <string name="key_account_creation_loading_msg">Authenticating account</string>
     <string name="telephone_number_confirm_msg">" and with telephone number "</string>
     <string name="mat_id_synchronization_success">successful sync operation …</string>
     <string name="mat_id_synchronization_operation_failed">Failure of the synchronization process…</string>

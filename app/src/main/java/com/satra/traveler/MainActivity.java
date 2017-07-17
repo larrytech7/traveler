@@ -53,8 +53,6 @@ import java.util.Iterator;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 
-import static com.satra.traveler.utils.Tutility.stringToInt;
-
 public class MainActivity extends AppCompatActivity {
 
     final private static int DIALOG_SIGNUP = 1;
@@ -199,8 +197,8 @@ public class MainActivity extends AppCompatActivity {
                                 //final String contact2 = (contact2EditText.getText().toString().isEmpty())?getString(R.string.information_not_available_label):contact2EditText.getText().toString();
                                 //new application/system user
                                 final User tuser = new User();
-                                tuser.setCurrent_matricule("indisponible");
-                                tuser.setPassword(Tutility.getAuthenticationEmail(telephoneString));
+                                tuser.setCurrent_matricule("N/A");
+                                tuser.setPassword(Tutility.getAuthenticationPassword(userEmailString));
                                 tuser.setUseremail(userEmailString);
                                 tuser.setUserCountry(country);
                                 //tuser.setEmergency_primary(contact1);
@@ -211,15 +209,17 @@ public class MainActivity extends AppCompatActivity {
                                 tuser.setUpdated_at(System.currentTimeMillis());
                                 //progress dialog to show ongoing process
                                 final ProgressDialog progress = new ProgressDialog(MainActivity.this);
-                                progress.setIcon(R.mipmap.ic_launcher);
+                                //progress.setIcon(R.mipmap.ic_launcher);
                                 progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                                 progress.setIndeterminate(true);
-                                progress.setTitle(getString(R.string.key_chargement));
+                                progress.setCancelable(false);
+                                progress.setCanceledOnTouchOutside(false);
+                                //progress.setTitle(getString(R.string.key_chargement));
                                 progress.setMessage(getString(R.string.key_account_creation_loading_msg));
                                 progress.show();
                                 //signup user via firebase
                                 mAuth.createUserWithEmailAndPassword(tuser.getUseremail(),
-                                        Tutility.getAuthenticationEmail(telephoneString))
+                                        Tutility.getAuthenticationPassword(userEmailString))
                                         .addOnSuccessListener(MainActivity.this, new OnSuccessListener<AuthResult>() {
                                             @Override
                                             public void onSuccess(AuthResult authResult) {
@@ -258,6 +258,11 @@ public class MainActivity extends AppCompatActivity {
                                                         progress.dismiss();
                                                         tuser.save();
                                                         launchHomeActivity();
+                                                    }
+                                                }).addOnFailureListener(MainActivity.this, new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+                                                        Log.e("SignIn error", "error: "+e.getMessage());
                                                     }
                                                 });
 
