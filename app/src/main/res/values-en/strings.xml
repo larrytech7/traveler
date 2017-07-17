@@ -302,7 +302,7 @@
     <string name="error_input">Error! The field cannot be empty</string>
     <string name="success">Operation success</string>
     <string name="sent">Sent</string>
-    <string name="emergency_sms" formatted="false">Alert! Impact detected. Position: Longitude %.6f , Latitude %.6f. Recorded by car, %s, %s. Road on %s</string>
+    <string name="emergency_sms" formatted="false">Alert! Impact(%.4f) detected. Position: Longitude %.15f , Latitude %.15f. Recorded by car, %s, %s. Road on %s</string>
     <string name="flag_menu">Flag incidents around you during your trip</string>
     <string name="reauthenticate">Welcome, reconnecting</string>
     <string name="confirm_email">Please, check your email address !</string>

@@ -74,11 +74,12 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     private static final int MAX_VITESSE_METRE_SECONDE = 0;
     private static final float COEFF_CONVERSION_MS_KMH = 4;
     private static final int MAX_SPEED_ALLOWED_KMH = 90;
+    private static final float MOVING_SPEED_THRESHOLD = 3f; //speed at which we can certify that object is moving
     private static final int NATURAL_LIMIT_OF_SPEED = 200;
     private static final int ERREUR_ACCEPTE_VITESSE_MAX=2;
     private static final int MAX_SPEED_TO_ALERT_KMH = 80;
     private static final long INTERVAL_BETWEEN_UPDATES = 10000;
-    private static final float MAX_NORMAL_ACCELERATION_COEFF_MOVING = 4.5f;
+    private static final float MAX_NORMAL_ACCELERATION_COEFF_MOVING = 2.0f;//4.5f;
     private static final float MAX_NORMAL_ACCELERATION_COEFF_NOT_MOVING = 5.0f;
     private static final float MAX_ALLOWED_ACCELERATION = 100.0f;
 
@@ -255,7 +256,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
             mAccelCurrent = (float) Math.sqrt(x*x + y*y + z*z);
             float mspeed = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE).getFloat(TConstants.SPEED_PREF, 0.0f)* COEFF_CONVERSION_MS_KMH;
 
-            if(mspeed >= 25f) { //speed to get that this is a moving vehicle
+            if(mspeed >= MOVING_SPEED_THRESHOLD) { //speed to get that this is a moving vehicle
                 if (MyPositionActivity.isCurrentTripExist() &&
                         mAccelCurrent >= MAX_NORMAL_ACCELERATION_COEFF_MOVING*SensorManager.GRAVITY_EARTH &&
                         mAccelCurrent < (MAX_ALLOWED_ACCELERATION * SensorManager.GRAVITY_EARTH) ) {
@@ -832,9 +833,10 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
         e.printStackTrace();
         Trip currentTrip = getCurrentTrip();
         String emergencyMessage = getResources().getString(R.string.emergency_sms,
-                mAccelCurrent, previousLocation == null ? 0 : previousLocation.getLongitude() ,
+                mAccelCurrent,
+                previousLocation == null ? 0 : previousLocation.getLongitude() ,
                 previousLocation == null ? 0 : previousLocation.getLatitude(),
-                getCurrentTrip() == null ? "Unknown" : currentTrip.getAgency_name(),
+                currentTrip == null ? "Unknown" : currentTrip.getAgency_name(),
                 currentTrip == null ? "Unknown" : currentTrip.getBus_immatriculation(),
                 currentTrip == null ? "Unknown" : currentTrip.getDeparture()+" - "+currentTrip.getDestination());
 

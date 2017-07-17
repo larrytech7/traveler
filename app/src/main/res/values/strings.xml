@@ -397,7 +397,7 @@
 
     <string name="user_country">Pays de résidence</string>
 
-    <string name="emergency_sms" formatted="false" >Alerte! Impact détecté. Position: Longitude %.6f , Latitude %.6f. Relevé au sein du véhicule, %s, %s. Route  %s</string>
+    <string name="emergency_sms" formatted="false" >Alerte! Impact (%.4f) détecté. Position: Longitude %.15f , Latitude %.15f. Relevé au sein du véhicule, %s, %s. Route  %s</string>
     <string name="accident">Alerte Accident| Urgence</string>
     <string name="traffic">Alerte Embouteillage</string>
     <string name="roadflag">Alerte Mauvaise Route</string>
