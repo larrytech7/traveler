@@ -1,7 +1,6 @@
 package com.satra.traveler.utils;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AlertDialog;
 
@@ -11,12 +10,9 @@ import com.satra.traveler.models.User;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
-import static android.R.attr.switchMinWidth;
-import static android.R.attr.type;
-
 /**
  * Created by Larry Akah on 6/11/16.
- * Travelr Utility Class contains global utility functions used within the app
+ * Traveler Utility Class contains global utility functions used within the app
  */
 public class Tutility {
 
@@ -32,7 +28,7 @@ public class Tutility {
     public static final String ANALYTICS_EVENT_NAME = "EVENT_NAME";
     public static final String ANALYTICS_EVENT_CATEGORY = "EVENT_CATEGORY";
 
-    public static final String APP_EMERGENCY_CONTACT = "+237698592004";
+    public static final String APP_EMERGENCY_CONTACT = "678656032";
 
     //show a dialog to the user about a certain message/information
     public static void showMessage(Context c, String message, String title){
