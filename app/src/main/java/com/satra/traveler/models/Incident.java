@@ -20,7 +20,37 @@ public class Incident extends SugarRecord {
     private long timestamp;
     private int type ; //type of incident if it can be specifically determined. 1-accident, 2-near-miss,  etc ...
 
+    // orientation data in degree
+    private float azimuth; //angle of rotation about the -z axis which represents the angle between the device's y axis and the magnetic north pole. When facing north, this angle is 0, when facing south, this angle is 180. Likewise, when facing east, this angle is 90, and when facing west, this angle is -90.
+    private float pitch; //angle of rotation about the x axis which represents the angle between a plane parallel to the device's screen and a plane parallel to the ground
+    private float roll;  // angle of rotation about the y axis which represents the angle between a plane perpendicular to the device's screen and a plane perpendicular to the ground
+
+
     public Incident() {
+    }
+
+    public float getAzimuth() {
+        return azimuth;
+    }
+
+    public void setAzimuth(float azimuth) {
+        this.azimuth = azimuth;
+    }
+
+    public float getPitch() {
+        return pitch;
+    }
+
+    public void setPitch(float pitch) {
+        this.pitch = pitch;
+    }
+
+    public float getRoll() {
+        return roll;
+    }
+
+    public void setRoll(float roll) {
+        this.roll = roll;
     }
 
     public int getType() {

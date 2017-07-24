@@ -598,7 +598,12 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
             locationRequest.setNumUpdates(1);
             locationRequest.setPriority(LocationRequest.PRIORITY_LOW_POWER);
             locationRequest.setExpirationTime(1200000);
-            LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, this);
+            try{
+                LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, this);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
 
             if (accessFineLocationSituation == 1) {
                 Intent intent = new Intent(this, SpeedMeterService.class);

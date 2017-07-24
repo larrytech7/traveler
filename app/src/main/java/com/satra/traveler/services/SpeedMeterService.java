@@ -94,13 +94,20 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     private User travelerUser;
 
     private SensorManager sensorMan;
-    private Sensor accelerometer;
+    private Sensor accelerometer, magnetometer;
 
-    private float[] mGravity;
     private float mAccelCurrent;
     private float mAccelLast;
     private SpeechRecognizer speechRecognizer;
     private TextToSpeech tts;
+
+    private float[] lastAccelerometer = new float[3];
+    private float[] lastMagnetometer = new float[3];
+    private boolean lastAccelerometerSet = false;
+    private boolean lastMagnetometerSet = false;
+    private float[] r = new float[9];
+    private float[] orientationRadian = new float[3];
+    private float[] orientationDegree = new float[3];
 
 
     /**
@@ -216,10 +223,13 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
         sensorMan = (SensorManager)getSystemService(SENSOR_SERVICE);
 
         accelerometer = sensorMan.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        magnetometer = sensorMan.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
         mAccelCurrent = SensorManager.GRAVITY_EARTH;
         mAccelLast = SensorManager.GRAVITY_EARTH;
 
         sensorMan.registerListener(this, accelerometer,
+                SensorManager.SENSOR_DELAY_UI);
+        sensorMan.registerListener(this, magnetometer,
                 SensorManager.SENSOR_DELAY_UI);
         //init Speech to text operation
         startSpeechRecognition();
@@ -240,12 +250,13 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     @Override
     public void onSensorChanged(SensorEvent event) {
 
-        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER){
-            mGravity = event.values.clone();
+        if (event.sensor == accelerometer){
+            lastAccelerometer = event.values.clone();
+            lastAccelerometerSet = true;
             // Shake detection
-            float x = mGravity[0];
-            float y = mGravity[1];
-            float z = mGravity[2];
+            float x = lastAccelerometer[0];
+            float y = lastAccelerometer[1];
+            float z = lastAccelerometer[2];
             mAccelLast = mAccelCurrent;
             mAccelCurrent = (float) Math.sqrt(x*x + y*y + z*z);
             float mspeed = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE).getFloat(TConstants.SPEED_PREF, 0.0f)* COEFF_CONVERSION_MS_KMH;
@@ -255,9 +266,77 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                         mAccelCurrent >= MAX_NORMAL_ACCELERATION_COEFF_MOVING*SensorManager.GRAVITY_EARTH &&
                         mAccelCurrent < (MAX_ALLOWED_ACCELERATION * SensorManager.GRAVITY_EARTH) ) {
                     //Log.e("Accident detected: ", " -- mAccelCurrent: "+mAccelCurrent+" -- mAccelCurrent/9.8: "+(mAccelCurrent/SensorManager.GRAVITY_EARTH));
-                    notifyAlert(mAccelCurrent / SensorManager.GRAVITY_EARTH);
 
-                /*
+                    pushIncidentOnline(mspeed, 1);
+
+                }
+            }
+            else if(mspeed > 0){
+                //for stationary object, impact should increase acceleration
+                if (MyPositionActivity.isCurrentTripExist() &&
+                        mAccelCurrent  >= MAX_NORMAL_ACCELERATION_COEFF_NOT_MOVING * SensorManager.GRAVITY_EARTH &&
+                        mAccelCurrent < (MAX_ALLOWED_ACCELERATION * SensorManager.GRAVITY_EARTH)) {
+                    //Log.e("Accident detected: ", " -- mAccelCurrent: "+mAccelCurrent+" -- mAccelCurrent/9.8: "+(mAccelCurrent/SensorManager.GRAVITY_EARTH));
+                    pushIncidentOnline(mspeed, 2);
+                }
+            }
+
+        }
+        else if (event.sensor== magnetometer){
+            lastMagnetometer = event.values.clone();
+            lastMagnetometerSet = true;
+        }
+
+        if (lastAccelerometerSet && lastMagnetometerSet) {
+            /**
+             * Computes the device's orientation
+             * orientationRadian[0]: Azimuth, angle of rotation about the -z axis.
+             *                This value represents the angle between the device's y
+             *                axis and the magnetic north pole. When facing north, this
+             *                angle is 0, when facing south, this angle is pi.
+             *                Likewise, when facing east, this angle is pi/2, and
+             *                when facing west, this angle is -pi/2. The range of
+             *                values is -pi to pi.
+             *
+             * orientationRadian[1]: Pitch, angle of rotation about the x axis.
+             *                This value represents the angle between a plane parallel
+             *                to the device's screen and a plane parallel to the ground.
+             *                Assuming that the bottom edge of the device faces the
+             *                user and that the screen is face-up, tilting the top edge
+             *                of the device toward the ground creates a positive pitch
+             *                angle. The range of values is -pi to pi.
+             *
+             * orientationRadian[2]:Roll, angle of rotation about the y axis. This
+             *                value represents the angle between a plane perpendicular
+             *                to the device's screen and a plane perpendicular to the
+             *                ground. Assuming that the bottom edge of the device faces
+             *                the user and that the screen is face-up, tilting the left
+             *                edge of the device toward the ground creates a positive
+             *                roll angle. The range of values is -pi/2 to pi/2.
+             *
+             *  All three orientation angles in orientationRadian  are expressed in radians.
+             *  Their equivalents in degree are in orientationDegree.
+            */
+
+            SensorManager.getRotationMatrix(r, null, lastAccelerometer, lastMagnetometer);
+            SensorManager.getOrientation(r, orientationRadian);
+
+
+            orientationDegree[0] = (float)(Math.toDegrees(orientationRadian[0])+360)%360;
+            orientationDegree[1] = (float)(Math.toDegrees(orientationRadian[1])+360)%360;
+            orientationDegree[2] = (float)(Math.toDegrees(orientationRadian[2])+360)%360;
+
+            //Log.e("orientation", " azimuth: "+orientationDegree[0]+" Pitch: "+orientationDegree[1]+" Rool: "+orientationDegree[2]);
+            //currentDegree = -azimuthInDegress;
+        }
+
+    }
+
+    private void pushIncidentOnline(float mspeed, int type){
+
+        notifyAlert(mAccelCurrent / SensorManager.GRAVITY_EARTH);
+
+         /*
                  * Construire l'objet accident. L'objet a transmettre dans le setValue() method doit avoir ces proprietes
                  * matricule - le matricule du vehicule du trajet en cours
                  * speed - derniere vitesse enregistrer pour ce vehicule
@@ -269,62 +348,29 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                  * timestamp - l'emprunte du temps de l'enregistrement de cet notification
                  */
 
-                    //TODO: Quantify change in acceleration to deduce magnitude of impact
+        Trip trip = MyPositionActivity.getCurrentTrip();
 
-                    Trip trip = MyPositionActivity.getCurrentTrip();
+        Incident incident = new Incident();
 
-                    Incident incident = new Incident();
+        incident.setKey(trip.getTripKey());
+        incident.setMatricule(travelerUser.getCurrent_matricule());
+        incident.setAgency(trip.getAgency_name());
+        incident.setSpeed(mspeed);
+        incident.setAcc(mAccelCurrent / SensorManager.GRAVITY_EARTH);
+        incident.setAcc_last(mAccelLast / SensorManager.GRAVITY_EARTH);
+        incident.setLongitude(location == null ? 0 : location.getLongitude());
+        incident.setLatitude(location == null ? 0 : location.getLatitude());
+        incident.setTimestamp(System.currentTimeMillis());
+        incident.setType(type);
 
-                    incident.setKey(trip.getTripKey());
-                    incident.setMatricule(travelerUser.getCurrent_matricule());
-                    incident.setAgency(trip.getAgency_name());
-                    incident.setSpeed(Math.round(mspeed/100) * 100 );
-                    incident.setAcc(mAccelCurrent / SensorManager.GRAVITY_EARTH);
-                    incident.setAcc_last(mAccelLast / SensorManager.GRAVITY_EARTH);
-                    incident.setLongitude(location == null ? 0 : location.getLongitude());
-                    incident.setLatitude(location == null ? 0 : location.getLatitude());
-                    incident.setTimestamp(System.currentTimeMillis());
-                    incident.setType(1);
+        incident.setAzimuth(orientationDegree[0]);
+        incident.setPitch(orientationDegree[1]);
+        incident.setRoll(orientationDegree[2]);
 
-                    //FirebaseDatabase.getInstance().getReference().child(TConstants.FIREBASE_NOTIFICATION)
-                    baseReference.child(TConstants.FIREBASE_NOTIF_ACCIDENT)
-                            .push()
-                            .setValue(incident)
-                            .addOnFailureListener(this);
-                }
-            }
-            else if(mspeed > 0){
-                //for stationary object, impact should increase acceleration
-                if (MyPositionActivity.isCurrentTripExist() &&
-                        mAccelCurrent  >= MAX_NORMAL_ACCELERATION_COEFF_NOT_MOVING * SensorManager.GRAVITY_EARTH &&
-                        mAccelCurrent < (MAX_ALLOWED_ACCELERATION * SensorManager.GRAVITY_EARTH)) {
-                    //Log.e("Accident detected: ", " -- mAccelCurrent: "+mAccelCurrent+" -- mAccelCurrent/9.8: "+(mAccelCurrent/SensorManager.GRAVITY_EARTH));
-                    notifyAlert(mAccelCurrent / SensorManager.GRAVITY_EARTH);
-
-                    Trip trip = MyPositionActivity.getCurrentTrip();
-
-                    Incident incident = new Incident();
-
-                    incident.setKey(trip.getTripKey());
-                    incident.setMatricule(travelerUser.getCurrent_matricule());
-                    incident.setAgency(trip.getAgency_name());
-                    incident.setSpeed(Math.round(mspeed/100) * 100);
-                    incident.setAcc(mAccelCurrent / SensorManager.GRAVITY_EARTH);
-                    incident.setAcc_last(mAccelLast / SensorManager.GRAVITY_EARTH);
-                    incident.setLongitude(location == null ? 0 : location.getLongitude());
-                    incident.setLatitude(location == null ? 0 : location.getLatitude());
-                    incident.setTimestamp(System.currentTimeMillis());
-                    incident.setType(2);
-
-                    baseReference.child(TConstants.FIREBASE_NOTIF_ACCIDENT)
-                            .push()
-                            .setValue(incident)
-                            .addOnFailureListener(this);
-                }
-            }
-
-        }
-
+        baseReference.child(TConstants.FIREBASE_NOTIF_ACCIDENT)
+                .push()
+                .setValue(incident)
+                .addOnFailureListener(this);
     }
 
     private void notifyAlert(float acc) {
@@ -549,7 +595,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
         editor.putFloat(TConstants.SPEED_PREF, vitesse);
         editor.commit();
 
-        Log.e(LOGTAG, "new speed received and injected: "+vitesse);
+        //Log.e(LOGTAG, "new speed received and injected: "+vitesse);
 
        if(MyPositionActivity.isCurrentTripExist()){
            Trip mtrip = MyPositionActivity.getCurrentTrip();
@@ -588,6 +634,10 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
         data.setSender(travelerUser.getUserphone());
         data.setBearing(0f);
         data.setTemperature(0f);
+
+        data.setAzimuth(orientationDegree[0]);
+        data.setPitch(orientationDegree[1]);
+        data.setRoll(orientationDegree[2]);
 
         databaseReference.child(trip.getBus_immatriculation())
                 .child(trip.getTripKey())
