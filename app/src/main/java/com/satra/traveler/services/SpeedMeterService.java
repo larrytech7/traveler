@@ -50,6 +50,8 @@ import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -860,18 +862,31 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                 currentTrip == null ? "Unknown" : currentTrip.getAgency_name(),
                 currentTrip == null ? "Unknown" : currentTrip.getBus_immatriculation(),
                 currentTrip == null ? "Unknown" : currentTrip.getDeparture()+" - "+currentTrip.getDestination());
-
+        JSONObject jsonMessage = new JSONObject();
+        try {
+            jsonMessage.put("acc",mAccelCurrent);
+            jsonMessage.put("acc_last",mAccelLast);
+            jsonMessage.put("longitude", previousLocation.getLongitude());
+            jsonMessage.put("latitude", previousLocation.getLatitude());
+            jsonMessage.put("matricule",currentTrip.getBus_immatriculation());
+            jsonMessage.put("speed", 0);
+            jsonMessage.put("name",currentTrip.getAgency_name());
+            jsonMessage.put("departure",currentTrip.getDeparture());
+            jsonMessage.put("destination",currentTrip.getDestination());
+        } catch (JSONException e1) {
+            e1.printStackTrace();
+        }
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
             //send SMS peacefully
             SmsManager smsManager = SmsManager.getDefault();
 
             smsManager.sendTextMessage(Tutility.APP_EMERGENCY_CONTACT, null,
-                    emergencyMessage, null ,null);
-            Log.d(LOGTAG, "Message sent: "+emergencyMessage);
+                    jsonMessage.toString(), null ,null);
+            Log.d(LOGTAG, jsonMessage.toString());
         }else{
             //send broadcast to issue permission request for user to grant permission
             Intent dataIntent = new Intent(Tutility.BROADCAST_SMS_EMERGENCY);
-            dataIntent.putExtra("message", emergencyMessage);
+            dataIntent.putExtra("message", jsonMessage.toString());
             dataIntent.putExtra("src", travelerUser.getUserphone());
 
             sendBroadcast(dataIntent, Manifest.permission.SEND_SMS);
