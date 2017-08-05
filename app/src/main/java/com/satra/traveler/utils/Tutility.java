@@ -28,7 +28,7 @@ public class Tutility {
     public static final String ANALYTICS_EVENT_NAME = "EVENT_NAME";
     public static final String ANALYTICS_EVENT_CATEGORY = "EVENT_CATEGORY";
 
-    public static final String APP_EMERGENCY_CONTACT = "678656032";
+    public static final String APP_EMERGENCY_CONTACT = "693171643";//"678656032";
 
     //show a dialog to the user about a certain message/information
     public static void showMessage(Context c, String message, String title){

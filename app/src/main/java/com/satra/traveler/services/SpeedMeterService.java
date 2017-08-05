@@ -33,7 +33,9 @@ import android.support.v4.app.ActivityCompat;
 import android.telephony.SmsManager;
 import android.util.Log;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -62,13 +64,13 @@ import static com.satra.traveler.MyPositionActivity.getCurrentTrip;
 /**
  * Created by Steve Jeff on 17/04/2016.
  */
-public class SpeedMeterService extends Service implements SensorEventListener, OnFailureListener, RecognitionListener, TextToSpeech.OnInitListener {
+public class SpeedMeterService extends Service implements SensorEventListener, OnFailureListener, RecognitionListener, TextToSpeech.OnInitListener, OnCompleteListener<Void> {
 
     private static final int NBRE_MAX_ITERATION_POUR_MOYENNE_VITESSES = 3;
     private static final int MAX_VITESSE_METRE_SECONDE = 0;
     private static final float COEFF_CONVERSION_MS_KMH = 4;
     private static final int MAX_SPEED_ALLOWED_KMH = 90;
-    private static final float MOVING_SPEED_THRESHOLD = 25f; //speed at which we can certify that object is moving
+    private static final float MOVING_SPEED_THRESHOLD = 3f;//25f; //speed at which we can certify that object is moving
     private static final int NATURAL_LIMIT_OF_SPEED = 200;
     private static final int ERREUR_ACCEPTE_VITESSE_MAX=2;
     private static final int MAX_SPEED_TO_ALERT_KMH = 80;
@@ -355,7 +357,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
         incident.setKey(trip.getTripKey());
         incident.setMatricule(travelerUser.getCurrent_matricule());
         incident.setAgency(trip.getAgency_name());
-        incident.setSpeed(mspeed);
+        incident.setSpeed(Tutility.round(mspeed));
         incident.setAcc(mAccelCurrent / SensorManager.GRAVITY_EARTH);
         incident.setAcc_last(mAccelLast / SensorManager.GRAVITY_EARTH);
         incident.setLongitude(location == null ? 0 : location.getLongitude());
@@ -370,6 +372,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
         baseReference.child(TConstants.FIREBASE_NOTIF_ACCIDENT)
                 .push()
                 .setValue(incident)
+                .addOnCompleteListener(this)
                 .addOnFailureListener(this);
     }
 
@@ -861,10 +864,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
             //send SMS peacefully
             SmsManager smsManager = SmsManager.getDefault();
-            /*smsManager.sendTextMessage(travelerUser.getEmergency_primary(),travelerUser.getUserphone(),
-                    emergencyMessage,null, null);
-            smsManager.sendTextMessage(travelerUser.getEmergency_secondary(),travelerUser.getUserphone(),
-                    emergencyMessage,null, null);*/
+
             smsManager.sendTextMessage(Tutility.APP_EMERGENCY_CONTACT, null,
                     emergencyMessage, null ,null);
             Log.d(LOGTAG, "Message sent: "+emergencyMessage);
@@ -988,5 +988,13 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                 Log.d(LOGTAG, s);
             }
         });
+    }
+
+    @Override
+    public void onComplete(@NonNull Task<Void> task) {
+        if (!task.isSuccessful()){
+            //act offline
+            onFailure(task.getException());
+        }
     }
 }
