@@ -36,6 +36,7 @@ import android.util.Log;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -112,6 +113,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     private float[] r = new float[9];
     private float[] orientationRadian = new float[3];
     private float[] orientationDegree = new float[3];
+    private float lastSpeed;
 
 
     /**
@@ -339,7 +341,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     private void pushIncidentOnline(float mspeed, int type){
 
         notifyAlert(mAccelCurrent / SensorManager.GRAVITY_EARTH);
-
+            lastSpeed = mspeed;
          /*
                  * Construire l'objet accident. L'objet a transmettre dans le setValue() method doit avoir ces proprietes
                  * matricule - le matricule du vehicule du trajet en cours
@@ -857,36 +859,30 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
         Trip currentTrip = getCurrentTrip();
         String emergencyMessage = getResources().getString(R.string.emergency_sms,
                 mAccelCurrent,
-                previousLocation == null ? 0 : previousLocation.getLongitude() ,
+                mAccelLast,
                 previousLocation == null ? 0 : previousLocation.getLatitude(),
-                currentTrip == null ? "Unknown" : currentTrip.getAgency_name(),
+                previousLocation == null ? 0 : previousLocation.getLongitude() ,
+                lastSpeed,
+                System.currentTimeMillis(),
                 currentTrip == null ? "Unknown" : currentTrip.getBus_immatriculation(),
-                currentTrip == null ? "Unknown" : currentTrip.getDeparture()+" - "+currentTrip.getDestination());
-        JSONObject jsonMessage = new JSONObject();
-        try {
-            jsonMessage.put("acc",mAccelCurrent);
-            jsonMessage.put("acc_last",mAccelLast);
-            jsonMessage.put("longitude", previousLocation.getLongitude());
-            jsonMessage.put("latitude", previousLocation.getLatitude());
-            jsonMessage.put("matricule",currentTrip.getBus_immatriculation());
-            jsonMessage.put("speed", 0);
-            jsonMessage.put("name",currentTrip.getAgency_name());
-            jsonMessage.put("departure",currentTrip.getDeparture());
-            jsonMessage.put("destination",currentTrip.getDestination());
-        } catch (JSONException e1) {
-            e1.printStackTrace();
-        }
+                currentTrip == null ? "Unknown" : currentTrip.getAgency_name(),
+                orientationDegree[0],
+                orientationDegree[1],
+                orientationDegree[2],
+                currentTrip == null ? "" : currentTrip.getTripKey(),
+                0);
+
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
             //send SMS peacefully
             SmsManager smsManager = SmsManager.getDefault();
 
             smsManager.sendTextMessage(Tutility.APP_EMERGENCY_CONTACT, null,
-                    jsonMessage.toString(), null ,null);
-            Log.d(LOGTAG, jsonMessage.toString());
+                    emergencyMessage, null ,null);
+            Log.d(LOGTAG, emergencyMessage);
         }else{
             //send broadcast to issue permission request for user to grant permission
             Intent dataIntent = new Intent(Tutility.BROADCAST_SMS_EMERGENCY);
-            dataIntent.putExtra("message", jsonMessage.toString());
+            dataIntent.putExtra("message", emergencyMessage);
             dataIntent.putExtra("src", travelerUser.getUserphone());
 
             sendBroadcast(dataIntent, Manifest.permission.SEND_SMS);
@@ -1009,7 +1005,11 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     public void onComplete(@NonNull Task<Void> task) {
         if (!task.isSuccessful()){
             //act offline
-            onFailure(task.getException());
+            try {
+                onFailure(task.getException());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }
