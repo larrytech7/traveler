@@ -33,12 +33,16 @@ import android.support.v4.app.ActivityCompat;
 import android.telephony.SmsManager;
 import android.util.Log;
 
+import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.satra.traveler.MyPositionActivity;
 import com.satra.traveler.R;
@@ -59,6 +63,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.Vector;
 
 import static com.satra.traveler.MyPositionActivity.getCurrentTrip;
@@ -67,18 +73,18 @@ import static com.satra.traveler.MyPositionActivity.getCurrentTrip;
 /**
  * Created by Steve Jeff on 17/04/2016.
  */
-public class SpeedMeterService extends Service implements SensorEventListener, OnFailureListener, RecognitionListener, TextToSpeech.OnInitListener, OnCompleteListener<Void> {
+public class SpeedMeterService extends Service implements SensorEventListener, OnFailureListener, RecognitionListener, TextToSpeech.OnInitListener{
 
     private static final int NBRE_MAX_ITERATION_POUR_MOYENNE_VITESSES = 3;
     private static final int MAX_VITESSE_METRE_SECONDE = 0;
     private static final float COEFF_CONVERSION_MS_KMH = 4;
     private static final int MAX_SPEED_ALLOWED_KMH = 90;
-    private static final float MOVING_SPEED_THRESHOLD = 3f;//25f; //speed at which we can certify that object is moving
+    private static final float MOVING_SPEED_THRESHOLD = 25f; //speed at which we can certify that object is moving
     private static final int NATURAL_LIMIT_OF_SPEED = 200;
     private static final int ERREUR_ACCEPTE_VITESSE_MAX=2;
     private static final int MAX_SPEED_TO_ALERT_KMH = 80;
     private static final long INTERVAL_BETWEEN_UPDATES = 10000;
-    private static final float MAX_NORMAL_ACCELERATION_COEFF_MOVING = 2.0f;//4.5f;
+    private static final float MAX_NORMAL_ACCELERATION_COEFF_MOVING = 3.0f;//4.5f; //GFORCE required to trigger sending notification
     private static final float MAX_NORMAL_ACCELERATION_COEFF_NOT_MOVING = 5.0f;
     private static final float MAX_ALLOWED_ACCELERATION = 100.0f;
 
@@ -94,7 +100,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     private long durationGPS=0, durationNetwork=0;
     private Vector<Float> vitesses = new Vector<>();
     private LocationListener locationListenerGPS, locationListenerNetwork;
-    static final String LOGTAG = SpeedMeterService.class.getSimpleName();
+    static final String LOGTAG = "SpeedmeterService";
     DatabaseReference databaseReference, baseReference;
     private User travelerUser;
 
@@ -122,7 +128,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
      */
     @Override
     public int onStartCommand(Intent intent, int flags, int startid){
-        Log.e("service starting...", "service SpeedMeterService is starting ");
+        Log.e(LOGTAG, "OnStartCommand ");
         databaseReference = FirebaseDatabase.getInstance().getReference(Tutility.FIREBASE_TRIPS);
         baseReference = FirebaseDatabase.getInstance().getReference(TConstants.FIREBASE_NOTIFICATION);
         Iterator<User> users = User.findAll(User.class);
@@ -155,6 +161,13 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     @Override
     public void onCreate() {
         super.onCreate();
+
+        Log.e(LOGTAG, "onCreate");
+        databaseReference = FirebaseDatabase.getInstance().getReference(Tutility.FIREBASE_TRIPS);
+        baseReference = FirebaseDatabase.getInstance().getReference(TConstants.FIREBASE_NOTIFICATION);
+        Iterator<User> users = User.findAll(User.class);
+        if (users.hasNext())
+            travelerUser = users.next();
         start();
         //subscribe to FCM services to receive incoming notifs
         FirebaseMessaging.getInstance().subscribeToTopic(TConstants.FIREBASE_AD_TOPIC);
@@ -271,7 +284,6 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                 if (MyPositionActivity.isCurrentTripExist() &&
                         mAccelCurrent >= MAX_NORMAL_ACCELERATION_COEFF_MOVING*SensorManager.GRAVITY_EARTH &&
                         mAccelCurrent < (MAX_ALLOWED_ACCELERATION * SensorManager.GRAVITY_EARTH) ) {
-                    //Log.e("Accident detected: ", " -- mAccelCurrent: "+mAccelCurrent+" -- mAccelCurrent/9.8: "+(mAccelCurrent/SensorManager.GRAVITY_EARTH));
 
                     pushIncidentOnline(mspeed, 1);
 
@@ -356,7 +368,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
 
         Trip trip = MyPositionActivity.getCurrentTrip();
 
-        Incident incident = new Incident();
+        final Incident incident = new Incident();
 
         incident.setKey(trip.getTripKey());
         incident.setMatricule(travelerUser.getCurrent_matricule());
@@ -373,11 +385,37 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
         incident.setPitch(orientationDegree[1]);
         incident.setRoll(orientationDegree[2]);
 
+        String key = baseReference.child(TConstants.FIREBASE_NOTIF_ACCIDENT)
+                            .push().getKey();
+                            //.setValue(incident)
+                            //.addOnFailureListener(this);
         baseReference.child(TConstants.FIREBASE_NOTIF_ACCIDENT)
-                .push()
-                .setValue(incident)
-                .addOnCompleteListener(this)
-                .addOnFailureListener(this);
+                .child(key)
+                .onDisconnect()
+                .setValue(incident, new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                        //make cool stuff for now then burn!
+                        onFailure(new Exception("ConnectionErrorException"));
+                    }
+                });
+        //when app goes offline, we want to send the data via the user's SMS provider
+        FirebaseDatabase.getInstance().getReference(".info/connected").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                boolean connected = dataSnapshot.getValue(Boolean.class);
+                if (!connected){
+                    Log.e(LOGTAG, "Diconnected");
+                    onFailure(new Exception("ConnectionErrorException"));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
     private void notifyAlert(float acc) {
@@ -392,7 +430,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                 getSystemService(NOTIFICATION_SERVICE);
         Notification.Builder build = new Notification.Builder(this);
 
-        String message = String.format(Locale.ENGLISH, "GFORCE VAL: %.3f", acc);
+        String message = String.format(Locale.ENGLISH, "GFORCE VAL: %.1f", acc);
 
         build.setAutoCancel(false);
         build.setWhen(0);
@@ -412,7 +450,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
         Notification notif = build.getNotification();
 //        notif.vibrate = new long[] { 100, 250, 100, 500};
 //        notif.sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        if (sp.getBoolean("show_impact_pref", false)) //whether to even launch notification or not (configured via application settings)
+        if (sp.getBoolean("show_impact_pref", true)) //whether to even launch notification or not (configured via application settings)
             nm.notify(0, notif);
     }
 
@@ -625,7 +663,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
 
     /*private static MultiValueMap<String, String> body ;
     private static ResponseEntity<String> response;
-    private static TrackingData trackingDataa;
+    private static TrackingData trackingData;
     private static RestTemplate restTemplate;*/
     private static  SpeedOverhead so = null;
 
@@ -855,6 +893,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     @Override
     public void onFailure(@NonNull Exception e) {
         //Send impact notifications via SMS when offline and sending alerts fail
+        Log.e(LOGTAG, "Sending offline SMS");
         e.printStackTrace();
         Trip currentTrip = getCurrentTrip();
         String emergencyMessage = getResources().getString(R.string.emergency_sms,
@@ -975,7 +1014,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                 Log.d(LOGTAG, "Error initializing speech engine");
                 break;
             case TextToSpeech.SUCCESS:
-                String language = PreferenceManager.getDefaultSharedPreferences(this).getString("language_pref", "");
+                String language = PreferenceManager.getDefaultSharedPreferences(this).getString("language_pref", "english");
                 tts.setLanguage( language.equalsIgnoreCase("English") ? Locale.ENGLISH :
                         language.equalsIgnoreCase("French") ? Locale.FRENCH : Locale.getDefault());
                 tts.setPitch(2);
@@ -1001,15 +1040,4 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
         });
     }
 
-    @Override
-    public void onComplete(@NonNull Task<Void> task) {
-        if (!task.isSuccessful()){
-            //act offline
-            try {
-                onFailure(task.getException());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
 }

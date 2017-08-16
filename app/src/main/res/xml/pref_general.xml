@@ -6,13 +6,13 @@
         android:summary="@string/pref_description_speed"
         android:title="@string/pref_title_speed" />
     <SwitchPreference
-        android:defaultValue="true"
+        android:defaultValue="false"
         android:key="high_speed_pref"
         android:summary="@string/pref_description_highspeed"
         android:title="@string/pref_title_highspeed" />
     <!-- Parent preference -->
     <SwitchPreference
-        android:defaultValue="false"
+        android:defaultValue="true"
         android:key="show_impact_pref"
         android:title="@string/pref_impact_title"
         android:summary="@string/pref_impact_description"/>
@@ -24,7 +24,7 @@
         android:title="@string/pref_title_impact_sound" />
 
     <SwitchPreference
-        android:defaultValue="false"
+        android:defaultValue="true"
         android:key="sms_notif_pref"
         android:title="@string/pref_sms_title"
         android:summary="@string/pref_sms_description"/>
