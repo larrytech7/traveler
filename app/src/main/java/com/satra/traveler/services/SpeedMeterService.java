@@ -59,6 +59,7 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.Vector;
 
+import static android.R.attr.data;
 import static com.satra.traveler.MyPositionActivity.getCurrentTrip;
 
 
@@ -386,12 +387,12 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                             //.addOnFailureListener(this);
         baseReference.child(TConstants.FIREBASE_NOTIF_ACCIDENT)
                 .child(key)
-                .onDisconnect()
                 .setValue(incident, new DatabaseReference.CompletionListener() {
                     @Override
                     public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                         //make cool stuff for now then burn!
-                        onFailure(new Exception("ConnectionErrorException"));
+                        if (databaseError != null)
+                            onFailure(new Exception("ConnectionErrorException"));
                     }
                 });
         //when app goes offline, we want to send the data via the user's SMS provider
