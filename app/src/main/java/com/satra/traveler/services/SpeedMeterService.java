@@ -33,11 +33,7 @@ import android.support.v4.app.ActivityCompat;
 import android.telephony.SmsManager;
 import android.util.Log;
 
-import com.google.android.gms.tasks.Continuation;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -55,16 +51,12 @@ import com.satra.traveler.utils.TConstants;
 import com.satra.traveler.utils.Tutility;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.Locale;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.Vector;
 
 import static com.satra.traveler.MyPositionActivity.getCurrentTrip;
@@ -84,9 +76,10 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     private static final int ERREUR_ACCEPTE_VITESSE_MAX=2;
     private static final int MAX_SPEED_TO_ALERT_KMH = 80;
     private static final long INTERVAL_BETWEEN_UPDATES = 10000;
-    private static final float MAX_NORMAL_ACCELERATION_COEFF_MOVING = 3.0f;//4.5f; //GFORCE required to trigger sending notification
+    private static final float MAX_NORMAL_ACCELERATION_COEFF_MOVING = 5.5f; //GFORCE required to trigger sending notification
     private static final float MAX_NORMAL_ACCELERATION_COEFF_NOT_MOVING = 5.0f;
     private static final float MAX_ALLOWED_ACCELERATION = 100.0f;
+    static final int SMS_SEND_LIMIT = 3;
 
     private static final int TIME_TO_WAIT_FOR_SPEED_OVERHEAD_CONFIRMATION=5000;
     private Long durationElapsed = null;
@@ -120,6 +113,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     private float[] orientationRadian = new float[3];
     private float[] orientationDegree = new float[3];
     private float lastSpeed;
+    private int smsLimit = 0;
 
 
     /**
@@ -294,6 +288,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                 if (MyPositionActivity.isCurrentTripExist() &&
                         mAccelCurrent  >= MAX_NORMAL_ACCELERATION_COEFF_NOT_MOVING * SensorManager.GRAVITY_EARTH &&
                         mAccelCurrent < (MAX_ALLOWED_ACCELERATION * SensorManager.GRAVITY_EARTH)) {
+
                     //Log.e("Accident detected: ", " -- mAccelCurrent: "+mAccelCurrent+" -- mAccelCurrent/9.8: "+(mAccelCurrent/SensorManager.GRAVITY_EARTH));
                     pushIncidentOnline(mspeed, 2);
                 }
@@ -604,6 +599,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
 
         if(location.hasSpeed()){
             vitesse = location.getSpeed();
+            previousLocation = location;
         }
         else{
             if(previousLocation!=null){
@@ -911,20 +907,23 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                 currentTrip == null ? "" : currentTrip.getTripKey(),
                 0);
 
-        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
-            //send SMS peacefully
-            SmsManager smsManager = SmsManager.getDefault();
+        if(smsLimit < SMS_SEND_LIMIT) {
+            smsLimit++;
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
+                //send SMS peacefully
+                SmsManager smsManager = SmsManager.getDefault();
 
-            smsManager.sendTextMessage(Tutility.APP_EMERGENCY_CONTACT, null,
-                    emergencyMessage, null ,null);
-            Log.d(LOGTAG, emergencyMessage);
-        }else{
-            //send broadcast to issue permission request for user to grant permission
-            Intent dataIntent = new Intent(Tutility.BROADCAST_SMS_EMERGENCY);
-            dataIntent.putExtra("message", emergencyMessage);
-            dataIntent.putExtra("src", travelerUser.getUserphone());
+                smsManager.sendTextMessage(Tutility.APP_EMERGENCY_CONTACT, null,
+                        emergencyMessage, null, null);
+                Log.d(LOGTAG, emergencyMessage);
+            } else {
+                //send broadcast to issue permission request for user to grant permission
+                Intent dataIntent = new Intent(Tutility.BROADCAST_SMS_EMERGENCY);
+                dataIntent.putExtra("message", emergencyMessage);
+                dataIntent.putExtra("src", travelerUser.getUserphone());
 
-            sendBroadcast(dataIntent, Manifest.permission.SEND_SMS);
+                sendBroadcast(dataIntent, Manifest.permission.SEND_SMS);
+            }
         }
 
     }
