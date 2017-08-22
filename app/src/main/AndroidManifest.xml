@@ -68,7 +68,7 @@
             android:value="false" />
         <meta-data
             android:name="VERSION"
-            android:value="24" />
+            android:value="25" />
         <!--
              Set custom default icon. This is used when no icon is set for incoming notification messages.
              See README(https://goo.gl/l4GJaQ) for more.

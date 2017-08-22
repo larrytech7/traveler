@@ -34,6 +34,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.telephony.SmsManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -121,6 +122,8 @@ import java.util.regex.Pattern;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import mehdi.sakout.fancybuttons.FancyButton;
+
+import static com.google.ads.AdRequest.LOGTAG;
 
 public class MyPositionActivity extends AppCompatActivity implements OnMapReadyCallback, LocationSource.OnLocationChangedListener
         , GoogleApiClient.ConnectionCallbacks,
@@ -1578,10 +1581,12 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         //handle view interaction click
         switch (v.getId()){
             case R.id.fabMessageBtn:
+
                 Intent msgIntent = new Intent(this, MessagingActivity.class);
                 //String matricule = PreferenceManager.getDefaultSharedPreferences(this).getString(TConstants.PREF_MATRICULE, "");
                 //msgIntent.putExtra(TConstants.PREF_MATRICULE, matricule);
                 startActivity(msgIntent);
+
                 break;
             case R.id.fabFlagAccident:
                 final FlagEvent accidentEvent = new FlagEvent(1);

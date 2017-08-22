@@ -12,7 +12,7 @@ public class Incident extends SugarRecord {
     private String key;
     private String matricule;
     private String agency;
-    private float speed;
+    private double speed;
     private double acc;
     private double acc_last; //previous acceleration value
     private double latitude;
@@ -85,11 +85,11 @@ public class Incident extends SugarRecord {
         this.agency = agency;
     }
 
-    public float getSpeed() {
+    public double getSpeed() {
         return speed;
     }
 
-    public void setSpeed(float speed) {
+    public void setSpeed(double speed) {
         this.speed = speed;
     }
 

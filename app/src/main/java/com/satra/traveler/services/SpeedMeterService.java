@@ -1,7 +1,6 @@
 package com.satra.traveler.services;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -28,22 +27,21 @@ import android.provider.Settings;
 import android.speech.RecognitionListener;
 import android.speech.SpeechRecognizer;
 import android.speech.tts.TextToSpeech;
-import android.speech.tts.TextToSpeechService;
 import android.speech.tts.UtteranceProgressListener;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsManager;
 import android.util.Log;
 
-
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.satra.traveler.MyPositionActivity;
 import com.satra.traveler.R;
-import com.satra.traveler.broadcasts.SmsOfflineBroadcastReceiver;
 import com.satra.traveler.models.Incident;
 import com.satra.traveler.models.SpeedOverhead;
 import com.satra.traveler.models.TrackingData;
@@ -61,26 +59,27 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.Vector;
 
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 import static com.satra.traveler.MyPositionActivity.getCurrentTrip;
 
 
 /**
  * Created by Steve Jeff on 17/04/2016.
  */
-public class SpeedMeterService extends Service implements SensorEventListener, OnFailureListener, RecognitionListener, TextToSpeech.OnInitListener {
+public class SpeedMeterService extends Service implements SensorEventListener, OnFailureListener, RecognitionListener, TextToSpeech.OnInitListener{
 
     private static final int NBRE_MAX_ITERATION_POUR_MOYENNE_VITESSES = 3;
     private static final int MAX_VITESSE_METRE_SECONDE = 0;
     private static final float COEFF_CONVERSION_MS_KMH = 4;
     private static final int MAX_SPEED_ALLOWED_KMH = 90;
+    private static final float MOVING_SPEED_THRESHOLD = 25f; //speed at which we can certify that object is moving
     private static final int NATURAL_LIMIT_OF_SPEED = 200;
     private static final int ERREUR_ACCEPTE_VITESSE_MAX=2;
     private static final int MAX_SPEED_TO_ALERT_KMH = 80;
     private static final long INTERVAL_BETWEEN_UPDATES = 10000;
-    private static final float MAX_NORMAL_ACCELERATION_COEFF_MOVING = 4.5f;
+    private static final float MAX_NORMAL_ACCELERATION_COEFF_MOVING = 5.5f; //GFORCE required to trigger sending notification
     private static final float MAX_NORMAL_ACCELERATION_COEFF_NOT_MOVING = 5.0f;
     private static final float MAX_ALLOWED_ACCELERATION = 100.0f;
+    static final int SMS_SEND_LIMIT = 3;
 
     private static final int TIME_TO_WAIT_FOR_SPEED_OVERHEAD_CONFIRMATION=5000;
     private Long durationElapsed = null;
@@ -94,7 +93,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     private long durationGPS=0, durationNetwork=0;
     private Vector<Float> vitesses = new Vector<>();
     private LocationListener locationListenerGPS, locationListenerNetwork;
-    static final String LOGTAG = SpeedMeterService.class.getSimpleName();
+    static final String LOGTAG = "SpeedmeterService";
     DatabaseReference databaseReference, baseReference;
     private User travelerUser;
 
@@ -113,6 +112,8 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     private float[] r = new float[9];
     private float[] orientationRadian = new float[3];
     private float[] orientationDegree = new float[3];
+    private float lastSpeed;
+    private int smsLimit = 0;
 
 
     /**
@@ -121,7 +122,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
      */
     @Override
     public int onStartCommand(Intent intent, int flags, int startid){
-        Log.e("service starting...", "service SpeedMeterService is starting ");
+        Log.e(LOGTAG, "OnStartCommand ");
         databaseReference = FirebaseDatabase.getInstance().getReference(Tutility.FIREBASE_TRIPS);
         baseReference = FirebaseDatabase.getInstance().getReference(TConstants.FIREBASE_NOTIFICATION);
         Iterator<User> users = User.findAll(User.class);
@@ -154,6 +155,13 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     @Override
     public void onCreate() {
         super.onCreate();
+
+        Log.e(LOGTAG, "onCreate");
+        databaseReference = FirebaseDatabase.getInstance().getReference(Tutility.FIREBASE_TRIPS);
+        baseReference = FirebaseDatabase.getInstance().getReference(TConstants.FIREBASE_NOTIFICATION);
+        Iterator<User> users = User.findAll(User.class);
+        if (users.hasNext())
+            travelerUser = users.next();
         start();
         //subscribe to FCM services to receive incoming notifs
         FirebaseMessaging.getInstance().subscribeToTopic(TConstants.FIREBASE_AD_TOPIC);
@@ -266,11 +274,10 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
             mAccelCurrent = (float) Math.sqrt(x*x + y*y + z*z);
             float mspeed = getSharedPreferences(TConstants.TRAVELR_PREFERENCE, MODE_PRIVATE).getFloat(TConstants.SPEED_PREF, 0.0f)* COEFF_CONVERSION_MS_KMH;
 
-            if(mspeed >= 25f) { //speed to get that this is a moving vehicle
+            if(mspeed >= MOVING_SPEED_THRESHOLD) { //speed to get that this is a moving vehicle
                 if (MyPositionActivity.isCurrentTripExist() &&
                         mAccelCurrent >= MAX_NORMAL_ACCELERATION_COEFF_MOVING*SensorManager.GRAVITY_EARTH &&
                         mAccelCurrent < (MAX_ALLOWED_ACCELERATION * SensorManager.GRAVITY_EARTH) ) {
-                    //Log.e("Accident detected: ", " -- mAccelCurrent: "+mAccelCurrent+" -- mAccelCurrent/9.8: "+(mAccelCurrent/SensorManager.GRAVITY_EARTH));
 
                     pushIncidentOnline(mspeed, 1);
 
@@ -281,6 +288,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                 if (MyPositionActivity.isCurrentTripExist() &&
                         mAccelCurrent  >= MAX_NORMAL_ACCELERATION_COEFF_NOT_MOVING * SensorManager.GRAVITY_EARTH &&
                         mAccelCurrent < (MAX_ALLOWED_ACCELERATION * SensorManager.GRAVITY_EARTH)) {
+
                     //Log.e("Accident detected: ", " -- mAccelCurrent: "+mAccelCurrent+" -- mAccelCurrent/9.8: "+(mAccelCurrent/SensorManager.GRAVITY_EARTH));
                     pushIncidentOnline(mspeed, 2);
                 }
@@ -338,8 +346,9 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     }
 
     private void pushIncidentOnline(float mspeed, int type){
-        notifyAlert(mAccelCurrent / SensorManager.GRAVITY_EARTH);
 
+        notifyAlert(mAccelCurrent / SensorManager.GRAVITY_EARTH);
+            lastSpeed = mspeed;
          /*
                  * Construire l'objet accident. L'objet a transmettre dans le setValue() method doit avoir ces proprietes
                  * matricule - le matricule du vehicule du trajet en cours
@@ -354,12 +363,12 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
 
         Trip trip = MyPositionActivity.getCurrentTrip();
 
-        Incident incident = new Incident();
+        final Incident incident = new Incident();
 
         incident.setKey(trip.getTripKey());
         incident.setMatricule(travelerUser.getCurrent_matricule());
         incident.setAgency(trip.getAgency_name());
-        incident.setSpeed(mspeed);
+        incident.setSpeed(Tutility.round(mspeed));
         incident.setAcc(mAccelCurrent / SensorManager.GRAVITY_EARTH);
         incident.setAcc_last(mAccelLast / SensorManager.GRAVITY_EARTH);
         incident.setLongitude(location == null ? 0 : location.getLongitude());
@@ -371,10 +380,37 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
         incident.setPitch(orientationDegree[1]);
         incident.setRoll(orientationDegree[2]);
 
+        String key = baseReference.child(TConstants.FIREBASE_NOTIF_ACCIDENT)
+                            .push().getKey();
+                            //.setValue(incident)
+                            //.addOnFailureListener(this);
         baseReference.child(TConstants.FIREBASE_NOTIF_ACCIDENT)
-                .push()
-                .setValue(incident)
-                .addOnFailureListener((Activity) getApplicationContext(), this);
+                .child(key)
+                .onDisconnect()
+                .setValue(incident, new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                        //make cool stuff for now then burn!
+                        onFailure(new Exception("ConnectionErrorException"));
+                    }
+                });
+        //when app goes offline, we want to send the data via the user's SMS provider
+        FirebaseDatabase.getInstance().getReference(".info/connected").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                boolean connected = dataSnapshot.getValue(Boolean.class);
+                if (!connected){
+                    Log.e(LOGTAG, "Diconnected");
+                    onFailure(new Exception("ConnectionErrorException"));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
     private void notifyAlert(float acc) {
@@ -389,7 +425,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                 getSystemService(NOTIFICATION_SERVICE);
         Notification.Builder build = new Notification.Builder(this);
 
-        String message = String.format(Locale.ENGLISH, "GFORCE VAL: %.6f", acc);
+        String message = String.format(Locale.ENGLISH, "GFORCE VAL: %.1f", acc);
 
         build.setAutoCancel(false);
         build.setWhen(0);
@@ -409,7 +445,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
         Notification notif = build.getNotification();
 //        notif.vibrate = new long[] { 100, 250, 100, 500};
 //        notif.sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        if (sp.getBoolean("show_impact_pref", false)) //whether to even launch notification or not (configured via application settings)
+        if (sp.getBoolean("show_impact_pref", true)) //whether to even launch notification or not (configured via application settings)
             nm.notify(0, notif);
     }
 
@@ -417,8 +453,6 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
         // required method
     }
-
-
 
     public void showAlertEnableGPS(){
 
@@ -565,6 +599,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
 
         if(location.hasSpeed()){
             vitesse = location.getSpeed();
+            previousLocation = location;
         }
         else{
             if(previousLocation!=null){
@@ -624,7 +659,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
 
     /*private static MultiValueMap<String, String> body ;
     private static ResponseEntity<String> response;
-    private static TrackingData trackingDataa;
+    private static TrackingData trackingData;
     private static RestTemplate restTemplate;*/
     private static  SpeedOverhead so = null;
 
@@ -830,30 +865,6 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
         */
     }
 
-    /**
-     * Manage offline sending of data when connection re-establishes.
-     * @Deprecated: No longer necessary, firebase handles offline capabilities
-     */
-    /*
-    public static  void tryToSentDataOnline(Context context){
-        //voici les objets de vitesse/position dans la bd locale
-        Iterator<TrackingData> trackingDatas = TrackingData.findAll(TrackingData.class);
-        //manipule cette liste pour envoyer ces donnes en ligne
-        if(trackingDatas.hasNext()){
-            TrackingData trackingData1 = trackingDatas.next();
-            Location location1 = new Location(trackingData1.getLocation());
-            location1.setLatitude(trackingData1.getLatitude());
-            location1.setLongitude(trackingData1.getLongitude());
-
-            if((lastUpdate==null||System.currentTimeMillis()-lastUpdate>INTERVAL_BETWEEN_UPDATES)){
-                pushSpeedOnline(context, (float) trackingData1.getSpeed(), location1, trackingData1);
-                lastUpdate = System.currentTimeMillis();
-            }
-
-
-        }
-    }
-    */
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -878,32 +889,42 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     @Override
     public void onFailure(@NonNull Exception e) {
         //Send impact notifications via SMS when offline and sending alerts fail
+        Log.e(LOGTAG, "Sending offline SMS");
         e.printStackTrace();
         Trip currentTrip = getCurrentTrip();
         String emergencyMessage = getResources().getString(R.string.emergency_sms,
-                mAccelCurrent, previousLocation == null ? 0 : previousLocation.getLongitude() ,
+                mAccelCurrent,
+                mAccelLast,
                 previousLocation == null ? 0 : previousLocation.getLatitude(),
-                getCurrentTrip() == null ? "Unknown" : currentTrip.getAgency_name(),
+                previousLocation == null ? 0 : previousLocation.getLongitude() ,
+                lastSpeed,
+                System.currentTimeMillis(),
                 currentTrip == null ? "Unknown" : currentTrip.getBus_immatriculation(),
-                currentTrip == null ? "Unknown" : currentTrip.getDeparture()+" - "+currentTrip.getDestination());
+                currentTrip == null ? "Unknown" : currentTrip.getAgency_name(),
+                orientationDegree[0],
+                orientationDegree[1],
+                orientationDegree[2],
+                currentTrip == null ? "" : currentTrip.getTripKey(),
+                0);
 
-        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
-            //send SMS peacefully
-            SmsManager smsManager = SmsManager.getDefault();
-            /*smsManager.sendTextMessage(travelerUser.getEmergency_primary(),travelerUser.getUserphone(),
-                    emergencyMessage,null, null);
-            smsManager.sendTextMessage(travelerUser.getEmergency_secondary(),travelerUser.getUserphone(),
-                    emergencyMessage,null, null);*/
-            smsManager.sendTextMessage(Tutility.APP_EMERGENCY_CONTACT, travelerUser.getUserphone(),
-                    emergencyMessage, null ,null);
-        }/*else{
-            //send broadcast to issue permission request for user to grant permission
-            Intent dataIntent = new Intent(Tutility.BROADCAST_SMS_EMERGENCY);
-            dataIntent.putExtra("message", emergencyMessage);
-            dataIntent.putExtra("src", travelerUser.getUserphone());
+        if(smsLimit < SMS_SEND_LIMIT) {
+            smsLimit++;
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
+                //send SMS peacefully
+                SmsManager smsManager = SmsManager.getDefault();
 
-            sendBroadcast(dataIntent, Manifest.permission.SEND_SMS);
-        }*/
+                smsManager.sendTextMessage(Tutility.APP_EMERGENCY_CONTACT, null,
+                        emergencyMessage, null, null);
+                Log.d(LOGTAG, emergencyMessage);
+            } else {
+                //send broadcast to issue permission request for user to grant permission
+                Intent dataIntent = new Intent(Tutility.BROADCAST_SMS_EMERGENCY);
+                dataIntent.putExtra("message", emergencyMessage);
+                dataIntent.putExtra("src", travelerUser.getUserphone());
+
+                sendBroadcast(dataIntent, Manifest.permission.SEND_SMS);
+            }
+        }
 
     }
 
@@ -992,7 +1013,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                 Log.d(LOGTAG, "Error initializing speech engine");
                 break;
             case TextToSpeech.SUCCESS:
-                String language = PreferenceManager.getDefaultSharedPreferences(this).getString("language_pref", "");
+                String language = PreferenceManager.getDefaultSharedPreferences(this).getString("language_pref", "english");
                 tts.setLanguage( language.equalsIgnoreCase("English") ? Locale.ENGLISH :
                         language.equalsIgnoreCase("French") ? Locale.FRENCH : Locale.getDefault());
                 tts.setPitch(2);
@@ -1017,4 +1038,5 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
             }
         });
     }
+
 }
