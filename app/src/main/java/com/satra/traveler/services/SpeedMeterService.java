@@ -77,8 +77,8 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     private static final int ERREUR_ACCEPTE_VITESSE_MAX=2;
     private static final int MAX_SPEED_TO_ALERT_KMH = 80;
     private static final long INTERVAL_BETWEEN_UPDATES = 10000;
-    private static final float MAX_NORMAL_ACCELERATION_COEFF_MOVING = 5.5f; //GFORCE required to trigger sending notification
-    private static final float MAX_NORMAL_ACCELERATION_COEFF_NOT_MOVING = 5.0f;
+    private static final float MAX_NORMAL_ACCELERATION_COEFF_MOVING = 3.0f;//5.5f; //GFORCE required to trigger sending notification
+    private static final float MAX_NORMAL_ACCELERATION_COEFF_NOT_MOVING = 3.0f;//5.0f;
     private static final float MAX_ALLOWED_ACCELERATION = 100.0f;
     static final int SMS_SEND_LIMIT = 3;
 
@@ -907,7 +907,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                 orientationDegree[2],
                 currentTrip == null ? "" : currentTrip.getTripKey(),
                 0);
-
+        //TODO: Let the condition for limiting sms be based on the trip than the general running service
         if(smsLimit < SMS_SEND_LIMIT) {
             smsLimit++;
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
