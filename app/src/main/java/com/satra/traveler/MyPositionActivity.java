@@ -94,6 +94,7 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import com.popalay.tutors.TutorialListener;
 import com.popalay.tutors.Tutors;
 import com.popalay.tutors.TutorsBuilder;
+import com.satra.traveler.broadcasts.BootBroadcastReceiver;
 import com.satra.traveler.models.FlagEvent;
 import com.satra.traveler.models.Rewards;
 import com.satra.traveler.models.SpeedOverhead;
@@ -509,6 +510,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         Intent intent = new Intent(this, SpeedMeterService.class);
 
         startService(intent);
+        new BootBroadcastReceiver().SetAlarm(getApplicationContext());
 
         googleMap.setMyLocationEnabled(true);
         googleMap.setBuildingsEnabled(true);
@@ -612,6 +614,7 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                 Intent intent = new Intent(this, SpeedMeterService.class);
 
                 startService(intent);
+                new BootBroadcastReceiver().SetAlarm(getApplicationContext());
 
                 googleMap.setMyLocationEnabled(true);
                 googleMap.setBuildingsEnabled(true);
