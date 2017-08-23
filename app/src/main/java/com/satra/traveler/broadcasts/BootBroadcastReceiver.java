@@ -1,5 +1,7 @@
 package com.satra.traveler.broadcasts;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -21,9 +23,27 @@ public class BootBroadcastReceiver extends BroadcastReceiver {
 
         context.startService(new Intent(context, SpeedMeterService.class));
 
+        SetAlarm(context);
 
         //Release the lock
         wl.release();
+    }
+
+    public void SetAlarm(Context context)
+    {
+        AlarmManager am=(AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(context, SpeedMeterService.class);
+        PendingIntent pi = PendingIntent.getService(context, 0, intent, 0);
+        //After  15 minutes, restart the service if stopped
+        am.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 1000 * 900, pi);
+    }
+
+    public void CancelAlarm(Context context)
+    {
+        Intent intent = new Intent(context, SpeedMeterService.class);
+        PendingIntent sender = PendingIntent.getService(context, 0, intent, 0);
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        alarmManager.cancel(sender);
     }
 
 
