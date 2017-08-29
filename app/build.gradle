@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion '25.0.0'
+    buildToolsVersion '23.0.3'
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.satra.traveler"
@@ -12,7 +12,6 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
     dexOptions {
-        incremental true
         javaMaxHeapSize "4g"
     }
     buildTypes {

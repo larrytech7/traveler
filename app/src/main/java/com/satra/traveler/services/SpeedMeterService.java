@@ -78,7 +78,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
     private static final int MAX_SPEED_TO_ALERT_KMH = 80;
     private static final long INTERVAL_BETWEEN_UPDATES = 10000;
     private static final float MAX_NORMAL_ACCELERATION_COEFF_MOVING = 3.0f;//5.5f; //GFORCE required to trigger sending notification
-    private static final float MAX_NORMAL_ACCELERATION_COEFF_NOT_MOVING = 3.0f;//5.0f;
+    private static final float MAX_NORMAL_ACCELERATION_COEFF_NOT_MOVING = 3.5f;//5.0f;
     private static final float MAX_ALLOWED_ACCELERATION = 100.0f;
     static final int SMS_SEND_LIMIT = 3;
 
