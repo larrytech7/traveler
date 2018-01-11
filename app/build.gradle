@@ -30,6 +30,9 @@ android {
         pickFirst 'META-INF/license.txt'
         pickFirst 'META-INF/notice.txt'
         pickFirst 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE-FIREBASE.txt'
+        exclude 'META-INF/NOTICE'
     }
 
     productFlavors {
@@ -42,7 +45,7 @@ repositories {
 
 ext{
     apiSupportVersion = "25.1.0"
-    playServiceVersion = "10.0.1"
+    playServiceVersion = "11.0.2" //"10.0.1"
 }
 
 dependencies {

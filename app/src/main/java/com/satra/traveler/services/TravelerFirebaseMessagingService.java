@@ -29,13 +29,9 @@ import java.util.List;
 
 public class TravelerFirebaseMessagingService extends FirebaseMessagingService {
     private final String TAG = "FCMMessagingService";
-    private final int NOTIFICATION_MESSAGE = 1;
-    private final int NOTIFICATION_AD = 2;
     private int numMessages = 0;
     private List<String> messageList = new ArrayList<>();
     private User travelerUser = Tutility.getAppUser();
-    private NotificationManager nm;
-    private NotificationCompat.Builder builder;
 
     public TravelerFirebaseMessagingService() {
     }
@@ -48,7 +44,7 @@ public class TravelerFirebaseMessagingService extends FirebaseMessagingService {
 
         // Check if message contains a data payload.
         if (remoteMessage.getData().size() > 0) {
-            Log.d(TAG, "Message data payload: " + remoteMessage.getData());
+            //Log.d(TAG, "Message data payload: " + remoteMessage.getData());
             JSONObject payload = new JSONObject(remoteMessage.getData());
             try {
                 String title = payload.getString("user");
@@ -59,8 +55,10 @@ public class TravelerFirebaseMessagingService extends FirebaseMessagingService {
                 messageList.add(body);
                 ++numMessages;
                 //Use type maybe to differentiate different sources of a notification like this
+                int NOTIFICATION_MESSAGE = 1;
+                int NOTIFICATION_NEWS = 2;
                 showNotification(type == 1 ? MessagingActivity.class : NewsActivity.class,
-                        this, title,body, type == 1 ? NOTIFICATION_MESSAGE : NOTIFICATION_MESSAGE);
+                        this, title,body, type == 1 ? NOTIFICATION_MESSAGE : NOTIFICATION_NEWS);
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -70,6 +68,7 @@ public class TravelerFirebaseMessagingService extends FirebaseMessagingService {
             //extract Data and send Notification
             String title = remoteMessage.getNotification().getTitle();
             String body =remoteMessage.getNotification().getBody();
+            int NOTIFICATION_AD = 2;
             showNotification(NewsActivity.class, this, title,body, NOTIFICATION_AD);
         }
 
@@ -87,15 +86,15 @@ public class TravelerFirebaseMessagingService extends FirebaseMessagingService {
         intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pendingIntent =
                 PendingIntent.getActivity(context, 0, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
-        nm = (NotificationManager)
+        NotificationManager nm = (NotificationManager)
                 context.getSystemService(NOTIFICATION_SERVICE);
 
-        builder = new NotificationCompat.Builder(context);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
         builder.setTicker(context.getString(R.string.app_name));
         builder.setContentTitle(title);
         builder.setContentText(content);
-        builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher_web));
-        builder.setSmallIcon(R.drawable.ic_messaging_24dp);
+        builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.traveler));
+        builder.setSmallIcon(id == 1 ? R.drawable.ic_messaging_24dp : R.drawable.ic_notify);
         builder.setContentIntent(pendingIntent);
         builder.setSound(Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.notification));
         builder.setOngoing(true);

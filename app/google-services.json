@@ -15,11 +15,27 @@
       },
       "oauth_client": [
         {
+          "client_id": "252590530317-g46ci6a46vmlveqj0et55knsr5edsi0e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.satra.traveler",
+            "certificate_hash": "989187fe6ad0a5f65e45b45d14836dbe59461522"
+          }
+        },
+        {
+          "client_id": "252590530317-e2kbnnak3a4smes43m29imgji4406ir8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.satra.traveler",
+            "certificate_hash": "cbd370a6395f103f83297b97835b150fd7a949ea"
+          }
+        },
+        {
           "client_id": "252590530317-r6ra1f93b2li9vshkkj1nv4766sc079o.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.satra.traveler",
-            "certificate_hash": "97444CD501FFC75D694B12A3A234B6365E4C8860"
+            "certificate_hash": "97444cd501ffc75d694b12a3a234b6365e4c8860"
           }
         },
         {

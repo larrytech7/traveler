@@ -237,7 +237,7 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
             }
         });*/
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setupMessageList(this);
+        setupMessageList();
         // ATTENTION: This was auto-generated to handle app links.
         appLinkIntent = getIntent();
         String appLinkAction = appLinkIntent.getAction();
@@ -301,7 +301,7 @@ public class MessagingActivity extends AppCompatActivity implements TutorialList
     }
 
 
-    private void setupMessageList(Context context){
+    private void setupMessageList(){
 
         //populate list view
         MessagingAdapter messagingAdapter = new MessagingAdapter(Messages.class, R.layout.item_message_layout,

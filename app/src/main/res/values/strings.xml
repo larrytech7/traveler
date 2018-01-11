@@ -413,5 +413,6 @@
     <string name="confirm_email">Veuillez vérifier votre adresse email !</string>
 
     <string name="flag_menu">Utilisez ce bouton pour envoyer des alertes autour de vous</string>
+    <string name="empty_news">Aucune information disponible</string>
 
 </resources>

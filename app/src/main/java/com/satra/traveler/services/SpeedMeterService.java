@@ -474,7 +474,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
         build.setContentTitle(getString(R.string.open_settings));
         build.setContentText(getString(R.string.gps_disabled_message));
         build.setSmallIcon(R.drawable.ic_settings);
-        build.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher_web));
+        build.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.traveler));
         build.setContentIntent(pendingIntent);
         build.setOngoing(false);
 
@@ -542,7 +542,7 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
         build.setTicker(context.getString(R.string.app_name));
         build.setContentTitle(vitesse);
         build.setContentText(message);
-        build.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher_web));
+        build.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.traveler));
         build.setSmallIcon(R.drawable.ic_menu_mylocation);
         build.setContentIntent(pendingIntent);
         build.setOngoing(true);

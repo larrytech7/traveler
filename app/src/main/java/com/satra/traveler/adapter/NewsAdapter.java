@@ -45,6 +45,7 @@ public class NewsAdapter extends FirebaseRecyclerAdapter<News, NewsAdapter.ViewH
     public NewsAdapter(Context context, Class<News> modelClass, int modelLayout,
                        Class<ViewHolder> viewHolderClass, Query ref) {
         super(modelClass, modelLayout, viewHolderClass, ref);
+        setHasStableIds(true);
         this.c = context;
     }
 

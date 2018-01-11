@@ -306,5 +306,6 @@
     <string name="flag_menu">Flag incidents around you during your trip</string>
     <string name="reauthenticate">Welcome, reconnecting</string>
     <string name="confirm_email">Please, check your email address !</string>
+    <string name="empty_news">No information available yet</string>
 
 </resources>
