@@ -66,7 +66,7 @@ public class NewsAdapter extends FirebaseRecyclerAdapter<News, NewsAdapter.ViewH
                     .load(Uri.parse(model.getNewsMultimediaLink()))
                     .placeholder(R.drawable.loading_drawable)
                     .crossFade()
-                    .error(R.drawable.ic_launcher)
+                    .error(R.drawable.traveler)
                     .into(viewHolder.newsImageView);
         setAnimation(viewHolder.newsCard, position);
         setListener(viewHolder.newsCard, position);

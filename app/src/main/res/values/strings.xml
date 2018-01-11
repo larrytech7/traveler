@@ -52,7 +52,7 @@
     </string-array>
 
     <string name="cmr_town_1" translatable="false">Douala|4.036072|9.6724234</string>
-    <string name="cmr_town_2" translatable="false">Yaoundé|3.8157332|11.526508</string>
+    <string name="cmr_town_2" translatable="false">Yaounde|3.8157332|11.526508</string>
     <string name="cmr_town_3" translatable="false">Bafoussam|5.4807502|10.389804</string>
     <string name="cmr_town_4" translatable="false">Edea|3.7999774|10.1147172</string>
     <string name="cmr_town_5" translatable="false">Maroua|10.5972501|14.2914526</string>
@@ -62,7 +62,7 @@
     <string name="cmr_town_10" translatable="false">Bamenda|5.9594398|10.1534798</string>
     <string name="cmr_town_11" translatable="false">Dschang|5.4475619|10.063261</string>
     <string name="cmr_town_12" translatable="false">Ebolowa|2.9181643|11.1566153</string>
-    <string name="cmr_town_13" translatable="false">Ngaoundére|7.3303988|13.5812464</string>
+    <string name="cmr_town_13" translatable="false">Ngaoundere|7.3303988|13.5812464</string>
 
     <string name="cmr_car_immatriculation_regex_patern" translatable="false">[A-Z]{2}[0-9]{3}[A-Z0-9][A-Z]</string>
 

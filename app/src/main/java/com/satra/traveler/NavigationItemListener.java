@@ -20,6 +20,8 @@ import com.satra.traveler.utils.Tutility;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Locale;
+
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 /**
@@ -131,6 +133,11 @@ public class NavigationItemListener implements NavigationView.OnNavigationItemSe
         //update trip to status of finished
             trip.status = 1;
             long updateid = trip.save();
+            //unsubscribe from topics (trip)
+            FirebaseMessaging.getInstance().unsubscribeFromTopic(String.format(Locale.ENGLISH, "%s_%s",
+                    trip.getDestination(), trip.getDeparture()));
+            FirebaseMessaging.getInstance().unsubscribeFromTopic(String.format(Locale.ENGLISH, "%s_%s",
+                trip.getDeparture(), trip.getDestination()));
             if (updateid > 0){
                 trip.setEnd(System.nanoTime());
                 boolean updated = isTpointsUpdated(trip);

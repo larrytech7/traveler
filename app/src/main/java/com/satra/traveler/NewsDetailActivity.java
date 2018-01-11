@@ -177,7 +177,7 @@ public class NewsDetailActivity extends AppCompatActivity {
                     .load(Uri.parse(newsImage))
                     .placeholder(R.drawable.loading_drawable)
                     .crossFade()
-                    .error(R.drawable.ic_launcher_web)
+                    .error(R.drawable.traveler)
                     .into(detailImageView);
     }
 
