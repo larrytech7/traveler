@@ -34,7 +34,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.telephony.SmsManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -79,7 +78,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.TileOverlayOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -89,7 +87,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.popalay.tutors.TutorialListener;
 import com.popalay.tutors.Tutors;
@@ -123,8 +120,6 @@ import java.util.regex.Pattern;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import mehdi.sakout.fancybuttons.FancyButton;
-
-import static com.google.ads.AdRequest.LOGTAG;
 
 public class MyPositionActivity extends AppCompatActivity implements OnMapReadyCallback, LocationSource.OnLocationChangedListener
         , GoogleApiClient.ConnectionCallbacks,
@@ -1059,6 +1054,8 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             getString(R.string.speed_dimen, mTrip.getBus_immatriculation(), Float.parseFloat("0") + "");
                             //Register to receive FCM  notifications for new messages on this trip
                             FirebaseMessaging.getInstance().subscribeToTopic(TConstants.FIREBASE_MESSAGING_TOPIC + mTrip.getBus_immatriculation());
+                            FirebaseMessaging.getInstance().subscribeToTopic(String.format(Locale.ENGLISH, "%s_%s", mTrip.getDeparture(), mTrip.getDestination()));
+                            FirebaseMessaging.getInstance().subscribeToTopic(String.format(Locale.ENGLISH, "%s_%s", mTrip.getDestination(), mTrip.getDeparture()));
                             //Show snackbar asking user to setup insurance plan
                             Snackbar.make(findViewById(R.id.my_frame_host), getString(R.string.insurance_plan), Snackbar.LENGTH_LONG)
                                     .setAction(getString(R.string.get_insurance), MyPositionActivity.this)

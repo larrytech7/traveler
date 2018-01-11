@@ -34,6 +34,8 @@ public class TravelerFirebaseMessagingService extends FirebaseMessagingService {
     private int numMessages = 0;
     private List<String> messageList = new ArrayList<>();
     private User travelerUser = Tutility.getAppUser();
+    private NotificationManager nm;
+    private NotificationCompat.Builder builder;
 
     public TravelerFirebaseMessagingService() {
     }
@@ -85,10 +87,10 @@ public class TravelerFirebaseMessagingService extends FirebaseMessagingService {
         intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pendingIntent =
                 PendingIntent.getActivity(context, 0, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
-        NotificationManager nm = (NotificationManager)
+        nm = (NotificationManager)
                 context.getSystemService(NOTIFICATION_SERVICE);
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
+        builder = new NotificationCompat.Builder(context);
         builder.setTicker(context.getString(R.string.app_name));
         builder.setContentTitle(title);
         builder.setContentText(content);

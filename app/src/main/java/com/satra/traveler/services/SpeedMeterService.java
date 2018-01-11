@@ -907,7 +907,8 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                 orientationDegree[2],
                 currentTrip == null ? "" : currentTrip.getTripKey(),
                 0);
-        //TODO: Let the condition for limiting sms be based on the trip than the general running service
+        //TODO: Let the condition for limiting sms be based on the trip than the general running service.
+
         if(smsLimit < SMS_SEND_LIMIT) {
             smsLimit++;
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
@@ -924,6 +925,12 @@ public class SpeedMeterService extends Service implements SensorEventListener, O
                 dataIntent.putExtra("src", travelerUser.getUserphone());
 
                 sendBroadcast(dataIntent, Manifest.permission.SEND_SMS);
+            }
+        }else{
+            //TODO:  End the trip after this
+            if (currentTrip != null) {
+                currentTrip.setStatus(0);
+                currentTrip.delete();
             }
         }
 

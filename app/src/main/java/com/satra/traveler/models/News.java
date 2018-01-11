@@ -28,7 +28,7 @@ public class News extends SugarRecord {
     }
 
     public String getNewsSource() {
-        return newsSource;
+        return newsSource == null ? "" : newsSource;
     }
 
     public void setNewsSource(String newsSource) {
@@ -36,7 +36,7 @@ public class News extends SugarRecord {
     }
 
     public String getNewsTitle() {
-        return newsTitle;
+        return newsTitle == null ? "" : newsTitle;
     }
 
     public void setNewsTitle(String newsTitle) {
@@ -44,7 +44,7 @@ public class News extends SugarRecord {
     }
 
     public String getNewsContent() {
-        return newsContent;
+        return newsContent == null ? "" : newsContent;
     }
 
     public void setNewsContent(String newsContent) {
@@ -52,7 +52,7 @@ public class News extends SugarRecord {
     }
 
     public String getNewsMultimediaLink() {
-        return newsMultimediaLink;
+        return newsMultimediaLink == null ? "" : newsMultimediaLink;
     }
 
     public void setNewsMultimediaLink(String newsMultimediaLink) {
