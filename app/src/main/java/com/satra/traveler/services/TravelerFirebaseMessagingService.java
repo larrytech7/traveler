@@ -78,7 +78,7 @@ public class TravelerFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onMessageSent(String s) {
         super.onMessageSent(s);
-        Log.d("TAG", s);
+        Log.d(TAG, s);
     }
 
     private void showNotification(Class c, Context context, String title, String content, int id){
