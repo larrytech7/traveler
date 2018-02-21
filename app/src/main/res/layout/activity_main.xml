@@ -18,22 +18,6 @@
             android:layout_gravity="top"
             android:adjustViewBounds="true"
             android:src="@drawable/traveler"/>
-    <!--<TextView
-        android:id="@+id/icone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginEnd="@dimen/cardview_default_elevation"
-        android:layout_marginLeft="@dimen/cardview_default_elevation"
-        android:layout_marginRight="@dimen/cardview_default_elevation"
-        android:layout_marginStart="@dimen/cardview_default_elevation"
-        android:layout_marginTop="200dp"
-        android:drawablePadding="10dp"
-        android:text="@string/signup"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="25sp" />-->
 
     <ScrollView
         android:layout_width="match_parent"
