@@ -7,8 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.satra.traveler.R.id.bus_immatriculation;
-
 /**
  * Created by Larry Akah on 6/11/16.
  */
