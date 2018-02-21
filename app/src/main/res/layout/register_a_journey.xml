@@ -104,6 +104,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="end"
                     android:background="@android:color/holo_blue_bright"
+                    android:alpha="0.5"
                     android:src="@drawable/ic_contact_add"
                     android:text="..." />
 
@@ -139,6 +140,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="end"
                     android:background="@android:color/holo_blue_bright"
+                    android:alpha="0.5"
                     android:src="@drawable/ic_contact_add"
                     android:text="..." />
 
