@@ -701,16 +701,6 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
         AlertDialog.Builder dialogbuilder;
 
         switch (id) {
-            case NavigationItemListener.DIALOG_NEW_COMPLAINT:
-                inflater = LayoutInflater.from(this);
-                dialogview = inflater.inflate(R.layout.problem_complaint_form, null);
-
-                dialogbuilder = new AlertDialog.Builder(this);
-                dialogbuilder.setTitle(R.string.new_repport_complaint);
-                dialogbuilder.setView(dialogview);
-                dialogDetails = dialogbuilder.create();
-
-                break;
             case NavigationItemListener.DIALOG_NEW_JOURNEY:
                 inflater = LayoutInflater.from(this);
                 dialogview = inflater.inflate(R.layout.register_a_journey, null);
@@ -1059,9 +1049,9 @@ public class MyPositionActivity extends AppCompatActivity implements OnMapReadyC
                             FirebaseMessaging.getInstance().subscribeToTopic(String.format(Locale.ENGLISH, "%s_%s", mTrip.getDeparture(), mTrip.getDestination()));
                             FirebaseMessaging.getInstance().subscribeToTopic(String.format(Locale.ENGLISH, "%s_%s", mTrip.getDestination(), mTrip.getDeparture()));
                             //Show snackbar asking user to setup insurance plan
-                            Snackbar.make(findViewById(R.id.my_frame_host), getString(R.string.insurance_plan), Snackbar.LENGTH_LONG)
+                            /*Snackbar.make(findViewById(R.id.my_frame_host), getString(R.string.insurance_plan), Snackbar.LENGTH_LONG)
                                     .setAction(getString(R.string.get_insurance), MyPositionActivity.this)
-                                    .show();
+                                    .show();*/
                             Tutility.showDialog(MyPositionActivity.this, getString(R.string.register_rewards_title),
                                     getString(R.string.register_rewards_content), SweetAlertDialog.SUCCESS_TYPE);
                         } else {

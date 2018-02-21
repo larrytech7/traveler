@@ -1,21 +1,13 @@
-<!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:fancy="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">-->
-
-<LinearLayout
+<android.support.design.widget.CoordinatorLayout
     android:id="@+id/root_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:fancy="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/bg_gradient"
+    android:background="@color/purple"
+    android:alpha="0.9"
     android:orientation="vertical"
     android:paddingBottom="@dimen/margin_layout"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -23,45 +15,34 @@
     android:paddingTop="@dimen/margin_layout"
     tools:context="com.satra.traveler.MainActivity">
 
-
-
     <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_launcher_web"/>
-    <TextView
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:adjustViewBounds="true"
+            android:src="@drawable/traveler"/>
+    <!--<TextView
         android:id="@+id/icone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
         android:layout_marginBottom="5dp"
         android:layout_marginEnd="@dimen/cardview_default_elevation"
         android:layout_marginLeft="@dimen/cardview_default_elevation"
         android:layout_marginRight="@dimen/cardview_default_elevation"
         android:layout_marginStart="@dimen/cardview_default_elevation"
+        android:layout_marginTop="200dp"
         android:drawablePadding="10dp"
         android:text="@string/signup"
         android:textAlignment="center"
         android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="25sp" />
+        android:textSize="25sp" />-->
 
-    <android.support.v7.widget.CardView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="bottom"
-        card_view:cardBackgroundColor="@color/themeBG"
-        card_view:cardCornerRadius="@dimen/card_corner_radius"
-        card_view:cardElevation="@dimen/card_corner_radius"
-        card_view:cardPreventCornerOverlap="false">
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-
+        android:layout_marginTop="250dp"
+        android:background="@color/float_transparent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -71,7 +52,6 @@
             <android.support.design.widget.TextInputLayout
                 android:textColorHint="#ccc"
                 android:textColor="#000"
-                android:layout_marginBottom="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
@@ -92,7 +72,6 @@
             <android.support.design.widget.TextInputLayout
                 android:textColorHint="#ccc"
                 android:textColor="#000"
-                android:layout_marginBottom="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
@@ -118,7 +97,6 @@
             <android.support.design.widget.TextInputLayout
                 android:textColorHint="#ccc"
                 android:textColor="#000"
-                android:layout_marginBottom="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
@@ -138,73 +116,10 @@
                 android:textColor="@color/app_white" />
 
             </android.support.design.widget.TextInputLayout>
-            <!--
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <android.support.design.widget.TextInputLayout
-                    android:textColorHint="#ccc"
-                    android:textColor="#000"
-                    android:layout_marginBottom="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/emergencyContact1EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="phone"
-                    android:drawableLeft="@drawable/ic_contact"
-                    android:drawableStart="@drawable/ic_contact"
-                    android:textColor="@color/app_white"
-                    android:hint="@string/emergency_contact_1"/>
-                </android.support.design.widget.TextInputLayout>
-                <ImageButton
-                    android:id="@+id/buttonPickContactOne"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:background="@android:color/transparent"
-                    android:src="@drawable/ic_contact_add"/>
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <android.support.design.widget.TextInputLayout
-                    android:textColorHint="#ccc"
-                    android:textColor="#000"
-                    android:layout_marginBottom="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/emergencyContact2EditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="phone"
-                        android:drawableLeft="@drawable/ic_contact"
-                        android:drawableStart="@drawable/ic_contact"
-                        android:textColor="@color/app_white"
-                        android:hint="@string/emergency_contact2"/>
-                </android.support.design.widget.TextInputLayout>
-                    <ImageButton
-                        android:id="@+id/buttonPickContactTwo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:background="@android:color/transparent"
-                        android:src="@drawable/ic_contact_add"/>
-            </LinearLayout>
-            -->
 
             <android.support.design.widget.TextInputLayout
                 android:textColorHint="#ccc"
                 android:textColor="#000"
-                android:layout_marginBottom="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
@@ -230,11 +145,7 @@
 
             </android.support.design.widget.TextInputLayout>
 
-
-
-
-            <mehdi.sakout.fancybuttons.FancyButton
-                android:id="@+id/button_login"
+            <mehdi.sakout.fancybuttons.FancyButton                android:id="@+id/button_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -254,9 +165,6 @@
                 fancy:fb_textColor="#FFFFFF" />
         </LinearLayout>
 
-        </ScrollView>
-    </android.support.v7.widget.CardView>
+    </ScrollView>
 
-</LinearLayout>
-<!--
-</ScrollView>-->
+</android.support.design.widget.CoordinatorLayout>

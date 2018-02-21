@@ -180,7 +180,7 @@
     <string name="speed_dimen" formatted="false">%s | Vitesse: %s Kmph</string>
     <string name="trip_agency">Agence de Voyage</string>
     <string name="cancel">Annuler</string>
-    <string name="save">Sauvegarder</string>
+    <string name="save">Commencer</string>
     <string name="situation">Choisissez la situation?</string>
     <string name="send">Envoyer</string>
     <string name="howserious">Niveaux de Gravite</string>
